@@ -47,12 +47,12 @@ export function ModernHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* CauseHouse Pill Badge & Entity Signal */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-2 border-black bg-[#93C5FD] text-black text-[11px] sm:text-xs font-mono font-extrabold uppercase tracking-wider mb-6 shadow-[2.5px_2.5px_0px_#000000]">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border-2 border-black bg-[#93C5FD] text-black text-[10px] sm:text-xs font-mono font-extrabold uppercase tracking-wider mb-5 sm:mb-6 shadow-[2.5px_2.5px_0px_#000000] text-center max-w-full">
           <span>Jaipur, India · B2B Marketing &amp; LinkedIn Growth · Global Markets</span>
         </div>
 
-        {/* Big Chunky Retro Fraunces Headline */}
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-bold tracking-tight text-black leading-[1.08] max-w-5xl mx-auto">
+        {/* Big Chunky Retro Fraunces Headline with Fluid Scaling */}
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[5.2rem] font-bold tracking-tight text-black leading-[1.12] sm:leading-[1.08] max-w-5xl mx-auto">
           B2B Growth, Built Around How{' '}
           <span className="bubble-highlight-blue">
             Buyers
@@ -61,15 +61,15 @@ export function ModernHero() {
         </h1>
 
         {/* Clean Editorial Subheadline */}
-        <p className="font-sans text-base sm:text-lg md:text-xl text-zinc-800 max-w-3xl mx-auto leading-relaxed mt-6 sm:mt-7 font-normal">
+        <p className="font-sans text-sm sm:text-base md:text-xl text-zinc-800 max-w-3xl mx-auto leading-relaxed mt-4 sm:mt-6 sm:mt-7 font-normal">
           Saini Nexus helps B2B companies build demand, reach decision-makers and generate qualified pipeline through LinkedIn-led marketing, advertising and growth systems.
         </p>
 
-        {/* Dual Centered Action Buttons (CauseHouse Neo-Pills) */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-8 sm:mt-10">
+        {/* Dual Action Buttons (CauseHouse Neo-Pills - Full width on mobile) */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 max-w-md sm:max-w-none mx-auto w-full px-2 sm:px-0">
           <Link
             href="/book"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3.5px_3.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[3.5px] active:translate-y-[3.5px] active:shadow-none transition-all whitespace-nowrap w-fit shrink-0"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3.5px_3.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[3.5px] active:translate-y-[3.5px] active:shadow-none transition-all w-full sm:w-auto"
           >
             <span>Book a Strategy Conversation</span>
             <span className="ml-2 text-sm font-bold shrink-0">→</span>
@@ -77,7 +77,7 @@ export function ModernHero() {
 
           <Link
             href="/services"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-white border-2 border-black shadow-[3.5px_3.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[3.5px] active:translate-y-[3.5px] active:shadow-none transition-all whitespace-nowrap w-fit shrink-0"
+            className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-white border-2 border-black shadow-[3.5px_3.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[3.5px] active:translate-y-[3.5px] active:shadow-none transition-all w-full sm:w-auto"
           >
             <span>Explore Services</span>
             <span className="ml-1.5 text-sm shrink-0">↗</span>
@@ -85,7 +85,7 @@ export function ModernHero() {
         </div>
 
         {/* Option 4: Zero-Friction Trust Signals below CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-6 text-[11px] sm:text-xs font-mono text-zinc-700 mt-6 font-semibold">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-700 mt-6 font-semibold">
           <div className="flex items-center gap-1.5">
             <Check className="w-3.5 h-3.5 text-[#2563EB] shrink-0 stroke-[2.5]" />
             <span>Direct 1-on-1 Founder Consultation</span>
@@ -105,13 +105,13 @@ export function ModernHero() {
         {/* Hero Artwork Image Container with Smooth Scroll Expansion */}
         <div 
           ref={imageContainerRef} 
-          className="mt-12 sm:mt-16 max-w-6xl mx-auto w-full px-2 sm:px-4"
+          className="mt-10 sm:mt-16 max-w-6xl mx-auto w-full px-1 sm:px-4"
         >
           <motion.div 
             style={{ scale, y }}
-            className="rounded-3xl sm:rounded-[36px] overflow-hidden border-2 border-black bg-white p-2 sm:p-3.5 shadow-[6px_6px_0px_#000000] hover:shadow-[8px_8px_0px_#000000] transition-shadow will-change-transform"
+            className="rounded-2xl sm:rounded-[36px] overflow-hidden border-2 border-black bg-white p-2 sm:p-3.5 shadow-[4px_4px_0px_#000000] sm:shadow-[6px_6px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] sm:hover:shadow-[8px_8px_0px_#000000] transition-shadow will-change-transform"
           >
-            <div className="relative w-full aspect-[16/9] sm:aspect-[21/10] rounded-2xl sm:rounded-[28px] overflow-hidden bg-zinc-100 border border-black/20">
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/10] rounded-xl sm:rounded-[28px] overflow-hidden bg-zinc-100 border border-black/20">
               <Image
                 src="/hero-artwork.png"
                 alt="Saini Nexus B2B Growth Engine Platform"

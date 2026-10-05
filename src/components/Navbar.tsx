@@ -11,6 +11,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -30,10 +31,23 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile sidebar drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   // Close menus on route change or click outside
   useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
+    setMobileExpandedItem(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -60,6 +74,10 @@ export function Navbar() {
 
   const toggleDropdown = (name: string) => {
     setActiveDropdown((prev) => (prev === name ? null : name));
+  };
+
+  const toggleMobileSubmenu = (title: string) => {
+    setMobileExpandedItem((prev) => (prev === title ? null : title));
   };
 
   return (
@@ -196,45 +214,140 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer (Sidebar) with Backdrop */}
       {isOpen && (
-        <div className="lg:hidden bg-[#FAF7EF] border-b-2 border-black px-6 py-5 space-y-4 max-h-[80vh] overflow-y-auto shadow-lg">
-          <div className="space-y-1">
-            {MAIN_NAV_ITEMS.map((item) => (
-              <div key={item.title} className="border-b border-zinc-300 pb-2">
-                <Link
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block py-1.5 font-serif text-lg text-black font-bold"
-                >
-                  {item.title}
-                </Link>
-                {item.children && item.children.length > 0 && (
-                  <div className="pl-3 space-y-1 pt-1">
-                    {item.children.map((sub) => (
-                      <Link
-                        key={sub.href}
-                        href={sub.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block py-1 font-mono text-xs text-zinc-700 hover:text-black font-semibold"
-                      >
-                        {sub.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-50 lg:hidden">
+          {/* Dark Blurred Backdrop */}
+          <div 
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-200"
+            aria-hidden="true"
+          />
 
-          <div className="pt-2">
-            <Link
-              href="/book"
-              onClick={() => setIsOpen(false)}
-              className="w-full inline-flex items-center justify-center px-5 py-3 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3px_3px_0px_#000000]"
-            >
-              <span>Book Strategy Conversation</span>
-            </Link>
+          {/* Neo Slide-out Drawer Panel */}
+          <div className="fixed top-0 right-0 bottom-0 w-[88vw] sm:w-96 max-w-sm bg-[#FAF7EF] border-l-2 border-black shadow-[-6px_0px_0px_#000000] flex flex-col justify-between overflow-hidden z-50 animate-in slide-in-from-right duration-250">
+            
+            {/* Drawer Header */}
+            <div className="p-5 border-b-2 border-black flex items-center justify-between bg-white shrink-0">
+              <Link 
+                href="/" 
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 group"
+              >
+                <div className="w-7 h-7 rounded-lg overflow-hidden bg-black border-2 border-black p-0.5 flex items-center justify-center shrink-0 shadow-[1.5px_1.5px_0px_#000000]">
+                  <Image
+                    src="/saini-nexus-logo.png"
+                    alt="Saini Nexus"
+                    width={24}
+                    height={24}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <span className="font-serif text-lg font-bold tracking-tight text-black">
+                  Saini Nexus
+                </span>
+              </Link>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-xl border-2 border-black bg-[#FAF7EF] hover:bg-zinc-100 text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Drawer Navigation Content */}
+            <div className="p-5 space-y-3 overflow-y-auto flex-1">
+              {MAIN_NAV_ITEMS.map((item) => {
+                const hasChildren = item.children && item.children.length > 0;
+                const isExpanded = mobileExpandedItem === item.title;
+                const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+
+                if (hasChildren) {
+                  return (
+                    <div key={item.title} className="rounded-2xl border-2 border-black bg-white overflow-hidden shadow-[2.5px_2.5px_0px_#000000]">
+                      <div className="flex items-center justify-between p-3.5 bg-zinc-50 border-b border-black/10">
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`font-serif text-base font-bold tracking-tight flex-1 ${
+                            isActive ? 'text-[#2563EB]' : 'text-black'
+                          }`}
+                        >
+                          {item.title}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => toggleMobileSubmenu(item.title)}
+                          className="p-1 rounded-lg border border-black/20 hover:border-black bg-white text-zinc-700 ml-2 cursor-pointer"
+                          aria-label={`Toggle ${item.title} submenu`}
+                        >
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isExpanded ? 'rotate-180 text-[#2563EB]' : ''
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      {isExpanded && (
+                        <div className="p-2 space-y-1 bg-[#FAF7EF] border-t border-black/10">
+                          {item.children?.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setIsOpen(false)}
+                              className="p-2.5 rounded-xl block border border-transparent hover:border-black hover:bg-[#BFDBFE] transition-colors"
+                            >
+                              <div className="font-serif text-xs font-bold text-black flex items-center justify-between">
+                                <span>{sub.title}</span>
+                                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                              </div>
+                              {sub.description && (
+                                <p className="text-[10px] text-zinc-600 line-clamp-1 mt-0.5 font-sans">
+                                  {sub.description}
+                                </p>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block p-3.5 rounded-2xl border-2 border-black shadow-[2.5px_2.5px_0px_#000000] font-serif text-base font-bold transition-all ${
+                      isActive
+                        ? 'bg-[#60A5FA] text-black'
+                        : 'bg-white text-black hover:bg-[#FAF7EF]'
+                    }`}
+                  >
+                    {item.title}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Drawer Footer CTA */}
+            <div className="p-5 border-t-2 border-black bg-white space-y-3 shrink-0">
+              <Link
+                href="/book"
+                onClick={() => setIsOpen(false)}
+                className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3px_3px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+              >
+                <span>Book Strategy Conversation</span>
+                <span className="ml-2 font-bold">→</span>
+              </Link>
+              <p className="text-[10px] font-mono text-center text-zinc-600 font-semibold">
+                Direct 1-on-1 Founder Consultation · Jaipur, India
+              </p>
+            </div>
+
           </div>
         </div>
       )}

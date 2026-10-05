@@ -84,7 +84,7 @@ export function InteractiveServicesHub() {
                 top: topOffset,
                 zIndex: zIndex,
               }}
-              className={`w-full ${!isLast ? "mb-[45vh] sm:mb-[55vh]" : "mb-8"} transition-all`}
+              className="w-full mb-[45vh] sm:mb-[55vh] transition-all"
             >
               {/* Card Container - Sharp corners, no rounded */}
               <div className="w-full bg-white rounded-none border-3 border-black p-5 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] sm:shadow-[8px_8px_0px_#000000] relative overflow-hidden">

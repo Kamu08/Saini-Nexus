@@ -40,7 +40,7 @@ export default function InsightsIndexPage() {
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b-2 border-black/10">
         
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-2 pb-2 lg:pb-0">
+        <div className="flex sm:flex-wrap items-center gap-2 pb-2 lg:pb-0 overflow-x-auto no-scrollbar scroll-smooth">
           {INSIGHT_CATEGORIES.map((cat) => (
             <button
               key={cat.slug}

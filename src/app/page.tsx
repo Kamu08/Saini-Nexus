@@ -147,13 +147,13 @@ export default function HomePage() {
         </div>
 
         {/* Adaptability Note */}
-        <div className="p-6 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[3px_3px_0px_#000000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[3px_3px_0px_#000000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs sm:text-sm text-zinc-800 font-medium">
             <strong className="text-black font-bold">Don&apos;t see your industry?</strong> Our B2B growth frameworks can be adapted to different markets, business models and buying environments.
           </p>
           <Link
             href="/contact"
-            className="neo-btn-blue text-xs uppercase tracking-wider shrink-0"
+            className="neo-btn-blue text-xs uppercase tracking-wider shrink-0 w-full sm:w-auto text-center"
           >
             <span>Talk to Us</span>
             <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
@@ -239,7 +239,7 @@ export default function HomePage() {
 
       {/* 07. FOUNDER AUTHORITY: LED BY DEV RAJ SAINI */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border-2 border-black rounded-3xl sm:rounded-[36px] p-8 sm:p-14 text-black shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative overflow-hidden">
+        <div className="bg-white border-2 border-black rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-14 text-black shadow-[4px_4px_0px_#000000] sm:shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative overflow-hidden">
           
           <div className="lg:col-span-8 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
@@ -255,28 +255,28 @@ export default function HomePage() {
               Marketing founder and strategist focused on the intersection of B2B marketing, LinkedIn, thought leadership, personal branding and professional authority. Founder of <strong className="text-black font-bold">Saini Nexus</strong> (B2B Demand &amp; Pipeline Growth) and <strong className="text-black font-bold">Saini Prime</strong> (Executive Authority &amp; Positioning). Based in Jaipur, Rajasthan, serving India &amp; global B2B markets.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-black font-bold pt-1">
-              <span className="flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4 text-xs font-mono text-black font-bold pt-1">
+              <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000] w-fit">
                 <MapPin className="w-4 h-4 text-[#2563EB]" />
                 Jaipur, Rajasthan, India
               </span>
-              <span className="flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
+              <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000] w-fit">
                 <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
                 LinkedIn Marketing Labs Certified
               </span>
             </div>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/about/dev-raj-saini"
-                className="neo-btn-blue w-fit shrink-0"
+                className="neo-btn-blue w-full sm:w-auto text-center"
               >
                 <span>Meet the Founder</span>
                 <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Link>
               <Link
                 href="/about"
-                className="neo-btn-white w-fit shrink-0"
+                className="neo-btn-white w-full sm:w-auto text-center"
               >
                 <span>About Saini Nexus</span>
                 <ArrowUpRight className="ml-2 w-4 h-4 shrink-0" />

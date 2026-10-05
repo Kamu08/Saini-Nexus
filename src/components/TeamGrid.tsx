@@ -51,7 +51,7 @@ export function TeamGrid() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 py-1">
+        <div className="flex sm:flex-wrap items-center gap-2 py-1 overflow-x-auto no-scrollbar scroll-smooth">
           {departments.map((dept) => {
             const isActive = selectedDept === dept.id;
             return (

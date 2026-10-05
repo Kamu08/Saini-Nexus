@@ -149,14 +149,14 @@ export function NexusGrowthMap() {
       </div>
 
       {/* Horizontal Stages Flow Selector */}
-      <div className="flex flex-wrap items-center gap-2 pb-2 no-scrollbar">
+      <div className="flex sm:flex-wrap items-center gap-2 pb-2 overflow-x-auto no-scrollbar scroll-smooth">
         {FRAMEWORK_STAGES.map((st, idx) => {
           const isActive = st.id === activeStageId;
           return (
             <button
               key={st.id}
               onClick={() => setActiveStageId(st.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-mono transition-all shrink-0 border-2 border-black cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-mono transition-all shrink-0 border-2 border-black cursor-pointer whitespace-nowrap ${
                 isActive
                   ? "bg-[#60A5FA] text-black font-bold shadow-[3px_3px_0px_#000000] -translate-y-0.5"
                   : "bg-white text-zinc-800 hover:bg-[#EFF6FF] shadow-[2px_2px_0px_#000000]"

@@ -42,13 +42,13 @@ export function CampaignLab() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-white p-1.5 rounded-2xl border-2 border-black shadow-[2px_2px_0px_#000000]">
-          <span className="text-xs font-mono text-zinc-600 font-bold px-1">Filter:</span>
+        <div className="flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border-2 border-black shadow-[2px_2px_0px_#000000] overflow-x-auto no-scrollbar max-w-full">
+          <span className="text-xs font-mono text-zinc-600 font-bold px-1 shrink-0">Filter:</span>
           {["all", "SaaS", "Industrial", "Consulting"].map((ind) => (
             <button
               key={ind}
               onClick={() => setFilterIndustry(ind)}
-              className={`px-3 py-1 text-xs rounded-xl font-mono font-bold transition-all cursor-pointer border ${
+              className={`px-3 py-1 text-xs rounded-xl font-mono font-bold transition-all cursor-pointer border shrink-0 ${
                 filterIndustry === ind 
                   ? "bg-[#60A5FA] text-black border-black shadow-[1.5px_1.5px_0px_#000000]" 
                   : "bg-transparent text-zinc-700 border-transparent hover:bg-zinc-100"

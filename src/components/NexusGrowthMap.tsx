@@ -12,7 +12,9 @@ import {
   TrendingUp, 
   Send, 
   FileText,
-  Workflow
+  Workflow,
+  Zap,
+  Check
 } from "lucide-react";
 
 interface FrameworkStage {
@@ -132,44 +134,56 @@ export function NexusGrowthMap() {
   const currentStage = FRAMEWORK_STAGES.find((s) => s.id === activeStageId) || FRAMEWORK_STAGES[0];
 
   return (
-    <div className="w-full bg-[#FAF7EF] rounded-3xl p-6 sm:p-12 space-y-8 relative overflow-hidden border-2 border-black shadow-[4px_4px_0px_#000000]">
+    <div className="w-full bg-[#0D121F] text-white rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-12 lg:p-14 space-y-8 relative overflow-hidden border-3 border-black shadow-[8px_8px_0px_#000000]">
       
+      {/* Background Cyber Grid Accent */}
+      <div 
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#60A5FA 1px, transparent 1px)",
+          backgroundSize: "28px 28px"
+        }}
+      />
+
+      {/* Decorative Glow Orb */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
+
       {/* Header */}
-      <div className="max-w-3xl space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
-          <Workflow className="w-3.5 h-3.5" />
+      <div className="max-w-3xl space-y-3 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000]">
+          <Zap className="w-3.5 h-3.5" />
           The 7-Stage Methodology
         </div>
-        <h3 className="text-2xl sm:text-4xl font-serif font-bold text-black tracking-tight">
+        <h3 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
           The Saini Nexus Commercial Architecture.
         </h3>
-        <p className="text-zinc-700 text-sm sm:text-base leading-relaxed font-medium">
-          Strategy before random execution. We build an integrated 7-stage engine connecting buyer psychology directly to closed ARR.
+        <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+          Strategy before random execution. We build an integrated 7-stage engine connecting buyer psychology directly to sales-qualified pipeline and closed ARR.
         </p>
       </div>
 
       {/* Horizontal Stages Flow Selector */}
-      <div className="flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2.5 pb-3 px-1 overflow-x-auto no-scrollbar scroll-smooth">
+      <div className="flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2.5 pb-3 px-1 overflow-x-auto no-scrollbar scroll-smooth relative z-10">
         {FRAMEWORK_STAGES.map((st, idx) => {
           const isActive = st.id === activeStageId;
           return (
             <button
               key={st.id}
               onClick={() => setActiveStageId(st.id)}
-              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-mono transition-all shrink-0 border-2 border-black cursor-pointer whitespace-nowrap ${
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-mono transition-all shrink-0 border-2 cursor-pointer whitespace-nowrap ${
                 isActive
-                  ? "bg-[#60A5FA] text-black font-bold shadow-[3.5px_3.5px_0px_#000000] -translate-y-0.5"
-                  : "bg-white text-zinc-800 hover:bg-[#EFF6FF] shadow-[2px_2px_0px_#000000]"
+                  ? "bg-[#60A5FA] text-black font-extrabold border-black shadow-[4px_4px_0px_#000000] -translate-y-0.5"
+                  : "bg-[#161F30] text-zinc-300 hover:text-white hover:bg-[#1E2B42] border-[#2A374F]"
               }`}
             >
-              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold border border-black ${
-                isActive ? "bg-black text-white" : "bg-zinc-100 text-zinc-900"
+              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                isActive ? "bg-black text-white" : "bg-black/40 text-zinc-400"
               }`}>
                 {st.step}
               </span>
               <span className="font-bold">{st.title}</span>
               {idx < FRAMEWORK_STAGES.length - 1 && (
-                <ChevronRight className={`w-3.5 h-3.5 ml-1 hidden xl:block ${isActive ? "text-black" : "text-zinc-400"}`} />
+                <ChevronRight className={`w-3.5 h-3.5 ml-1 hidden xl:block ${isActive ? "text-black" : "text-zinc-500"}`} />
               )}
             </button>
           );
@@ -177,46 +191,57 @@ export function NexusGrowthMap() {
       </div>
 
       {/* Active Stage Detail Breakdown Card */}
-      <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-[4px_4px_0px_#000000]">
+      <div className="bg-[#141B2B] border-2 border-[#2E3C57] rounded-3xl p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-[6px_6px_0px_#000000] relative z-10">
         
         <div className="lg:col-span-7 space-y-4">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold">
-            <span className="px-2.5 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black shadow-[1.5px_1.5px_0px_#000000]">STAGE {currentStage.step} OF 07</span>
-            <span className="text-black">•</span>
-            <span className="uppercase text-black">{currentStage.title}</span>
+          <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono font-bold">
+            <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black shadow-[2px_2px_0px_#000000]">
+              STAGE {currentStage.step} OF 07
+            </span>
+            <span className="text-zinc-500">•</span>
+            <span className="uppercase text-[#93C5FD] tracking-wider">{currentStage.title}</span>
           </div>
 
-          <h4 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+          <h4 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
             {currentStage.subtitle}
           </h4>
 
-          <div className="p-3.5 bg-[#EFF6FF] rounded-xl border-2 border-black text-xs font-mono text-zinc-800 shadow-[2px_2px_0px_#000000]">
-            <strong className="text-black font-bold uppercase">CORE QUESTION: </strong>
-            <span className="font-medium">&ldquo;{currentStage.question}&rdquo;</span>
+          <div className="p-4 bg-[#0A0E18] rounded-2xl border-2 border-[#2E3C57] text-xs font-mono text-zinc-300 shadow-[2px_2px_0px_#000000]">
+            <strong className="text-[#60A5FA] font-bold uppercase tracking-wider block mb-1">CORE STRATEGIC QUESTION:</strong>
+            <span className="font-medium text-white text-sm sm:text-base leading-relaxed">&ldquo;{currentStage.question}&rdquo;</span>
           </div>
 
-          <p className="text-zinc-700 text-sm sm:text-base leading-relaxed font-normal">
+          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
             {currentStage.description}
           </p>
         </div>
 
-        <div className="lg:col-span-5 bg-[#FAF7EF] border-2 border-black rounded-2xl p-6 space-y-4 shadow-[3px_3px_0px_#000000]">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-black font-bold block pb-2 border-b-2 border-black/10">
-            Stage Deliverables & Output
-          </span>
+        <div className="lg:col-span-5 bg-[#0D1322] border-2 border-[#2E3C57] rounded-2xl p-6 space-y-5 shadow-[4px_4px_0px_#000000]">
+          <div className="flex items-center justify-between pb-3 border-b border-[#2E3C57]">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#93C5FD] font-bold">
+              Stage Deliverables
+            </span>
+            <span className="text-[10px] font-mono text-zinc-400 bg-white/5 px-2 py-0.5 rounded-full">
+              Production Output
+            </span>
+          </div>
 
-          <ul className="space-y-2.5 text-xs text-zinc-800">
+          <ul className="space-y-3 text-xs sm:text-sm text-zinc-200">
             {currentStage.deliverables.map((del, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-                <span className="font-semibold">{del}</span>
+                <div className="w-4 h-4 rounded-full bg-[#2563EB] text-white flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3 h-3 stroke-[3]" />
+                </div>
+                <span className="font-medium">{del}</span>
               </li>
             ))}
           </ul>
 
-          <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
-            <span className="text-zinc-600 font-bold">Stage Benchmark:</span>
-            <span className="text-black font-extrabold">{currentStage.metrics}</span>
+          <div className="pt-4 border-t border-[#2E3C57] flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
+            <span className="text-zinc-400">Target Benchmark:</span>
+            <span className="text-[#86EFAC] font-mono font-extrabold text-sm bg-[#86EFAC]/10 px-2.5 py-1 rounded-lg border border-[#86EFAC]/30">
+              {currentStage.metrics}
+            </span>
           </div>
         </div>
 

@@ -8,23 +8,24 @@ import {
   CheckCircle2, 
   Layers, 
   Zap, 
-  Target
+  Target,
+  Sparkles
 } from "lucide-react";
-import { SERVICES } from "@/data/services";
+import { SERVICES, ServiceItem } from "@/data/services";
+
+const ACCENT_STYLES = [
+  { badgeBg: "bg-[#60A5FA]", headerBg: "bg-[#EFF6FF]", textAccent: "text-[#1D4ED8]" },
+  { badgeBg: "bg-[#FDE047]", headerBg: "bg-[#FEFCE8]", textAccent: "text-[#A16207]" },
+  { badgeBg: "bg-[#67E8F9]", headerBg: "bg-[#ECFEFF]", textAccent: "text-[#0E7490]" },
+  { badgeBg: "bg-[#86EFAC]", headerBg: "bg-[#F0FDF4]", textAccent: "text-[#15803D]" },
+  { badgeBg: "bg-[#FDBA74]", headerBg: "bg-[#FFF7ED]", textAccent: "text-[#C2410C]" },
+  { badgeBg: "bg-[#C4B5FD]", headerBg: "bg-[#FAF5FF]", textAccent: "text-[#6D28D9]" },
+  { badgeBg: "bg-[#F472B6]", headerBg: "bg-[#FDF2F8]", textAccent: "text-[#BE185D]" },
+  { badgeBg: "bg-[#93C5FD]", headerBg: "bg-[#EFF6FF]", textAccent: "text-[#1E40AF]" }
+];
 
 export function InteractiveServicesHub() {
   const serviceList = Object.values(SERVICES);
-
-  const ACCENT_STYLES = [
-    { badgeBg: "bg-[#60A5FA]", headerBg: "bg-[#EFF6FF]", borderAccent: "border-[#1D4ED8]" },
-    { badgeBg: "bg-[#FDE047]", headerBg: "bg-[#FEFCE8]", borderAccent: "border-[#A16207]" },
-    { badgeBg: "bg-[#67E8F9]", headerBg: "bg-[#ECFEFF]", borderAccent: "border-[#0E7490]" },
-    { badgeBg: "bg-[#86EFAC]", headerBg: "bg-[#F0FDF4]", borderAccent: "border-[#15803D]" },
-    { badgeBg: "bg-[#FDBA74]", headerBg: "bg-[#FFF7ED]", borderAccent: "border-[#C2410C]" },
-    { badgeBg: "bg-[#C4B5FD]", headerBg: "bg-[#FAF5FF]", borderAccent: "border-[#6D28D9]" },
-    { badgeBg: "bg-[#F472B6]", headerBg: "bg-[#FDF2F8]", borderAccent: "border-[#BE185D]" },
-    { badgeBg: "bg-[#93C5FD]", headerBg: "bg-[#EFF6FF]", borderAccent: "border-[#1E40AF]" }
-  ];
 
   return (
     <section className="space-y-10 sm:space-y-14 relative">
@@ -40,7 +41,7 @@ export function InteractiveServicesHub() {
             What We Do: 8 Core Growth Services
           </h2>
           <p className="text-zinc-700 text-sm sm:text-base md:text-lg mt-2 max-w-2xl font-medium leading-relaxed">
-            Scroll down to watch each service stack into place. As you scroll, each card lands on top of the previous one, building the full B2B growth engine.
+            Scroll down to watch each card stack onto the screen. Each new service slides over the previous one, building the complete end-to-end B2B growth engine.
           </p>
         </div>
 
@@ -55,32 +56,40 @@ export function InteractiveServicesHub() {
         </div>
       </div>
 
-      {/* True Deck-of-Cards Stacking Container on Scroll */}
-      <div className="relative pb-24">
+      {/* 
+        Scroll-Stacking Cards Container:
+        Using sticky positioning with explicit z-index (1 to 8) and stepped top offsets.
+        Generous bottom spacing ensures Card 1 stays pinned on screen while Card 2 
+        travels up and lands directly on top of it.
+      */}
+      <div className="relative pt-4 pb-20">
         {serviceList.map((srv, idx) => {
           const accent = ACCENT_STYLES[idx % ACCENT_STYLES.length];
           const isLast = idx === serviceList.length - 1;
 
-          // Stepped offset so previous cards remain visible as a stacked deck at the top
-          // Mobile: 14px step, Desktop: 22px step
-          const topOffsetStyle = `calc(4.5rem + ${idx * 20}px)`;
+          // Stepped offset so header tabs of earlier cards stay visible at the top:
+          // Card 0: 5rem (80px)
+          // Card 1: 5rem + 22px
+          // Card 2: 5rem + 44px ...
+          const topOffset = `calc(5rem + ${idx * 22}px)`;
 
-          // Explicit z-index: Each subsequent card is physically on top of previous cards
+          // Explicit z-index: Card 1 is z-1, Card 2 is z-2, etc. (Card 2 stacks over Card 1)
           const zIndex = idx + 1;
 
           return (
             <div
               key={srv.slug}
               style={{
-                top: topOffsetStyle,
-                zIndex: zIndex
+                position: "sticky",
+                top: topOffset,
+                zIndex: zIndex,
               }}
-              className={`sticky ${!isLast ? "mb-[28vh] sm:mb-[40vh]" : "mb-8"} transition-all duration-300`}
+              className={`w-full ${!isLast ? "mb-[45vh] sm:mb-[55vh]" : "mb-8"} transition-all`}
             >
               {/* Card Container */}
-              <div className="bg-white rounded-[2rem] sm:rounded-[2.8rem] border-3 border-black p-5 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] sm:shadow-[8px_8px_0px_#000000] relative overflow-hidden">
+              <div className="w-full bg-white rounded-[2rem] sm:rounded-[2.8rem] border-3 border-black p-5 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] sm:shadow-[8px_8px_0px_#000000] relative overflow-hidden">
                 
-                {/* Header Strip of the Card */}
+                {/* Top Header Tab of the Card */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b-2 border-black/10">
                   <div className="flex items-center gap-2.5 sm:gap-3">
                     <span className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl ${accent.badgeBg} border-2 border-black text-black flex items-center justify-center font-mono text-xs sm:text-sm font-extrabold shadow-[2px_2px_0px_#000000]`}>

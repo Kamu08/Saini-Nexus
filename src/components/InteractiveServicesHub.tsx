@@ -76,7 +76,7 @@ export function InteractiveServicesHub() {
                 top: "5.5rem",
                 zIndex: zIndex,
               }}
-              className={`w-full ${!isLast ? "mb-[45vh] sm:mb-[55vh]" : "mb-[24vh] sm:mb-[28vh]"} transition-all`}
+              className="w-full mb-[42vh] sm:mb-[50vh] transition-all"
             >
               {/* Card Container - Crisp neobrutalist borders with zero top padding */}
               <div className="w-full bg-white rounded-none border-3 border-black shadow-[6px_6px_0px_#000000] sm:shadow-[9px_9px_0px_#000000] relative overflow-hidden">

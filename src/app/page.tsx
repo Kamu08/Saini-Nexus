@@ -147,7 +147,7 @@ export default function HomePage() {
       {/* 03. THE NEXUS GROWTH FRAMEWORK: THE DARK MONOLITH SECTION */}
       {/* Distinct High-Contrast Canvas with Massive Rounded Edges  */}
       {/* ========================================================= */}
-      <div className="-mt-16 sm:-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="-mt-[28vh] sm:-mt-[36vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <NexusGrowthMap />
       </div>
 

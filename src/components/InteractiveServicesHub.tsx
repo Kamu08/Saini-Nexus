@@ -62,10 +62,11 @@ export function InteractiveServicesHub() {
         As the visitor scrolls, each card slides up from below and smoothly covers 
         the previous card completely, giving the card 100% of the screen height.
       */}
-      <div className="relative pt-2 pb-20">
+      <div className="relative pt-2 pb-0">
         {serviceList.map((srv, idx) => {
           const accent = ACCENT_STYLES[idx % ACCENT_STYLES.length];
           const zIndex = idx + 1;
+          const isLast = idx === serviceList.length - 1;
 
           return (
             <div
@@ -75,7 +76,7 @@ export function InteractiveServicesHub() {
                 top: "5.5rem",
                 zIndex: zIndex,
               }}
-              className="w-full mb-[50vh] sm:mb-[65vh] transition-all"
+              className={`w-full ${!isLast ? "mb-[45vh] sm:mb-[55vh]" : "mb-0"} transition-all`}
             >
               {/* Card Container - Crisp neobrutalist borders with zero top padding */}
               <div className="w-full bg-white rounded-none border-3 border-black shadow-[6px_6px_0px_#000000] sm:shadow-[9px_9px_0px_#000000] relative overflow-hidden">

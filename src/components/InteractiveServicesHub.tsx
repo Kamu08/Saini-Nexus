@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { 
   ArrowRight, 
   ArrowUpRight, 
@@ -28,21 +28,22 @@ interface CardProps {
   srv: ServiceItem;
   idx: number;
   total: number;
-  scrollYProgress: MotionValue<number>;
+  progress: MotionValue<number>;
   accent: (typeof ACCENT_STYLES)[0];
 }
 
-function ServiceSlideCard({ srv, idx, total, scrollYProgress, accent }: CardProps) {
-  // Calculate precise scroll window for each card to animate in
-  // Card 0 (Base): always visible at y = 0
-  // Cards 1 to 7: each slides up sequentially from bottom to top
-  const step = 0.85 / (total - 1);
-  const start = idx === 0 ? 0 : 0.02 + (idx - 1) * step;
-  const end = idx === 0 ? 0 : start + step * 0.85;
+function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
+  // Smooth continuous scroll allocation without dead zones
+  // Card 0 (Base): always visible at y = 0%
+  // Cards 1 to 7: each slides up sequentially and lands directly on top
+  // Animation completes by 0.88, locking Card 8 over Card 7 for comfortable reading before exit
+  const step = 0.88 / (total - 1);
+  const start = idx === 0 ? 0 : (idx - 1) * step;
+  const end = idx === 0 ? 0 : idx * step;
 
   // y-translation: slides smoothly up from 105% to 0%
   const y = useTransform(
-    scrollYProgress,
+    progress,
     idx === 0 ? [0, 1] : [start, end],
     idx === 0 ? ["0%", "0%"] : ["105%", "0%"]
   );
@@ -53,7 +54,7 @@ function ServiceSlideCard({ srv, idx, total, scrollYProgress, accent }: CardProp
         y,
         zIndex: idx + 1,
       }}
-      className="absolute top-0 left-0 right-2 bottom-2 will-change-transform"
+      className="absolute top-0 left-0 right-2 bottom-2"
     >
       {/* Card Shell */}
       <div className="w-full h-full bg-white rounded-none border-3 border-black shadow-[8px_8px_0px_#000000] flex flex-col justify-between overflow-hidden">
@@ -79,8 +80,8 @@ function ServiceSlideCard({ srv, idx, total, scrollYProgress, accent }: CardProp
           </div>
         </div>
 
-        {/* Card Body */}
-        <div className="p-5 sm:p-7 lg:p-9 flex-1 overflow-y-auto no-scrollbar">
+        {/* Card Body - overflow-hidden prevents nested mouse wheel scroll interception */}
+        <div className="p-5 sm:p-7 lg:p-8 flex-1 flex flex-col justify-between overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start">
             
             {/* Left Column: Title, Short Description, Pain Points & CTAs */}
@@ -191,8 +192,16 @@ export function InteractiveServicesHub() {
     offset: ["start start", "end end"]
   });
 
+  // Responsive, fluid spring to eliminate discrete mouse-wheel notch jumping and frame drops
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 280,
+    damping: 32,
+    mass: 0.1,
+    restDelta: 0.0001
+  });
+
   return (
-    <div ref={containerRef} className="relative h-[480vh] sm:h-[520vh]">
+    <div ref={containerRef} className="relative h-[360vh] sm:h-[400vh]">
       
       {/* Pinned Sticky Stage - Stays fixed on screen as the user scrolls */}
       <div className="sticky top-20 sm:top-24 w-full h-[620px] sm:h-[560px] lg:h-[540px] flex flex-col justify-start">
@@ -233,7 +242,7 @@ export function InteractiveServicesHub() {
               srv={srv}
               idx={idx}
               total={serviceList.length}
-              scrollYProgress={scrollYProgress}
+              progress={smoothProgress}
               accent={ACCENT_STYLES[idx % ACCENT_STYLES.length]}
             />
           ))}

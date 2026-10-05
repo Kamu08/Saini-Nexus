@@ -86,13 +86,13 @@ export function InteractiveServicesHub() {
               }}
               className={`w-full ${!isLast ? "mb-[45vh] sm:mb-[55vh]" : "mb-8"} transition-all`}
             >
-              {/* Card Container */}
-              <div className="w-full bg-white rounded-[2rem] sm:rounded-[2.8rem] border-3 border-black p-5 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] sm:shadow-[8px_8px_0px_#000000] relative overflow-hidden">
+              {/* Card Container - Sharp corners, no rounded */}
+              <div className="w-full bg-white rounded-none border-3 border-black p-5 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] sm:shadow-[8px_8px_0px_#000000] relative overflow-hidden">
                 
                 {/* Top Header Tab of the Card */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b-2 border-black/10">
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl ${accent.badgeBg} border-2 border-black text-black flex items-center justify-center font-mono text-xs sm:text-sm font-extrabold shadow-[2px_2px_0px_#000000]`}>
+                    <span className={`w-9 h-9 sm:w-10 sm:h-10 rounded-none ${accent.badgeBg} border-2 border-black text-black flex items-center justify-center font-mono text-xs sm:text-sm font-extrabold shadow-[2px_2px_0px_#000000]`}>
                       {srv.number}
                     </span>
                     <span className="text-[11px] sm:text-xs font-mono font-extrabold uppercase tracking-widest text-zinc-500">
@@ -101,7 +101,7 @@ export function InteractiveServicesHub() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className={`px-3 py-1 rounded-full ${accent.headerBg} border-2 border-black text-black font-mono text-[10px] sm:text-xs font-bold shadow-[1.5px_1.5px_0px_#000000]`}>
+                    <span className={`px-3 py-1 rounded-none ${accent.headerBg} border-2 border-black text-black font-mono text-[10px] sm:text-xs font-bold shadow-[1.5px_1.5px_0px_#000000]`}>
                       {srv.premiumPositioning}
                     </span>
                   </div>
@@ -122,7 +122,7 @@ export function InteractiveServicesHub() {
                     </div>
 
                     {/* Solves Friction Box */}
-                    <div className={`p-3.5 sm:p-4 rounded-2xl ${accent.headerBg} border-2 border-black space-y-2 shadow-[2px_2px_0px_#000000]`}>
+                    <div className={`p-3.5 sm:p-4 rounded-none ${accent.headerBg} border-2 border-black space-y-2 shadow-[2px_2px_0px_#000000]`}>
                       <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-zinc-700 flex items-center gap-1.5">
                         <Zap className="w-3.5 h-3.5 text-black" />
                         Core Roadblocks Eliminated:
@@ -168,7 +168,7 @@ export function InteractiveServicesHub() {
                         {srv.capabilities.map((cap, i) => (
                           <div 
                             key={i} 
-                            className="p-3 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[1.5px_1.5px_0px_#000000] space-y-0.5"
+                            className="p-3 rounded-none bg-[#FAF7EF] border-2 border-black shadow-[1.5px_1.5px_0px_#000000] space-y-0.5"
                           >
                             <div className="flex items-center gap-1.5 font-serif font-bold text-xs sm:text-sm text-black">
                               <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
@@ -183,7 +183,7 @@ export function InteractiveServicesHub() {
                     </div>
 
                     {/* Direct Commercial Deliverables Bar */}
-                    <div className="p-3.5 sm:p-4 rounded-2xl bg-white border-2 border-black space-y-1.5 shadow-[2px_2px_0px_#000000]">
+                    <div className="p-3.5 sm:p-4 rounded-none bg-white border-2 border-black space-y-1.5 shadow-[2px_2px_0px_#000000]">
                       <span className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-black flex items-center gap-1.5">
                         <Target className="w-3.5 h-3.5 text-[#2563EB]" />
                         Direct Commercial Deliverables:

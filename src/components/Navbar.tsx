@@ -28,6 +28,7 @@ export function Navbar() {
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -83,9 +84,9 @@ export function Navbar() {
   return (
     <header 
       ref={navRef}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#FAF7EF]/95 backdrop-blur-md border-b-2 border-black shadow-xs' 
+          ? 'bg-[#FAF7EF]/80 backdrop-blur-md border-b-2 border-black shadow-[0_4px_20px_rgba(0,0,0,0.06)]' 
           : 'bg-[#FAF7EF] border-b-2 border-black'
       }`}
     >

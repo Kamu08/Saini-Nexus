@@ -1,0 +1,543 @@
+
+The principle is:
+Services = What we doSolutions = Business problems we solveIndustries = Who we can serveCase Studies = ProofInsights = What we knowAbout = Who we are
+SAINI NEXUS
+Final Website Structure
+Main Navigation
+HomeServicesSolutionsIndustriesCase StudiesInsightsAboutContact
+Primary CTA
+Book a Strategy Conversation
+1. HOME
+URL
+/
+Hero
+B2B Growth, Built Around How Buyers Actually Buy.
+Saini Nexus helps B2B companies build demand, reach decision-makers and generate qualified pipeline through LinkedIn-led marketing, advertising and growth systems.
+CTA:
+Explore ServicesBook a Strategy Conversation
+Location/entity line:
+B2B Marketing & LinkedIn Growth Company | Jaipur, Rajasthan, India | Serving India & Global Markets
+Homepage sections
+01. Trust & Credentials
+LinkedIn Marketing certifications
+Relevant advertising certifications
+Founder expertise
+Verified media/editorial features
+Client proof
+Real campaign results
+Only display credentials that can be verified.
+02. What We Do
+Introduce the 8 services.
+Strategy
+B2B Growth Strategy
+B2B Marketing Strategy
+LinkedIn Growth
+LinkedIn B2B Marketing
+LinkedIn Ads & Thought Leader Ads
+Demand & Accounts
+B2B Demand Generation
+Account-Based Marketing
+Authority & Pipeline
+Founder-Led & Executive B2B Marketing
+B2B Lead & Pipeline Generation
+CTA:
+View All Services →
+03. Saini Nexus Growth Framework
+The Saini Nexus B2B Growth Framework
+Buyer Context → Positioning → Content → Audience → Distribution → Demand → Pipeline
+This becomes your proprietary methodology.
+04. Solutions
+Growth Challenges We Solve
+Five solution areas:
+Build B2B Demand
+Reach High-Value Accounts
+Turn LinkedIn 
+Into
+ a Growth Channel
+Build Founder & Executive Authority
+Generate Qualified B2B Pipeline
+CTA:
+Explore Solutions →
+05. Featured Industries
+Don't say "we only work with these."
+Use:
+B2B Growth Across Industries
+Featured:
+B2B SaaSTechnologyConsultingProfessional ServicesIndustrial & ManufacturingReal Estate
+Then:
+Don't see your industry? Our B2B growth frameworks can be adapted to different markets, business models and buying environments.
+Explore Industries →
+06. Case Studies
+Strategy. Execution. Measurable Results.
+Show 3–4 strongest cases.
+Each:
+Client / IndustryChallengeStrategyExecutionResultsKey Learning
+CTA:
+View Case Studies →
+07. Founder
+Led by Dev Raj Saini
+Short authority section.
+Dev Raj Saini is a marketing founder and strategist focused on LinkedIn, personal branding, thought leadership and B2B marketing.
+Then verified credentials and relevant proof.
+Meet the Founder →
+08. Insights
+B2B Growth Intelligence
+Show latest articles from:
+B2B Marketing
+LinkedIn Marketing
+LinkedIn Ads
+Demand Generation
+ABM
+Founder-Led Marketing
+AI & B2B Growth
+Saini Nexus Field Notes
+Explore Insights →
+09. Final CTA
+Have a B2B Growth Challenge?
+Tell us about your market, target buyers and growth objective.
+Book a Strategy Conversation →
+2. SERVICES
+URL
+/
+services
+B2B Growth Services
+Strategy, LinkedIn marketing, demand generation and pipeline-focused growth systems for B2B organisations.
+SERVICE 01
+B2B Growth Strategy
+Purpose: Strategic direction.
+Covers:
+ICP
+Buyer research
+Positioning
+GTM
+Growth architecture
+Acquisition strategy
+Demand strategy
+SERVICE 02
+B2B Marketing Strategy
+Purpose: Build the complete marketing architecture.
+Covers:
+Positioning
+Messaging
+Buyer journey
+Content
+Channel strategy
+Campaign architecture
+Measurement
+SERVICE 03
+LinkedIn B2B Marketing
+Purpose: Turn LinkedIn into a strategic B2B channel.
+Covers:
+LinkedIn strategy
+Company page
+Executive presence
+Content
+Audience development
+Organic growth
+Distribution
+SERVICE 04
+LinkedIn Ads & Thought Leader Ads
+Purpose: Paid B2B reach and demand generation.
+Covers:
+Campaign strategy
+Audience targeting
+Ad creative
+Lead Gen Forms
+Thought Leader Ads
+Retargeting
+Optimisation
+Measurement
+SERVICE 05
+B2B Demand Generation
+Purpose: Build awareness, credibility and buying interest.
+Covers:
+Demand strategy
+Content-led demand
+LinkedIn distribution
+Paid demand
+Full-funnel campaigns
+Buyer engagement
+Demand measurement
+SERVICE 06
+Account-Based Marketing (ABM)
+Purpose: Focus marketing resources on high-value accounts.
+Covers:
+ICP
+Target account selection
+Buyer mapping
+Buying committees
+LinkedIn targeting
+Personalisation
+Account engagement
+SERVICE 07
+Founder-Led & Executive B2B Marketing
+Purpose: Turn executive expertise into a business growth asset.
+Covers:
+Founder positioning
+Executive positioning
+Thought leadership
+LinkedIn strategy
+Content
+Audience building
+Paid amplification
+SERVICE 08
+B2B Lead & Pipeline Generation
+Purpose: Generate qualified business opportunities.
+Covers:
+ICP targeting
+Lead generation
+LinkedIn acquisition
+Demand generation
+Lead qualification
+Conversion
+Sales handoff
+Pipeline measurement
+3. SOLUTIONS
+URL
+/
+solutions
+This page should NOT repeat the 8 services.
+It starts from the client's problem.
+B2B Growth Solutions
+Different businesses face different growth challenges. Saini Nexus combines strategy, LinkedIn, demand generation and performance marketing around the problem that needs solving.
+SOLUTION 01
+Build B2B Demand
+For companies that need stronger awareness and buying interest.
+Relevant services:
+→ B2B Growth Strategy→ LinkedIn B2B Marketing→ B2B Demand Generation→ LinkedIn Ads
+SOLUTION 02
+Reach High-Value Accounts
+For companies selling into defined strategic accounts.
+Relevant services:
+→ ABM→ LinkedIn B2B Marketing→ LinkedIn Ads→ B2B Demand Generation
+SOLUTION 03
+Turn LinkedIn 
+Into
+ a Growth Channel
+For companies that have a LinkedIn presence but want stronger strategic contribution.
+Relevant services:
+→ LinkedIn B2B Marketing→ LinkedIn Ads→ Thought Leader Ads→ Founder-Led Marketing→ Demand Generation
+SOLUTION 04
+Build Founder & Executive Authority
+For companies where leadership expertise is an important part of the brand.
+Relevant services:
+→ Founder-Led Marketing→ Executive Thought Leadership→ LinkedIn Marketing→ Thought Leader Ads
+SOLUTION 05
+Generate Qualified B2B Pipeline
+For companies that need marketing connected more closely to commercial outcomes.
+Relevant services:
+→ Demand Generation→ LinkedIn Ads→ ABM→ Lead & Pipeline Generation→ Measurement
+4. INDUSTRIES
+URL
+/
+industries
+B2B Growth Across Industries
+Don't position this as an exclusive list.
+Featured Industries
+B2B SaaS
+Technology
+Consulting
+Professional Services
+Industrial & Manufacturing
+Real Estate
+Then:
+Your Industry Isn't Listed?
+We work across B2B markets and adapt our approach to the buyer, sales cycle, market structure and commercial objectives of each organisation.
+Talk to Us →
+Individual industry pages
+Only create them when you have enough relevant expertise/proof.
+For example:
+/industries/b2b-saas
+/industries/technology
+/industries/consulting
+etc.
+Don't create 30 thin SEO pages on day one.
+5. CASE STUDIES
+URL
+/
+case
+-studies
+Real Work. Real Campaigns. Real Learnings.
+Every case study:
+Client
+Industry + market
+Challenge
+What was happening?
+Strategy
+What did Saini Nexus decide?
+Execution
+What was implemented?
+Results
+Real metrics.
+Insight
+What did the campaign teach us?
+Important
+Separate:
+Marketing metrics
+from:
+Business outcomes
+For example:
+79,637 impressions
+is a campaign metric.
+Don't present it as:
+“Generated ₹X revenue”
+unless you genuinely have evidence connecting the campaign to that revenue.
+This makes the site more senior and credible.
+6. INSIGHTS
+URL
+/
+insights
+B2B Growth Intelligence
+This is your SEO + GEO + authority engine.
+Category 01
+B2B Marketing Strategy
+Topics:
+B2B strategy
+Positioning
+ICP
+Buyer journey
+GTM
+Messaging
+Marketing transformation
+Category 02
+LinkedIn B2B Marketing
+Topics:
+LinkedIn strategy
+LinkedIn company pages
+Executive LinkedIn
+Founder-led marketing
+LinkedIn content
+Audience development
+Category 03
+LinkedIn Ads
+Topics:
+LinkedIn advertising
+Thought Leader Ads
+Targeting
+Creative
+Campaign optimisation
+Lead generation
+Measurement
+Category 04
+B2B Demand Generation
+Topics:
+Demand generation
+Demand capture
+Brand + demand
+Full funnel
+Buyer journey
+Content-led demand
+Category 05
+Account-Based Marketing
+Topics:
+ABM
+Target accounts
+Buying committees
+Account targeting
+Personalisation
+LinkedIn ABM
+Category 06
+Founder-Led B2B Marketing
+Topics:
+Founder marketing
+Executive visibility
+Thought leadership
+CEO marketing
+Executive LinkedIn
+Category 07
+AI & B2B Growth
+Topics:
+AI in B2B marketing
+AI + LinkedIn
+AI creative testing
+AI workflows
+AI demand generation
+AI search/GEO
+⭐ Category 08
+Saini Nexus Field Notes
+This should become your differentiator.
+Use actual:
+Campaign observations
+Experiments
+Client learnings
+Before/after analysis
+Strategic decisions
+Performance insights
+What worked
+What didn't
+Example:
+Field Note: What Changed When We Optimised the Audience Before Changing the Creative
+This is much more valuable than generic "10 LinkedIn tips" content.
+7. REPORTS & RESEARCH
+URL
+/insights/research
+Keep this as a future expansion, not something you need to fill immediately.
+Potential future reports:
+State of B2B LinkedIn Marketing
+B2B Demand Generation Benchmark
+LinkedIn Advertising Insights
+Founder-Led Marketing Report
+Only publish research when you actually have methodology/data.
+8. ABOUT
+URL
+/
+about
+Building Better B2B Growth Systems
+Sections:
+Who We Are
+What Saini Nexus is.
+What We Believe
+Strategy before random execution.
+Our Methodology
+Saini Nexus Growth Framework.
+Our Expertise
+B2B MarketingLinkedInDemand GenerationLinkedIn AdsABMFounder-Led Marketing
+Founder
+Dev Raj Saini
+Credentials
+Relevant verified certifications.
+Markets
+India + international markets where you genuinely operate.
+9. CREDENTIALS
+Could be a section inside About initially:
+Credentials & Expertise
+Show:
+LinkedIn Marketing certifications
+LinkedIn advertising certifications
+Relevant professional credentials
+Verified media/editorial participation
+Relevant industry memberships
+Do not call something "certified agency" unless the issuing organisation actually certifies the agency itself.
+There is an important distinction between:
+Founder/employee is certified
+and
+Agency is officially certified.
+The website should make that distinction crystal clear.
+10. FOUNDER PAGE
+/about/dev-raj-
+saini
+This can be added when the website has matured.
+Structure:
+Dev Raj Saini
+Founder, Saini Nexus
+B2B Marketing | LinkedIn Growth | Thought Leadership
+Then:
+Professional background
+Expertise
+Certifications
+Editorial/media participation
+Published work
+Speaking
+LinkedIn
+Relevant achievements
+This strengthens the Person ↔ Company entity connection.
+11. CONTACT
+/
+contact
+Start a B2B Growth Conversation
+Form:
+Name
+Work Email
+Company
+Website
+Job Title
+Country
+Company Size
+Primary Challenge
+Service Required
+Marketing Investment Range
+Growth Objective
+CTA:
+Request a Strategy Conversation
+12. BOOK
+/
+book
+Book a Strategy Conversation
+Short qualification message.
+Then your booking system.
+Your 
+Topmate
+ can be connected here if that's your preferred booking platform.
+🌐 FINAL SITE MAP
+SAINI NEXUS
+│
+├── HOME
+│
+├── SERVICES
+│   ├── B2B Growth Strategy
+│   ├── B2B Marketing Strategy
+│   ├── LinkedIn B2B Marketing
+│   ├── LinkedIn Ads & Thought Leader Ads
+│   ├── B2B Demand Generation
+│   ├── Account-Based Marketing
+│   ├── Founder-Led & Executive B2B Marketing
+│   └── B2B Lead & Pipeline Generation
+│
+├── SOLUTIONS
+│   ├── Build B2B Demand
+│   ├── Reach High-Value Accounts
+│   ├── Turn LinkedIn 
+Into
+ a Growth Channel
+│   ├── Build Founder & Executive Authority
+│   └── Generate Qualified B2B Pipeline
+│
+├── INDUSTRIES
+│   ├── B2B SaaS
+│   ├── Technology
+│   ├── Consulting
+│   ├── Professional Services
+│   ├── Industrial & Manufacturing
+│   ├── Real Estate
+│   └── Other B2B Industries
+│
+├── CASE STUDIES
+│
+├── INSIGHTS
+│   ├── B2B Marketing Strategy
+│   ├── LinkedIn B2B Marketing
+│   ├── LinkedIn Ads
+│   ├── B2B Demand Generation
+│   ├── Account-Based Marketing
+│   ├── Founder-Led B2B Marketing
+│   ├── AI & B2B Growth
+│   ├── Saini Nexus Field Notes
+│   └── Reports & Research
+│
+├── ABOUT
+│   ├── Company
+│   ├── Founder
+│   └── Credentials
+│
+├── BOOK
+│
+└── CONTACT
+🔥 The strategic relationship
+The whole website now tells one coherent story:
+SERVICESWhat Saini Nexus does
+↓
+SOLUTIONSWhat business problems it solves
+↓
+INDUSTRIESWhere it applies that expertise
+↓
+CASE STUDIESEvidence of execution
+↓
+INSIGHTSWhat Saini Nexus knows and thinks
+↓
+ABOUTWho is behind the company
+↓
+BOOK / CONTACTCommercial conversation
+And the SEO/GEO entity should remain consistent everywhere
+Saini Nexus
+B2B Marketing & LinkedIn Growth Company
+Jaipur, Rajasthan, India
+Serving B2B organisations in India and global markets
+Core associations:
+B2B Marketing → LinkedIn Marketing → LinkedIn Ads → Thought Leader Ads → Demand Generation → ABM → Founder-Led Marketing → B2B Pipeline
+And the founder association:
+Dev Raj Saini → Founder → Saini Nexus → B2B Marketing / LinkedIn / Thought Leadership
+That gives you a broad market footprint without making the company look generic.
+My final recommendation on launch:
+Launch now: Home + Services + 8 service pages + Solutions + Industries + Case Studies + Insights + About + Contact + Book.
+Add later: individual industry pages, Founder page, Research/Reports, deeper resource library.
+That keeps version 1 powerful instead of turning the website into a 100-page maze before Saini Nexus has enough evidence to fill it properly.

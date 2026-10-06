@@ -14,49 +14,7 @@ export interface NavItem {
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     title: "Services",
-    href: "/services",
-    children: [
-      {
-        title: "B2B Growth Strategy",
-        href: "/services/b2b-growth-strategy",
-        description: "Strategic direction, ICP & GTM architecture"
-      },
-      {
-        title: "B2B Marketing Strategy",
-        href: "/services/b2b-marketing-strategy",
-        description: "Positioning, messaging & full-funnel systems"
-      },
-      {
-        title: "LinkedIn B2B Marketing",
-        href: "/services/linkedin-b2b-marketing",
-        description: "Organic authority & company page architecture"
-      },
-      {
-        title: "LinkedIn Ads & Thought Leader Ads",
-        href: "/services/linkedin-ads-thought-leader-ads",
-        description: "Paid growth & executive voice amplification"
-      },
-      {
-        title: "B2B Demand Generation",
-        href: "/services/b2b-demand-generation",
-        description: "Educate 95% out-of-market buyers"
-      },
-      {
-        title: "Account-Based Marketing (ABM)",
-        href: "/services/account-based-marketing",
-        description: "Multi-touch buying committee targeting"
-      },
-      {
-        title: "Founder-Led & Executive Marketing",
-        href: "/services/founder-led-executive-b2b-marketing",
-        description: "Turn leadership expertise into growth"
-      },
-      {
-        title: "B2B Lead & Pipeline Generation",
-        href: "/services/b2b-lead-pipeline-generation",
-        description: "Sales-accepted discovery opportunities"
-      }
-    ]
+    href: "/services"
   },
   {
     title: "Case Studies",

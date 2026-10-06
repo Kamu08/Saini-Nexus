@@ -94,24 +94,42 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           
           {/* Brand Logo & Name (CauseHouse Retro-Editorial) */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg overflow-hidden bg-black border-2 border-black p-0.5 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 shadow-[2px_2px_0px_#000000]">
-              <Image
-                src="/saini-nexus-logo.png"
-                alt="Saini Nexus"
-                width={28}
-                height={28}
-                className="object-contain w-full h-full"
-                priority
-              />
-            </div>
-            <span className="font-serif text-2xl font-bold tracking-tight text-black">
-              Saini Nexus
-            </span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden bg-black border-2 border-black p-0.5 flex items-center justify-center shrink-0 transition-all duration-200 group-hover:scale-105 group-hover:-rotate-3 shadow-[2.5px_2.5px_0px_#000000]">
+                <Image
+                  src="/saini-nexus-logo.png"
+                  alt="Saini Nexus"
+                  width={28}
+                  height={28}
+                  className="object-contain w-full h-full"
+                  priority
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-black leading-none">
+                  Saini Nexus
+                </span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 hidden sm:block mt-0.5">
+                  B2B Demand Engine
+                </span>
+              </div>
+            </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7">
+            {/* Live Agency Status Beacon */}
+            <div className="hidden xl:flex items-center gap-2 pl-3 ml-1 border-l-2 border-black/15">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+              </span>
+              <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-emerald-950 bg-emerald-100/90 px-2 py-0.5 border border-emerald-600/30 rounded-full shadow-[1px_1px_0px_#000000]">
+                Live · Q2 Availability
+              </span>
+            </div>
+          </div>
+
+          {/* Desktop Navigation Links: Sleek Pill Capsule Dock */}
+          <nav className="hidden lg:flex items-center p-1.5 bg-black/[0.04] border-2 border-black rounded-full shadow-[2.5px_2.5px_0px_#000000] gap-1">
             {MAIN_NAV_ITEMS.map((item) => {
               const hasDropdown = item.children && item.children.length > 0;
               const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -127,23 +145,23 @@ export function Navbar() {
                   >
                     <button
                       onClick={() => toggleDropdown(item.title)}
-                      className={`font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1 transition-colors cursor-pointer py-2 ${
+                      className={`font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border-2 transition-all cursor-pointer ${
                         isActive || isDropdownOpen
-                          ? 'text-[#2563EB] underline decoration-2 underline-offset-4'
-                          : 'text-zinc-800 hover:text-black'
+                          ? 'bg-[#60A5FA] text-black border-black shadow-[1.5px_1.5px_0px_#000000]'
+                          : 'text-zinc-800 hover:text-black hover:bg-white hover:border-black/30 border-transparent'
                       }`}
                     >
                       <span>{item.title}</span>
                       <ChevronDown
-                        className={`w-3 h-3 transition-transform duration-150 ${
-                          isDropdownOpen ? 'rotate-180 text-[#2563EB]' : 'text-zinc-500'
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          isDropdownOpen ? 'rotate-180 text-black' : 'text-zinc-500'
                         }`}
                       />
                     </button>
 
                     {/* Retro Neo Dropdown Window */}
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 w-72 sm:w-80 bg-[#FAF7EF] border-2 border-black rounded-2xl shadow-neo p-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                      <div className="absolute top-[calc(100%+8px)] left-0 w-72 sm:w-80 bg-[#FAF7EF] border-2 border-black rounded-2xl shadow-[5px_5px_0px_#000000] p-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
                         <div className="space-y-1">
                           {item.children?.map((sub) => (
                             <Link
@@ -173,10 +191,10 @@ export function Navbar() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className={`font-mono text-xs font-bold uppercase tracking-wider transition-colors py-2 ${
+                  className={`font-mono text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border-2 transition-all ${
                     isActive
-                      ? 'text-[#2563EB] underline decoration-2 underline-offset-4'
-                      : 'text-zinc-800 hover:text-black'
+                      ? 'bg-[#60A5FA] text-black border-black shadow-[1.5px_1.5px_0px_#000000]'
+                      : 'text-zinc-800 hover:text-black hover:bg-white hover:border-black/30 border-transparent'
                   }`}
                 >
                   {item.title}
@@ -186,12 +204,19 @@ export function Navbar() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-700 hover:text-black px-3 py-2 rounded-full hover:bg-black/5 transition-colors"
+            >
+              Contact
+            </Link>
             <Link
               href="/book"
-              className="px-6 py-2.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all whitespace-nowrap shrink-0"
+              className="px-5 py-2.5 rounded-full text-xs font-mono font-extrabold uppercase tracking-wider text-black bg-[#60A5FA] border-2 border-black shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all flex items-center gap-1.5 group whitespace-nowrap"
             >
               <span>Book Strategy Call</span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
 
@@ -199,13 +224,13 @@ export function Navbar() {
           <div className="flex lg:hidden items-center space-x-2">
             <Link
               href="/book"
-              className="px-3.5 py-1.5 rounded-full text-xs font-mono font-extrabold uppercase text-black bg-[#60A5FA] border-2 border-black shadow-[2px_2px_0px_#000000]"
+              className="px-3.5 py-1.5 rounded-full text-xs font-mono font-extrabold uppercase text-black bg-[#60A5FA] border-2 border-black shadow-[2px_2px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               Book
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-xl text-black border-2 border-black bg-white hover:bg-zinc-100 shadow-[2px_2px_0px_#000000] transition-colors"
+              className="p-2 rounded-xl text-black border-2 border-black bg-white hover:bg-[#FAF7EF] shadow-[2px_2px_0px_#000000] transition-colors"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

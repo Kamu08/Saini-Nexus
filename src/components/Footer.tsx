@@ -14,12 +14,17 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#FAF7EF] border-t-2 border-black pt-10 sm:pt-14 pb-0 overflow-hidden relative">
+    <footer 
+      className="w-full border-t-2 border-black pt-12 sm:pt-16 pb-2 overflow-hidden relative bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/textures/footer-texture.jpg')",
+      }}
+    >
       {/* Expanded Wide Container */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Main Retro Neo-Editorial Blue & White Gradient Card (Gradient strictly contained inside this card) */}
-        <div className="bg-gradient-to-br from-white via-[#F0F7FF] to-[#DBEAFE] text-black rounded-3xl sm:rounded-[36px] p-8 sm:p-12 lg:p-14 xl:p-16 border-2 border-black shadow-[6px_6px_0px_#000000] relative overflow-hidden">
+        {/* Main Neo-Editorial Card */}
+        <div className="bg-white/95 backdrop-blur-md text-black rounded-3xl sm:rounded-[36px] p-8 sm:p-12 lg:p-14 xl:p-16 border-2 border-black shadow-[8px_8px_0px_#000000] relative overflow-hidden">
 
           {/* Ambient Blue & White Gradient Glows strictly inside card */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#93C5FD]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -205,12 +210,11 @@ export function Footer() {
 
         </div>
 
-        {/* Giant Retro Watermark on warm cream */}
-        <div className="relative pt-8 sm:pt-10 pb-4 text-center select-none pointer-events-none">
-          <span className="block font-serif font-black uppercase text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[12vw] leading-none py-2 tracking-tighter select-none text-black/10">
+        {/* Giant Retro Watermark on textured silver/white grain */}
+        <div className="relative pt-10 sm:pt-14 pb-4 text-center select-none pointer-events-none">
+          <span className="block font-serif font-black uppercase text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[12vw] leading-none py-2 tracking-tighter select-none text-black/15">
             SAINI NEXUS
           </span>
-          <div className="absolute inset-x-0 bottom-0 h-4 sm:h-6 bg-gradient-to-t from-[#FAF7EF] to-transparent pointer-events-none" />
         </div>
 
       </div>

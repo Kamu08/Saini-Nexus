@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { 
-  FlaskConical, 
   ArrowRight, 
   ArrowUpRight, 
   CheckCircle2, 
@@ -14,7 +13,10 @@ import {
   Layers,
   BarChart3,
   Target,
-  FileText
+  FileText,
+  DollarSign,
+  Compass,
+  ArrowLeft
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumb";
 import { CASE_STUDIES } from "@/data/caseStudies";
@@ -42,7 +44,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   }
 
   return {
-    title: `${study.clientName} Case Teardown: ${study.businessOutcomes[0].metric} | Saini Nexus`,
+    title: `${study.clientName} Case Teardown: ${study.businessOutcomes[0]?.metric || "Growth Results"} | Saini Nexus`,
     description: `How Saini Nexus solved ${study.coreChallenge.slice(0, 150)}...`,
     alternates: {
       canonical: `https://saininexus.com/case-studies/${study.slug}`,
@@ -58,177 +60,420 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
     notFound();
   }
 
+  // Find next case study for footer navigation
+  const currentIndex = CASE_STUDIES.findIndex((c) => c.slug === slug);
+  const nextStudy = CASE_STUDIES[(currentIndex + 1) % CASE_STUDIES.length];
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-16 space-y-10 sm:space-y-14">
-      <Breadcrumbs
-        items={[
-          { label: "Case Studies", href: "/case-studies" },
-          { label: study.clientName },
-        ]}
-      />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-20 space-y-12 sm:space-y-16">
+      
+      {/* Navigation Breadcrumb */}
+      <div className="flex items-center justify-between">
+        <Breadcrumbs
+          items={[
+            { label: "Case Studies", href: "/case-studies" },
+            { label: study.clientName },
+          ]}
+        />
+        <Link 
+          href="/case-studies" 
+          className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-zinc-600 hover:text-black transition-colors"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>All Case Studies</span>
+        </Link>
+      </div>
 
-      {/* Hero */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000]">
-        <div className="max-w-4xl space-y-6">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono font-bold uppercase tracking-wider shadow-[1.5px_1.5px_0px_#000000]">
-              {study.clientCode} · {study.industry}
+      {/* 01. DOSSIER HEADER */}
+      <header className="bg-white border-2 border-black rounded-3xl p-6 sm:p-12 lg:p-14 shadow-[6px_6px_0px_#000000] space-y-6 relative overflow-hidden">
+        
+        {/* Top Badges */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b-2 border-black/10">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono font-extrabold uppercase tracking-wider shadow-[1.5px_1.5px_0px_#000000]">
+              CASE DOSSIER // {study.clientCode}
             </span>
-            <span className="text-xs font-mono text-zinc-700 font-bold bg-[#FAF7EF] px-3 py-1 rounded-full border border-black/20">
-              Market: {study.market} · Timeline: {study.timeline}
+            <span className="px-3 py-1 rounded-full bg-[#FAF7EF] border border-black/30 text-black text-xs font-mono font-bold uppercase">
+              {study.industry}
             </span>
           </div>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-600 font-semibold bg-zinc-100 px-3 py-1 rounded-full">
+            <span>Market: {study.market}</span>
+            <span className="text-zinc-400">·</span>
+            <span>Duration: {study.timeline}</span>
+          </div>
+        </div>
 
+        {/* Title & Core Context */}
+        <div className="space-y-4">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
-            {study.clientName} <span className="bubble-highlight-blue">Growth Teardown</span>
+            {study.clientName}: <span className="bubble-highlight-blue">Growth Teardown</span>
           </h1>
-
-          <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium">
-            {study.coreChallenge}
+          <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium max-w-4xl">
+            {study.businessContext}
           </p>
+        </div>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
-            <Link
-              href="/book"
-              className="neo-btn-blue w-fit shrink-0"
-            >
-              <span>Book a Strategy Call</span>
-              <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
-            </Link>
-            <Link
-              href={study.relatedService}
-              className="neo-btn-white w-fit shrink-0"
-            >
-              <span>View Associated Solution</span>
-              <ArrowUpRight className="ml-2 w-4 h-4 shrink-0" />
-            </Link>
+        {/* Key Quick Takeaways Ledger */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
+          <div className="bg-[#EFF6FF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+              Primary Outcome
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block leading-none">
+              {study.businessOutcomes[1]?.metric || study.businessOutcomes[0]?.metric}
+            </strong>
+            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+              {study.businessOutcomes[1]?.label || study.businessOutcomes[0]?.label}
+            </span>
+          </div>
+
+          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+              Core Conversion
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-black block leading-none">
+              {study.businessOutcomes[0]?.metric}
+            </strong>
+            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+              {study.businessOutcomes[0]?.label}
+            </span>
+          </div>
+
+          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+              Ad Efficiency
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block leading-none">
+              {study.campaignMetrics[2]?.metric || study.campaignMetrics[0]?.metric}
+            </strong>
+            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+              {study.campaignMetrics[2]?.label || study.campaignMetrics[0]?.label}
+            </span>
+          </div>
+
+          <div className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+              Velocity / Payback
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-700 block leading-none">
+              {study.businessOutcomes[2]?.metric}
+            </strong>
+            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+              {study.businessOutcomes[2]?.label}
+            </span>
           </div>
         </div>
-      </section>
 
-      {/* Primary Outcomes Grid (Strict Campaign vs Commercial Separation) */}
+        {/* Action Button Row */}
+        <div className="pt-2 flex flex-wrap items-center gap-3">
+          <Link href="/book" className="neo-btn-blue text-xs font-mono">
+            <span>Discuss This Playbook for Your Firm</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
+          <Link href={study.relatedService} className="neo-btn-white text-xs font-mono">
+            <span>Inspect Underlying Growth Engine</span>
+            <ArrowUpRight className="w-4 h-4 ml-2" />
+          </Link>
+        </div>
+
+      </header>
+
+      {/* 02. FORENSIC DIAGNOSIS: BEFORE VS AFTER */}
       <section className="space-y-6">
-        <div className="max-w-2xl space-y-2">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
-            <Sparkles className="w-3.5 h-3.5" />
-            Verified Results
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-black">Campaign Metrics & Commercial Outcomes</h2>
+        <div className="flex items-center gap-2">
+          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+            Phase 01 // Forensic Diagnosis
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Campaign Operational Metrics */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          
+          {/* The Pre-Existing Bottleneck (Before) */}
           <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <span className="text-xs font-mono uppercase tracking-wider text-black font-bold block pb-2 border-b-2 border-black/10">
-              1. Campaign Operational Benchmarks (LinkedIn)
-            </span>
-            <div className="space-y-3">
-              {study.campaignMetrics.map((res, i) => (
-                <div key={i} className="bg-[#FAF7EF] border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]">
-                  <div>
-                    <div className="text-xs font-mono uppercase tracking-wider text-black font-bold">{res.label}</div>
-                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">{res.context}</div>
-                  </div>
-                  <div className="text-2xl font-mono font-extrabold text-black">{res.metric}</div>
-                </div>
-              ))}
+            <div className="flex items-center gap-2 text-rose-700 text-xs font-mono uppercase tracking-wider font-bold">
+              <AlertCircle className="w-4 h-4 text-rose-600" />
+              <span>The Commercial Roadblock</span>
+            </div>
+            <h3 className="text-2xl font-serif font-bold text-black">
+              Why the Previous Method Failed
+            </h3>
+            <p className="text-zinc-700 text-sm sm:text-base leading-relaxed">
+              {study.coreChallenge}
+            </p>
+            <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-xs text-rose-900 leading-relaxed font-mono">
+              <strong className="block font-bold mb-1">Pre-Audit Diagnosis:</strong>
+              {study.diagnosis}
             </div>
           </div>
 
-          {/* Commercial Pipeline Outcomes */}
-          <div className="bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <span className="text-xs font-mono uppercase tracking-wider text-black font-bold block pb-2 border-b-2 border-black/10">
-              2. Commercial Pipeline & Revenue Outcomes
-            </span>
-            <div className="space-y-3">
-              {study.businessOutcomes.map((res, i) => (
-                <div key={i} className="bg-white border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]">
-                  <div>
-                    <div className="text-xs font-mono uppercase tracking-wider text-[#2563EB] font-bold">{res.label}</div>
-                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">{res.context}</div>
-                  </div>
-                  <div className="text-2xl font-mono font-extrabold text-[#2563EB]">{res.metric}</div>
-                </div>
-              ))}
+          {/* The Strategic Pivot (After) */}
+          <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
+            <div className="flex items-center gap-2 text-[#2563EB] text-xs font-mono uppercase tracking-wider font-bold">
+              <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
+              <span>The Strategic Bet &amp; Hypothesis</span>
             </div>
+            <h3 className="text-2xl font-serif font-bold text-black">
+              The Architecture Tested
+            </h3>
+            <p className="text-zinc-900 text-sm sm:text-base leading-relaxed italic font-serif bg-white p-4 rounded-2xl border border-black/20">
+              &ldquo;{study.hypothesis}&rdquo;
+            </p>
+            <p className="text-zinc-700 text-xs sm:text-sm leading-relaxed">
+              <strong className="text-black font-semibold">Strategic Implementation: </strong>
+              {study.strategy}
+            </p>
           </div>
+
         </div>
       </section>
 
-      {/* Diagnosis & Hypothesis */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-          <div className="flex items-center gap-2 text-rose-700 text-xs font-mono uppercase tracking-wider font-bold">
-            <AlertCircle className="w-4 h-4" />
-            Diagnostic Finding
-          </div>
-          <h2 className="text-2xl font-serif font-bold text-black">The Pre-Existing Flaw</h2>
-          <p className="text-zinc-700 text-sm leading-relaxed font-normal">{study.diagnosis}</p>
-        </div>
-
-        <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-          <div className="flex items-center gap-2 text-[#2563EB] text-xs font-mono uppercase tracking-wider font-bold">
-            <ShieldCheck className="w-4 h-4" />
-            Empirical Hypothesis
-          </div>
-          <h2 className="text-2xl font-serif font-bold text-black">The Strategic Bet</h2>
-          <p className="text-zinc-800 text-sm leading-relaxed italic font-serif">
-            &ldquo;{study.hypothesis}&rdquo;
+      {/* 03. EXECUTION ARCHITECTURE: 4-STEP MECHANICS */}
+      <section className="bg-white border-2 border-black rounded-3xl p-6 sm:p-10 shadow-[4px_4px_0px_#000000] space-y-8">
+        <div>
+          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+            Phase 02 // Execution Mechanics
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black mt-3">
+            How We Engineered the Growth Architecture
+          </h2>
+          <p className="text-zinc-700 text-sm sm:text-base mt-1 max-w-2xl font-medium">
+            Systematic deployment protocol across matched account targeting, creative assets, and qualification funnels.
           </p>
         </div>
-      </section>
 
-      {/* Execution Details */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-10 shadow-[4px_4px_0px_#000000] space-y-6">
-        <div className="space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Action Plan</span>
-          <h2 className="text-2xl font-serif font-bold text-black">Execution Mechanics</h2>
-          <p className="text-zinc-700 text-sm font-medium">{study.strategy}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          {study.execution.map((step, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-              <span className="text-xs sm:text-sm text-zinc-800 font-semibold">{step}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {study.execution.map((step, idx) => (
+            <div 
+              key={idx} 
+              className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-5 flex items-start gap-3.5 shadow-[2px_2px_0px_#000000]"
+            >
+              <div className="w-7 h-7 rounded-full bg-[#60A5FA] border-2 border-black flex items-center justify-center text-black font-mono font-bold text-xs shrink-0 shadow-[1px_1px_0px_#000000]">
+                {idx + 1}
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+                  Implementation Step 0{idx + 1}
+                </span>
+                <p className="text-xs sm:text-sm text-zinc-900 font-semibold leading-relaxed">
+                  {step}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Creative Hook & Spend Profile */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-3 shadow-[4px_4px_0px_#000000]">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#2563EB] font-bold">Creative Angle & Hook</span>
-          <p className="text-base font-serif italic text-black bg-[#EFF6FF] p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_#000000]">
-            {study.campaignHook}
-          </p>
-          <p className="text-xs text-zinc-600 font-mono font-bold">Format: {study.creativeFormat}</p>
-        </div>
-
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-3 shadow-[4px_4px_0px_#000000]">
-          <span className="text-xs font-mono uppercase tracking-wider text-black font-bold">Spend Profile & Key Learning</span>
-          <p className="text-sm text-black font-serif font-bold">Budget: {study.spendProfile}</p>
-          <div className="pt-3 border-t-2 border-black/10 text-xs text-zinc-700 leading-relaxed font-normal">
-            <strong className="text-black font-bold">Core Takeaway: </strong>{study.keyLearning}
+      {/* 04. CREATIVE AD SPECIMEN & MEDIA DEPLOYMENT */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+        
+        {/* Creative Angle Specimen (7 cols) */}
+        <div className="lg:col-span-7 bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
+          <span className="px-3 py-1 rounded-full bg-[#60A5FA] border border-black text-black text-xs font-mono font-bold uppercase">
+            In-Market Ad Specimen &amp; Angle
+          </span>
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-black">
+            The Exact Campaign Hook Deployed
+          </h3>
+          <div className="bg-white border-2 border-black rounded-2xl p-5 shadow-[2px_2px_0px_#000000] space-y-2">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+              Sponsored Post / Document Ad Angle:
+            </span>
+            <p className="text-base sm:text-lg font-serif italic text-black font-medium leading-relaxed">
+              {study.campaignHook}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
+            <span className="bg-white px-3 py-1 rounded-full border border-black font-bold text-zinc-800">
+              Format: {study.creativeFormat}
+            </span>
           </div>
         </div>
+
+        {/* Spend Profile & Media Budget (5 cols) */}
+        <div className="lg:col-span-5 bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000] flex flex-col justify-between">
+          <div className="space-y-3">
+            <span className="px-3 py-1 rounded-full bg-[#FAF7EF] border border-black text-black text-xs font-mono font-bold uppercase">
+              Capital Efficiency
+            </span>
+            <h3 className="text-xl font-serif font-bold text-black">
+              Spend Profile &amp; Pacing
+            </h3>
+            <div className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+              <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">Capital Allocation:</span>
+              <p className="text-sm font-mono font-bold text-black mt-1">
+                {study.spendProfile}
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t-2 border-black/10 pt-4 text-xs text-zinc-700 leading-relaxed">
+            <strong className="text-black font-mono font-bold uppercase block mb-1">
+              Core Strategic Takeaway:
+            </strong>
+            {study.keyLearning}
+          </div>
+        </div>
+
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-[4px_4px_0px_#000000]">
-        <div className="space-y-2">
-          <h3 className="text-2xl font-serif font-bold text-black">Run a similar B2B growth experiment?</h3>
-          <p className="text-zinc-700 text-sm font-medium">Schedule a direct strategy consultation with our campaign architects.</p>
+      {/* 05. VERIFIED DATA MATRIX: AD METRICS VS ARR OUTCOMES */}
+      <section className="space-y-6">
+        <div>
+          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+            Phase 03 // Attribution &amp; Data Matrix
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black mt-3">
+            Separating Ad Activity from Closed-Won Revenue
+          </h2>
+          <p className="text-zinc-700 text-sm sm:text-base mt-1 max-w-2xl font-medium">
+            We hold ourselves accountable to closed commercial pipeline, not just clicks.
+          </p>
         </div>
-        <Link
-          href="/book"
-          className="neo-btn-blue w-fit shrink-0"
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          
+          {/* Table 1: In-Feed Operational Metrics */}
+          <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
+            <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
+              <span className="text-xs font-mono uppercase font-bold text-black">
+                1. Campaign Operational Benchmarks
+              </span>
+              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-full">
+                Platform Data
+              </span>
+            </div>
+
+            <div className="space-y-3">
+              {study.campaignMetrics.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-[#FAF7EF] border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]"
+                >
+                  <div>
+                    <div className="text-xs font-mono uppercase font-bold text-black">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">
+                      {item.context}
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-mono font-extrabold text-black shrink-0 pl-4">
+                    {item.metric}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Table 2: Verifiable Commercial ARR Outcomes */}
+          <div className="bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
+            <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
+              <span className="text-xs font-mono uppercase font-bold text-[#2563EB]">
+                2. Commercial Pipeline &amp; Revenue Outcomes
+              </span>
+              <span className="text-[10px] font-mono text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200 font-bold">
+                Sales Ledger Verified
+              </span>
+            </div>
+
+            <div className="space-y-3">
+              {study.businessOutcomes.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-white border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]"
+                >
+                  <div>
+                    <div className="text-xs font-mono uppercase font-bold text-[#2563EB]">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">
+                      {item.context}
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] shrink-0 pl-4">
+                    {item.metric}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 06. THE VERDICT / WHAT CHANGED */}
+      <section className="bg-white border-2 border-black rounded-3xl p-6 sm:p-10 shadow-[4px_4px_0px_#000000] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="space-y-2 max-w-3xl">
+          <span className="text-xs font-mono uppercase font-bold text-emerald-700 flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            Verified Commercial Transformation
+          </span>
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-black">
+            What Changed Permanently for {study.clientName}
+          </h3>
+          <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-medium">
+            {study.whatChanged}
+          </p>
+        </div>
+
+        <Link 
+          href="/audit"
+          className="neo-btn-blue text-xs font-mono shrink-0"
         >
-          <span>Book a Strategy Call</span>
-          <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
+          <span>Run Commercial Audit</span>
+          <ArrowRight className="w-4 h-4 ml-2" />
         </Link>
       </section>
+
+      {/* 07. NEXT CASE STUDY & STRATEGY CTA */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        
+        {/* Next Case Study Preview */}
+        <Link 
+          href={`/case-studies/${nextStudy.slug}`}
+          className="group bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] hover:-translate-y-1 transition-all"
+        >
+          <div>
+            <span className="text-xs font-mono text-zinc-500 uppercase font-bold block mb-1">
+              Next Teardown →
+            </span>
+            <h4 className="text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors">
+              {nextStudy.clientName}
+            </h4>
+            <p className="text-xs text-zinc-600 mt-1 font-mono">
+              {nextStudy.industry} · {nextStudy.businessOutcomes[0]?.metric}
+            </p>
+          </div>
+          <div className="pt-4 mt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono font-bold text-black">
+            <span>Read Teardown</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </Link>
+
+        {/* Schedule Strategy Session */}
+        <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000]">
+          <div>
+            <span className="text-xs font-mono text-[#2563EB] uppercase font-bold block mb-1">
+              Want Similar Outcomes?
+            </span>
+            <h4 className="text-2xl font-serif font-bold text-black">
+              Engineering a Demand Engine for Your Firm
+            </h4>
+            <p className="text-xs text-zinc-600 mt-1 leading-relaxed">
+              We audit your target market, CAC tolerance, and positioning to design a verified growth sprint.
+            </p>
+          </div>
+          <div className="pt-4 mt-4 border-t border-black/10">
+            <Link href="/book" className="neo-btn-blue w-full text-center text-xs font-mono">
+              <span>Book an Acquisition Strategy Call</span>
+              <ArrowRight className="w-4 h-4 ml-2 inline-block" />
+            </Link>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

@@ -1,7 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { FlaskConical, ArrowUpRight, ArrowRight, Sparkles, Layers, TrendingUp, BarChart3 } from "lucide-react";
+import { 
+  FlaskConical, 
+  ArrowUpRight, 
+  ArrowRight, 
+  Sparkles, 
+  Layers, 
+  TrendingUp, 
+  BarChart3,
+  ShieldCheck,
+  Zap
+} from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumb";
 import { CampaignLab } from "@/components/CampaignLab";
 import { CASE_STUDIES } from "@/data/caseStudies";
@@ -16,11 +26,11 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-16 space-y-10 sm:space-y-14">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-20 space-y-12 sm:space-y-16">
       <Breadcrumbs items={[{ label: "Case Studies" }]} />
 
       {/* Header */}
-      <div className="max-w-3xl space-y-4">
+      <div className="max-w-4xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
           <FlaskConical className="w-3.5 h-3.5" />
           The Campaign Lab
@@ -28,9 +38,37 @@ export default function CaseStudiesPage() {
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
           B2B Growth <span className="bubble-highlight-blue">Case Studies</span>
         </h1>
-        <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium">
-          Real campaigns, strategic decisions and measurable outcomes. Explore how Saini Nexus approaches B2B marketing and LinkedIn-led growth challenges.
+        <p className="text-zinc-700 text-base sm:text-xl leading-relaxed font-medium">
+          Forensic teardowns of real B2B campaigns. Every dossier exposes the pre-existing bottleneck, the tested hypothesis, exact ad creative hooks, and verified commercial revenue outcomes.
         </p>
+
+        {/* Aggregate Stats Ribbon */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+              Aggregate Pipeline Generated
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block mt-1">
+              $2.24M+ ARR
+            </strong>
+          </div>
+          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+              Average Discovery Acceptance
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-black block mt-1">
+              82% Sales Rate
+            </strong>
+          </div>
+          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
+            <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+              Attribution Standard
+            </span>
+            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-700 block mt-1">
+              Zero Vanity Fluff
+            </strong>
+          </div>
+        </div>
       </div>
 
       {/* Interactive Campaign Lab Terminal */}
@@ -38,44 +76,68 @@ export default function CaseStudiesPage() {
 
       {/* Grid of All Teardowns */}
       <div className="space-y-6">
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-black">All Campaign Teardowns</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <span className="text-xs font-mono font-bold uppercase text-zinc-500 block mb-1">
+            Complete Dossier Directory
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+            All Campaign Teardowns
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {CASE_STUDIES.map((study) => (
-            <div
+            <Link
               key={study.slug}
-              className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all group"
+              href={`/case-studies/${study.slug}`}
+              className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] hover:-translate-y-1 transition-all group"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-black font-extrabold px-2.5 py-1 rounded-full bg-[#60A5FA] border border-black shadow-[1px_1px_0px_#000000] uppercase">{study.clientCode}</span>
-                  <span className="text-zinc-600 font-semibold">{study.market}</span>
+                  <span className="text-black font-extrabold px-2.5 py-1 rounded-full bg-[#60A5FA] border-2 border-black shadow-[1.5px_1.5px_0px_#000000] uppercase">
+                    {study.clientCode}
+                  </span>
+                  <span className="text-zinc-600 font-semibold bg-zinc-100 px-2.5 py-0.5 rounded-full">
+                    {study.timeline}
+                  </span>
                 </div>
 
-                <h3 className="text-xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors">
-                  {study.clientName}
-                </h3>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors tracking-tight leading-snug">
+                    {study.clientName}
+                  </h3>
+                  <p className="text-xs text-zinc-500 font-bold uppercase font-mono mt-1">
+                    {study.industry}
+                  </p>
+                </div>
 
-                <p className="text-xs text-zinc-600 font-bold uppercase font-mono">{study.industry}</p>
-
-                <p className="text-xs text-zinc-700 line-clamp-3 leading-relaxed pt-2 border-t-2 border-black/10 font-normal">
+                <p className="text-xs sm:text-sm text-zinc-700 line-clamp-3 leading-relaxed pt-2 border-t border-black/10">
                   {study.coreChallenge}
                 </p>
+
+                {/* Outcome Pill */}
+                <div className="bg-[#EFF6FF] border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] space-y-1">
+                  <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
+                    Verified Outcome
+                  </span>
+                  <div className="text-xl font-mono font-extrabold text-[#2563EB]">
+                    {study.businessOutcomes[1]?.metric || study.businessOutcomes[0].metric}
+                  </div>
+                  <span className="text-[11px] font-mono text-zinc-700 block font-medium">
+                    {study.businessOutcomes[1]?.label || study.businessOutcomes[0].label}
+                  </span>
+                </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t-2 border-black/10 flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-mono text-zinc-600 uppercase font-bold">Commercial Outcome</div>
-                  <div className="text-base font-mono font-extrabold text-black">{study.businessOutcomes[0].metric}</div>
-                </div>
-                <Link
-                  href={`/case-studies/${study.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-mono text-black hover:text-[#2563EB] font-bold"
-                >
-                  <span>Read Breakdown</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+              <div className="pt-5 mt-5 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-black group-hover:text-[#2563EB] transition-colors">
+                  Inspect Dossier
+                </span>
+                <span className="p-2 rounded-full bg-[#FAF7EF] group-hover:bg-[#60A5FA] border-2 border-black shadow-[1.5px_1.5px_0px_#000000] text-black transition-colors">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

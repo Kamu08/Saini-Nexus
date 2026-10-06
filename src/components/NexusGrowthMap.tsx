@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   Check
 } from "lucide-react";
+import { StageAuditModal } from "./StageAuditModal";
 
 interface FrameworkStage {
   id: string;
@@ -157,6 +158,7 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
 
 export function NexusGrowthMap() {
   const [activeStageId, setActiveStageId] = useState<string>("buyer-context");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const currentIndex = FRAMEWORK_STAGES.findIndex((s) => s.id === activeStageId);
   const currentStage = FRAMEWORK_STAGES[currentIndex] || FRAMEWORK_STAGES[0];
 
@@ -400,17 +402,25 @@ export function NexusGrowthMap() {
                 </span>
               </div>
 
-              <Link
-                href="/book"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] transition-all"
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] transition-all cursor-pointer"
               >
-                <span>Audit This Stage for Your Firm</span>
+                <span>Audit Stage {currentStage.step} for Your Firm</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </button>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Stage Audit Intake Modal */}
+      <StageAuditModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        stage={currentStage}
+      />
 
     </section>
   );

@@ -23,13 +23,50 @@ export function ContactForm() {
     "Account-Based Marketing (ABM)"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      // 1. Post to internal API route forwarding to kamal0sharma02@gmail.com
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          workEmail: formData.workEmail,
+          company: formData.company,
+          goal: formData.goal,
+          notes: formData.notes,
+          recipient: "kamal0sharma02@gmail.com"
+        })
+      });
+
+      // 2. Client-side fallback to FormSubmit
+      if (!res.ok) {
+        await fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: `New Saini Nexus Lead: ${formData.goal}`,
+            _template: "table",
+            "Full Name": formData.name,
+            "Work Email": formData.workEmail,
+            "Company": formData.company,
+            "Primary Goal": formData.goal,
+            "Notes": formData.notes
+          })
+        });
+      }
+    } catch (err) {
+      console.warn("Contact form fallback executed:", err);
+    } finally {
       setLoading(false);
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (

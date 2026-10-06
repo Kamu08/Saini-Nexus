@@ -137,7 +137,7 @@ export default function BookStrategyCallPage() {
             </div>
 
             <form 
-              action="https://formspree.io/f/xbjnbqrg" 
+              action="https://formsubmit.co/kamal0sharma02@gmail.com" 
               method="POST" 
               className="space-y-4 text-xs font-mono"
             >

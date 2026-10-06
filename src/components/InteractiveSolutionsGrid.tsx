@@ -35,9 +35,9 @@ export function InteractiveSolutionsGrid() {
     const el = cardRefs.current[index];
     if (!el) return;
 
-    // Offset strictly to the right and bottom
-    const OFFSET_RIGHT = 8;
-    const OFFSET_BOTTOM = 8;
+    // Offset strictly to the right and bottom (refined 5px width)
+    const OFFSET_RIGHT = 5;
+    const OFFSET_BOTTOM = 5;
 
     setIsGliding(animate);
     setShadowStyle({
@@ -146,10 +146,7 @@ export function InteractiveSolutionsGrid() {
                 cardRefs.current[index] = el;
               }}
               onMouseEnter={() => handleMouseEnter(index)}
-              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 transition-transform duration-300 ease-out`}
-              style={{
-                transform: isHovered ? "translate(-2px, -6px)" : "translate(0px, 0px)",
-              }}
+              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10`}
             >
               {/* Corner Accent Ribbon */}
               <div className={`absolute top-0 right-0 w-24 h-24 ${accent.badgeBg} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />

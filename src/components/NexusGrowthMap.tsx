@@ -1,37 +1,43 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ChevronRight, 
+  ChevronLeft,
   ArrowRight, 
   CheckCircle2, 
   Sparkles, 
   Target, 
   Layers, 
-  Users, 
-  TrendingUp, 
-  Send, 
-  FileText,
-  Workflow,
-  Zap,
+  Workflow, 
+  Zap, 
+  TrendingUp,
+  FileCheck2,
+  ShieldCheck,
   Check
 } from "lucide-react";
 
 interface FrameworkStage {
   id: string;
   step: string;
+  phase: string;
   title: string;
   subtitle: string;
   question: string;
   description: string;
   deliverables: string[];
   metrics: string;
+  metricLabel: string;
+  salesImpact: string;
 }
 
 const FRAMEWORK_STAGES: FrameworkStage[] = [
   {
     id: "buyer-context",
     step: "01",
+    phase: "PHASE 1: FOUNDATION",
     title: "Buyer Context",
     subtitle: "Understanding How Your Buyers Actually Buy",
     question: "Who is in the buying room, what triggers their search, and why do they hesitate?",
@@ -41,11 +47,14 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "95% Out-of-Market Buying Trigger Research",
       "Decision Hesitation & Career-Risk Audit"
     ],
-    metrics: "100% Alignment with Real Buying Behavior"
+    metrics: "100% Committee Alignment",
+    metricLabel: "Validation Standard",
+    salesImpact: "Prevents messaging disconnect and targets real buying triggers."
   },
   {
     id: "positioning",
     step: "02",
+    phase: "PHASE 1: FOUNDATION",
     title: "Positioning & POV",
     subtitle: "Articulating Commercial Point-of-View",
     question: "What is your defensible commercial point of view against industry noise?",
@@ -55,11 +64,14 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Competitive Moat & Anti-Cliché Value Proposition",
       "Executive Messaging Architecture by Role"
     ],
-    metrics: "Defensible Category Authority"
+    metrics: "Defensible Category Moat",
+    metricLabel: "Strategic Outcome",
+    salesImpact: "Arms internal champions with sharp, anti-cliché commercial ammunition."
   },
   {
     id: "content",
     step: "03",
+    phase: "PHASE 2: ENGINE & ASSETS",
     title: "Editorial Content",
     subtitle: "High-Craft Technical Proof Assets",
     question: "How do you educate buyers and demonstrate operational competence without friction?",
@@ -69,11 +81,14 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Executive Ghostwriting & Thought Leadership Essays",
       "Un-gated Strategic Playbooks & Benchmarks"
     ],
-    metrics: "4.8x Higher In-Feed Save Rate"
+    metrics: "4.8x Higher In-Feed Save Rate",
+    metricLabel: "Engagement Quality",
+    salesImpact: "Educates buyers pre-RFP so they arrive pre-sold on your competence."
   },
   {
     id: "audience",
     step: "04",
+    phase: "PHASE 2: ENGINE & ASSETS",
     title: "Audience Calibration",
     subtitle: "Precision ICP & Negative Filtering",
     question: "How do you guarantee that zero marketing spend is wasted on low-fit audiences?",
@@ -83,11 +98,14 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Multi-Layer Seniority & Job Title Exclusion Filter",
       "Technographic & Firmographic Qualification Gates"
     ],
-    metrics: "Zero Vanity Ad Waste"
+    metrics: "Zero Vanity Ad Waste",
+    metricLabel: "Efficiency Standard",
+    salesImpact: "Guarantees 100% of impression budget reaches verified decision-makers."
   },
   {
     id: "distribution",
     step: "05",
+    phase: "PHASE 3: ORCHESTRATION & ARR",
     title: "Paid & Organic Distribution",
     subtitle: "Full-Funnel Multi-Touch Orchestration",
     question: "How do you maintain continuous executive presence across target accounts?",
@@ -97,11 +115,14 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Thought Leader Ad Amplification Framework",
       "Account-Level Frequency Capping & Retargeting"
     ],
-    metrics: "3x Higher CTR via Thought Leader Ads"
+    metrics: "3.2x Higher CTR via Thought Leader Ads",
+    metricLabel: "Executive Ad Lift",
+    salesImpact: "Surrounds buying committee accounts with steady executive authority."
   },
   {
     id: "demand",
     step: "06",
+    phase: "PHASE 3: ORCHESTRATION & ARR",
     title: "Demand Creation",
     subtitle: "Nurturing the 95% Out-of-Market Pool",
     question: "How do you build trust before buyers enter an active purchasing RFP?",
@@ -111,13 +132,16 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Account Intent Scoring & Signal Tracking",
       "Pre-Call Buyer Education Assets"
     ],
-    metrics: "48% Faster Sales Cycle Velocity"
+    metrics: "48% Faster Sales Cycle Velocity",
+    metricLabel: "Deal Velocity Lift",
+    salesImpact: "Shortens evaluation cycles by pre-answering key buyer objections."
   },
   {
     id: "pipeline",
     step: "07",
+    phase: "PHASE 3: ORCHESTRATION & ARR",
     title: "Pipeline & ARR",
-    subtitle: "Sales-Accepted Opportunities & Closed-Won Revenue",
+    subtitle: "Sales-Accepted Opportunities & Closed ARR",
     question: "How does marketing activity connect to qualified pipeline and ARR?",
     description: "We capture high-intent leads via native in-feed forms with verified work emails, routing enriched submissions to sales in under 30 seconds with closed-loop attribution.",
     deliverables: [
@@ -125,18 +149,37 @@ const FRAMEWORK_STAGES: FrameworkStage[] = [
       "Instant CRM & Slack Webhook Integration (<30s SLA)",
       "Sales Acceptance Rate (SAR) & Closed-Loop Attribution"
     ],
-    metrics: "82% Sales Acceptance Rate (SAR)"
+    metrics: "82% Sales Acceptance Rate (SAR)",
+    metricLabel: "Commercial Standard",
+    salesImpact: "Routes enriched, qualified discovery opportunities directly to reps."
   }
 ];
 
 export function NexusGrowthMap() {
   const [activeStageId, setActiveStageId] = useState<string>("buyer-context");
-  const currentStage = FRAMEWORK_STAGES.find((s) => s.id === activeStageId) || FRAMEWORK_STAGES[0];
+  const currentIndex = FRAMEWORK_STAGES.findIndex((s) => s.id === activeStageId);
+  const currentStage = FRAMEWORK_STAGES[currentIndex] || FRAMEWORK_STAGES[0];
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setActiveStageId(FRAMEWORK_STAGES[currentIndex - 1].id);
+    } else {
+      setActiveStageId(FRAMEWORK_STAGES[FRAMEWORK_STAGES.length - 1].id);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < FRAMEWORK_STAGES.length - 1) {
+      setActiveStageId(FRAMEWORK_STAGES[currentIndex + 1].id);
+    } else {
+      setActiveStageId(FRAMEWORK_STAGES[0].id);
+    }
+  };
 
   return (
-    <div className="w-full bg-[#0D121F] text-white rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-12 lg:p-14 space-y-8 relative overflow-hidden border-3 border-black shadow-[8px_8px_0px_#000000]">
+    <section className="w-full bg-[#0D121F] text-white rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-14 space-y-10 relative overflow-hidden border-3 border-black shadow-[8px_8px_0px_#000000]">
       
-      {/* Background Cyber Grid Accent */}
+      {/* Background Architectural Tech Grid */}
       <div 
         className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
@@ -148,105 +191,227 @@ export function NexusGrowthMap() {
       {/* Decorative Glow Orb */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Header */}
-      <div className="max-w-3xl space-y-3 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000]">
-          <Zap className="w-3.5 h-3.5" />
-          The 7-Stage Methodology
-        </div>
-        <h3 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
-          The Saini Nexus Commercial Architecture.
-        </h3>
-        <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
-          Strategy before random execution. We build an integrated 7-stage engine connecting buyer psychology directly to sales-qualified pipeline and closed ARR.
-        </p>
-      </div>
-
-      {/* Horizontal Stages Flow Selector */}
-      <div className="flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-2.5 pb-3 px-1 overflow-x-auto no-scrollbar scroll-smooth relative z-10">
-        {FRAMEWORK_STAGES.map((st, idx) => {
-          const isActive = st.id === activeStageId;
-          return (
-            <button
-              key={st.id}
-              onClick={() => setActiveStageId(st.id)}
-              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-mono transition-all shrink-0 border-2 cursor-pointer whitespace-nowrap ${
-                isActive
-                  ? "bg-[#60A5FA] text-black font-extrabold border-black shadow-[4px_4px_0px_#000000] -translate-y-0.5"
-                  : "bg-[#161F30] text-zinc-300 hover:text-white hover:bg-[#1E2B42] border-[#2A374F]"
-              }`}
-            >
-              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
-                isActive ? "bg-black text-white" : "bg-black/40 text-zinc-400"
-              }`}>
-                {st.step}
-              </span>
-              <span className="font-bold">{st.title}</span>
-              {idx < FRAMEWORK_STAGES.length - 1 && (
-                <ChevronRight className={`w-3.5 h-3.5 ml-1 hidden xl:block ${isActive ? "text-black" : "text-zinc-500"}`} />
-              )}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Active Stage Detail Breakdown Card */}
-      <div className="bg-[#141B2B] border-2 border-[#2E3C57] rounded-3xl p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-[6px_6px_0px_#000000] relative z-10">
-        
-        <div className="lg:col-span-7 space-y-4">
-          <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono font-bold">
-            <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black shadow-[2px_2px_0px_#000000]">
-              STAGE {currentStage.step} OF 07
-            </span>
-            <span className="text-zinc-500">•</span>
-            <span className="uppercase text-[#93C5FD] tracking-wider">{currentStage.title}</span>
+      {/* ========================================================= */}
+      {/* SECTION HEADER: TITLE & CORE STATS                        */}
+      {/* ========================================================= */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b-2 border-white/10 pb-8 relative z-10">
+        <div className="max-w-2xl space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2.5px_2.5px_0px_#000000]">
+            <Workflow className="w-4 h-4 text-black" />
+            <span>03 · Commercial Engine</span>
           </div>
-
-          <h4 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
-            {currentStage.subtitle}
-          </h4>
-
-          <div className="p-4 bg-[#0A0E18] rounded-2xl border-2 border-[#2E3C57] text-xs font-mono text-zinc-300 shadow-[2px_2px_0px_#000000]">
-            <strong className="text-[#60A5FA] font-bold uppercase tracking-wider block mb-1">CORE STRATEGIC QUESTION:</strong>
-            <span className="font-medium text-white text-sm sm:text-base leading-relaxed">&ldquo;{currentStage.question}&rdquo;</span>
-          </div>
-
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+            The Saini Nexus Commercial Architecture.
+          </h2>
+          
           <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
-            {currentStage.description}
+            Strategy before random execution. We engineer an integrated 7-stage pipeline connecting executive buyer psychology directly to sales-accepted opportunities and ARR.
           </p>
         </div>
 
-        <div className="lg:col-span-5 bg-[#0D1322] border-2 border-[#2E3C57] rounded-2xl p-6 space-y-5 shadow-[4px_4px_0px_#000000]">
-          <div className="flex items-center justify-between pb-3 border-b border-[#2E3C57]">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#93C5FD] font-bold">
-              Stage Deliverables
-            </span>
-            <span className="text-[10px] font-mono text-zinc-400 bg-white/5 px-2 py-0.5 rounded-full">
-              Production Output
-            </span>
+        {/* 3 Quick Performance Anchors */}
+        <div className="grid grid-cols-3 gap-2.5 sm:gap-3 shrink-0">
+          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
+            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#60A5FA]">07</span>
+            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">Stages</span>
           </div>
-
-          <ul className="space-y-3 text-xs sm:text-sm text-zinc-200">
-            {currentStage.deliverables.map((del, i) => (
-              <li key={i} className="flex items-start gap-2.5">
-                <div className="w-4 h-4 rounded-full bg-[#2563EB] text-white flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-3 h-3 stroke-[3]" />
-                </div>
-                <span className="font-medium">{del}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="pt-4 border-t border-[#2E3C57] flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
-            <span className="text-zinc-400">Target Benchmark:</span>
-            <span className="text-[#86EFAC] font-mono font-extrabold text-sm bg-[#86EFAC]/10 px-2.5 py-1 rounded-lg border border-[#86EFAC]/30">
-              {currentStage.metrics}
-            </span>
+          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
+            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#86EFAC]">82%</span>
+            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">SAR SLA</span>
+          </div>
+          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
+            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#FDE047]">&lt;30s</span>
+            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">Routing</span>
           </div>
         </div>
-
       </div>
 
-    </div>
+      {/* ========================================================= */}
+      {/* 7-STAGE PIPELINE STEPPER TRACK                            */}
+      {/* ========================================================= */}
+      <div className="space-y-3 relative z-10">
+        <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-zinc-400">
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#60A5FA]" />
+            Select Stage to Inspect Blueprint
+          </span>
+          <span className="font-bold text-white">
+            {currentIndex + 1} / 07 Active
+          </span>
+        </div>
+
+        {/* Stepper Buttons Row */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+          {FRAMEWORK_STAGES.map((st, idx) => {
+            const isActive = st.id === activeStageId;
+            return (
+              <button
+                key={st.id}
+                onClick={() => setActiveStageId(st.id)}
+                className={`p-3 rounded-none text-left border-2 transition-all flex flex-col justify-between gap-2 cursor-pointer ${
+                  isActive
+                    ? "bg-[#60A5FA] text-black font-extrabold border-black shadow-[4px_4px_0px_#000000] -translate-y-1"
+                    : "bg-[#151D30] text-zinc-300 hover:text-white hover:bg-[#1C2740] border-black/80 hover:border-[#60A5FA] shadow-[2px_2px_0px_#000000]"
+                }`}
+              >
+                <div className="flex items-center justify-between w-full">
+                  <span className={`w-6 h-6 rounded-none flex items-center justify-center font-mono text-xs font-extrabold border ${
+                    isActive
+                      ? "bg-black text-white border-black"
+                      : "bg-black/50 text-zinc-300 border-white/20"
+                  }`}>
+                    {st.step}
+                  </span>
+                  <span className={`text-[9px] font-mono uppercase tracking-widest px-1.5 py-0.5 border ${
+                    isActive
+                      ? "bg-black/10 text-black border-black/30 font-bold"
+                      : "bg-white/5 text-zinc-400 border-transparent"
+                  }`}>
+                    P{idx < 2 ? "1" : idx < 4 ? "2" : "3"}
+                  </span>
+                </div>
+
+                <div>
+                  <span className="block text-xs font-serif font-bold tracking-tight line-clamp-1">
+                    {st.title}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ========================================================= */}
+      {/* ACTIVE STAGE BLUEPRINT SHOWCASE (HIGH CONTRAST DOSSIER)   */}
+      {/* ========================================================= */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStage.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10"
+        >
+          {/* Left Column: Strategic Thesis & Problem Dossier */}
+          <div className="lg:col-span-7 bg-[#141C2E] border-3 border-black rounded-none p-6 sm:p-9 flex flex-col justify-between space-y-6 shadow-[6px_6px_0px_#000000]">
+            <div className="space-y-5">
+              
+              {/* Badge & Phase Indicator */}
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="px-3 py-1 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold shadow-[2px_2px_0px_#000000]">
+                  STAGE {currentStage.step} OF 07
+                </span>
+                <span className="text-xs font-mono font-extrabold uppercase tracking-widest text-[#93C5FD] bg-[#1E2B44] px-2.5 py-1 border border-black">
+                  {currentStage.phase}
+                </span>
+              </div>
+
+              {/* Subtitle */}
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-snug">
+                {currentStage.subtitle}
+              </h3>
+
+              {/* Core Strategic Question Callout */}
+              <div className="p-4 sm:p-5 rounded-none bg-[#0B0F1A] border-2 border-black space-y-1.5 shadow-[3px_3px_0px_#000000]">
+                <div className="flex items-center gap-2 text-[#FDE047] font-mono font-extrabold text-xs uppercase tracking-wider">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>Core Strategic Question</span>
+                </div>
+                <p className="font-serif text-base sm:text-lg text-white font-medium italic leading-relaxed">
+                  &ldquo;{currentStage.question}&rdquo;
+                </p>
+              </div>
+
+              {/* Operational Narrative */}
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+                {currentStage.description}
+              </p>
+
+              {/* Sales Impact Note */}
+              <div className="p-3 bg-[#1C263B] border border-white/10 rounded-none flex items-start gap-2.5 text-xs text-zinc-300 font-mono">
+                <Target className="w-4 h-4 text-[#60A5FA] shrink-0 mt-0.5" />
+                <span>
+                  <strong className="text-white uppercase font-bold">Why Sales Wins:</strong> {currentStage.salesImpact}
+                </span>
+              </div>
+            </div>
+
+            {/* Stepper Navigation Buttons */}
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
+              <button
+                onClick={handlePrev}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border-2 border-black text-white hover:bg-[#60A5FA] hover:text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[2px_2px_0px_#000000] cursor-pointer transition-all"
+              >
+                <ChevronLeft className="w-3.5 h-3.5" />
+                <span>Prev Stage</span>
+              </button>
+
+              <button
+                onClick={handleNext}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[2px_2px_0px_#000000] hover:translate-x-0.5 cursor-pointer transition-all"
+              >
+                <span>Next Stage</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Tactical Deliverables & Commercial Standard (High-Contrast Dossier) */}
+          <div className="lg:col-span-5 bg-[#FAF7EF] text-black border-3 border-black rounded-none p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-[6px_6px_0px_#000000]">
+            <div className="space-y-5">
+              
+              {/* Header Bar */}
+              <div className="flex items-center justify-between pb-3 border-b-2 border-black">
+                <div className="flex items-center gap-2">
+                  <FileCheck2 className="w-4 h-4 text-black" />
+                  <span className="text-xs font-mono uppercase tracking-widest font-extrabold text-black">
+                    Engineering Deliverables
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono uppercase font-extrabold bg-[#60A5FA] text-black px-2 py-0.5 border border-black shadow-[1px_1px_0px_#000000]">
+                  Production
+                </span>
+              </div>
+
+              {/* Deliverables List */}
+              <ul className="space-y-3.5 text-xs sm:text-sm text-zinc-900">
+                {currentStage.deliverables.map((del, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <div className="w-5 h-5 rounded-none bg-black text-white flex items-center justify-center shrink-0 mt-0.5 border border-black shadow-[1px_1px_0px_#000000]">
+                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+                    </div>
+                    <span className="font-semibold leading-snug">{del}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Bottom Commercial Metric Anchor */}
+            <div className="space-y-3 pt-4 border-t-2 border-black">
+              <div className="p-4 rounded-none bg-white border-2 border-black shadow-[3px_3px_0px_#000000] space-y-1">
+                <span className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-zinc-600 block">
+                  {currentStage.metricLabel}:
+                </span>
+                <span className="text-base sm:text-lg font-serif font-bold text-black block leading-tight">
+                  {currentStage.metrics}
+                </span>
+              </div>
+
+              <Link
+                href="/book"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] transition-all"
+              >
+                <span>Audit This Stage for Your Firm</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+    </section>
   );
 }

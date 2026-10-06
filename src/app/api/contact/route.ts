@@ -7,12 +7,16 @@ export async function POST(request: Request) {
       name, 
       email, 
       workEmail, 
+      phone,
       company, 
+      city,
       stage, 
       step, 
       goal, 
       notes, 
       dealSize,
+      monthlyBudget,
+      currency,
       website 
     } = body;
 
@@ -21,16 +25,20 @@ export async function POST(request: Request) {
 
     // Send directly to FormSubmit ajax endpoint for kamal0sharma02@gmail.com
     const formSubmitPayload = {
-      _subject: `New Saini Nexus Lead: ${stage ? `Stage ${step || ''} - ${stage}` : (goal || 'Strategy Audit')}`,
+      _subject: `New Saini Nexus Lead: ${stage ? `Stage ${step || ''} - ${company || name || stage}` : (goal || 'Strategy Audit')}`,
       _template: "table",
       _captcha: "false",
       "Full Name": name || "Not provided",
       "Work Email": userEmail || "Not provided",
+      "Phone / WhatsApp": phone || "Not provided",
       "Company": company || "Not provided",
+      "City / Region": city || "Not specified",
       "Website": website || "Not provided",
       "Target Stage": stage ? `Stage ${step || ''}: ${stage}` : "General Strategy Call",
       "Primary Goal": goal || "Commercial Architecture Audit",
       "Deal Size / ACV": dealSize || "Not specified",
+      "Monthly Growth Budget": monthlyBudget || "Not specified",
+      "Currency": currency || "INR (₹)",
       "Notes & Context": notes || "None provided",
       "Submission Timestamp": new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
       "Source URL": request.headers.get("referer") || "https://saininexus.com"

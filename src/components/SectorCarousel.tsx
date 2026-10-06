@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ChevronLeft, 
-  ChevronRight, 
   ArrowUpRight, 
   ArrowRight, 
   Briefcase, 
@@ -15,11 +13,13 @@ import {
   Scale, 
   Factory, 
   Building2, 
+  ShieldAlert,
   Target, 
   Users, 
   TrendingUp,
   CheckCircle2,
-  Sparkles
+  FileText,
+  Bookmark
 } from "lucide-react";
 import { INDUSTRIES, IndustryItem } from "@/data/industries";
 
@@ -32,321 +32,325 @@ const SECTOR_ICONS: Record<string, React.ElementType> = {
   "real-estate": Building2,
 };
 
-const SECTOR_HIGHLIGHTS: Record<string, { typicalCycle: string; dealRange: string }> = {
-  "b2b-saas": { typicalCycle: "45–90 Days", dealRange: "₹5L – ₹35L+ ACV" },
-  "technology": { typicalCycle: "60–120 Days", dealRange: "₹15L – ₹50L+ ACV" },
-  "consulting": { typicalCycle: "30–60 Days", dealRange: "₹5L – ₹20L Retainers" },
-  "professional-services": { typicalCycle: "30–75 Days", dealRange: "₹3L – ₹15L Engagements" },
-  "industrial-manufacturing": { typicalCycle: "60–150 Days", dealRange: "₹25L – ₹1Cr+ Contracts" },
-  "real-estate": { typicalCycle: "90–180 Days", dealRange: "Multi-Year Leases / CapEx" },
+const SECTOR_TAGS: Record<string, { badge: string; cycle: string; acv: string }> = {
+  "b2b-saas": { badge: "Recurring ARR", cycle: "45–90 Days", acv: "₹5L – ₹35L+ ACV" },
+  "technology": { badge: "Multi-Stakeholder", cycle: "60–120 Days", acv: "₹15L – ₹50L+ ACV" },
+  "consulting": { badge: "Retainer & Advisory", cycle: "30–60 Days", acv: "₹5L – ₹20L Retainers" },
+  "professional-services": { badge: "Fiduciary Trust", cycle: "30–75 Days", acv: "₹3L – ₹15L Engagements" },
+  "industrial-manufacturing": { badge: "Global Export & OEM", cycle: "60–150 Days", acv: "₹25L – ₹1Cr+ Contracts" },
+  "real-estate": { badge: "Enterprise Occupiers", cycle: "90–180 Days", acv: "Multi-Year Leases / CapEx" },
 };
 
 export function SectorCarousel() {
   const industries = Object.values(INDUSTRIES);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [selectedSlug, setSelectedSlug] = useState<string>("b2b-saas");
 
-  const checkScrollState = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 20);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 20);
-
-    // Calculate approximate active card index
-    const cardWidth = 440; // Approx card width + gap
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(Math.min(Math.max(index, 0), industries.length - 1));
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", checkScrollState, { passive: true });
-    checkScrollState();
-    return () => el.removeEventListener("scroll", checkScrollState);
-  }, [industries.length]);
-
-  const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return;
-    const cards = scrollRef.current.children;
-    if (cards[index]) {
-      (cards[index] as HTMLElement).scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "start"
-      });
-      setActiveIndex(index);
-    }
-  };
-
-  const handlePrev = () => {
-    if (activeIndex > 0) {
-      scrollToCard(activeIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (activeIndex < industries.length - 1) {
-      scrollToCard(activeIndex + 1);
-    }
+  const currentSector = industries.find((ind) => ind.slug === selectedSlug) || industries[0];
+  const Icon = SECTOR_ICONS[currentSector.slug] || Briefcase;
+  const currentTags = SECTOR_TAGS[currentSector.slug] || {
+    badge: "Enterprise B2B",
+    cycle: "45–90 Days",
+    acv: "₹5L – ₹25L+ ACV"
   };
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#0B0F19] text-white border-3 border-black rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[8px_8px_0px_#000000] space-y-8 relative overflow-hidden">
+      
+      {/* ========================================================= */}
+      {/* TACTILE PAPER CANVAS CONTAINER                           */}
+      {/* Vintage drafting paper background with texture & borders */}
+      {/* ========================================================= */}
+      <div 
+        className="bg-[#F6F3EB] border-3 border-black rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[8px_8px_0px_#000000] space-y-8 relative overflow-hidden"
+        style={{
+          backgroundImage: `
+            radial-gradient(#000000 0.75px, transparent 0.75px),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E")
+          `,
+          backgroundSize: "22px 22px, 128px 128px"
+        }}
+      >
         
-        {/* Subtle Tech Blueprint Dot Matrix */}
-        <div 
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(#60A5FA 1px, transparent 1px)",
-            backgroundSize: "24px 24px"
-          }}
-        />
+        {/* Archival Folder Top Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-black/20 pb-5">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-black inline-block" />
+            <span className="text-[11px] font-mono uppercase tracking-widest font-extrabold text-zinc-700">
+              ARCHIVE DOSSIER // SECTOR ARCHITECTURES
+            </span>
+          </div>
 
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="flex items-center gap-3 font-mono text-[11px] text-zinc-600 font-semibold">
+            <span className="px-2.5 py-1 bg-white border border-black/30 shadow-[1px_1px_0px_#000000]">
+              REF: SN-IND-2026
+            </span>
+            <span className="px-2.5 py-1 bg-[#60A5FA]/20 border border-black/30 text-black font-bold">
+              6 ACTIVE PLAYBOOKS
+            </span>
+          </div>
+        </div>
 
-        {/* ========================================================= */}
-        {/* SECTION HEADER & CAROUSEL CONTROLS                        */}
-        {/* ========================================================= */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b-2 border-white/10 pb-8 relative z-10">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2.5px_2.5px_0px_#000000]">
+        {/* Section Headline */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="max-w-2xl space-y-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-none bg-[#FDE047] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000]">
               <Briefcase className="w-3.5 h-3.5 text-black" />
-              <span>Industry Architectures</span>
+              <span>Industry-Specific Blueprints</span>
             </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight leading-tight">
               B2B Growth Across Key Sectors.
             </h2>
-
-            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
-              Acquisition blueprints tailored to the multi-stakeholder buying dynamics, friction points, and deal velocity of your specific industry.
+            
+            <p className="text-zinc-700 text-sm sm:text-base leading-relaxed font-medium">
+              Enterprise buyers don&apos;t buy generic marketing. We engineer acquisition systems aligned to the specific buying committee dynamics, risk hesitations, and procurement cycles of your sector.
             </p>
           </div>
 
-          {/* Controls: Counter + Directional Arrows + All Industries Link */}
-          <div className="flex items-center gap-3 shrink-0 self-start lg:self-end">
-            <div className="px-3.5 py-2 rounded-none bg-[#161F33] border-2 border-black text-zinc-300 font-mono text-xs font-bold tracking-widest shadow-[2px_2px_0px_#000000]">
-              <span className="text-[#60A5FA]">0{activeIndex + 1}</span>
-              <span className="text-zinc-600"> / </span>
-              <span>0{industries.length}</span>
-            </div>
-
-            <button
-              type="button"
-              onClick={handlePrev}
-              disabled={!canScrollLeft && activeIndex === 0}
-              aria-label="Previous sector"
-              className="w-10 h-10 rounded-none bg-white border-2 border-black text-black flex items-center justify-center font-bold shadow-[2.5px_2.5px_0px_#000000] hover:bg-[#60A5FA] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
-            </button>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              disabled={!canScrollRight && activeIndex === industries.length - 1}
-              aria-label="Next sector"
-              className="w-10 h-10 rounded-none bg-white border-2 border-black text-black flex items-center justify-center font-bold shadow-[2.5px_2.5px_0px_#000000] hover:bg-[#60A5FA] hover:translate-x-[1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[1px] disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
-            </button>
-
-            <Link
-              href="/industries"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-none bg-[#1E293B] hover:bg-[#2563EB] border-2 border-black text-white text-xs font-mono font-bold uppercase tracking-wider shadow-[2.5px_2.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all ml-1"
-            >
-              <span>Explore All</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          <Link
+            href="/industries"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:bg-black hover:text-white hover:translate-x-[1px] hover:translate-y-[1px] transition-all shrink-0 self-start lg:self-end"
+          >
+            <span>Explore All 6 Industries</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
 
         {/* ========================================================= */}
-        {/* QUICK SECTOR TABS (Pills for fast jumping)               */}
+        {/* INTERACTIVE DOSSIER CONSOLE: 2-COLUMN LAYOUT             */}
+        {/* Left: Tactile Stamped Sector Index Tabs                   */}
+        {/* Right: Crisp Archival Dossier Sheet                       */}
         {/* ========================================================= */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none relative z-10">
-          {industries.map((ind, idx) => {
-            const isActive = activeIndex === idx;
-            return (
-              <button
-                key={ind.slug}
-                onClick={() => scrollToCard(idx)}
-                className={`px-3 py-1.5 rounded-none font-mono text-xs uppercase tracking-wider font-extrabold whitespace-nowrap transition-all border-2 border-black cursor-pointer ${
-                  isActive
-                    ? "bg-[#60A5FA] text-black shadow-[3px_3px_0px_#000000]"
-                    : "bg-[#161F33] text-zinc-400 hover:text-white hover:bg-[#1E293B] shadow-[2px_2px_0px_#000000]"
-                }`}
-              >
-                <span>{ind.name}</span>
-              </button>
-            );
-          })}
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pt-2">
+          
+          {/* ------------------------------------------------------- */}
+          {/* LEFT: SECTOR TABS (Tactile Index Tabs)                  */}
+          {/* ------------------------------------------------------- */}
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2.5 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-none">
+            {industries.map((ind, idx) => {
+              const ItemIcon = SECTOR_ICONS[ind.slug] || Briefcase;
+              const isSelected = ind.slug === selectedSlug;
+              const tagInfo = SECTOR_TAGS[ind.slug];
 
-        {/* ========================================================= */}
-        {/* HORIZONTAL SWIPEABLE CAROUSEL TRACK                       */}
-        {/* ========================================================= */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth relative z-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {industries.map((ind, idx) => {
-            const Icon = SECTOR_ICONS[ind.slug] || Briefcase;
-            const highlights = SECTOR_HIGHLIGHTS[ind.slug] || {
-              typicalCycle: "45–90 Days",
-              dealRange: "₹5L – ₹25L+ ACV"
-            };
-
-            return (
-              <div
-                key={ind.slug}
-                className="w-[85vw] sm:w-[420px] lg:w-[460px] shrink-0 snap-start bg-[#121826] border-3 border-black p-6 sm:p-7 flex flex-col justify-between rounded-none shadow-[6px_6px_0px_#000000] hover:border-[#60A5FA] transition-all group relative"
-              >
-                <div className="space-y-5">
-                  
-                  {/* Top Bar: Sector Tag + Icon */}
-                  <div className="flex items-start justify-between gap-3 border-b-2 border-white/10 pb-4">
-                    <div className="space-y-1">
-                      <span className="text-[11px] font-mono text-[#60A5FA] font-bold tracking-widest uppercase block">
-                        // SECTOR 0{idx + 1}
-                      </span>
-                      <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider block font-semibold">
-                        {ind.tagline}
-                      </span>
+              return (
+                <button
+                  key={ind.slug}
+                  type="button"
+                  onClick={() => setSelectedSlug(ind.slug)}
+                  className={`w-full text-left p-3.5 sm:p-4 rounded-none transition-all flex items-center justify-between border-2 border-black cursor-pointer shrink-0 min-w-[240px] lg:min-w-0 ${
+                    isSelected
+                      ? "bg-white text-black shadow-[4px_4px_0px_#000000] translate-x-1"
+                      : "bg-[#EFE9DC] text-zinc-700 hover:bg-white/80 hover:text-black shadow-[2px_2px_0px_#000000]"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-none border-2 border-black flex items-center justify-center shrink-0 ${
+                      isSelected ? "bg-[#60A5FA] text-black" : "bg-white text-zinc-600"
+                    }`}>
+                      <ItemIcon className="w-4 h-4" />
                     </div>
 
-                    <div className="w-11 h-11 rounded-none bg-[#1E293B] border-2 border-black group-hover:bg-[#60A5FA] group-hover:text-black text-[#60A5FA] flex items-center justify-center shrink-0 shadow-[2px_2px_0px_#000000] transition-colors">
-                      <Icon className="w-5 h-5 stroke-[2]" />
-                    </div>
-                  </div>
-
-                  {/* Title & Subheadline */}
-                  <div className="space-y-2">
-                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight group-hover:text-[#60A5FA] transition-colors">
-                      {ind.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-                      {ind.heroSubheadline}
-                    </p>
-                  </div>
-
-                  {/* Operational Telemetry Tags */}
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    <div className="p-2.5 bg-[#161F33] border border-white/10 rounded-none space-y-0.5">
-                      <span className="text-[9px] font-mono uppercase text-zinc-400 font-bold block">
-                        Sales Cycle Velocity
-                      </span>
-                      <span className="text-xs font-mono font-extrabold text-white block">
-                        {highlights.typicalCycle}
-                      </span>
-                    </div>
-                    <div className="p-2.5 bg-[#161F33] border border-white/10 rounded-none space-y-0.5">
-                      <span className="text-[9px] font-mono uppercase text-zinc-400 font-bold block">
-                        Target Deal Size
-                      </span>
-                      <span className="text-xs font-mono font-extrabold text-[#86EFAC] block">
-                        {highlights.dealRange}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Buying Committee Stakeholders */}
-                  <div className="space-y-2 pt-1">
-                    <div className="flex items-center gap-1.5 text-zinc-400 text-[10px] font-mono font-bold uppercase tracking-wider">
-                      <Users className="w-3 h-3 text-[#60A5FA]" />
-                      <span>Buying Committee Addressed</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {ind.buyingCommittee.slice(0, 3).map((item, i) => (
-                        <span
-                          key={i}
-                          className="px-2 py-0.5 bg-[#1E293B] border border-white/15 text-zinc-200 text-[10px] font-mono font-medium rounded-none"
-                        >
-                          {item.role.split("(")[0].trim()}
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono font-bold text-zinc-500">
+                          0{idx + 1}.
                         </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Core Strategy Pillar */}
-                  {ind.playbookStrategy[0] && (
-                    <div className="p-3 bg-black/40 border border-white/10 rounded-none space-y-1">
-                      <div className="flex items-center gap-1.5 text-[10px] font-mono font-extrabold uppercase text-[#FDE047]">
-                        <Target className="w-3 h-3 text-[#FDE047]" />
-                        <span>Core Strategy Weapon</span>
+                        <span className="font-serif font-bold text-sm sm:text-base text-black block leading-tight">
+                          {ind.name}
+                        </span>
                       </div>
-                      <p className="text-xs text-zinc-200 font-medium leading-snug">
-                        {ind.playbookStrategy[0].title}:{" "}
-                        <span className="text-zinc-400 text-[11px] font-normal">
-                          {ind.playbookStrategy[0].description}
-                        </span>
-                      </p>
+                      <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider block mt-0.5">
+                        {tagInfo?.badge || "Enterprise"}
+                      </span>
                     </div>
-                  )}
+                  </div>
 
+                  <span className={`text-xs font-mono font-bold ${
+                    isSelected ? "text-black" : "text-zinc-400"
+                  }`}>
+                    {isSelected ? "●" : "→"}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ------------------------------------------------------- */}
+          {/* RIGHT: THE CRISP ARCHIVAL DOSSIER SHEET                 */}
+          {/* Stamped white sheet with paper drop shadow               */}
+          {/* ------------------------------------------------------- */}
+          <div className="lg:col-span-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSector.slug}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="bg-white border-3 border-black p-6 sm:p-8 lg:p-10 shadow-[6px_6px_0px_#000000] space-y-7 relative"
+              >
+                
+                {/* Dossier Header Bar */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b-2 border-black pb-5">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 bg-[#60A5FA] text-black font-mono text-[10px] font-extrabold uppercase tracking-wider border border-black shadow-[1.5px_1.5px_0px_#000000]">
+                        {currentTags.badge}
+                      </span>
+                      <span className="text-zinc-500 font-mono text-[11px] font-bold">
+                        // {currentSector.tagline}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black tracking-tight">
+                      {currentSector.name}
+                    </h3>
+                  </div>
+
+                  {/* Telemetry Stamps */}
+                  <div className="flex sm:flex-col items-end gap-1 shrink-0 font-mono text-right">
+                    <span className="text-[10px] text-zinc-500 uppercase font-bold">
+                      Typical Cycle: <strong className="text-black">{currentTags.cycle}</strong>
+                    </span>
+                    <span className="text-[10px] text-zinc-500 uppercase font-bold">
+                      Target ACV: <strong className="text-[#2563EB]">{currentTags.acv}</strong>
+                    </span>
+                  </div>
                 </div>
 
-                {/* Bottom Result Anchor & Dual Action Buttons */}
-                <div className="pt-5 mt-6 border-t-2 border-white/10 space-y-3">
+                {/* Subheadline & Market Context */}
+                <div className="space-y-3">
+                  <p className="text-base sm:text-lg font-serif font-medium text-black leading-snug">
+                    {currentSector.heroHeadline}
+                  </p>
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                    {currentSector.marketContext}
+                  </p>
+                </div>
+
+                {/* Core Friction vs Winning Playbook (Two-column comparison) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
                   
-                  {/* Verified Metric Banner */}
-                  <div className="flex items-center justify-between p-3 bg-[#161F33] border-2 border-black rounded-none">
-                    <span className="text-lg sm:text-xl font-mono font-extrabold text-[#60A5FA]">
-                      {ind.featuredResult.metric}
-                    </span>
-                    <span className="text-[10px] font-mono text-zinc-300 font-semibold max-w-[210px] text-right line-clamp-1">
-                      {ind.featuredResult.context}
-                    </span>
+                  {/* Friction / Risk */}
+                  <div className="p-4 bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000] space-y-2.5">
+                    <div className="flex items-center gap-2 text-red-700 text-xs font-mono font-extrabold uppercase tracking-wider">
+                      <ShieldAlert className="w-3.5 h-3.5" />
+                      <span>The Core Friction</span>
+                    </div>
+                    <ul className="space-y-2 text-xs text-zinc-700">
+                      {currentSector.coreFriction.map((fric, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-red-600 font-bold leading-none mt-0.5">✕</span>
+                          <span className="leading-snug">{fric}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Dual Action CTAs */}
-                  <div className="grid grid-cols-2 gap-2">
+                  {/* Winning Angle */}
+                  <div className="p-4 bg-[#EFF6FF] border-2 border-black shadow-[2px_2px_0px_#000000] space-y-2.5">
+                    <div className="flex items-center gap-2 text-[#2563EB] text-xs font-mono font-extrabold uppercase tracking-wider">
+                      <Target className="w-3.5 h-3.5" />
+                      <span>The Architecture Fix</span>
+                    </div>
+                    <ul className="space-y-2 text-xs text-zinc-800">
+                      {currentSector.playbookStrategy.map((strat, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-[#2563EB] font-bold leading-none mt-0.5">✓</span>
+                          <span className="leading-snug">
+                            <strong className="text-black font-semibold">{strat.title}:</strong> {strat.description}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                </div>
+
+                {/* Buying Committee Addressed */}
+                <div className="space-y-2 pt-1">
+                  <div className="flex items-center gap-2 text-zinc-700 text-xs font-mono font-bold uppercase tracking-wider">
+                    <Users className="w-3.5 h-3.5 text-black" />
+                    <span>Multi-Stakeholder Committee Addressed</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    {currentSector.buyingCommittee.map((b, i) => (
+                      <div key={i} className="p-2.5 bg-white border border-black/30 rounded-none space-y-1">
+                        <span className="text-xs font-serif font-bold text-black block leading-tight">
+                          {b.role.split("(")[0].trim()}
+                        </span>
+                        <span className="text-[11px] text-zinc-600 block line-clamp-2 leading-tight">
+                          <strong>Angle:</strong> {b.winningAngle}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Metric Stamped Banner & Action Buttons */}
+                <div className="pt-4 border-t-2 border-black flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  
+                  {/* Result Metric */}
+                  <div className="flex items-center gap-3">
+                    <div className="px-3.5 py-2 bg-black text-white font-mono text-lg sm:text-xl font-extrabold border-2 border-black shadow-[2px_2px_0px_#60A5FA]">
+                      {currentSector.featuredResult.metric}
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">
+                        Verified Metric
+                      </span>
+                      <span className="text-xs font-mono text-black font-semibold block leading-tight">
+                        {currentSector.featuredResult.context}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-2.5 shrink-0">
                     <Link
-                      href={`/audit?stage=buyer-context&industry=${ind.slug}`}
-                      className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-[11px] font-extrabold uppercase tracking-wider shadow-[2.5px_2.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-center"
+                      href={`/audit?stage=buyer-context&industry=${currentSector.slug}`}
+                      className="inline-flex items-center gap-2 py-3 px-4 bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] transition-all"
                     >
-                      <span>Audit Engine</span>
-                      <ArrowRight className="w-3 h-3 shrink-0" />
+                      <span>Audit This Sector</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
 
                     <Link
-                      href={`/industries/${ind.slug}`}
-                      className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-none bg-white hover:bg-zinc-100 border-2 border-black text-black font-mono text-[11px] font-extrabold uppercase tracking-wider shadow-[2.5px_2.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-center"
+                      href={`/industries/${currentSector.slug}`}
+                      className="inline-flex items-center gap-2 py-3 px-4 bg-white hover:bg-zinc-100 border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] transition-all"
                     >
-                      <span>Playbook</span>
-                      <ArrowUpRight className="w-3 h-3 shrink-0" />
+                      <span>Full Playbook</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
 
                 </div>
-              </div>
-            );
-          })}
+
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
         </div>
 
         {/* ========================================================= */}
         {/* BOTTOM ADAPTABILITY STRIP                                */}
+        {/* Stamped paper footer card                                */}
         {/* ========================================================= */}
-        <div className="p-4 sm:p-5 rounded-none bg-[#121826] border-2 border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-          <div className="space-y-1">
-            <span className="text-xs font-mono font-bold text-white uppercase tracking-wider block">
-              Don&apos;t see your specific sector listed?
+        <div className="p-4 sm:p-5 rounded-none bg-white border-2 border-black shadow-[3px_3px_0px_#000000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-0.5">
+            <span className="text-xs font-mono font-bold text-black uppercase tracking-wider block">
+              Don&apos;t see your specific B2B niche or specialized domain?
             </span>
-            <p className="text-xs text-zinc-400">
-              Our 7-stage commercial architecture adapts across high-ACV markets, technical industrial exporters, and multi-layered buying committees.
+            <p className="text-xs text-zinc-600">
+              Our 7-stage commercial architecture is built for multi-stakeholder purchasing environments across all high-ACV markets.
             </p>
           </div>
 
           <Link 
             href="/audit" 
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-black font-mono text-xs font-extrabold uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] hover:bg-[#60A5FA] hover:translate-x-[1px] hover:translate-y-[1px] transition-all shrink-0 w-full sm:w-auto justify-center"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#FDE047] text-black font-mono text-xs font-extrabold uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all shrink-0 w-full sm:w-auto justify-center"
           >
-            <span>Request Custom Sector Audit</span>
+            <span>Request Custom Audit</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

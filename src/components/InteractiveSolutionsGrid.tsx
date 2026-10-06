@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Target, Sparkles, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { SOLUTIONS } from "@/data/solutions";
 
 export function InteractiveSolutionsGrid() {
@@ -16,8 +17,65 @@ export function InteractiveSolutionsGrid() {
     { badgeBg: "bg-[#E9D5FF]", border: "border-black", tagColor: "text-[#7E22CE]" },
   ];
 
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [isGliding, setIsGliding] = useState(false);
+  const [shadowStyle, setShadowStyle] = useState<{
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+    opacity: number;
+  }>({ top: 0, left: 0, width: 0, height: 0, opacity: 0 });
+
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const activeHoverRef = useRef(false);
+
+  const updateShadowPosition = (index: number, animate: boolean) => {
+    const el = cardRefs.current[index];
+    if (!el) return;
+
+    // Offset strictly to the right and bottom
+    const OFFSET_RIGHT = 8;
+    const OFFSET_BOTTOM = 8;
+
+    setIsGliding(animate);
+    setShadowStyle({
+      top: el.offsetTop + OFFSET_BOTTOM,
+      left: el.offsetLeft + OFFSET_RIGHT,
+      width: el.offsetWidth,
+      height: el.offsetHeight,
+      opacity: 1,
+    });
+    setHoveredIdx(index);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    const shouldAnimate = activeHoverRef.current;
+    activeHoverRef.current = true;
+    updateShadowPosition(index, shouldAnimate);
+  };
+
+  const handleContainerMouseLeave = () => {
+    activeHoverRef.current = false;
+    setHoveredIdx(null);
+    setShadowStyle((prev) => ({ ...prev, opacity: 0 }));
+    setIsGliding(false);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (hoveredIdx !== null) {
+        updateShadowPosition(hoveredIdx, false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [hoveredIdx]);
+
   return (
     <section className="space-y-8">
+      {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
@@ -40,17 +98,58 @@ export function InteractiveSolutionsGrid() {
         </Link>
       </div>
 
-      {/* Asymmetric layout: 2 Featured Wide Cards on top, 3 Distinct Cards below */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+      {/* Grid Container with Shared Animated Traveling Shadow */}
+      <div 
+        ref={containerRef}
+        onMouseLeave={handleContainerMouseLeave}
+        className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6"
+      >
+        {/* The Smooth Traveling Shadow Element (Lives behind cards, glides from card to card) */}
+        <motion.div
+          className="absolute bg-black rounded-[2rem] pointer-events-none z-0"
+          initial={false}
+          animate={{
+            top: shadowStyle.top,
+            left: shadowStyle.left,
+            width: shadowStyle.width,
+            height: shadowStyle.height,
+            opacity: shadowStyle.opacity,
+          }}
+          transition={{
+            top: isGliding 
+              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
+              : { duration: 0 },
+            left: isGliding 
+              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
+              : { duration: 0 },
+            width: isGliding 
+              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
+              : { duration: 0 },
+            height: isGliding 
+              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
+              : { duration: 0 },
+            opacity: { duration: 0.2, ease: "easeInOut" },
+          }}
+        />
+
+        {/* Five Cards: 2 on Top Row, 3 on Bottom Row */}
         {solutionList.map((sol, index) => {
           const accent = ACCENTS[index % ACCENTS.length];
-          // Give first two cards a wider 3-column span on lg screens, next 3 cards a 2-column span
+          // First two cards: 3 cols each (top row). Next three cards: 2 cols each (bottom row)
           const spanClass = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
+          const isHovered = hoveredIdx === index;
 
           return (
             <div
               key={sol.slug}
-              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] hover:-translate-y-1 transition-all group relative overflow-hidden`}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 transition-transform duration-300 ease-out`}
+              style={{
+                transform: isHovered ? "translate(-2px, -6px)" : "translate(0px, 0px)",
+              }}
             >
               {/* Corner Accent Ribbon */}
               <div className={`absolute top-0 right-0 w-24 h-24 ${accent.badgeBg} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />

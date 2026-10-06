@@ -41,17 +41,30 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
   const start = idx === 0 ? 0 : (idx - 1) * step;
   const end = idx === 0 ? 0 : idx * step;
 
-  // y-translation: slides smoothly up from 105% to 0%
+  // y-translation: slides smoothly up from the actual bottom of the viewport (100vh) to 0%
   const y = useTransform(
     progress,
     idx === 0 ? [0, 1] : [start, end],
-    idx === 0 ? ["0%", "0%"] : ["105%", "0%"]
+    idx === 0 ? ["0%", "0%"] : ["100vh", "0%"]
+  );
+
+  // Invisible while parked offscreen below viewport, fully visible while animating and active
+  const opacity = useTransform(
+    progress,
+    idx === 0 ? [0, 1] : [Math.max(0, start - 0.005), start],
+    idx === 0 ? [1, 1] : [0, 1]
+  );
+
+  const pointerEvents = useTransform(progress, (v) => 
+    idx === 0 || v >= start ? "auto" : "none"
   );
 
   return (
     <motion.div
       style={{
         y,
+        opacity,
+        pointerEvents,
         zIndex: idx + 1,
       }}
       className="absolute top-0 left-0 right-2 bottom-2"
@@ -235,7 +248,7 @@ export function InteractiveServicesHub() {
           Each card slides up from below and lands directly on top on scroll.
           Card 8 is 100% guaranteed to land on top of Card 7.
         */}
-        <div className="relative w-full flex-1 overflow-hidden">
+        <div className="relative w-full flex-1">
           {serviceList.map((srv, idx) => (
             <ServiceSlideCard
               key={srv.slug}

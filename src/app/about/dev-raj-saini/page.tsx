@@ -91,7 +91,12 @@ export default function DevRajSainiPage() {
       />
 
       {/* Profile Hero */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000]">
+      <section 
+        className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000] bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/textures/founder-bg.jpg')",
+        }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-8 space-y-5">

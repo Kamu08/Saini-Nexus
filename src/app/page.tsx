@@ -317,14 +317,12 @@ export default function HomePage() {
       {/* Two-tone accent frame with official seal styling          */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border-3 border-black rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 lg:p-14 text-black shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden">
-          
-          {/* Subtle dot grid accent */}
-          <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
-            style={{ backgroundImage: "radial-gradient(#000 1px, transparent 0)", backgroundSize: "24px 24px" }}
-          />
-
+        <div 
+          className="bg-white border-3 border-black rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 lg:p-14 text-black shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/textures/founder-bg.jpg')",
+          }}
+        >
           <div className="lg:col-span-7 space-y-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
               <Sparkles className="w-3.5 h-3.5" />

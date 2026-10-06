@@ -61,11 +61,11 @@ export function SectorCarousel() {
       {/* Vintage drafting paper background with texture & borders */}
       {/* ========================================================= */}
       <div 
-        className="bg-[#F6F3EB] border-3 border-black rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[8px_8px_0px_#000000] space-y-8 relative overflow-hidden"
+        className="bg-[#FAF7EF] border-3 border-black rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[8px_8px_0px_#000000] space-y-8 relative overflow-hidden"
         style={{
           backgroundImage: "url('/textures/paper-texture.jpg')",
           backgroundRepeat: "repeat",
-          backgroundSize: "500px 500px",
+          backgroundSize: "400px 400px",
         }}
       >
         
@@ -138,7 +138,7 @@ export function SectorCarousel() {
                   className={`w-full text-left p-3.5 sm:p-4 rounded-none transition-all flex items-center justify-between border-2 border-black cursor-pointer shrink-0 min-w-[240px] lg:min-w-0 ${
                     isSelected
                       ? "bg-white text-black shadow-[4px_4px_0px_#000000] translate-x-1"
-                      : "bg-[#EFE9DC] text-zinc-700 hover:bg-white/80 hover:text-black shadow-[2px_2px_0px_#000000]"
+                      : "bg-[#F5F1E8] text-zinc-700 hover:bg-white hover:text-black shadow-[2px_2px_0px_#000000]"
                   }`}
                 >
                   <div className="flex items-center gap-3">

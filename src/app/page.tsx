@@ -24,12 +24,11 @@ import { InteractiveSolutionsGrid } from "@/components/InteractiveSolutionsGrid"
 import { NexusGrowthMap } from "@/components/NexusGrowthMap";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
+import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
 import { INSIGHTS } from "@/data/insights";
-import { CASE_STUDIES } from "@/data/caseStudies";
 
 export default function HomePage() {
   const featuredInsights = INSIGHTS.slice(0, 4);
-  const featuredCaseStudies = CASE_STUDIES.slice(0, 3);
 
   const TICKER_ITEMS = [
     "LINKEDIN MARKETING LABS CERTIFIED",
@@ -165,152 +164,10 @@ export default function HomePage() {
       <SectorCarousel />
 
       {/* ========================================================= */}
-      {/* 06. CASE STUDIES: OVERLAPPING & STAGGERED EDITORIAL CARDS */}
-      {/* Motion, Overlapping Stack & Asymmetrical Spotlight        */}
+      {/* 06. CASE STUDIES: SPOTLIGHT HERO + COMPARATIVE PROOF      */}
+      {/* High-craft editorial case teardowns & verified ARR metrics */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
-              <Target className="w-3.5 h-3.5" />
-              Evidence &amp; Teardowns
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight">
-              Real Work. Real Campaigns. Real Proof.
-            </h2>
-            <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-              We separate campaign metrics from closed ARR outcomes to deliver transparent proof.
-            </p>
-          </div>
-          <Link href="/case-studies" className="neo-btn-white w-fit shrink-0">
-            <span>View All Case Studies</span>
-            <ArrowUpRight className="w-4 h-4 shrink-0" />
-          </Link>
-        </div>
-
-        {/* Dynamic Asymmetric / Overlapping Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
-          {/* Flagship Hero Teardown (Takes 7 columns on desktop) */}
-          {featuredCaseStudies[0] && (
-            <Link
-              href={`/case-studies/${featuredCaseStudies[0].slug}`}
-              className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-9 flex flex-col justify-between border-3 border-black shadow-[6px_6px_0px_#000000] hover:shadow-[8px_8px_0px_#000000] hover:-translate-y-1 transition-all group relative overflow-hidden"
-            >
-              <div className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-[#60A5FA] text-black font-bold uppercase text-[10px] font-mono border-2 border-black shadow-[1.5px_1.5px_0px_#000000]">
-                      FLAGSHIP TEARDOWN
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-[#EFF6FF] border border-black/30 font-bold uppercase text-[10px] font-mono text-zinc-700">
-                      {featuredCaseStudies[0].industry}
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono text-zinc-500 font-semibold bg-zinc-100 px-2.5 py-1 rounded-full">
-                    {featuredCaseStudies[0].timeline}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors tracking-tight leading-snug pt-1">
-                  {featuredCaseStudies[0].clientName}
-                </h3>
-
-                <p className="text-sm text-zinc-700 leading-relaxed">
-                  {featuredCaseStudies[0].coreChallenge}
-                </p>
-
-                {/* Big Live Metrics Strip */}
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  <div className="bg-[#EFF6FF] rounded-2xl p-4 border-2 border-black shadow-[2px_2px_0px_#000000]">
-                    <span className="text-[10px] text-zinc-600 uppercase font-mono font-bold block mb-1">
-                      Business Outcome
-                    </span>
-                    <strong className="text-[#2563EB] font-extrabold text-2xl font-mono block leading-none">
-                      {featuredCaseStudies[0].businessOutcomes[0]?.metric}
-                    </strong>
-                    <span className="text-xs text-zinc-700 block mt-1 font-medium font-mono">
-                      {featuredCaseStudies[0].businessOutcomes[0]?.label}
-                    </span>
-                  </div>
-                  <div className="bg-[#FAF7EF] rounded-2xl p-4 border-2 border-black shadow-[2px_2px_0px_#000000]">
-                    <span className="text-[10px] text-zinc-600 uppercase font-mono font-bold block mb-1">
-                      Efficiency Lift
-                    </span>
-                    <strong className="text-black font-extrabold text-2xl font-mono block leading-none">
-                      {featuredCaseStudies[0].campaignMetrics[0]?.metric}
-                    </strong>
-                    <span className="text-xs text-zinc-700 block mt-1 font-medium font-mono">
-                      {featuredCaseStudies[0].campaignMetrics[0]?.label}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t-2 border-black/10 flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-black group-hover:text-[#2563EB] transition-colors flex items-center gap-1.5">
-                  <span>Read Complete Campaign Architecture</span>
-                  <ArrowRight className="w-4 h-4" />
-                </span>
-                <span className="p-2.5 rounded-full bg-[#60A5FA] border-2 border-black shadow-[2px_2px_0px_#000000] text-black group-hover:translate-x-1 transition-transform">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </div>
-            </Link>
-          )}
-
-          {/* Overlapping Secondary Cards Stack (Takes 5 columns on desktop) */}
-          <div className="lg:col-span-5 flex flex-col gap-5 justify-between">
-            {featuredCaseStudies.slice(1, 3).map((study, idx) => (
-              <Link
-                key={study.slug}
-                href={`/case-studies/${study.slug}`}
-                className={`bg-white rounded-3xl p-6 border-2 border-black shadow-[4px_4px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] transition-all duration-300 group flex flex-col justify-between ${
-                  idx === 0 
-                    ? "sm:-rotate-1 hover:rotate-0 hover:z-20 sm:translate-y-1" 
-                    : "sm:rotate-1 hover:rotate-0 hover:z-20 sm:-translate-y-1"
-                }`}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#FAF7EF] border border-black font-bold uppercase text-[10px] font-mono">
-                      {study.industry}
-                    </span>
-                    <span className="text-[10px] font-mono text-zinc-500 font-semibold bg-zinc-100 px-2 py-0.5 rounded-full">
-                      {study.timeline}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors tracking-tight leading-snug">
-                    {study.clientName}
-                  </h3>
-
-                  <p className="text-xs text-zinc-600 line-clamp-2 leading-relaxed">
-                    {study.coreChallenge}
-                  </p>
-
-                  <div className="flex items-center gap-3 pt-2">
-                    <div className="bg-[#EFF6FF] px-3 py-1.5 rounded-xl border border-black/20 font-mono text-xs font-bold text-[#2563EB]">
-                      {study.businessOutcomes[0]?.metric}
-                    </div>
-                    <span className="text-[11px] text-zinc-600 font-mono">
-                      {study.businessOutcomes[0]?.label}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-4 mt-4 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
-                  <span className="font-bold text-zinc-700">Explore Teardown</span>
-                  <span className="p-1.5 rounded-full bg-[#EFF6FF] group-hover:bg-[#60A5FA] border border-black text-black transition-colors">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      <CaseStudyShowcase />
 
       {/* ========================================================= */}
       {/* 07. FOUNDER AUTHORITY: EXECUTIVE PROFILE DOSSIER          */}

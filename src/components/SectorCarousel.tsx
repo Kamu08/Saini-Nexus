@@ -40,11 +40,6 @@ const SECTOR_TAGS: Record<string, { badge: string; cycle: string; acv: string }>
   "real-estate": { badge: "Enterprise Occupiers", cycle: "90–180 Days", acv: "Multi-Year Leases / CapEx" },
 };
 
-// Organic torn paper edge paths (uneven wave micro-tears)
-const TOP_TORN_PATH = "M 0,0 L 1440,0 L 1440,37.9 L 1430,33.6 L 1420,37.5 L 1410,30.4 L 1400,32.7 L 1390,25.5 L 1380,19.2 L 1370,23.9 L 1360,19.7 L 1350,15.9 L 1340,21.8 L 1330,17 L 1320,11.2 L 1310,14.3 L 1300,7.2 L 1290,10.4 L 1280,4.8 L 1270,2 L 1260,8.4 L 1250,7.4 L 1240,7.1 L 1230,16.5 L 1220,15.1 L 1210,12.6 L 1200,19 L 1190,14.8 L 1180,20.5 L 1170,17 L 1160,14.6 L 1150,23.1 L 1140,22.3 L 1130,21.4 L 1120,29.6 L 1110,26.5 L 1100,21.9 L 1090,26 L 1080,19.6 L 1070,23.3 L 1060,18.1 L 1050,14.2 L 1040,21.5 L 1030,20 L 1020,18.8 L 1010,27.1 L 1000,24.6 L 990,21.1 L 980,26.8 L 970,22.5 L 960,28.7 L 950,26.1 L 940,25 L 930,34.9 L 920,35.5 L 910,35.9 L 900,45.2 L 890,43.1 L 880,39.4 L 870,44.3 L 860,38.6 L 850,42.9 L 840,38 L 830,33.9 L 820,40.5 L 810,37.5 L 800,34 L 790,39.4 L 780,33.5 L 770,26.3 L 760,28.3 L 750,20.4 L 740,23.2 L 730,17.5 L 720,13.3 L 710,20.5 L 700,18.5 L 690,16.5 L 680,23.7 L 670,20 L 660,15.4 L 650,20.1 L 640,14.9 L 630,20.4 L 620,17.2 L 610,15.1 L 600,23.8 L 590,22.6 L 580,20.8 L 570,27.6 L 560,23 L 550,16.9 L 540,20 L 530,13 L 520,16.7 L 510,11.7 L 500,7.9 L 490,15 L 480,12.6 L 470,9.8 L 460,16.1 L 450,11.5 L 440,6.2 L 430,10.7 L 420,6 L 410,12.4 L 400,10.6 L 390,10.3 L 380,21 L 370,22 L 360,22.4 L 350,31.7 L 340,29.6 L 330,26.4 L 320,32.6 L 310,28.9 L 300,35.9 L 290,33.9 L 280,32.6 L 270,41.6 L 260,40.2 L 250,37.7 L 240,43.5 L 230,37.9 L 220,31.3 L 210,34.1 L 200,27.5 L 190,31.8 L 180,27.7 L 170,24.8 L 160,32.6 L 150,30.5 L 140,27.7 L 130,33.9 L 120,29.2 L 110,23.8 L 100,28.4 L 90,23.9 L 80,30.4 L 70,28.4 L 60,27.4 L 50,36.5 L 40,35.3 L 30,32.8 L 20,38.7 L 10,33.1 L 0,26.5 Z";
-
-const BOTTOM_TORN_PATH = "M 0,26.5 L 10,33.1 L 20,38.7 L 30,32.8 L 40,35.3 L 50,36.5 L 60,27.4 L 70,28.4 L 80,30.4 L 90,23.9 L 100,28.4 L 110,23.8 L 120,29.2 L 130,33.9 L 140,27.7 L 150,30.5 L 160,32.6 L 170,24.8 L 180,27.7 L 190,31.8 L 200,27.5 L 210,34.1 L 220,31.3 L 230,37.9 L 240,43.5 L 250,37.7 L 260,40.2 L 270,41.6 L 280,32.6 L 290,33.9 L 300,35.9 L 310,28.9 L 320,32.6 L 330,26.4 L 340,29.6 L 350,31.7 L 360,22.4 L 370,22 L 380,21 L 390,10.3 L 400,10.6 L 410,12.4 L 420,6 L 430,10.7 L 440,6.2 L 450,11.5 L 460,16.1 L 470,9.8 L 480,12.6 L 490,15 L 500,7.9 L 510,11.7 L 520,16.7 L 530,13 L 540,20 L 550,16.9 L 560,23 L 570,27.6 L 580,20.8 L 590,22.6 L 600,23.8 L 610,15.1 L 620,17.2 L 630,20.4 L 640,14.9 L 650,20.1 L 660,15.4 L 670,20 L 680,23.7 L 690,16.5 L 700,18.5 L 710,20.5 L 720,13.3 L 730,17.5 L 740,23.2 L 750,20.4 L 760,28.3 L 770,26.3 L 780,33.5 L 790,39.4 L 800,34 L 810,37.5 L 820,40.5 L 830,33.9 L 840,38 L 850,42.9 L 860,38.6 L 870,44.3 L 880,39.4 L 890,43.1 L 900,45.2 L 910,35.9 L 920,35.5 L 930,34.9 L 940,25 L 950,26.1 L 960,28.7 L 970,22.5 L 980,26.8 L 990,21.1 L 1000,24.6 L 1010,27.1 L 1020,18.8 L 1030,20 L 1040,21.5 L 1050,14.2 L 1060,18.1 L 1070,23.3 L 1080,19.6 L 1090,26 L 1100,21.9 L 1110,26.5 L 1120,29.6 L 1130,21.4 L 1140,22.3 L 1150,23.1 L 1160,14.6 L 1170,17 L 1180,20.5 L 1190,14.8 L 1200,19 L 1210,12.6 L 1220,15.1 L 1230,16.5 L 1240,7.1 L 1250,7.4 L 1260,8.4 L 1270,2 L 1280,4.8 L 1290,10.4 L 1300,7.2 L 1310,14.3 L 1320,11.2 L 1330,17 L 1340,21.8 L 1350,15.9 L 1360,19.7 L 1370,23.9 L 1380,19.2 L 1390,25.5 L 1400,32.7 L 1410,30.4 L 1420,37.5 L 1430,33.6 L 1440,37.9 L 1440,48 L 0,48 Z";
-
 export function SectorCarousel() {
   const industries = Object.values(INDUSTRIES);
   const [selectedSlug, setSelectedSlug] = useState<string>("b2b-saas");
@@ -58,36 +53,15 @@ export function SectorCarousel() {
   };
 
   return (
-    <section className="w-full relative my-12 sm:my-18">
-      
-      {/* ========================================================= */}
-      {/* 01. TOP TORN / RIPPED PAPER EDGE                          */}
-      {/* Uneven organic wave divider cutting from cream into white  */}
-      {/* ========================================================= */}
-      <div className="w-full overflow-hidden leading-none relative z-20 pointer-events-none -mb-[1px]">
-        <svg
-          viewBox="0 0 1440 48"
-          preserveAspectRatio="none"
-          className="w-full h-8 sm:h-13 block text-[#FAF7EF] filter drop-shadow-[0_5px_4px_rgba(0,0,0,0.07)]"
-          fill="currentColor"
-        >
-          <path d={TOP_TORN_PATH} />
-        </svg>
-      </div>
-
-      {/* ========================================================= */}
-      {/* 02. FULL-WIDTH WHITE PAPER TEXTURED BODY (No Card Box)    */}
-      {/* Spans full width of the viewport with authentic texture  */}
-      {/* ========================================================= */}
-      <div 
-        className="w-full bg-white relative py-10 sm:py-16 shadow-[inset_0_1px_3px_rgba(0,0,0,0.02)]"
-        style={{
-          backgroundImage: "url('/textures/paper-texture.jpg')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "400px 400px",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+    <section 
+      className="w-full bg-white border-y-2 border-black relative py-12 sm:py-20 my-10 sm:my-16"
+      style={{
+        backgroundImage: "url('/textures/paper-texture.jpg')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "500px 500px",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
           
           {/* Archival Folder Metadata Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-black/15 pb-5">
@@ -379,23 +353,6 @@ export function SectorCarousel() {
           </div>
 
         </div>
-      </div>
-
-      {/* ========================================================= */}
-      {/* 03. BOTTOM TORN / RIPPED PAPER EDGE                       */}
-      {/* Uneven organic wave divider cutting back into cream       */}
-      {/* ========================================================= */}
-      <div className="w-full overflow-hidden leading-none relative z-20 pointer-events-none -mt-[1px]">
-        <svg
-          viewBox="0 0 1440 48"
-          preserveAspectRatio="none"
-          className="w-full h-8 sm:h-13 block text-[#FAF7EF] filter drop-shadow-[0_-5px_4px_rgba(0,0,0,0.07)]"
-          fill="currentColor"
-        >
-          <path d={BOTTOM_TORN_PATH} />
-        </svg>
-      </div>
-
     </section>
   );
 }

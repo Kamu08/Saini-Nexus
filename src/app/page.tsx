@@ -25,10 +25,9 @@ import { NexusGrowthMap } from "@/components/NexusGrowthMap";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
-import { INSIGHTS } from "@/data/insights";
+import { EditorialJournalDesk } from "@/components/EditorialJournalDesk";
 
 export default function HomePage() {
-  const featuredInsights = INSIGHTS.slice(0, 4);
 
   const TICKER_ITEMS = [
     "LINKEDIN MARKETING LABS CERTIFIED",
@@ -244,71 +243,10 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 08. INSIGHTS: EDITORIAL JOURNAL TABLE (NO MORE BOXES!)    */}
-      {/* High-Craft Magazine Ledger with horizontal line rows      */}
+      {/* 08. INSIGHTS: INTERACTIVE EDITORIAL JOURNAL DESK          */}
+      {/* Dynamic Magazine Cover Preview + Sliding Tracker Ledger    */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-black/15 pb-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
-              <BookOpen className="w-3.5 h-3.5" />
-              Field Notes &amp; Intelligence
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight">
-              Saini Nexus Editorial Journal
-            </h2>
-            <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-              Empirical practitioner observations, algorithm teardowns, and B2B growth intelligence.
-            </p>
-          </div>
-          <Link href="/insights" className="neo-btn-white w-fit shrink-0">
-            <span>Explore All Field Notes</span>
-            <ArrowUpRight className="w-4 h-4 shrink-0" />
-          </Link>
-        </div>
-
-        {/* Newspaper / Journal Table Rows: Completely breaks the box syndrome! */}
-        <div className="divide-y-2 divide-black/15 border-y-2 border-black">
-          {featuredInsights.map((article, index) => (
-            <Link
-              key={article.slug}
-              href={`/insights/${article.slug}`}
-              className="py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 group hover:bg-[#EFF6FF]/60 px-3 sm:px-6 -mx-3 sm:-mx-6 rounded-2xl transition-all"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 max-w-3xl">
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="font-mono text-xs font-bold text-zinc-400">
-                    #{String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border border-black ${
-                    article.isFieldNote ? "bg-[#60A5FA] text-black" : "bg-[#FAF7EF] text-zinc-800"
-                  }`}>
-                    {article.category}
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors tracking-tight leading-snug">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-zinc-600 line-clamp-1 font-normal">
-                    {article.summary}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between md:justify-end gap-4 shrink-0 pt-2 md:pt-0">
-                <span className="text-xs font-mono text-zinc-500 font-semibold">
-                  {article.readTime}
-                </span>
-                <span className="w-9 h-9 rounded-full bg-white border-2 border-black flex items-center justify-center text-black group-hover:bg-[#60A5FA] group-hover:translate-x-1 transition-all shadow-[2px_2px_0px_#000000]">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <EditorialJournalDesk />
 
       {/* ========================================================= */}
       {/* 09. FINAL COMMERCIAL INTAKE: HAVE A B2B GROWTH CHALLENGE? */}

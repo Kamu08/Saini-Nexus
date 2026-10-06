@@ -56,8 +56,8 @@ export function InteractiveSolutionsGrid() {
               <div className={`absolute top-0 right-0 w-24 h-24 ${accent.badgeBg} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />
 
               <div className="space-y-4 relative z-10">
-                {/* Header: Number & Tagline with clean responsive layout */}
-                <div className="flex items-center justify-between gap-2">
+                {/* Header: Number & Tagline touching right edge */}
+                <div className="flex items-center justify-between gap-2 -mr-6 sm:-mr-8">
                   <div className="flex items-center gap-2 shrink-0">
                     <span className={`w-8 h-8 rounded-xl ${accent.badgeBg} border-2 border-black text-black flex items-center justify-center font-mono text-xs font-extrabold shrink-0 shadow-[2px_2px_0px_#000000]`}>
                       {sol.number}
@@ -66,7 +66,7 @@ export function InteractiveSolutionsGrid() {
                       DOSSIER
                     </span>
                   </div>
-                  <span className={`${accent.badgeBg} border-2 border-black text-black font-mono font-bold uppercase tracking-wider text-[10px] px-2.5 py-1 rounded-full shadow-[1.5px_1.5px_0px_#000000] whitespace-nowrap shrink-0`}>
+                  <span className={`${accent.badgeBg} border-2 border-r-0 border-black text-black font-mono font-bold uppercase tracking-wider text-[10px] pl-3.5 pr-4 sm:pr-6 py-1 rounded-l-full shadow-[-1.5px_2px_0px_#000000] whitespace-nowrap shrink-0`}>
                     {sol.tagline}
                   </span>
                 </div>

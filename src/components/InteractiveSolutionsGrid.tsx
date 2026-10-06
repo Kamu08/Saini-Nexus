@@ -57,16 +57,16 @@ export function InteractiveSolutionsGrid() {
 
               <div className="space-y-4 relative z-10">
                 {/* Header: Number & Tagline with clean responsive layout */}
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     <span className={`w-8 h-8 rounded-xl ${accent.badgeBg} border-2 border-black text-black flex items-center justify-center font-mono text-xs font-extrabold shrink-0 shadow-[2px_2px_0px_#000000]`}>
                       {sol.number}
                     </span>
                     <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-zinc-500">
-                      SOLUTION DOSSIER
+                      DOSSIER
                     </span>
                   </div>
-                  <span className={`${accent.badgeBg} border-2 border-black text-black font-mono font-bold uppercase tracking-wider text-[10px] px-3 py-1 rounded-full shadow-[1.5px_1.5px_0px_#000000] whitespace-nowrap`}>
+                  <span className={`${accent.badgeBg} border-2 border-black text-black font-mono font-bold uppercase tracking-wider text-[10px] px-2.5 py-1 rounded-full shadow-[1.5px_1.5px_0px_#000000] whitespace-nowrap shrink-0`}>
                     {sol.tagline}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export function InteractiveSolutionsGrid() {
               <div className="pt-5 mt-5 border-t-2 border-black/10 flex items-center justify-between gap-3 relative z-10">
                 <Link
                   href={`/solutions/${sol.slug}`}
-                  className="text-xs font-mono text-black group-hover:text-[#2563EB] font-bold flex items-center gap-1 uppercase tracking-wider shrink-0 transition-colors"
+                  className="text-xs font-mono text-black hover:text-[#2563EB] font-bold flex items-center gap-1 uppercase tracking-wider shrink-0 transition-colors"
                 >
                   <span>Inspect Solution</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0" />

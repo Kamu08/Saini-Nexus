@@ -22,13 +22,12 @@ import { ModernHero } from "@/components/ModernHero";
 import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { InteractiveSolutionsGrid } from "@/components/InteractiveSolutionsGrid";
 import { NexusGrowthMap } from "@/components/NexusGrowthMap";
+import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
-import { INDUSTRIES } from "@/data/industries";
 import { INSIGHTS } from "@/data/insights";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
 export default function HomePage() {
-  const industryList = Object.values(INDUSTRIES);
   const featuredInsights = INSIGHTS.slice(0, 4);
   const featuredCaseStudies = CASE_STUDIES.slice(0, 3);
 
@@ -160,84 +159,10 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 05. FEATURED INDUSTRIES: WARM BUTTER CANVAS               */}
-      {/* Distinct Section Background with Rounded Edges            */}
+      {/* 05. FEATURED INDUSTRIES: MINIMALIST HIGH-CONTRAST SLIDER  */}
+      {/* Swipeable Sector Blueprints & Direct Commercial Audits   */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#FFFBEB] border-3 border-black rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 lg:p-12 shadow-[6px_6px_0px_#000000] space-y-8 relative overflow-hidden">
-          
-          {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-black/10 pb-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
-                <Briefcase className="w-3.5 h-3.5" />
-                Industry Architectures
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight">
-                B2B Growth Across Key Sectors
-              </h2>
-              <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-                Acquisition blueprints tailored to the buying committee dynamics and sales cycles of your specific industry.
-              </p>
-            </div>
-            <Link href="/industries" className="neo-btn-white w-fit shrink-0">
-              <span>Explore All Industries</span>
-              <ArrowUpRight className="w-4 h-4 shrink-0" />
-            </Link>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {industryList.slice(0, 6).map((ind, idx) => {
-              const icons = ["💻", "🏭", "🏥", "⚖️", "🏗️", "💰"];
-              return (
-                <Link
-                  key={ind.slug}
-                  href={`/industries/${ind.slug}`}
-                  className="bg-white rounded-2xl p-6 flex flex-col justify-between group border-2 border-black shadow-[3.5px_3.5px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[-2px] hover:shadow-[5.5px_5.5px_0px_#000000] transition-all duration-200"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="text-xs font-mono text-[#2563EB] font-bold uppercase tracking-wider">
-                        {ind.tagline}
-                      </span>
-                      <span className="text-2xl leading-none shrink-0">{icons[idx] ?? "🔹"}</span>
-                    </div>
-                    <h3 className="text-xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors tracking-tight">
-                      {ind.name}
-                    </h3>
-                    <p className="text-xs text-zinc-600 line-clamp-2 leading-relaxed">
-                      {ind.heroSubheadline}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 mt-4 border-t-2 border-black/10 flex items-center justify-between">
-                    <span className="text-xs font-mono font-extrabold text-black bg-[#EFF6FF] px-2.5 py-1 rounded-full border border-black/20">
-                      {ind.featuredResult.metric}
-                    </span>
-                    <span className="text-xs font-mono text-black group-hover:text-[#2563EB] font-bold flex items-center gap-1 transition-colors">
-                      <span>View Playbook</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Adaptability Note */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-black shadow-[3px_3px_0px_#000000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-xs sm:text-sm text-zinc-800 font-medium">
-              <strong className="text-black font-bold">Don&apos;t see your specific sector?</strong> Our B2B growth frameworks adapt across high-ACV markets and multi-stakeholder buying environments.
-            </p>
-            <Link href="/contact" className="neo-btn-blue text-xs uppercase tracking-wider shrink-0 w-full sm:w-auto text-center">
-              <span>Talk to Us</span>
-              <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
+      <SectorCarousel />
 
       {/* ========================================================= */}
       {/* 06. CASE STUDIES: OVERLAPPING & STAGGERED EDITORIAL CARDS */}

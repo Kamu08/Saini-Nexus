@@ -172,7 +172,7 @@ export const SERVICES: Record<string, ServiceItem> = {
       "Weekly Optimization & CAC Telemetry"
     ],
     whoThisIsFor: [
-      "B2B SaaS companies scaling past $10k MRR.",
+      "B2B SaaS companies scaling past ₹1L/month MRR.",
       "Enterprise IT, consulting, and export firms targeting global buyers.",
       "Growth teams looking to optimize LinkedIn Ads ROI."
     ],
@@ -250,7 +250,7 @@ export const SERVICES: Record<string, ServiceItem> = {
       "Account Engagement Telemetry Dashboard"
     ],
     whoThisIsFor: [
-      "Enterprise SaaS and IT services with ACV > $15,000.",
+      "Enterprise SaaS and IT services with ACV > ₹5 Lakhs.",
       "Industrial manufacturing exporters selling high-ticket machinery.",
       "Consulting firms targeting corporate enterprise leadership."
     ],

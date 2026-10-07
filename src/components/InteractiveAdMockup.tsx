@@ -121,7 +121,7 @@ export function InteractiveAdMockup() {
                   95% of your target B2B buyers are NOT in the market today.
                 </p>
                 <p className="text-zinc-700">
-                  If 100% of your LinkedIn budget is spent screaming &ldquo;Book a Demo&rdquo; to cold audiences, you&apos;re paying $250+ CPLs for junior staff with zero budget authority.
+                  If 100% of your LinkedIn budget is spent screaming &ldquo;Book a Demo&rdquo; to cold audiences, you&apos;re paying ₹20,000+ CPLs for junior staff with zero budget authority.
                 </p>
                 <p className="text-zinc-700">
                   Here is the exact 4-point Demand Architecture we deployed for our enterprise SaaS client to increase Sales Acceptance Rate to 82%:
@@ -244,7 +244,7 @@ export function InteractiveAdMockup() {
             <div className="p-4 rounded-2xl bg-white border-2 border-black space-y-1 shadow-[3px_3px_0px_#000000]">
               <div className="text-xs font-mono uppercase text-zinc-600 font-bold">Cost Per Sales Lead</div>
               <div className="text-2xl font-mono font-extrabold text-black">
-                {activeFormat === "tla" ? "-46%" : activeFormat === "document" ? "-38%" : "$118"}
+                {activeFormat === "tla" ? "-46%" : activeFormat === "document" ? "-38%" : "₹3,200"}
               </div>
               <div className="text-[11px] text-zinc-600 font-medium">Qualified decision-maker</div>
             </div>

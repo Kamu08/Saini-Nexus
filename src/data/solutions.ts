@@ -93,7 +93,7 @@ export const SOLUTIONS: Record<string, SolutionItem> = {
     ],
     metricsThatMatter: [
       { metric: "68%", context: "Target Account Penetration Rate within 90 days" },
-      { metric: "$35k+", context: "Average Contract Value (ACV) targeted" },
+      { metric: "₹5L+", context: "Average Contract Value (ACV) targeted" },
       { metric: "82%", context: "Sales Acceptance Rate on inbound account opportunities" }
     ]
   },

@@ -33,7 +33,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
     name: "",
     email: "",
     company: "",
-    dealSize: "$10k - $30k",
+    dealSize: "Under ₹5 Lakhs",
     notes: ""
   });
 
@@ -259,10 +259,10 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                     onChange={(e) => setFormData({ ...formData, dealSize: e.target.value })}
                     className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-mono font-medium text-black focus:outline-none focus:shadow-[2px_2px_0px_#000000] cursor-pointer"
                   >
-                    <option value="< $10,000">&lt; $10,000</option>
-                    <option value="$10,000 - $30,000">$10,000 - $30,000</option>
-                    <option value="$30,000 - $75,000">$30,000 - $75,000</option>
-                    <option value="$75,000+">$75,000+ (Enterprise)</option>
+                    <option value="Under ₹5 Lakhs">Under ₹5 Lakhs (Early-Stage / Services)</option>
+                    <option value="₹5 Lakhs – ₹15 Lakhs">₹5 Lakhs – ₹15 Lakhs (Mid-Market B2B)</option>
+                    <option value="₹15 Lakhs – ₹35 Lakhs">₹15 Lakhs – ₹35 Lakhs (Growth Stage)</option>
+                    <option value="₹35 Lakhs+">₹35 Lakhs+ (Enterprise / Global Exporters)</option>
                   </select>
                 </div>
               </div>

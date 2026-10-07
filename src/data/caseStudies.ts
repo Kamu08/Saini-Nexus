@@ -37,28 +37,28 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     industry: "B2B SaaS / DevOps",
     market: "United States & India",
     timeline: "90-Day Sprint",
-    coreChallenge: "CloudScale was generating leads via LinkedIn Lead Gen forms at $220 CPL, but 86% were junior developers with zero purchasing authority. Sales reps refused to take follow-up meetings.",
+    coreChallenge: "CloudScale was generating leads via LinkedIn Lead Gen forms at ₹18,000 CPL, but 86% were junior developers with zero purchasing authority. Sales reps refused to take follow-up meetings.",
     businessContext: "A Series-B funded enterprise infrastructure SaaS provider expanding into mid-market US manufacturing and financial technology accounts.",
     hypothesis: "Shifting from broad title targeting to Matched Account ABM with strict seniority exclusions and Thought Leader Ads from the CEO will lower CAC while increasing Sales Acceptance Rate to >75%.",
     diagnosis: "The previous agency targeted 'Software Engineers' without exclusion filters, using generic 'Get Free Demo' ad graphics that attracted students and entry-level coders.",
     strategy: "Constructed a 3-tier ABM architecture targeting 450 verified enterprise accounts. Used Document Ads for technical credibility and Thought Leader Ads for executive trust.",
     execution: [
-      "Tier-1 account list matching 450 enterprise accounts with ACV > $25,000.",
+      "Tier-1 account list matching 450 enterprise accounts with ACV > ₹5 Lakhs.",
       "Executive POV Thought Leader ad campaign sponsored from the Founder profile.",
       "8-slide technical PDF architecture teardown with zero gated friction.",
       "Mandatory qualification gate on native Lead Gen forms (Budget, Tech Stack)."
     ],
     campaignHook: "'Why 70% of Enterprise Migration Budgets Overrun by Month 3—And the 4-Point Pre-Flight Audit.'",
     creativeFormat: "8-Page Native LinkedIn Document Ad + CEO Thought Leader Ad",
-    spendProfile: "Scaled from $3,500/mo test to $12,000/mo steady state",
+    spendProfile: "Scaled from ₹35,000/mo test to ₹1,20,000/mo steady state",
     campaignMetrics: [
       { label: "CTR Benchmark", metric: "2.84%", context: "Thought Leader Ads outperformed industry average by 2.9x" },
       { label: "Form Completion Rate", metric: "18.4%", context: "Native 1-click in-feed form completion" },
-      { label: "CPL Reduction", metric: "-46%", context: "Cost per verified decision-maker lead dropped to $118" }
+      { label: "CPL Reduction", metric: "-46%", context: "Cost per verified decision-maker lead dropped to ₹3,200" }
     ],
     businessOutcomes: [
       { label: "Sales Acceptance Rate", metric: "82%", context: "Sales-accepted discovery meetings (up from 14%)" },
-      { label: "Pipeline Generated", metric: "$1.4M", context: "Qualified sales-accepted pipeline within 90 days" },
+      { label: "Pipeline Generated", metric: "₹38L", context: "Qualified sales-accepted pipeline within 90 days" },
       { label: "Sales Cycle Velocity", metric: "34%", context: "Faster progression from discovery to contract proposal" }
     ],
     whatChanged: "Sales and marketing achieved complete alignment. Inbound demo requests came exclusively from VP of Engineering and CISO titles with active enterprise projects.",
@@ -85,15 +85,15 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     ],
     campaignHook: "'Sub-Micron CNC Tolerances at 32% Lower Landed Cost: The Direct Indian Sourcing Benchmark.'",
     creativeFormat: "Technical Specification Document Carousel + Facility QA Teardown",
-    spendProfile: "$4,500/mo targeted across US, German, and UK industrial clusters",
+    spendProfile: "₹40,000/mo targeted across US, German, and UK industrial clusters",
     campaignMetrics: [
       { label: "Target Account Reach", metric: "76%", context: "Reachable decision-makers in 300 target OEM accounts" },
       { label: "Document Save Rate", metric: "4.8x", context: "Technical spec sheets saved by procurement officers" },
-      { label: "Cost Per RFQ Lead", metric: "$165", context: "High-value enterprise specification submissions" }
+      { label: "Cost Per RFQ Lead", metric: "₹3,800", context: "High-value enterprise specification submissions" }
     ],
     businessOutcomes: [
       { label: "Direct RFQ Submissions", metric: "24 RFQs", context: "Direct technical specification inquiries without middlemen" },
-      { label: "New Contracts Won", metric: "3 Deals", context: "Closed annual manufacturing contracts worth $840k in first 4 months" },
+      { label: "New Contracts Won", metric: "3 Deals", context: "Closed annual manufacturing contracts worth ₹42L in first 4 months" },
       { label: "Margin Improvement", metric: "+22%", context: "Higher profit margin by eliminating export broker commission" }
     ],
     whatChanged: "Apex transitioned from an order-taker dependent on intermediaries to a recognized international tier-1 exporter with direct client procurement relationships.",
@@ -120,7 +120,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     ],
     campaignHook: "'The 5 Hidden Regulatory Exposure Points in Cross-Border Fintech Payment Rails (2025 Audit).'",
     creativeFormat: "Executive Opinion Post + 6-Slide Regulatory Flowchart Carousel",
-    spendProfile: "$3,000/mo LinkedIn Thought Leader Ads",
+    spendProfile: "₹25,000/mo LinkedIn Thought Leader Ads",
     campaignMetrics: [
       { label: "Executive Engagement", metric: "3.2x", context: "Higher organic engagement compared to corporate page" },
       { label: "Click-Through Rate", metric: "3.42%", context: "On Thought Leader Ads targeting CFO & CCO titles" },
@@ -128,7 +128,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     ],
     businessOutcomes: [
       { label: "Retainer Proposals", metric: "14 Sent", context: "High-ticket regulatory advisory retainers submitted" },
-      { label: "New Retainers Signed", metric: "5 Clients", context: "Generated ₹48L in new annual recurring advisory revenue" },
+      { label: "New Retainers Signed", metric: "5 Clients", context: "Generated ₹18L in new annual recurring advisory revenue" },
       { label: "CAC Payback", metric: "<45 Days", context: "Rapid commercial payback on paid campaign investment" }
     ],
     whatChanged: "The Managing Partner became a recognized regulatory voice in the Indian fintech ecosystem, turning spontaneous commentary into a repeatable client acquisition engine.",

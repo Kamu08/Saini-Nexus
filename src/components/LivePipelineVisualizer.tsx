@@ -11,7 +11,7 @@ import {
   ArrowRight,
   Sparkles,
   TrendingUp,
-  DollarSign,
+  IndianRupee,
   ShieldCheck,
   Building2
 } from "lucide-react";

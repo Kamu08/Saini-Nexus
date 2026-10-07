@@ -112,7 +112,7 @@ export default function BookStrategyCallPage() {
             <ul className="space-y-2 text-xs text-zinc-800 font-medium">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
-                <span>B2B SaaS, Technology, IT Services, or Enterprise Consulting firms with ACV &gt; $5,000.</span>
+                <span>B2B SaaS, Technology, IT Services, or Enterprise Consulting firms with Deal Size &gt; ₹2 Lakhs.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
@@ -208,10 +208,10 @@ export default function BookStrategyCallPage() {
                   name="budget"
                   className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
                 >
-                  <option value="under-2k">$1,500 – $3,000 / month (₹1.2L – ₹2.5L)</option>
-                  <option value="3k-10k">$3,000 – $10,000 / month (₹2.5L – ₹8L)</option>
-                  <option value="10k-25k">$10,000 – $25,000 / month (₹8L – ₹20L)</option>
-                  <option value="25k-plus">$25,000+ / month (₹20L+)</option>
+                  <option value="starter">₹25,000 – ₹50,000 / month (Starter Engine)</option>
+                  <option value="growth">₹50,000 – ₹1,00,000 / month (Growth Tier)</option>
+                  <option value="scale">₹1,00,000 – ₹2,50,000 / month (Scale Tier)</option>
+                  <option value="enterprise">₹2,50,000+ / month (Enterprise & Global)</option>
                 </select>
               </div>
 

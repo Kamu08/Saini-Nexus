@@ -74,7 +74,7 @@ export function getLocalBusinessSchema() {
     "@id": "https://saininexus.com",
     url: "https://saininexus.com",
     email: "contact@saininexus.com",
-    priceRange: "$$$$",
+    priceRange: "₹₹ - ₹₹₹",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sitapura Industrial Area / Malviya Nagar",

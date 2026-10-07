@@ -49,7 +49,7 @@ export default function CaseStudiesPage() {
               Aggregate Pipeline Generated
             </span>
             <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block mt-1">
-              $2.24M+ ARR
+              ₹98L+ ARR
             </strong>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">

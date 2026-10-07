@@ -35,13 +35,13 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     heroSubheadline: "Move beyond shallow free-trial signups. Saini Nexus helps B2B SaaS companies reach buying committees, educate out-of-market accounts, and generate high-ACV enterprise pipeline.",
     marketContext: "SaaS buyers are exhausted by generic feature pitches and cold spam. 95% of software accounts are not in an active buying cycle today. Winning requires establishing category authority and commercial point-of-view long before the RFP stage.",
     coreFriction: [
-      "Spending high budgets on 'Book a Demo' ads with $300+ CPLs that sales reps reject.",
+      "Spending high budgets on 'Book a Demo' ads with ₹25,000+ CPLs that sales reps reject.",
       "High landing page bounce rates on complex multi-tier pricing structures.",
       "Product marketing focused on technical features rather than business CFO impact."
     ],
     playbookStrategy: [
       { title: "Point-of-View Demand Creation", description: "Framing the commercial cost of existing manual workflows through ungated technical teardowns." },
-      { title: "Matched Account ABM", description: "Targeting enterprise accounts with ACV > $20k with customized multi-threading campaigns." },
+      { title: "Matched Account ABM", description: "Targeting enterprise accounts with ACV > ₹10 Lakhs with customized multi-threading campaigns." },
       { title: "Founder Thought Leader Ads", description: "Amplifying CEO/CTO product vision for 3x higher CTR and lower customer acquisition costs." }
     ],
     buyingCommittee: [

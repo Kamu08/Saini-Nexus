@@ -14,7 +14,7 @@ import {
   BarChart3,
   Target,
   FileText,
-  DollarSign,
+  IndianRupee,
   Compass,
   ArrowLeft
 } from "lucide-react";

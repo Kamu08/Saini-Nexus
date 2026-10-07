@@ -23,7 +23,6 @@ import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
-import { EditorialJournalDesk } from "@/components/EditorialJournalDesk";
 
 export default function HomePage() {
 
@@ -300,11 +299,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* 08. INSIGHTS: INTERACTIVE EDITORIAL JOURNAL DESK          */}
-      {/* Dynamic Magazine Cover Preview + Sliding Tracker Ledger    */}
-      {/* ========================================================= */}
-      <EditorialJournalDesk />
+
 
       {/* ========================================================= */}
       {/* 09. FINAL COMMERCIAL INTAKE: HAVE A B2B GROWTH CHALLENGE? */}

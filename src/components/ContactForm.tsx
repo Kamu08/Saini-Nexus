@@ -5,88 +5,44 @@ import Link from "next/link";
 import { 
   CheckCircle2, 
   ArrowRight, 
-  ShieldCheck, 
+  Mail, 
   MapPin, 
   Sparkles, 
   Clock, 
-  Check, 
+  ShieldCheck, 
   Calendar,
   Send,
   Lock,
   ArrowUpRight,
-  Target,
-  Zap,
   TrendingUp,
-  Cpu,
-  Layers,
-  Building2
+  Building2,
+  Check
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
-interface ObjectiveConfig {
+interface FocusOption {
   id: string;
   label: string;
-  tag: string;
-  icon: React.ReactNode;
-  format: string;
-  focus: string;
-  benchmark: string;
-  accentBg: string;
+  short: string;
 }
 
-const OBJECTIVES: ObjectiveConfig[] = [
-  {
-    id: "pipeline",
-    label: "Scale Sales-Accepted Pipeline",
-    tag: "Demand Capture",
-    icon: <TrendingUp className="w-4 h-4" />,
-    format: "Un-gated Technical Proof + 1-Click Qualified Lead Gen",
-    focus: "Cut wasted clicks & drive >75% Sales Acceptance Rate",
-    benchmark: "Target ACV: ₹5L – ₹35L+ Contracts",
-    accentBg: "bg-[#60A5FA]"
-  },
-  {
-    id: "ads",
-    label: "Full-Funnel LinkedIn Ads",
-    tag: "Paid Media Engine",
-    icon: <Zap className="w-4 h-4" />,
-    format: "CEO Thought Leader Ads + Native PDF Document Carousels",
-    focus: "Strict seniority negative exclusions to eliminate junior student clicks",
-    benchmark: "-40% to -46% Cost Per Qualified Lead",
-    accentBg: "bg-[#FDE047]"
-  },
-  {
-    id: "abm",
-    label: "Enterprise Account ABM",
-    tag: "High-Ticket Targeting",
-    icon: <Target className="w-4 h-4" />,
-    format: "3-Tier Matched Account List + Multi-Threading Buying Group",
-    focus: "Reach 5-7 decision-makers per enterprise target account",
-    benchmark: "70%+ Target Account Penetration Rate",
-    accentBg: "bg-[#86EFAC]"
-  },
-  {
-    id: "thought-leadership",
-    label: "Executive Thought Leadership",
-    tag: "Founder Authority",
-    icon: <Sparkles className="w-4 h-4" />,
-    format: "Founder IP Extraction + Contrarian Problem-Framing Essays",
-    focus: "Transform partner intellectual authority into repeatable inbound deal flow",
-    benchmark: "2.8x to 3.4x Higher CTR vs Corporate Brand Pages",
-    accentBg: "bg-[#F472B6]"
-  }
+const FOCUS_AREAS: FocusOption[] = [
+  { id: "pipeline", label: "Pipeline & Demand Generation", short: "Demand Gen" },
+  { id: "linkedin-ads", label: "Full-Funnel LinkedIn Ads Engine", short: "LinkedIn Ads" },
+  { id: "abm", label: "Enterprise Account ABM", short: "Enterprise ABM" },
+  { id: "thought-leadership", label: "Founder Thought Leadership", short: "Thought Leadership" }
 ];
 
 const BUDGET_TIERS = [
-  { id: "starter", label: "₹25,000 – ₹50,000 / mo", sub: "Starter Engine" },
-  { id: "growth", label: "₹50,000 – ₹1,00,000 / mo", sub: "Growth Tier" },
-  { id: "scale", label: "₹1,00,000 – ₹2,50,000 / mo", sub: "Scale Tier" },
-  { id: "enterprise", label: "₹2,50,000+ / mo", sub: "Enterprise & Global" }
+  { id: "starter", label: "₹25k – ₹50k / mo", full: "₹25,000 – ₹50,000 / mo (Starter Engine)" },
+  { id: "growth", label: "₹50k – ₹1L / mo", full: "₹50,000 – ₹1,00,000 / mo (Growth Tier)" },
+  { id: "scale", label: "₹1L – ₹2.5L / mo", full: "₹1,00,000 – ₹2,50,000 / mo (Scale Tier)" },
+  { id: "enterprise", label: "₹2.5L+ / mo", full: "₹2,50,000+ / mo (Enterprise & Global)" }
 ];
 
 export function ContactForm() {
-  const [selectedObjective, setSelectedObjective] = useState<string>("pipeline");
+  const [selectedFocus, setSelectedFocus] = useState<string>("pipeline");
   const [selectedBudget, setSelectedBudget] = useState<string>("starter");
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -98,8 +54,14 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const currentObj = OBJECTIVES.find((o) => o.id === selectedObjective) || OBJECTIVES[0];
+  const currentFocusObj = FOCUS_AREAS.find((f) => f.id === selectedFocus) || FOCUS_AREAS[0];
   const currentBudgetObj = BUDGET_TIERS.find((b) => b.id === selectedBudget) || BUDGET_TIERS[0];
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("kamal0sharma02@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,8 +71,8 @@ export function ContactForm() {
       name: formData.name,
       workEmail: formData.workEmail,
       company: formData.company,
-      objective: currentObj.label,
-      budget: `${currentBudgetObj.label} (${currentBudgetObj.sub})`,
+      objective: currentFocusObj.label,
+      budget: currentBudgetObj.full,
       notes: formData.notes,
       recipient: "kamal0sharma02@gmail.com"
     };
@@ -132,14 +94,14 @@ export function ContactForm() {
             "Accept": "application/json"
           },
           body: JSON.stringify({
-            _subject: `New Saini Nexus Lead: ${currentObj.label} [${currentBudgetObj.label}]`,
+            _subject: `New Saini Nexus Inquiry: ${currentFocusObj.label} [${currentBudgetObj.label}]`,
             _template: "table",
             "Full Name": formData.name,
             "Work Email": formData.workEmail,
-            "Company": formData.company,
-            "Objective": currentObj.label,
-            "Budget Tier": `${currentBudgetObj.label} (${currentBudgetObj.sub})`,
-            "Notes": formData.notes
+            "Company / Domain": formData.company,
+            "Focus Area": currentFocusObj.label,
+            "Monthly Budget Tier": currentBudgetObj.full,
+            "Project Scope & Challenge": formData.notes
           })
         });
       }
@@ -152,352 +114,341 @@ export function ContactForm() {
   };
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-10">
       
-      {/* Modern Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-black/15 pb-6">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000] mb-3">
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Interactive Strategy Studio</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight leading-tight">
-            Configure Your B2B Growth Engine
-          </h2>
-          <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-            Select your primary objective and monthly parameters. We will audit your buyer committee coverage and prepare a preliminary diagnostic blueprint.
-          </p>
+      {/* Editorial Section Header */}
+      <div className="border-b-2 border-black/15 pb-8">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EF] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000] mb-4">
+          <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+          <span>Direct Commercial Intake</span>
         </div>
-
-        <div className="flex items-center gap-3 shrink-0">
-          <Link
-            href="/book"
-            className="neo-btn-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-[2px_2px_0px_#000000]"
-          >
-            <span>Direct Calendar Booking</span>
-            <ArrowUpRight className="w-4 h-4 shrink-0" />
-          </Link>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black tracking-tight leading-tight">
+              Let&apos;s Scale Your Pipeline.
+            </h2>
+            <p className="text-zinc-700 text-base sm:text-lg font-medium leading-relaxed">
+              Have an enterprise ACV, a long sales cycle, or paid clicks that aren&apos;t turning into sales-accepted meetings? Tell us about your acquisition model or request a complimentary pipeline diagnostic.
+            </p>
+          </div>
+          
+          <div className="shrink-0 flex items-center gap-3">
+            <Link
+              href="/book"
+              className="neo-btn-white text-xs font-mono font-bold flex items-center gap-2 whitespace-nowrap shadow-[3px_3px_0px_#000000]"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
+              <span>Or Book a 15-Min Briefing</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Modern 12-Column Split Studio */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* Main Container: Editorial Swiss Split */}
+      <div className="bg-[#FAF7EF] border-3 border-black rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         
-        {/* Left 5 Columns: The Live Strategy Telemetry Terminal */}
-        <div className="lg:col-span-5 bg-white border-2 border-black rounded-[2rem] p-6 sm:p-7 shadow-[5px_5px_0px_#000000] space-y-6 relative overflow-hidden">
+        {/* LEFT COLUMN: The Editorial Consultation Dossier (5 cols) */}
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
           
-          {/* Mac/Terminal Style Header */}
-          <div className="flex items-center justify-between border-b-2 border-black/10 pb-4">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#F472B6] border border-black" />
-              <span className="w-3 h-3 rounded-full bg-[#FDE047] border border-black" />
-              <span className="w-3 h-3 rounded-full bg-[#86EFAC] border border-black" />
-              <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider ml-2">
-                ACQUISITION-TELEMETRY.SYS
+          <div className="space-y-6">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#2563EB] font-extrabold block mb-1">
+                Engagement Protocol
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black leading-snug">
+                How We Partner With B2B Leaders
+              </h3>
+              <p className="text-zinc-600 text-sm mt-2 leading-relaxed">
+                We work directly with founders, CMOs, and revenue leaders who require rigorous, verifiable demand architecture.
+              </p>
+            </div>
+
+            {/* 3 Editorial Commitments */}
+            <div className="space-y-4 pt-2">
+              <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[3px_3px_0px_#000000]">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-6 h-6 rounded-full bg-[#60A5FA] border border-black text-black font-mono text-xs font-extrabold flex items-center justify-center">
+                    01
+                  </span>
+                  <h4 className="font-serif font-bold text-black text-base">
+                    Direct Partner Review
+                  </h4>
+                </div>
+                <p className="text-xs text-zinc-600 pl-8 leading-relaxed">
+                  Every inquiry is personally reviewed by Dev Raj Saini. Zero screening calls with junior SDRs or outsourced coordinators.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[3px_3px_0px_#000000]">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-6 h-6 rounded-full bg-[#FDE047] border border-black text-black font-mono text-xs font-extrabold flex items-center justify-center">
+                    02
+                  </span>
+                  <h4 className="font-serif font-bold text-black text-base">
+                    Diagnostic in 24–48 Hours
+                  </h4>
+                </div>
+                <p className="text-xs text-zinc-600 pl-8 leading-relaxed">
+                  We evaluate your committee coverage, negative exclusions, and technical proof gaps before suggesting any budget commitment.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[3px_3px_0px_#000000]">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-6 h-6 rounded-full bg-[#86EFAC] border border-black text-black font-mono text-xs font-extrabold flex items-center justify-center">
+                    03
+                  </span>
+                  <h4 className="font-serif font-bold text-black text-base">
+                    Zero Vanity Metrics
+                  </h4>
+                </div>
+                <p className="text-xs text-zinc-600 pl-8 leading-relaxed">
+                  We measure success strictly on Sales-Accepted Pipeline, qualified ACVs, and customer acquisition cost reduction.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Contact & Verified Channels */}
+          <div className="bg-white/80 border-2 border-black rounded-2xl p-4 sm:p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold">
+                Direct Channels
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                24h Response SLA
               </span>
             </div>
 
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-400 text-emerald-800 text-[10px] font-mono font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              ACTIVE
-            </span>
-          </div>
-
-          {/* Dynamic Blueprint Card (Reacts to user's selections) */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentObj.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="space-y-4"
-            >
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold block">
-                  Target Blueprint Architecture:
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className={`px-2.5 py-1 rounded-full ${currentObj.accentBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1.5px_1.5px_0px_#000000]`}>
-                    {currentObj.tag}
-                  </span>
-                  <span className="text-xs font-serif font-bold text-black truncate">
-                    {currentObj.label}
-                  </span>
+            <div className="space-y-2 text-xs font-mono">
+              <div className="flex items-center justify-between gap-2 p-2 rounded-xl bg-[#FAF7EF] border border-black/20">
+                <div className="flex items-center gap-2 truncate">
+                  <Mail className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                  <span className="font-bold text-black truncate">kamal0sharma02@gmail.com</span>
                 </div>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="px-2 py-1 bg-white border border-black text-[10px] font-bold rounded hover:bg-zinc-100 transition-colors shrink-0"
+                >
+                  {copiedEmail ? "Copied!" : "Copy"}
+                </button>
               </div>
 
-              {/* Forensic Metric Specs */}
-              <div className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000] space-y-3">
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono uppercase font-bold text-[#2563EB] block">
-                    Ad Format Strategy:
-                  </span>
-                  <p className="text-xs font-sans font-bold text-black leading-snug">
-                    {currentObj.format}
-                  </p>
-                </div>
-
-                <div className="space-y-0.5 border-t border-black/10 pt-2">
-                  <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
-                    Execution Focus:
-                  </span>
-                  <p className="text-xs font-sans text-zinc-700 leading-snug">
-                    {currentObj.focus}
-                  </p>
-                </div>
-
-                <div className="space-y-0.5 border-t border-black/10 pt-2">
-                  <span className="text-[10px] font-mono uppercase font-bold text-emerald-800 block">
-                    Target Outcome Benchmark:
-                  </span>
-                  <p className="text-xs font-mono font-extrabold text-black">
-                    {currentObj.benchmark}
-                  </p>
-                </div>
+              <div className="flex items-center gap-2 p-2 rounded-xl bg-[#FAF7EF] border border-black/20 text-zinc-700">
+                <MapPin className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                <span>Jaipur, Rajasthan, India · Serving India &amp; Global B2B</span>
               </div>
-
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Selected Budget Summary */}
-          <div className="p-3.5 bg-[#EFF6FF] border-2 border-black rounded-2xl flex items-center justify-between text-xs font-mono shadow-[2px_2px_0px_#000000]">
-            <div>
-              <span className="text-[10px] text-zinc-500 uppercase font-bold block">Allocated Tier:</span>
-              <strong className="text-black font-extrabold">{currentBudgetObj.label}</strong>
-            </div>
-            <span className="px-2.5 py-1 rounded-full bg-white border border-black font-extrabold text-[#2563EB] text-[10px]">
-              {currentBudgetObj.sub}
-            </span>
-          </div>
-
-          {/* Founder Verification Footer */}
-          <div className="pt-4 border-t-2 border-black/10 flex items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full bg-[#FAF7EF] border-2 border-black flex items-center justify-center font-serif font-black text-sm text-black shadow-[1px_1px_0px_#000000]">
-                DS
-              </div>
-              <div>
-                <span className="font-serif font-bold text-black block leading-tight">Dev Raj Saini</span>
-                <span className="text-[10px] font-mono text-zinc-500 block">Personally Reviews Each Inquiry</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-1 text-[11px] font-mono font-bold text-zinc-600 bg-zinc-100 px-2.5 py-1 rounded-full border border-black/20">
-              <Clock className="w-3 h-3 text-[#2563EB]" />
-              <span>&lt;4h SLA</span>
             </div>
           </div>
 
         </div>
 
-        {/* Right 7 Columns: Modern Interactive Configurator Form */}
-        <div className="lg:col-span-7 bg-[#FAF7EF] border-2 border-black rounded-[2rem] p-6 sm:p-9 shadow-[5px_5px_0px_#000000]">
-          
-          {submitted ? (
-            <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-[4px_4px_0px_#000000] animate-in fade-in">
-              <div className="w-16 h-16 rounded-full bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center mx-auto shadow-[2px_2px_0px_#000000]">
-                <CheckCircle2 className="w-8 h-8" />
+        {/* RIGHT COLUMN: High-Contrast Business Inquiry Card (7 cols) */}
+        <div className="lg:col-span-7">
+          <div className="bg-white border-3 border-black rounded-3xl p-6 sm:p-8 lg:p-9 shadow-[6px_6px_0px_#000000]">
+            
+            {submitted ? (
+              <div className="py-12 text-center space-y-6">
+                <div className="w-16 h-16 rounded-full bg-[#86EFAC] border-3 border-black flex items-center justify-center mx-auto shadow-[4px_4px_0px_#000000]">
+                  <Check className="w-8 h-8 text-black stroke-[3]" />
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+                    Diagnostic Request Received
+                  </h3>
+                  <p className="text-zinc-600 text-sm max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong className="text-black">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-black">Dev Raj Saini</strong>. We will review your company profile and respond within 24 hours.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-[#FAF7EF] border-2 border-black rounded-2xl max-w-md mx-auto text-left text-xs space-y-1.5 font-mono">
+                  <div className="flex justify-between">
+                    <span className="text-zinc-500">Selected Focus:</span>
+                    <span className="font-bold text-black">{currentFocusObj.label}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-zinc-500">Target Budget:</span>
+                    <span className="font-bold text-black">{currentBudgetObj.label}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-zinc-500">Delivery Status:</span>
+                    <span className="font-bold text-emerald-700">Dispatched to Founder Email</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex justify-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({ name: "", workEmail: "", company: "", notes: "" });
+                    }}
+                    className="neo-btn-white text-xs font-mono font-bold"
+                  >
+                    Submit Another Inquiry
+                  </button>
+                  <Link
+                    href="/case-studies"
+                    className="neo-btn-blue text-xs font-mono font-bold flex items-center gap-1.5"
+                  >
+                    <span>Explore Case Studies</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
-                Diagnostic Request Received!
-              </h3>
-              <p className="text-sm text-zinc-700 max-w-md mx-auto font-medium">
-                Thank you, <strong>{formData.name || "there"}</strong>! Dev Raj Saini will personally review your company profile and return your preliminary growth assessment within 4 business hours.
-              </p>
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs font-mono text-zinc-700 hover:text-black underline cursor-pointer font-bold"
-                >
-                  Configure another session
-                </button>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              
-              {/* Step 1: Objective Selector (Interactive Modern Cards) */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-xs font-mono text-black font-extrabold uppercase tracking-wider flex items-center gap-1.5">
-                    <span className="w-5 h-5 rounded-md bg-[#60A5FA] border border-black text-black flex items-center justify-center text-[10px]">
-                      01
-                    </span>
-                    <span>Select Commercial Objective</span>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                
+                {/* Step 1: Strategic Focus Area */}
+                <div className="space-y-2.5">
+                  <label className="text-xs font-mono uppercase tracking-wider font-extrabold text-black flex items-center justify-between">
+                    <span>1. What is your primary growth priority?</span>
+                    <span className="text-[10px] text-[#2563EB] font-bold">Select One</span>
                   </label>
-                  <span className="text-[10px] font-mono text-zinc-500 font-semibold">Tap to configure</span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {OBJECTIVES.map((obj) => {
-                    const isSelected = selectedObjective === obj.id;
-
-                    return (
-                      <button
-                        type="button"
-                        key={obj.id}
-                        onClick={() => setSelectedObjective(obj.id)}
-                        className={`p-3 rounded-2xl border-2 border-black text-left transition-all cursor-pointer flex items-center justify-between gap-3 ${
-                          isSelected
-                            ? "bg-[#60A5FA] text-black shadow-[3px_3px_0px_#000000]"
-                            : "bg-white text-zinc-800 hover:bg-zinc-50 shadow-[1px_1px_0px_#000000]"
-                        }`}
-                      >
-                        <div className="space-y-0.5 min-w-0">
-                          <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block truncate">
-                            {obj.tag}
-                          </span>
-                          <span className="text-xs font-serif font-bold text-black block leading-snug truncate">
-                            {obj.label}
-                          </span>
-                        </div>
-                        <div className={`w-6 h-6 rounded-lg border border-black flex items-center justify-center shrink-0 ${
-                          isSelected ? "bg-white text-black" : "bg-zinc-100 text-zinc-400"
-                        }`}>
-                          {isSelected ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : obj.icon}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Step 2: Budget Tier Selection (4 Tactile Pills) */}
-              <div className="space-y-2 pt-1">
-                <label className="text-xs font-mono text-black font-extrabold uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-md bg-[#FDE047] border border-black text-black flex items-center justify-center text-[10px]">
-                    02
-                  </span>
-                  <span>Estimated Monthly Budget</span>
-                </label>
-
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {BUDGET_TIERS.map((tier) => {
-                    const isSelected = selectedBudget === tier.id;
-
-                    return (
-                      <button
-                        type="button"
-                        key={tier.id}
-                        onClick={() => setSelectedBudget(tier.id)}
-                        className={`p-2.5 rounded-xl border-2 border-black text-center transition-all cursor-pointer ${
-                          isSelected
-                            ? "bg-black text-white shadow-[2px_2px_0px_#000000]"
-                            : "bg-white text-zinc-700 hover:bg-zinc-50 shadow-[1px_1px_0px_#000000]"
-                        }`}
-                      >
-                        <span className="text-[10px] font-mono block leading-tight font-extrabold">
-                          {tier.sub}
-                        </span>
-                        <span className={`text-[10px] font-mono font-medium block mt-0.5 truncate ${
-                          isSelected ? "text-zinc-300" : "text-zinc-500"
-                        }`}>
-                          {tier.label.split(" / ")[0]}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Step 3: Verified Contact & Company Inputs */}
-              <div className="space-y-3 pt-1">
-                <label className="text-xs font-mono text-black font-extrabold uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-md bg-[#86EFAC] border border-black text-black flex items-center justify-center text-[10px]">
-                    03
-                  </span>
-                  <span>Your Contact &amp; Company Info</span>
-                </label>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[11px] font-mono text-zinc-600 mb-1 font-bold">
-                      Your Full Name <span className="text-rose-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Vikram Sharma"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white border-2 border-black rounded-xl px-3.5 py-2.5 text-sm text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-mono text-zinc-600 mb-1 font-bold">
-                      Corporate Work Email <span className="text-rose-600">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="vikram@company.com"
-                      value={formData.workEmail}
-                      onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                      className="w-full bg-white border-2 border-black rounded-xl px-3.5 py-2.5 text-sm text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
-                    />
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {FOCUS_AREAS.map((area) => {
+                      const isSelected = selectedFocus === area.id;
+                      return (
+                        <button
+                          key={area.id}
+                          type="button"
+                          onClick={() => setSelectedFocus(area.id)}
+                          className={`text-left p-3 rounded-xl border-2 transition-all font-mono text-xs flex items-center justify-between ${
+                            isSelected
+                              ? "bg-[#60A5FA]/20 border-black shadow-[3px_3px_0px_#000000] font-extrabold text-black"
+                              : "bg-[#FAF7EF] border-black/30 hover:border-black text-zinc-700 hover:text-black hover:bg-white"
+                          }`}
+                        >
+                          <span className="truncate">{area.label}</span>
+                          <span
+                            className={`w-3.5 h-3.5 rounded-full border-2 border-black ml-2 shrink-0 ${
+                              isSelected ? "bg-[#2563EB]" : "bg-white"
+                            }`}
+                          />
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Step 2: Estimated Monthly Budget */}
+                <div className="space-y-2.5">
+                  <label className="text-xs font-mono uppercase tracking-wider font-extrabold text-black flex items-center justify-between">
+                    <span>2. Estimated Monthly Growth &amp; Media Budget</span>
+                    <span className="text-[10px] text-zinc-500 font-bold">INR (₹)</span>
+                  </label>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {BUDGET_TIERS.map((tier) => {
+                      const isSelected = selectedBudget === tier.id;
+                      return (
+                        <button
+                          key={tier.id}
+                          type="button"
+                          onClick={() => setSelectedBudget(tier.id)}
+                          className={`py-2 px-2.5 rounded-xl border-2 text-center transition-all font-mono text-xs ${
+                            isSelected
+                              ? "bg-[#FDE047] border-black font-extrabold text-black shadow-[3px_3px_0px_#000000]"
+                              : "bg-[#FAF7EF] border-black/30 hover:border-black text-zinc-700 hover:text-black hover:bg-white"
+                          }`}
+                        >
+                          {tier.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Step 3: Contact & Company Details */}
+                <div className="space-y-3.5 pt-1">
+                  <label className="text-xs font-mono uppercase tracking-wider font-extrabold text-black block">
+                    3. Your Commercial Details
+                  </label>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Full Name *"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl px-3.5 py-2.5 text-sm font-mono text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Work Email Address *"
+                        value={formData.workEmail}
+                        onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
+                        className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl px-3.5 py-2.5 text-sm font-mono text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 transition-all"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-[11px] font-mono text-zinc-600 mb-1 font-bold">
-                      Company Website <span className="text-rose-600">*</span>
-                    </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. company.com"
+                      placeholder="Company Name & Website (e.g. Acme Corp · acme.com) *"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-white border-2 border-black rounded-xl px-3.5 py-2.5 text-sm text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                      className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl px-3.5 py-2.5 text-sm font-mono text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono text-zinc-600 mb-1 font-bold">
-                      Current Growth Roadblock <span className="text-zinc-400 font-normal">(Optional)</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. High CPLs, low sales acceptance"
+                    <textarea
+                      rows={3}
+                      placeholder="Briefly describe your acquisition bottleneck, target ACV, or primary objective..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-white border-2 border-black rounded-xl px-3.5 py-2.5 text-sm text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                      className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl px-3.5 py-2.5 text-sm font-mono text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20 transition-all resize-none"
                     />
                   </div>
                 </div>
-              </div>
 
-              {/* Action Button */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full neo-btn-blue text-sm uppercase tracking-wider py-4 cursor-pointer font-extrabold shadow-[3px_3px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] transition-all flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <span>Generating Strategy Blueprint...</span>
-                  ) : (
-                    <>
-                      <span>Request Free Strategy Teardown</span>
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </>
-                  )}
-                </button>
-              </div>
+                {/* Submit Action */}
+                <div className="pt-2 space-y-3">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full neo-btn-blue text-sm font-mono font-extrabold py-3.5 flex items-center justify-center gap-2 shadow-[4px_4px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] transition-all disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <span>Submitting Diagnostic Request...</span>
+                    ) : (
+                      <>
+                        <span>Submit Inquiry &amp; Request Diagnostic</span>
+                        <ArrowRight className="w-4 h-4 shrink-0" />
+                      </>
+                    )}
+                  </button>
 
-              {/* Micro Trust Disclaimer */}
-              <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-zinc-500 pt-0.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>Zero sales spam &middot; Confidential NDA-grade handling &middot; Reviewed by Dev Raj Saini</span>
-              </div>
+                  <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-500 gap-2 text-center sm:text-left">
+                    <span className="flex items-center gap-1.5">
+                      <Lock className="w-3 h-3 text-zinc-400 shrink-0" />
+                      Strict NDA Confidentiality · No Sales Spam
+                    </span>
+                    <span className="flex items-center gap-1.5 text-zinc-600 font-bold">
+                      <Clock className="w-3 h-3 text-[#2563EB] shrink-0" />
+                      Direct Founder Review within 24 Hours
+                    </span>
+                  </div>
+                </div>
 
-            </form>
-          )}
+              </form>
+            )}
 
+          </div>
         </div>
 
       </div>

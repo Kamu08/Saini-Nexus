@@ -30,52 +30,12 @@ export function CaseStudyShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const activeHoverRef = useRef(false);
 
-  const campaigns = [
-    {
-      ...CASE_STUDIES[0],
-      tabLabel: "Enterprise B2B SaaS",
-      badgeColor: "bg-[#60A5FA]",
-      headerBg: "bg-[#EFF6FF]",
-      borderAccent: "border-[#2563EB]",
-      heroTitle: "CloudScale Systems: From Junior Clicks to ₹38L Pipeline",
-      shortSummary: "Eliminated 86% wasted junior clicks by shifting to Matched Account ABM with un-gated technical architecture teardowns and CEO Thought Leader Ads.",
-      primaryNumber: "₹38L ARR",
-      primaryLabel: "Verified Qualified Pipeline",
-      statA: { label: "Sales Accepted", val: "82%" },
-      statB: { label: "CPL Reduction", val: "-46%" },
-      hookPill: "4-POINT PRE-FLIGHT AUDIT",
-      hookTitle: "Why 70% of Enterprise Cloud Migrations Overrun Budgets"
-    },
-    {
-      ...CASE_STUDIES[1],
-      tabLabel: "Industrial Manufacturing & Export",
-      badgeColor: "bg-[#FDE047]",
-      headerBg: "bg-[#FEFCE8]",
-      borderAccent: "border-amber-500",
-      heroTitle: "Apex Heavy Precision: Bypassing Brokers for Direct OEM Contracts",
-      shortSummary: "Eliminated 18% export broker margins by serving sub-micron automated CNC tolerance dossiers directly to European & US VP of Supply Chain titles.",
-      primaryNumber: "₹42L",
-      primaryLabel: "Closed Annual Contracts",
-      statA: { label: "Direct RFQs", val: "24 Leads" },
-      statB: { label: "Margin Gain", val: "+22%" },
-      hookPill: "ISO 9001 / AS9100 DOSSIER",
-      hookTitle: "Sub-Micron CNC Tolerances at 32% Lower Landed Cost"
-    },
-    {
-      ...CASE_STUDIES[2],
-      tabLabel: "High-Ticket Advisory & FinTech",
-      badgeColor: "bg-[#86EFAC]",
-      headerBg: "bg-[#F0FDF4]",
-      borderAccent: "border-emerald-500",
-      heroTitle: "Novus Advisory Partners: Executive Authority to ₹18L Retainers",
-      shortSummary: "Monetized Managing Partner regulatory IP into contrarian teardowns, generating direct corporate advisory inbound inquiries and rapid CAC payback.",
-      primaryNumber: "₹18L ARR",
-      primaryLabel: "New Annual Retainers Won",
-      statA: { label: "Proposals Sent", val: "14 Retainers" },
-      statB: { label: "CAC Payback", val: "<45 Days" },
-      hookPill: "2025 REGULATORY AUDIT",
-      hookTitle: "5 Hidden Regulatory Exposure Points in Cross-Border Rails"
-    }
+  const ACCENTS = [
+    { badgeBg: "bg-[#BFDBFE]", headerBg: "bg-[#EFF6FF]", textAccent: "text-[#1D4ED8]" },
+    { badgeBg: "bg-[#FEF08A]", headerBg: "bg-[#FEFCE8]", textAccent: "text-[#A16207]" },
+    { badgeBg: "bg-[#BBF7D0]", headerBg: "bg-[#F0FDF4]", textAccent: "text-[#15803D]" },
+    { badgeBg: "bg-[#FED7AA]", headerBg: "bg-[#FFF7ED]", textAccent: "text-[#C2410C]" },
+    { badgeBg: "bg-[#E9D5FF]", headerBg: "bg-[#FAF5FF]", textAccent: "text-[#7E22CE]" },
   ];
 
   const updateShadowPosition = (index: number, animate: boolean) => {
@@ -134,7 +94,7 @@ export function CaseStudyShowcase() {
             Real Work. Real Campaigns. Real Proof.
           </h2>
           <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-            Inspect the actual in-market ad assets, creative hooks, and verifiable revenue outcomes. Hover over any dossier to inspect details.
+            Five empirical client teardowns across SaaS, export manufacturing, FinTech, enterprise IT, and healthcare. Click any card to inspect the full campaign dossier.
           </p>
         </div>
 
@@ -144,13 +104,13 @@ export function CaseStudyShowcase() {
         </Link>
       </div>
 
-      {/* Grid Container with Smooth Traveling Right/Bottom Shadow Animation */}
+      {/* Grid Container with Shared Animated Traveling Shadow: 2 Top Wide Cards, 3 Bottom Cards */}
       <div
         ref={containerRef}
         onMouseLeave={handleContainerMouseLeave}
-        className="relative grid grid-cols-1 lg:grid-cols-3 gap-6"
+        className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6"
       >
-        {/* The Smooth Traveling Shadow Element */}
+        {/* The Smooth Traveling Shadow Element (Lives behind cards, glides from card to card) */}
         <motion.div
           className="absolute bg-black rounded-[2rem] pointer-events-none z-0"
           initial={false}
@@ -178,101 +138,108 @@ export function CaseStudyShowcase() {
           }}
         />
 
-        {/* 3 Case Study Cards */}
-        {campaigns.map((item, index) => {
+        {/* Five Cards: 2 on Top Row (lg:col-span-3), 3 on Bottom Row (lg:col-span-2) */}
+        {CASE_STUDIES.slice(0, 5).map((study, index) => {
+          const accent = ACCENTS[index % ACCENTS.length];
+          const spanClass = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
           const isHovered = hoveredIdx === index;
 
           return (
             <div
-              key={item.slug}
+              key={study.slug}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
               onMouseEnter={() => handleMouseEnter(index)}
-              className="bg-white rounded-[2rem] p-6 sm:p-7 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 space-y-6"
+              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-7 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 space-y-6`}
             >
-              {/* Corner Ambient Accent */}
-              <div className={`absolute top-0 right-0 w-28 h-28 ${item.badgeColor} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />
+              {/* Corner Accent Circle */}
+              <div className={`absolute top-0 right-0 w-28 h-28 ${accent.badgeBg} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />
 
               <div className="space-y-4 relative z-10">
                 
-                {/* Header: Code Pill & Sector Tag */}
+                {/* Header: Code Pill & Industry Tag */}
                 <div className="flex items-center justify-between gap-2 border-b-2 border-black/10 pb-3">
                   <div className="flex items-center gap-2">
-                    <span className={`px-2.5 py-1 rounded-full ${item.badgeColor} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1.5px_1.5px_0px_#000000]`}>
-                      {item.clientCode}
+                    <span className={`px-2.5 py-1 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1.5px_1.5px_0px_#000000]`}>
+                      {study.clientCode}
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-zinc-600 uppercase tracking-wider">
-                      {item.tabLabel}
+                    <span className="text-[10px] font-mono font-bold text-zinc-600 uppercase tracking-wider truncate">
+                      {study.industry}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full shrink-0">
                     VERIFIED
                   </span>
                 </div>
 
-                {/* Main Outcome Callout Box */}
-                <div className={`${item.headerBg} border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000] space-y-1`}>
+                {/* Primary Outcome Callout Banner */}
+                <div className={`${accent.headerBg} border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000] space-y-0.5`}>
                   <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
-                    {item.primaryLabel}
+                    {study.businessOutcomes[1]?.label || study.businessOutcomes[0]?.label || "Verified Growth Outcome"}
                   </span>
                   <div className="text-3xl sm:text-4xl font-serif font-black text-black tracking-tight">
-                    {item.primaryNumber}
+                    {study.businessOutcomes[1]?.metric || study.businessOutcomes[0]?.metric}
                   </div>
                 </div>
 
-                {/* Hero Title */}
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-snug group-hover:text-[#2563EB] transition-colors">
-                  {item.heroTitle}
-                </h3>
+                {/* Client Name & Hero Title */}
+                <div>
+                  <span className="text-xs font-mono font-bold text-zinc-500 block mb-1">
+                    {study.clientName}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-snug group-hover:text-[#2563EB] transition-colors line-clamp-2">
+                    {study.hypothesis}
+                  </h3>
+                </div>
 
-                {/* Summary */}
-                <p className="text-xs text-zinc-700 leading-relaxed font-medium">
-                  {item.shortSummary}
+                {/* Strategy Summary */}
+                <p className="text-xs text-zinc-700 leading-relaxed font-medium line-clamp-2">
+                  {study.coreChallenge}
                 </p>
 
                 {/* Two Supporting Stat Badges */}
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <div className="bg-[#FAF7EF] border border-black rounded-xl p-2.5 space-y-0.5">
                     <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase block truncate">
-                      {item.statA.label}
+                      {study.campaignMetrics[0]?.label || "Metric A"}
                     </span>
-                    <strong className="text-sm font-mono font-extrabold text-black block">
-                      {item.statA.val}
+                    <strong className="text-sm font-mono font-extrabold text-black block truncate">
+                      {study.campaignMetrics[0]?.metric}
                     </strong>
                   </div>
                   <div className="bg-[#FAF7EF] border border-black rounded-xl p-2.5 space-y-0.5">
                     <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase block truncate">
-                      {item.statB.label}
+                      {study.businessOutcomes[0]?.label || "Metric B"}
                     </span>
-                    <strong className="text-sm font-mono font-extrabold text-black block">
-                      {item.statB.val}
+                    <strong className="text-sm font-mono font-extrabold text-black block truncate">
+                      {study.businessOutcomes[0]?.metric}
                     </strong>
                   </div>
                 </div>
 
-                {/* Campaign Hook Pill */}
+                {/* Campaign Hook Snippet */}
                 <div className="p-3 bg-zinc-50 border border-black/30 rounded-xl space-y-1 text-xs">
                   <span className="text-[9px] font-mono uppercase font-extrabold text-[#2563EB] block">
-                    Ad Hook &middot; {item.hookPill}
+                    In-Market Creative Hook
                   </span>
                   <p className="font-serif italic text-black text-xs font-medium leading-snug line-clamp-2">
-                    &ldquo;{item.hookTitle}&rdquo;
+                    {study.campaignHook}
                   </p>
                 </div>
 
               </div>
 
-              {/* Action Button */}
+              {/* Action Button: 1-Click Link to Detailed Teardown Page */}
               <div className="pt-4 border-t-2 border-black/10 flex items-center justify-between relative z-10">
                 <span className="text-xs font-mono font-bold text-zinc-600 group-hover:text-black transition-colors">
-                  Full Teardown Dossier
+                  {study.timeline}
                 </span>
                 <Link
-                  href={`/case-studies/${item.slug}`}
-                  className={`px-4 py-2 rounded-full ${item.badgeColor} border-2 border-black text-black text-xs font-mono font-bold shadow-[2px_2px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] transition-all flex items-center gap-1.5`}
+                  href={`/case-studies/${study.slug}`}
+                  className={`px-4 py-2 rounded-full ${accent.badgeBg} border-2 border-black text-black text-xs font-mono font-bold shadow-[2px_2px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] transition-all flex items-center gap-1.5`}
                 >
-                  <span>Read Dossier</span>
+                  <span>Read Full Dossier</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

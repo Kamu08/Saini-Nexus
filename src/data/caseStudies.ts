@@ -134,5 +134,75 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     whatChanged: "The Managing Partner became a recognized regulatory voice in the Indian fintech ecosystem, turning spontaneous commentary into a repeatable client acquisition engine.",
     keyLearning: "In advisory services, positioning the human partner's intellectual authority generates 10x the pipeline of a faceless corporate entity.",
     relatedService: "/services/founder-led-executive-b2b-marketing"
+  },
+  {
+    slug: "vanguard-enterprise-it-services",
+    clientName: "Vanguard IT Solutions",
+    clientCode: "VIT-2024",
+    industry: "Enterprise IT & Cloud Infrastructure",
+    market: "Delhi NCR & Bengaluru",
+    timeline: "75-Day Sprint",
+    coreChallenge: "Vanguard relied on cold SDR outbound emails with a dismal 0.8% response rate, burning brand goodwill with enterprise CISOs and CTOs.",
+    businessContext: "A mid-market cloud migration and cybersecurity managed services provider looking to land enterprise annual contracts with BFSI and retail firms.",
+    hypothesis: "Educating IT leaders with an ungated 'CISO Cloud Security Risk Matrix' Document Ad will establish technical trust and generate inbound discovery sessions at lower CAC.",
+    diagnosis: "Their marketing treated CISOs like transactional consumers, pushing 'Free 15-Min IT Audit' banners that busy technology executives instantly ignored.",
+    strategy: "Constructed an Account-Based Thought Leader ad motion targeting 350 enterprise accounts across India with high-signal cloud compliance architecture maps.",
+    execution: [
+      "Targeted 350 enterprise IT departments with company headcount > 250.",
+      "Sponsored technical risk breakdown carousels from the Chief Cloud Architect profile.",
+      "1-click native Lead Gen form requiring corporate work email and cloud infrastructure stack.",
+      "Fast 15-minute SLA sales engineering follow-up protocol."
+    ],
+    campaignHook: "'The 3 Ransomware Blindspots in Hybrid Cloud Migrations (2025 CISO Review).'",
+    creativeFormat: "Technical Architecture Carousel + Founder POV Ad",
+    spendProfile: "₹30,000/mo targeted LinkedIn Ads",
+    campaignMetrics: [
+      { label: "Target Account Penetration", metric: "74%", context: "Decision-makers engaged across 350 accounts" },
+      { label: "CTR Benchmark", metric: "3.12%", context: "On executive-sponsored Thought Leader Ads" },
+      { label: "Discovery Calls Booked", metric: "42 Calls", context: "Verified VP of IT & CISO discovery meetings" }
+    ],
+    businessOutcomes: [
+      { label: "Pipeline Generated", metric: "₹28L", context: "Qualified sales-accepted enterprise IT pipeline" },
+      { label: "New Retainers Won", metric: "4 Accounts", context: "Annual managed cloud security contracts" },
+      { label: "CAC Reduction", metric: "-54%", context: "Cost per qualified opportunity compared to cold outbound" }
+    ],
+    whatChanged: "Outbound SDRs stopped burning cold lists and started following up with accounts that had already engaged with Vanguard's technical security dossiers.",
+    keyLearning: "Enterprise CISOs do not respond to generic sales pitches—they respond to technical threat architectures that solve their active compliance headaches.",
+    relatedService: "/services/account-based-marketing"
+  },
+  {
+    slug: "zenith-healthcare-diagnostics",
+    clientName: "Zenith Diagnostic Systems",
+    clientCode: "ZDS-2024",
+    industry: "Healthcare & Diagnostic Equipment",
+    market: "Jaipur HQ to Pan-India Hospital Networks",
+    timeline: "90-Day Engagement",
+    coreChallenge: "Hospital procurement directors and diagnostic lab owners rarely answered cold supplier calls, relying on traditional distributors who charged heavy markup.",
+    businessContext: "A medical diagnostics and advanced laboratory equipment manufacturer in Jaipur expanding direct sales to private hospitals and diagnostics chains.",
+    hypothesis: "Delivering clinical calibration dossiers and equipment uptime guarantees directly to Hospital Managing Directors will bypass distributors and win direct hospital contracts.",
+    diagnosis: "Zero digital positioning—hospital directors assumed Zenith was a local distributor rather than an ISO-certified direct manufacturer.",
+    strategy: "Launched an equipment direct-sourcing campaign targeting 500 private hospitals and imaging centers with equipment ROI calculators and QA certifications.",
+    execution: [
+      "Built account list of 500 private hospitals and multi-speciality clinics across Tier-1 & Tier-2 cities.",
+      "Published 6-page calibration dossier comparing direct manufacturer warranty against 3rd-party brokers.",
+      "Direct technical spec inquiry form connected directly to sales engineering WhatsApp & CRM.",
+      "Managing Director thought leadership highlighting Indian manufacturing precision."
+    ],
+    campaignHook: "'Sub-Zero Diagnostic Scanner Calibration at 35% Lower Total Capex: Direct Indian Hospital Sourcing.'",
+    creativeFormat: "Clinical Specification Carousel + Facility Video Walkthrough",
+    spendProfile: "₹35,000/mo targeted across hospital clusters",
+    campaignMetrics: [
+      { label: "Hospital Account Reach", metric: "71%", context: "Reached medical directors in 500 hospital accounts" },
+      { label: "Document Save Rate", metric: "5.2x", context: "Clinical spec dossiers downloaded by hospital procurement" },
+      { label: "Cost Per Hospital Inquiry", metric: "₹2,900", context: "Direct high-value procurement specification inquiries" }
+    ],
+    businessOutcomes: [
+      { label: "Hospital Contracts Won", metric: "₹34L", context: "Direct diagnostic equipment supply contracts closed" },
+      { label: "Direct RFQs Received", metric: "18 RFQs", context: "Unmediated clinical specification inquiries" },
+      { label: "Gross Margin Lift", metric: "+19%", context: "Retained full margins by removing middlemen distributors" }
+    ],
+    whatChanged: "Zenith gained direct boardroom access to hospital networks, transitioning from distributor dependence to preferred direct-sourcing partner.",
+    keyLearning: "Hospital buyers care about calibration uptime and manufacturer service guarantees far more than aggressive discounts.",
+    relatedService: "/services/b2b-lead-pipeline-generation"
   }
 ];

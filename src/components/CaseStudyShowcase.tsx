@@ -6,14 +6,89 @@ import {
   Target, 
   ArrowUpRight, 
   ArrowRight, 
-  TrendingUp, 
-  ShieldCheck, 
   CheckCircle2, 
   Sparkles,
   Award
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { CASE_STUDIES } from "@/data/caseStudies";
+
+interface CasePreview {
+  slug: string;
+  clientCode: string;
+  clientName: string;
+  sector: string;
+  headline: string;
+  primaryMetric: string;
+  metricLabel: string;
+  secondaryStat: string;
+  summary: string;
+}
+
+const CASE_PREVIEWS: CasePreview[] = [
+  {
+    slug: "cloudscale-enterprise-saas",
+    clientCode: "CSS-2024",
+    clientName: "CloudScale Systems",
+    sector: "Enterprise B2B SaaS",
+    headline: "From Low-Intent Junior Clicks to ₹38L Enterprise Pipeline",
+    primaryMetric: "₹38L ARR",
+    metricLabel: "Verified Qualified Pipeline",
+    secondaryStat: "82% Sales Accepted · -46% Lead Cost",
+    summary: "Replaced generic 'Book Demo' forms with un-gated technical architecture teardowns and CEO Thought Leader Ads targeting 450 verified enterprise accounts."
+  },
+  {
+    slug: "apex-industrial-export",
+    clientCode: "AHP-2024",
+    clientName: "Apex Heavy Precision",
+    sector: "Industrial Export & CNC",
+    headline: "Bypassing Export Brokers for Direct OEM Supply Contracts",
+    primaryMetric: "₹42L",
+    metricLabel: "Closed Annual Contracts",
+    secondaryStat: "24 Direct RFQs · +22% Gross Margin",
+    summary: "Served automated CNC tolerance capability dossiers directly to European & US VP of Supply Chain titles, eliminating 18% middleman broker commissions."
+  },
+  {
+    slug: "fintech-consulting-demand-engine",
+    clientCode: "NAP-2024",
+    clientName: "Novus Advisory Partners",
+    sector: "FinTech & Regulatory Advisory",
+    headline: "Executive Thought Leadership to ₹18L Annual Retainers",
+    primaryMetric: "₹18L ARR",
+    metricLabel: "New Annual Retainers Won",
+    secondaryStat: "38 C-Level Calls · <45 Days CAC Payback",
+    summary: "Turned Managing Partner regulatory intellectual property into contrarian LinkedIn teardowns, generating direct corporate advisory inbound inquiries."
+  },
+  {
+    slug: "vanguard-enterprise-it-services",
+    clientCode: "VIT-2024",
+    clientName: "Vanguard IT Solutions",
+    sector: "Enterprise IT & Cloud",
+    headline: "From Cold Email Outbound to ₹28L Inbound IT Pipeline",
+    primaryMetric: "₹28L",
+    metricLabel: "Sales-Accepted Pipeline",
+    secondaryStat: "42 C-Suite Sessions · -54% CAC",
+    summary: "Shifted from low-response SDR emails to targeted Account-Based Thought Leader Ads and technical cloud risk blueprints targeting enterprise CISOs."
+  },
+  {
+    slug: "zenith-healthcare-diagnostics",
+    clientCode: "ZDS-2024",
+    clientName: "Zenith Diagnostic Systems",
+    sector: "Healthcare & Diagnostics",
+    headline: "Bypassing Medical Distributors for Direct Hospital Contracts",
+    primaryMetric: "₹34L",
+    metricLabel: "Direct Supply Contracts",
+    secondaryStat: "18 Direct RFQs · +19% Margin Lift",
+    summary: "Targeted 500 private hospital networks with clinical equipment uptime guarantees and direct manufacturer warranty, cutting out third-party markups."
+  }
+];
+
+const ACCENTS = [
+  { badgeBg: "bg-[#BFDBFE]", headerBg: "bg-[#EFF6FF]", textAccent: "text-[#1D4ED8]" },
+  { badgeBg: "bg-[#FEF08A]", headerBg: "bg-[#FEFCE8]", textAccent: "text-[#A16207]" },
+  { badgeBg: "bg-[#BBF7D0]", headerBg: "bg-[#F0FDF4]", textAccent: "text-[#15803D]" },
+  { badgeBg: "bg-[#FED7AA]", headerBg: "bg-[#FFF7ED]", textAccent: "text-[#C2410C]" },
+  { badgeBg: "bg-[#E9D5FF]", headerBg: "bg-[#FAF5FF]", textAccent: "text-[#7E22CE]" },
+];
 
 export function CaseStudyShowcase() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -29,14 +104,6 @@ export function CaseStudyShowcase() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const activeHoverRef = useRef(false);
-
-  const ACCENTS = [
-    { badgeBg: "bg-[#BFDBFE]", headerBg: "bg-[#EFF6FF]", textAccent: "text-[#1D4ED8]" },
-    { badgeBg: "bg-[#FEF08A]", headerBg: "bg-[#FEFCE8]", textAccent: "text-[#A16207]" },
-    { badgeBg: "bg-[#BBF7D0]", headerBg: "bg-[#F0FDF4]", textAccent: "text-[#15803D]" },
-    { badgeBg: "bg-[#FED7AA]", headerBg: "bg-[#FFF7ED]", textAccent: "text-[#C2410C]" },
-    { badgeBg: "bg-[#E9D5FF]", headerBg: "bg-[#FAF5FF]", textAccent: "text-[#7E22CE]" },
-  ];
 
   const updateShadowPosition = (index: number, animate: boolean) => {
     const el = cardRefs.current[index];
@@ -94,7 +161,7 @@ export function CaseStudyShowcase() {
             Real Work. Real Campaigns. Real Proof.
           </h2>
           <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-            Five empirical client teardowns across SaaS, export manufacturing, FinTech, enterprise IT, and healthcare. Click any card to inspect the full campaign dossier.
+            Five empirical client teardowns with verified pipeline metrics. Click any card to explore the complete campaign dossier.
           </p>
         </div>
 
@@ -139,10 +206,9 @@ export function CaseStudyShowcase() {
         />
 
         {/* Five Cards: 2 on Top Row (lg:col-span-3), 3 on Bottom Row (lg:col-span-2) */}
-        {CASE_STUDIES.slice(0, 5).map((study, index) => {
+        {CASE_PREVIEWS.map((study, index) => {
           const accent = ACCENTS[index % ACCENTS.length];
           const spanClass = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
-          const isHovered = hoveredIdx === index;
 
           return (
             <div
@@ -151,21 +217,21 @@ export function CaseStudyShowcase() {
                 cardRefs.current[index] = el;
               }}
               onMouseEnter={() => handleMouseEnter(index)}
-              className={`${spanClass} bg-white rounded-[2rem] p-6 sm:p-7 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 space-y-6`}
+              className={`${spanClass} bg-white rounded-[2rem] p-5 sm:p-7 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 space-y-5`}
             >
-              {/* Corner Accent Circle */}
-              <div className={`absolute top-0 right-0 w-28 h-28 ${accent.badgeBg} opacity-20 -mr-12 -mt-12 rounded-full pointer-events-none`} />
+              {/* Corner Ambient Accent */}
+              <div className={`absolute top-0 right-0 w-24 h-24 ${accent.badgeBg} opacity-20 -mr-10 -mt-10 rounded-full pointer-events-none`} />
 
-              <div className="space-y-4 relative z-10">
+              <div className="space-y-3.5 relative z-10">
                 
                 {/* Header: Code Pill & Industry Tag */}
-                <div className="flex items-center justify-between gap-2 border-b-2 border-black/10 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2.5 py-1 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1.5px_1.5px_0px_#000000]`}>
+                <div className="flex items-center justify-between gap-2 border-b-2 border-black/10 pb-2.5">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className={`px-2.5 py-0.5 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1px_1px_0px_#000000] shrink-0`}>
                       {study.clientCode}
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-zinc-600 uppercase tracking-wider truncate">
-                      {study.industry}
+                    <span className="text-[11px] font-mono font-bold text-zinc-600 uppercase tracking-wider truncate">
+                      {study.sector}
                     </span>
                   </div>
                   <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full shrink-0">
@@ -174,72 +240,48 @@ export function CaseStudyShowcase() {
                 </div>
 
                 {/* Primary Outcome Callout Banner */}
-                <div className={`${accent.headerBg} border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000] space-y-0.5`}>
+                <div className={`${accent.headerBg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] space-y-0.5`}>
                   <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
-                    {study.businessOutcomes[1]?.label || study.businessOutcomes[0]?.label || "Verified Growth Outcome"}
+                    {study.metricLabel}
                   </span>
-                  <div className="text-3xl sm:text-4xl font-serif font-black text-black tracking-tight">
-                    {study.businessOutcomes[1]?.metric || study.businessOutcomes[0]?.metric}
+                  <div className="text-2xl sm:text-3xl font-serif font-black text-black tracking-tight">
+                    {study.primaryMetric}
                   </div>
                 </div>
 
-                {/* Client Name & Hero Title */}
-                <div>
-                  <span className="text-xs font-mono font-bold text-zinc-500 block mb-1">
+                {/* Client Name & Headline */}
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono font-bold text-zinc-500 block">
                     {study.clientName}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-snug group-hover:text-[#2563EB] transition-colors line-clamp-2">
-                    {study.hypothesis}
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-black leading-snug group-hover:text-[#2563EB] transition-colors">
+                    {study.headline}
                   </h3>
                 </div>
 
-                {/* Strategy Summary */}
-                <p className="text-xs text-zinc-700 leading-relaxed font-medium line-clamp-2">
-                  {study.coreChallenge}
+                {/* Concise Summary */}
+                <p className="text-xs text-zinc-700 leading-relaxed font-medium">
+                  {study.summary}
                 </p>
 
-                {/* Two Supporting Stat Badges */}
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  <div className="bg-[#FAF7EF] border border-black rounded-xl p-2.5 space-y-0.5">
-                    <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase block truncate">
-                      {study.campaignMetrics[0]?.label || "Metric A"}
-                    </span>
-                    <strong className="text-sm font-mono font-extrabold text-black block truncate">
-                      {study.campaignMetrics[0]?.metric}
-                    </strong>
-                  </div>
-                  <div className="bg-[#FAF7EF] border border-black rounded-xl p-2.5 space-y-0.5">
-                    <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase block truncate">
-                      {study.businessOutcomes[0]?.label || "Metric B"}
-                    </span>
-                    <strong className="text-sm font-mono font-extrabold text-black block truncate">
-                      {study.businessOutcomes[0]?.metric}
-                    </strong>
-                  </div>
-                </div>
-
-                {/* Campaign Hook Snippet */}
-                <div className="p-3 bg-zinc-50 border border-black/30 rounded-xl space-y-1 text-xs">
-                  <span className="text-[9px] font-mono uppercase font-extrabold text-[#2563EB] block">
-                    In-Market Creative Hook
-                  </span>
-                  <p className="font-serif italic text-black text-xs font-medium leading-snug line-clamp-2">
-                    {study.campaignHook}
-                  </p>
+                {/* Secondary Verified Stat Pill */}
+                <div className="bg-[#FAF7EF] border border-black rounded-xl px-3 py-2 text-[11px] font-mono font-bold text-black flex items-center justify-between">
+                  <span className="text-zinc-500 uppercase text-[10px]">Key Efficiency:</span>
+                  <span className="text-[#2563EB]">{study.secondaryStat}</span>
                 </div>
 
               </div>
 
               {/* Action Button: 1-Click Link to Detailed Teardown Page */}
-              <div className="pt-4 border-t-2 border-black/10 flex items-center justify-between relative z-10">
-                <span className="text-xs font-mono font-bold text-zinc-600 group-hover:text-black transition-colors">
-                  {study.timeline}
+              <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between relative z-10">
+                <span className="text-[11px] font-mono font-bold text-zinc-500 group-hover:text-black transition-colors">
+                  Full Teardown
                 </span>
                 <Link
                   href={`/case-studies/${study.slug}`}
-                  className={`px-4 py-2 rounded-full ${accent.badgeBg} border-2 border-black text-black text-xs font-mono font-bold shadow-[2px_2px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] transition-all flex items-center gap-1.5`}
+                  className={`px-3.5 py-1.5 rounded-full ${accent.badgeBg} border-2 border-black text-black text-xs font-mono font-bold shadow-[1.5px_1.5px_0px_#000000] hover:shadow-[2.5px_2.5px_0px_#000000] transition-all flex items-center gap-1.5`}
                 >
-                  <span>Read Full Dossier</span>
+                  <span>Read Dossier</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

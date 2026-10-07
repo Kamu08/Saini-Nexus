@@ -5,7 +5,6 @@ import Link from "next/link";
 import { 
   CheckCircle2, 
   ArrowRight, 
-  Mail, 
   MapPin, 
   Sparkles, 
   Clock, 
@@ -42,7 +41,6 @@ const BUDGET_TIERS = [
 export function ContactForm() {
   const [selectedFocus, setSelectedFocus] = useState<string>("pipeline");
   const [selectedBudget, setSelectedBudget] = useState<string>("starter");
-  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -56,12 +54,6 @@ export function ContactForm() {
 
   const currentFocusObj = FOCUS_AREAS.find((f) => f.id === selectedFocus) || FOCUS_AREAS[0];
   const currentBudgetObj = BUDGET_TIERS.find((b) => b.id === selectedBudget) || BUDGET_TIERS[0];
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("kamal0sharma02@gmail.com");
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -214,7 +206,7 @@ export function ContactForm() {
           <div className="bg-white/80 border-2 border-black rounded-2xl p-4 sm:p-5 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold">
-                Direct Channels
+                Direct Channels &amp; Advisory Hub
               </span>
               <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -223,23 +215,23 @@ export function ContactForm() {
             </div>
 
             <div className="space-y-2 text-xs font-mono">
-              <div className="flex items-center justify-between gap-2 p-2 rounded-xl bg-[#FAF7EF] border border-black/20">
-                <div className="flex items-center gap-2 truncate">
-                  <Mail className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
-                  <span className="font-bold text-black truncate">kamal0sharma02@gmail.com</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={handleCopyEmail}
-                  className="px-2 py-1 bg-white border border-black text-[10px] font-bold rounded hover:bg-zinc-100 transition-colors shrink-0"
-                >
-                  {copiedEmail ? "Copied!" : "Copy"}
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-[#FAF7EF] border border-black/20 text-zinc-700">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAF7EF] border border-black/20 text-zinc-700">
                 <MapPin className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                 <span>Jaipur, Rajasthan, India · Serving India &amp; Global B2B</span>
+              </div>
+
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-[#FAF7EF] border border-black/20 text-zinc-700">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                  <span className="font-bold text-black">Private 1-on-1 Briefing</span>
+                </div>
+                <Link
+                  href="/book"
+                  className="px-2.5 py-1 bg-white border border-black text-[10px] font-bold rounded hover:bg-zinc-100 transition-colors shrink-0 inline-flex items-center gap-1 text-black shadow-[1px_1px_0px_#000000]"
+                >
+                  <span>Book Call</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#2563EB]" />
+                </Link>
               </div>
             </div>
           </div>

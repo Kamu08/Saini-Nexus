@@ -67,68 +67,91 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 01. TRUST & VERIFIED CREDENTIALS: AUTHENTIC STAMP GALLERY */}
-      {/* Replaces the boring "box inside a box" with stamp badges */}
+      {/* 01. TRUST & VERIFIED CREDENTIALS: ACCREDITATION RIBBON     */}
+      {/* Sleek, compact horizontal verification bar (Idea 1)       */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b-2 border-black/15">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold flex items-center gap-1.5 mb-2">
-                <Award className="w-4 h-4" />
-                Verified Competence Protocol
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black tracking-tight">
-                Built on Strategy, Proof &amp; Verified Rigor
-              </h2>
+        <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-5 sm:p-7 shadow-[4px_4px_0px_#000000] space-y-5">
+          
+          {/* Header strip */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-black/10 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#60A5FA] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_#000000]">
+                <ShieldCheck className="w-5 h-5 text-black" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#2563EB] font-extrabold block">
+                  Official Accreditation Protocol
+                </span>
+                <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-tight">
+                  LinkedIn Marketing Labs Certified Practitioner
+                </h3>
+              </div>
             </div>
-            <p className="text-xs sm:text-sm font-mono text-zinc-600 max-w-md font-medium">
-              Certified practitioner credentials · Jaipur, Rajasthan · Serving India, US &amp; Global B2B Brands
-            </p>
+
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-400 px-3 py-1 rounded-full w-fit">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>ACTIVE VERIFIED STATUS (2024–2026)</span>
+            </div>
           </div>
 
-          {/* Stamp-Style Credential Cards with Micro-Tilts */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-2">
+          {/* 4 Sleek Horizontal Credential Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { type: "Official Certification", title: "LinkedIn Marketing Strategy", issuer: "LinkedIn Marketing Labs", code: "CERT-LMS-2024", tilt: "hover:-rotate-1 sm:-rotate-1", bg: "bg-[#EFF6FF]", border: "border-black" },
-              { type: "Official Certification", title: "Content & Creative Design", issuer: "LinkedIn Marketing Labs", code: "CERT-CCD-2024", tilt: "hover:rotate-1 sm:rotate-1", bg: "bg-[#FEF9E7]", border: "border-black" },
-              { type: "Official Certification", title: "Marketing Measurement", issuer: "LinkedIn Marketing Labs", code: "CERT-MM-2024", tilt: "hover:-rotate-1 sm:-rotate-1", bg: "bg-[#F0FDF4]", border: "border-black" },
-              { type: "Flagship Practice", title: "LinkedIn Advertising Architecture", issuer: "Thought Leader & Document Ads", code: "DIRECT-PRACTICE", tilt: "hover:rotate-1 sm:rotate-1", bg: "bg-[#FAF5FF]", border: "border-black" },
-            ].map((cert, i) => (
-              <div 
-                key={i} 
-                className={`${cert.bg} ${cert.tilt} rounded-2xl border-2 border-black p-5 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:scale-[1.02] transition-all duration-200 relative overflow-hidden group`}
+              {
+                title: "Marketing Strategy",
+                code: "CERT-LMS-2024",
+                issuer: "LinkedIn Marketing Labs",
+                bg: "bg-white",
+                dot: "bg-[#2563EB]"
+              },
+              {
+                title: "Content & Creative Design",
+                code: "CERT-CCD-2024",
+                issuer: "LinkedIn Marketing Labs",
+                bg: "bg-white",
+                dot: "bg-amber-500"
+              },
+              {
+                title: "Marketing Measurement",
+                code: "CERT-MM-2024",
+                issuer: "LinkedIn Marketing Labs",
+                bg: "bg-white",
+                dot: "bg-emerald-500"
+              },
+              {
+                title: "Enterprise Ad Architecture",
+                code: "DIRECT-PRACTICE",
+                issuer: "Thought Leader & Document Ads",
+                bg: "bg-white",
+                dot: "bg-purple-500"
+              }
+            ].map((cert, idx) => (
+              <div
+                key={idx}
+                className={`${cert.bg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] hover:shadow-[3.5px_3.5px_0px_#000000] transition-all duration-150 flex items-center justify-between gap-3`}
               >
-                {/* Vintage stamp serration indicator */}
-                <div className="flex items-center justify-between border-b-2 border-dashed border-black/20 pb-3 mb-3">
-                  <span className="text-[9px] font-mono font-extrabold uppercase tracking-widest text-[#2563EB] bg-white px-2 py-0.5 rounded border border-black/30">
-                    {cert.code}
-                  </span>
-                  <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
-                </div>
-
-                <div className="space-y-1.5">
-                  <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-wider block">
-                    {cert.type}
-                  </span>
-                  <h3 className="text-base font-serif font-bold text-black leading-snug">
+                <div className="space-y-0.5 min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <span className={`w-2 h-2 rounded-full ${cert.dot} shrink-0`} />
+                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider truncate">
+                      {cert.code}
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-serif font-bold text-black leading-tight truncate">
                     {cert.title}
-                  </h3>
-                  <p className="text-xs text-zinc-600 font-mono pt-1">
+                  </h4>
+                  <p className="text-[10px] font-mono text-zinc-600 truncate">
                     {cert.issuer}
                   </p>
                 </div>
-
-                <div className="mt-4 pt-3 border-t border-black/10 flex items-center justify-between text-[10px] font-mono text-zinc-500 font-semibold">
-                  <span>VERIFIED STATUS</span>
-                  <span className="text-emerald-700 font-bold flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
-                    ACTIVE
-                  </span>
+                <div className="w-6 h-6 rounded-lg bg-[#EFF6FF] border border-black flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

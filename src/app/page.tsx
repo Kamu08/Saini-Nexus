@@ -20,8 +20,6 @@ import {
 } from "lucide-react";
 import { ModernHero } from "@/components/ModernHero";
 import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
-import { InteractiveSolutionsGrid } from "@/components/InteractiveSolutionsGrid";
-import { NexusGrowthMap } from "@/components/NexusGrowthMap";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
@@ -164,20 +162,57 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 03. THE NEXUS GROWTH FRAMEWORK: THE DARK MONOLITH SECTION */}
-      {/* Distinct High-Contrast Canvas with Massive Rounded Edges  */}
+      {/* 03. THE 7-STAGE PIPELINE AUDIT INVITATION (LEAN CALLOUT)  */}
+      {/* Clean high-converting banner directing to dedicated /audit */}
       {/* ========================================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <NexusGrowthMap />
-      </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 lg:p-9 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDE047] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000]">
+              <Sparkles className="w-3.5 h-3.5" />
+              The Saini Nexus Growth Architecture
+            </div>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-black tracking-tight leading-snug">
+              Where Is Your B2B Acquisition Engine Leaking Revenue?
+            </h3>
+            <p className="text-zinc-700 text-sm sm:text-base font-medium leading-relaxed">
+              Audit your buying committee coverage, content proof, and ad distribution across our proprietary 7 connected stages.
+            </p>
 
-      {/* ========================================================= */}
-      {/* 04. SOLUTIONS: ASYMMETRIC PROBLEM-FIRST DOSSIERS          */}
-      {/* 2 wide featured cards + 3 compact dossier cards           */}
-      {/* ========================================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <InteractiveSolutionsGrid />
-      </div>
+            {/* 7-Step Mini Indicator */}
+            <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[11px] font-mono font-bold text-zinc-600">
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">01 Context</span>
+              <span>→</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">02 POV</span>
+              <span>→</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">03 Proof</span>
+              <span>→</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">04 Audience</span>
+              <span>→</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">05 Engine</span>
+              <span>→</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">06 Demand</span>
+              <span>→</span>
+              <span className="bg-[#86EFAC] text-black px-2 py-0.5 rounded border border-black font-extrabold">07 Pipeline</span>
+            </div>
+          </div>
+
+          <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+            <Link 
+              href="/audit" 
+              className="neo-btn-blue text-xs font-mono font-bold flex items-center justify-center gap-2 text-center whitespace-nowrap shadow-[3px_3px_0px_#000000]"
+            >
+              <span>Take the 7-Stage Audit</span>
+              <ArrowRight className="w-4 h-4 shrink-0" />
+            </Link>
+            <span className="text-[10px] font-mono text-zinc-500 text-center">
+              Takes ~2 minutes · Zero gated spam
+            </span>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* ========================================================= */}
       {/* 05. FEATURED INDUSTRIES: MINIMALIST HIGH-CONTRAST SLIDER  */}

@@ -206,8 +206,8 @@ export function Footer() {
         </div>
 
         {/* Giant Retro Watermark on warm cream */}
-        <div className="relative pt-8 sm:pt-10 pb-4 text-center select-none pointer-events-none">
-          <span className="block font-serif font-black uppercase text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[12vw] leading-none py-2 tracking-tighter select-none text-black/10">
+        <div className="relative pt-8 sm:pt-10 pb-4 text-center select-none pointer-events-none overflow-hidden">
+          <span className="block font-serif font-black uppercase text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[12vw] leading-none py-2 tracking-tighter select-none text-black/10 blur-[2px] sm:blur-[3px] transition-all">
             SAINI NEXUS
           </span>
           <div className="absolute inset-x-0 bottom-0 h-4 sm:h-6 bg-gradient-to-t from-[#FAF7EF] to-transparent pointer-events-none" />

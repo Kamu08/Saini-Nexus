@@ -224,18 +224,13 @@ export function CaseStudyShowcase() {
 
               <div className="space-y-3.5 relative z-10">
                 
-                {/* Header: Code Pill & Industry Tag */}
+                {/* Header: Code Pill on Left, Sector Tag on Right */}
                 <div className="flex items-center justify-between gap-2 border-b-2 border-black/10 pb-2.5">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <span className={`px-2.5 py-0.5 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1px_1px_0px_#000000] shrink-0`}>
-                      {study.clientCode}
-                    </span>
-                    <span className="text-[11px] font-mono font-bold text-zinc-600 uppercase tracking-wider truncate">
-                      {study.sector}
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-full shrink-0">
-                    VERIFIED
+                  <span className={`px-2.5 py-0.5 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1px_1px_0px_#000000] shrink-0`}>
+                    {study.clientCode}
+                  </span>
+                  <span className="text-[11px] font-mono font-bold text-zinc-600 uppercase tracking-wider text-right">
+                    {study.sector}
                   </span>
                 </div>
 

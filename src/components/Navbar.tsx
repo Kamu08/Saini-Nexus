@@ -4,12 +4,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MAIN_NAV_ITEMS } from '@/data/navigation';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
   const pathname = usePathname();
@@ -89,7 +91,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         
         {/* ========================================================= */}
-        {/* 1. LEFT BLOCK: BRAND IDENTITY (MATCHING HERO BG PURE WHITE) */}
+        {/* 1. LEFT BLOCK: BRAND IDENTITY (SOLID PURE WHITE)          */}
         {/* ========================================================= */}
         <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-3 group">
@@ -110,9 +112,13 @@ export function Navbar() {
         </div>
 
         {/* ========================================================= */}
-        {/* 2. CENTER BLOCK: NAVIGATION (MATCHING HERO BG PURE WHITE)  */}
+        {/* 2. CENTER BLOCK: NAVIGATION (MODERN PILL GLIDE ANIMATION) */}
+        {/* No arrows, pure hover dropdown, magnetic floating indicator*/}
         {/* ========================================================= */}
-        <nav className="pointer-events-auto hidden lg:flex items-center gap-2 bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-3">
+        <nav 
+          onMouseLeave={() => setHoveredTab(null)}
+          className="pointer-events-auto hidden lg:flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2.5 relative"
+        >
           {MAIN_NAV_ITEMS.map((item) => {
             const hasDropdown = item.children && item.children.length > 0;
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -123,71 +129,120 @@ export function Navbar() {
                 <div
                   key={item.title}
                   className="relative h-full flex items-center"
-                  onMouseEnter={() => handleMouseEnter(item.title)}
+                  onMouseEnter={() => {
+                    setHoveredTab(item.title);
+                    handleMouseEnter(item.title);
+                  }}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
                     onClick={() => toggleDropdown(item.title)}
-                    className={`h-9 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center gap-2 transition-all cursor-pointer ${
-                      isActive || isDropdownOpen
-                        ? 'bg-slate-100 text-blue-600'
-                        : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
+                    className={`relative z-10 h-9.5 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center transition-colors cursor-pointer select-none ${
+                      isActive
+                        ? 'text-white'
+                        : isDropdownOpen
+                        ? 'text-slate-950 font-extrabold'
+                        : 'text-slate-700 hover:text-slate-950'
                     }`}
                   >
                     <span>{item.title}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isDropdownOpen ? 'rotate-180 text-blue-600' : 'text-slate-400'
-                      }`}
-                    />
+
+                    {/* Active State Indicator Pill */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="active-pill"
+                        className="absolute inset-0 bg-slate-950 rounded-lg -z-10 shadow-xs"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+
+                    {/* Smooth Hover Glide Pill */}
+                    {hoveredTab === item.title && !isActive && (
+                      <motion.div
+                        layoutId="hover-pill"
+                        className="absolute inset-0 bg-slate-100 rounded-lg -z-10"
+                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      />
+                    )}
                   </button>
 
-                  {/* Dropdown Window with Subtle Rounded Edges */}
-                  {isDropdownOpen && (
-                    <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-80 bg-white border border-slate-200 rounded-xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
-                      <div className="space-y-1">
-                        {item.children?.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-800 hover:bg-slate-900 hover:text-white border border-transparent flex items-center justify-between group transition-all duration-150"
-                          >
-                            <div className="flex flex-col text-left pr-2">
-                              <span className="font-bold text-xs uppercase tracking-wider">{sub.title}</span>
-                              {sub.description && (
-                                <span className="text-[11px] text-slate-500 group-hover:text-slate-300 font-normal line-clamp-1 mt-0.5">
-                                  {sub.description}
-                                </span>
-                              )}
-                            </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {/* Dropdown Window with Smooth Animation & No Arrow Trigger */}
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                        transition={{ duration: 0.16, ease: "easeOut" }}
+                        className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-80 bg-white border border-slate-200/90 rounded-xl shadow-2xl p-2 z-50 overflow-hidden"
+                      >
+                        <div className="space-y-1">
+                          {item.children?.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              className="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-800 hover:bg-slate-950 hover:text-white border border-transparent flex items-center justify-between group transition-all duration-150"
+                            >
+                              <div className="flex flex-col text-left pr-2">
+                                <span className="font-bold text-xs uppercase tracking-wider">{sub.title}</span>
+                                {sub.description && (
+                                  <span className="text-[11px] text-slate-500 group-hover:text-slate-300 font-normal line-clamp-1 mt-0.5">
+                                    {sub.description}
+                                  </span>
+                                )}
+                              </div>
+                              <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             }
 
             return (
-              <Link
+              <div 
                 key={item.title}
-                href={item.href}
-                className={`h-9 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center transition-all ${
-                  isActive
-                    ? 'bg-slate-100 text-blue-600'
-                    : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
-                }`}
+                className="relative h-full flex items-center"
+                onMouseEnter={() => setHoveredTab(item.title)}
               >
-                {item.title}
-              </Link>
+                <Link
+                  href={item.href}
+                  className={`relative z-10 h-9.5 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center transition-colors select-none ${
+                    isActive
+                      ? 'text-white'
+                      : 'text-slate-700 hover:text-slate-950'
+                  }`}
+                >
+                  <span>{item.title}</span>
+
+                  {/* Active State Indicator Pill */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 bg-slate-950 rounded-lg -z-10 shadow-xs"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+
+                  {/* Smooth Hover Glide Pill */}
+                  {hoveredTab === item.title && !isActive && (
+                    <motion.div
+                      layoutId="hover-pill"
+                      className="absolute inset-0 bg-slate-100 rounded-lg -z-10"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                    />
+                  )}
+                </Link>
+              </div>
             );
           })}
         </nav>
 
         {/* ========================================================= */}
-        {/* 3. RIGHT BLOCK: CONVERSION CTA (MATCHING HERO BG PURE WHITE)*/}
+        {/* 3. RIGHT BLOCK: CONVERSION CTA                            */}
         {/* ========================================================= */}
         <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
           <Link
@@ -277,14 +332,10 @@ export function Navbar() {
                         <button
                           type="button"
                           onClick={() => toggleMobileSubmenu(item.title)}
-                          className="p-1 rounded-md border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer"
+                          className="p-1 rounded-md border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer text-xs font-bold uppercase"
                           aria-label={`Toggle ${item.title} submenu`}
                         >
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              isExpanded ? 'rotate-180 text-blue-600' : ''
-                            }`}
-                          />
+                          {isExpanded ? 'Hide' : 'View'}
                         </button>
                       </div>
 
@@ -321,7 +372,7 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`block p-3.5 rounded-xl border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
                       isActive
-                        ? 'bg-blue-50/80 border-blue-200 text-blue-700'
+                        ? 'bg-slate-950 text-white border-slate-950'
                         : 'bg-white border-slate-200/90 text-slate-800 hover:bg-slate-50'
                     }`}
                   >

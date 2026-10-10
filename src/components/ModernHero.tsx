@@ -16,70 +16,70 @@ import {
   Sparkles
 } from 'lucide-react';
 
-export type WorldClassTheme = 'global-agency' | 'dark-studio' | 'editorial-authority';
+export type RefinedTheme = 'pure-agency' | 'hybrid-editorial' | 'ivy-editorial';
 
 export function ModernHero() {
-  const [activeTheme, setActiveTheme] = useState<WorldClassTheme>('global-agency');
+  const [activeTheme, setActiveTheme] = useState<RefinedTheme>('hybrid-editorial');
 
   return (
     <div className="relative w-full">
       
       {/* ========================================================= */}
-      {/* 3 HIGH-END REAL WORLD AGENCY BENCHMARKS SWITCHER          */}
+      {/* EXPLORER BAR: OPTION 1 & 3 DEEP EXPLORATION               */}
       {/* ========================================================= */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
         <div className="bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xl">
           <div className="flex items-center gap-2 px-2 text-xs text-slate-300">
             <Sliders className="w-3.5 h-3.5 text-blue-400" />
-            <span className="font-bold text-white uppercase tracking-wider text-[11px]">DESIGN SYSTEM BENCHMARKS:</span>
-            <span className="text-slate-400 text-[11px] hidden md:inline">Compare 3 distinct world-class agency styles</span>
+            <span className="font-bold text-white uppercase tracking-wider text-[11px]">EXPLORING OPTION 1 &amp; 3:</span>
+            <span className="text-slate-400 text-[11px] hidden md:inline">Compare 3 distinct variations of agency &amp; editorial design</span>
           </div>
           
           <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
             <button
               type="button"
-              onClick={() => setActiveTheme('global-agency')}
+              onClick={() => setActiveTheme('pure-agency')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTheme === 'global-agency'
+                activeTheme === 'pure-agency'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              1. Global Agency (Pentagram / Work&Co)
+              1. Pure Global Agency (Minimalist Sans)
             </button>
 
             <button
               type="button"
-              onClick={() => setActiveTheme('dark-studio')}
+              onClick={() => setActiveTheme('hybrid-editorial')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTheme === 'dark-studio'
+                activeTheme === 'hybrid-editorial'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              2. Dark Studio (Matte Obsidian)
+              2. Hybrid Authority (Modern Serif + Clean White)
             </button>
 
             <button
               type="button"
-              onClick={() => setActiveTheme('editorial-authority')}
+              onClick={() => setActiveTheme('ivy-editorial')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTheme === 'editorial-authority'
+                activeTheme === 'ivy-editorial'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
               }`}
             >
-              3. Editorial Authority (Financial Times)
+              3. Warm Editorial (Ivory Paper &amp; Serif)
             </button>
           </div>
         </div>
       </div>
 
       {/* ========================================================= */}
-      {/* 1. GLOBAL AGENCY STYLE (PENTAGRAM / WORK & CO STYLE)      */}
-      {/* Pure white, confident brutalist-refined typography, 0 AI  */}
+      {/* VARIATION 1: PURE GLOBAL AGENCY (MINIMALIST SANS)         */}
+      {/* Massive modern typography, pure white, clean asymmetry    */}
       {/* ========================================================= */}
-      {activeTheme === 'global-agency' && (
+      {activeTheme === 'pure-agency' && (
         <section className="relative pt-16 sm:pt-24 pb-20 sm:pb-32 bg-white text-slate-950 border-b border-slate-200">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
@@ -134,8 +134,8 @@ export function ModernHero() {
                 <span className="font-bold text-slate-900 mt-1 block">LinkedIn Marketing Labs</span>
               </div>
               <div>
-                <span className="text-xs text-slate-400 uppercase font-semibold block">Client Acceptance</span>
-                <span className="font-bold text-blue-600 mt-1 block">4 Cohorts / Quarter</span>
+                <span className="text-xs text-slate-400 uppercase font-semibold block">Client Focus</span>
+                <span className="font-bold text-blue-600 mt-1 block">Mid-Market &amp; Enterprise</span>
               </div>
             </div>
 
@@ -144,76 +144,73 @@ export function ModernHero() {
       )}
 
       {/* ========================================================= */}
-      {/* 2. MODERN DARK STUDIO (MATTE OBSIDIAN & LINEAR STYLE)     */}
-      {/* Deep matte black (#090D16), subtle slate-800 borders, 0 AI */}
+      {/* VARIATION 2: HYBRID AUTHORITY (MODERN SERIF + CLEAN WHITE)*/}
+      {/* The elegance of editorial serif with the crisp agency white*/}
       {/* ========================================================= */}
-      {activeTheme === 'dark-studio' && (
-        <section className="relative pt-16 sm:pt-24 pb-20 sm:pb-32 bg-[#090D16] text-white border-b border-slate-800/80 overflow-hidden">
-          
-          {/* Extremely subtle, calm dark navy ambient blur */}
-          <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-blue-950/30 rounded-full blur-[140px] pointer-events-none" />
-
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+      {activeTheme === 'hybrid-editorial' && (
+        <section className="relative pt-16 sm:pt-24 pb-20 sm:pb-32 bg-white text-slate-950 border-b border-slate-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-800 bg-slate-900/80 text-slate-300 text-xs font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block" />
-              <span>B2B Growth &amp; LinkedIn Demand Practice</span>
+            {/* Top Minimalist Tag */}
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs border-b border-slate-100 pb-4">
+              <div className="flex items-center gap-2.5 font-sans uppercase tracking-widest text-slate-500 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-blue-600" />
+                <span>SAINI NEXUS · B2B GROWTH PRACTICE</span>
+              </div>
+              <div className="text-slate-400 font-sans uppercase tracking-wider text-[11px]">
+                JAIPUR, INDIA · GLOBAL ADVISORY
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto">
-              We turn B2B attention on LinkedIn into{' '}
-              <span className="text-blue-400">qualified sales pipeline.</span>
-            </h1>
+            {/* Elegant Hybrid Headline: Serif Title + Sharp Contemporary Form */}
+            <div className="space-y-6 max-w-5xl">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-serif font-normal tracking-tight text-slate-950 leading-[1.04]">
+                Turning enterprise attention into <span className="italic font-normal">predictable</span> commercial pipeline.
+              </h1>
 
-            <p className="text-slate-400 text-base sm:text-xl font-normal leading-relaxed max-w-2xl mx-auto">
-              No generic vanity metrics. We build full-funnel LinkedIn demand generation, Thought Leader Ads, and precision account targeting for high-growth enterprise firms.
-            </p>
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-600 font-sans font-normal leading-relaxed max-w-3xl">
+                We design and execute B2B marketing systems centered on executive thought leadership, buyer committee consensus, and measurable pipeline velocity for technology, manufacturing, and advisory leaders.
+              </p>
+            </div>
 
-            {/* Clean Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            {/* Clean Action & Proof Bar */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/book"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/20 transition-all group"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-sans font-semibold text-white bg-slate-950 hover:bg-blue-600 transition-colors shadow-sm"
               >
                 <span>Book Strategy Consultation</span>
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
 
               <Link
                 href="/case-studies"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 rounded-full text-sm font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all"
+                className="inline-flex items-center justify-center px-7 py-4 rounded-full text-sm font-sans font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors"
               >
-                <span>Explore Frameworks</span>
-                <ArrowUpRight className="ml-1.5 w-4 h-4 text-slate-400" />
+                <span>Review Campaign Playbooks</span>
+                <ArrowUpRight className="ml-1.5 w-4 h-4 text-slate-500" />
               </Link>
             </div>
 
-            {/* Clean Monochromatic Metric Strip */}
-            <div className="pt-10 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
-              <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                <span className="text-xs text-slate-500 uppercase font-semibold block">Speed to Lead</span>
-                <span className="text-lg font-bold text-white mt-1 block">&lt;30s CRM Sync</span>
-                <span className="text-xs text-slate-400 mt-0.5 block">Instant routing to sales</span>
+            {/* Understated Editorial Institutional Strip */}
+            <div className="pt-10 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-6 font-sans">
+              <div className="space-y-1">
+                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Practice Lead</span>
+                <div className="text-base font-bold text-slate-900">Dev Raj Saini</div>
+                <p className="text-xs text-slate-500">Founder &amp; B2B Growth Lead</p>
               </div>
-              <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                <span className="text-xs text-slate-500 uppercase font-semibold block">Lead Quality</span>
-                <span className="text-lg font-bold text-blue-400 mt-1 block">82% Sales-Accepted</span>
-                <span className="text-xs text-slate-400 mt-0.5 block">Strict buyer qualification</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                <span className="text-xs text-slate-500 uppercase font-semibold block">Target Accuracy</span>
-                <span className="text-lg font-bold text-white mt-1 block">100% Verified ICP</span>
-                <span className="text-xs text-slate-400 mt-0.5 block">Zero wasted budget</span>
-              </div>
-            </div>
 
-            {/* Minimalist Trust line */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 pt-2 font-medium">
-              <span>Dev Raj Saini · Practice Lead</span>
-              <span>•</span>
-              <span>LinkedIn Marketing Labs Certified</span>
-              <span>•</span>
-              <span>Jaipur, India &amp; Global Practice</span>
+              <div className="space-y-1">
+                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Verification</span>
+                <div className="text-base font-bold text-slate-900">LinkedIn Certified</div>
+                <p className="text-xs text-slate-500">Marketing Strategy &amp; Measurement</p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Execution Standard</span>
+                <div className="text-base font-bold text-slate-900">Strict Committee Targeting</div>
+                <p className="text-xs text-slate-500">Zero budget wasted on junior titles</p>
+              </div>
             </div>
 
           </div>
@@ -221,10 +218,10 @@ export function ModernHero() {
       )}
 
       {/* ========================================================= */}
-      {/* 3. EDITORIAL AUTHORITY (FINANCIAL TIMES / FORBES STYLE)   */}
-      {/* Sophisticated ivory canvas, serif typography, high trust  */}
+      {/* VARIATION 3: WARM EDITORIAL (IVORY PAPER & SERIF)         */}
+      {/* Traditional Financial Times / McKinsey Quarterly paper    */}
       {/* ========================================================= */}
-      {activeTheme === 'editorial-authority' && (
+      {activeTheme === 'ivy-editorial' && (
         <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-28 bg-[#FBFBFA] text-slate-900 border-b border-stone-200">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             

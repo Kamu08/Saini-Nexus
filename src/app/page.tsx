@@ -44,24 +44,40 @@ export default function HomePage() {
       <ModernHero />
 
       {/* ========================================================= */}
-      {/* DYNAMIC BREAK 01: CORE CAPABILITIES RIBBON                */}
-      {/* Clean, authoritative capability strip framed with margins */}
+      {/* DYNAMIC BREAK 01: CORE CAPABILITIES MOVING TICKER RIBBON  */}
+      {/* Continuous smooth infinite marquee matching hero base color */}
       {/* ========================================================= */}
       <div className="px-2 sm:px-3">
-        <div className="w-full bg-[#08152a] border border-[#1b3f73]/60 rounded-xl sm:rounded-2xl py-3.5 px-4 shadow-xl">
-          <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-2.5 text-center">
-            {CAPABILITIES.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 sm:gap-6">
-                <span className="font-sans text-xs sm:text-sm font-semibold tracking-wide text-slate-100 flex items-center gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#38a9eb] shadow-[0_0_6px_#38a9eb] inline-block shrink-0" />
+        <div className="w-full bg-[#091528] border border-[#38a9eb]/35 rounded-xl sm:rounded-2xl py-3 px-2 shadow-xl shadow-[#091528]/30 relative overflow-hidden select-none">
+          
+          {/* Subtle Ambient Edge Fades for Seamless Entry & Exit */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#091528] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#091528] to-transparent z-10" />
+
+          {/* Infinite Moving Marquee Track */}
+          <div className="flex w-max animate-marquee items-center [animation-duration:35s] hover:[animation-play-state:paused]">
+            {/* Set 1 */}
+            {[...CAPABILITIES, ...CAPABILITIES].map((item, idx) => (
+              <div key={`s1-${idx}`} className="flex items-center gap-6 sm:gap-8 mr-6 sm:mr-8 shrink-0">
+                <span className="font-sans text-xs sm:text-sm font-semibold tracking-wide text-[#e0f2fe] flex items-center gap-2.5 whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] inline-block shrink-0 animate-pulse" />
                   {item}
                 </span>
-                {idx < CAPABILITIES.length - 1 && (
-                  <span className="text-[#38a9eb]/40 font-sans text-xs hidden md:inline">✦</span>
-                )}
+                <span className="text-[#38a9eb]/50 font-sans text-xs select-none">✦</span>
+              </div>
+            ))}
+            {/* Set 2 (Mirror copy for 100% glitch-free infinite loop) */}
+            {[...CAPABILITIES, ...CAPABILITIES].map((item, idx) => (
+              <div key={`s2-${idx}`} className="flex items-center gap-6 sm:gap-8 mr-6 sm:mr-8 shrink-0">
+                <span className="font-sans text-xs sm:text-sm font-semibold tracking-wide text-[#e0f2fe] flex items-center gap-2.5 whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] inline-block shrink-0 animate-pulse" />
+                  {item}
+                </span>
+                <span className="text-[#38a9eb]/50 font-sans text-xs select-none">✦</span>
               </div>
             ))}
           </div>
+
         </div>
       </div>
 

@@ -138,64 +138,67 @@ export function ContactForm() {
       </div>
 
       {/* Main Container: Modern Split */}
-      <div className="bg-slate-50/60 border border-slate-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="bg-[#070B19] border border-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 text-white relative overflow-hidden">
         
+        {/* Subtle Ambient Cyan Glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
         {/* LEFT COLUMN: The Consultation Dossier (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-8 relative z-10">
           
           <div className="space-y-6">
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-blue-600 block mb-1">
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-cyan-400 block mb-1">
                 How We Work
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
                 How We Partner With B2B Leaders
               </h3>
-              <p className="text-slate-600 text-sm mt-2 leading-relaxed">
+              <p className="text-slate-300 text-sm mt-2 leading-relaxed">
                 We work directly with founders, CMOs, and revenue leaders who require rigorous, verifiable demand architecture.
               </p>
             </div>
 
             {/* 3 Commitments */}
             <div className="space-y-3 pt-2">
-              <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-400/30 text-xs font-bold flex items-center justify-center">
                     01
                   </span>
-                  <h4 className="font-bold text-slate-900 text-sm">
+                  <h4 className="font-bold text-white text-sm">
                     Direct Partner Review
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 pl-8 leading-relaxed">
+                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
                   Every inquiry is personally reviewed by Dev Raj Saini. Zero screening calls with junior SDRs or outsourced coordinators.
                 </p>
               </div>
 
-              <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-blue-950 text-blue-300 border border-blue-400/30 text-xs font-bold flex items-center justify-center">
                     02
                   </span>
-                  <h4 className="font-bold text-slate-900 text-sm">
+                  <h4 className="font-bold text-white text-sm">
                     Diagnostic in 24–48 Hours
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 pl-8 leading-relaxed">
+                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
                   We evaluate your committee coverage, negative exclusions, and technical proof gaps before suggesting any budget commitment.
                 </p>
               </div>
 
-              <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-400/30 text-xs font-bold flex items-center justify-center">
                     03
                   </span>
-                  <h4 className="font-bold text-slate-900 text-sm">
+                  <h4 className="font-bold text-white text-sm">
                     Zero Vanity Metrics
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 pl-8 leading-relaxed">
+                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
                   We measure success strictly on Sales-Accepted Pipeline, qualified ACVs, and customer acquisition cost reduction.
                 </p>
               </div>
@@ -203,34 +206,34 @@ export function ContactForm() {
           </div>
 
           {/* Quick Contact & Verified Channels */}
-          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-3 shadow-xs">
+          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                 Direct Channels &amp; Advisory Hub
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-cyan-200 bg-cyan-950/60 border border-cyan-400/30 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 24h Response SLA
               </span>
             </div>
 
             <div className="space-y-2 text-xs">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-600">
-                <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300">
+                <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>Jaipur, Rajasthan, India · Serving India &amp; Global B2B</span>
               </div>
 
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-600">
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span className="font-semibold text-slate-900">Private 1-on-1 Briefing</span>
+                  <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="font-semibold text-white">Private 1-on-1 Briefing</span>
                 </div>
                 <Link
                   href="/book"
-                  className="px-2.5 py-1 bg-white border border-slate-200 text-[10px] font-semibold rounded hover:bg-slate-50 transition-colors shrink-0 inline-flex items-center gap-1 text-slate-800 shadow-xs"
+                  className="px-2.5 py-1 bg-white border border-transparent text-[10px] font-bold rounded hover:bg-cyan-100 transition-colors shrink-0 inline-flex items-center gap-1 text-slate-950 shadow-xs"
                 >
                   <span>Book Call</span>
-                  <ArrowUpRight className="w-3 h-3 text-blue-600" />
+                  <ArrowUpRight className="w-3 h-3 text-slate-950" />
                 </Link>
               </div>
             </div>
@@ -239,8 +242,8 @@ export function ContactForm() {
         </div>
 
         {/* RIGHT COLUMN: Business Inquiry Card (7 cols) */}
-        <div className="lg:col-span-7">
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 lg:p-9 shadow-md">
+        <div className="lg:col-span-7 relative z-10">
+          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 lg:p-9 shadow-2xl">
             
             {submitted ? (
               <div className="py-12 text-center space-y-6">
@@ -297,9 +300,9 @@ export function ContactForm() {
                 
                 {/* Step 1: Strategic Focus Area */}
                 <div className="space-y-2.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-900 flex items-center justify-between">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 flex items-center justify-between">
                     <span>1. What is your primary growth priority?</span>
-                    <span className="text-[10px] text-blue-600 font-semibold">Select One</span>
+                    <span className="text-[10px] text-cyan-400 font-semibold">Select One</span>
                   </label>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -310,16 +313,16 @@ export function ContactForm() {
                           key={area.id}
                           type="button"
                           onClick={() => setSelectedFocus(area.id)}
-                          className={`text-left p-3 rounded-xl border transition-all text-xs flex items-center justify-between ${
+                          className={`text-left p-3 rounded-xl border transition-all text-xs flex items-center justify-between cursor-pointer ${
                             isSelected
-                              ? "bg-blue-50/70 border-blue-600 font-semibold text-blue-900 shadow-xs"
-                              : "bg-slate-50/60 border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100/60"
+                              ? "bg-cyan-950/70 border-cyan-400 font-semibold text-cyan-200 shadow-[0_0_15px_rgba(56,189,248,0.2)]"
+                              : "bg-slate-950/70 border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white"
                           }`}
                         >
                           <span className="truncate">{area.label}</span>
                           <span
                             className={`w-3.5 h-3.5 rounded-full border shrink-0 ml-2 ${
-                              isSelected ? "bg-blue-600 border-blue-600" : "bg-white border-slate-300"
+                              isSelected ? "bg-cyan-400 border-cyan-400 shadow-[0_0_6px_#38bdf8]" : "bg-slate-900 border-slate-700"
                             }`}
                           />
                         </button>
@@ -330,9 +333,9 @@ export function ContactForm() {
 
                 {/* Step 2: Estimated Monthly Budget */}
                 <div className="space-y-2.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-900 flex items-center justify-between">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 flex items-center justify-between">
                     <span>2. Estimated Monthly Growth &amp; Media Budget</span>
-                    <span className="text-[10px] text-slate-500 font-medium">INR (₹)</span>
+                    <span className="text-[10px] text-slate-400 font-medium">INR (₹)</span>
                   </label>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -343,10 +346,10 @@ export function ContactForm() {
                           key={tier.id}
                           type="button"
                           onClick={() => setSelectedBudget(tier.id)}
-                          className={`py-2 px-2.5 rounded-xl border text-center transition-all text-xs ${
+                          className={`py-2 px-2.5 rounded-xl border text-center transition-all text-xs cursor-pointer ${
                             isSelected
-                              ? "bg-blue-600 border-blue-600 font-semibold text-white shadow-xs"
-                              : "bg-slate-50/60 border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100/60"
+                              ? "bg-cyan-400 border-cyan-400 font-bold text-slate-950 shadow-[0_0_12px_rgba(56,189,248,0.3)]"
+                              : "bg-slate-950/70 border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white"
                           }`}
                         >
                           {tier.label}
@@ -358,7 +361,7 @@ export function ContactForm() {
 
                 {/* Step 3: Contact & Company Details */}
                 <div className="space-y-3.5 pt-1">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-900 block">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 block">
                     3. Your Commercial Details
                   </label>
 
@@ -370,7 +373,7 @@ export function ContactForm() {
                         placeholder="Your Full Name *"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
+                        className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
                       />
                     </div>
 
@@ -381,7 +384,7 @@ export function ContactForm() {
                         placeholder="Work Email Address *"
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
+                        className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
                       />
                     </div>
                   </div>
@@ -393,7 +396,7 @@ export function ContactForm() {
                       placeholder="Company Name & Website (e.g. Acme Corp · acme.com) *"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
+                      className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
                     />
                   </div>
 
@@ -403,7 +406,7 @@ export function ContactForm() {
                       placeholder="Briefly describe your acquisition bottleneck, target ACV, or primary objective..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all resize-none shadow-xs"
+                      className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none shadow-xs"
                     />
                   </div>
                 </div>
@@ -413,25 +416,25 @@ export function ContactForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-cyan-100 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-cyan-500/20 transition-all disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Submitting Diagnostic Request...</span>
                     ) : (
                       <>
                         <span>Submit Inquiry &amp; Request Diagnostic</span>
-                        <ArrowRight className="w-4 h-4 shrink-0" />
+                        <ArrowRight className="w-4 h-4 shrink-0 text-slate-950" />
                       </>
                     )}
                   </button>
 
-                  <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2 text-center sm:text-left">
+                  <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2 text-center sm:text-left">
                     <span className="flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-slate-400 shrink-0" />
+                      <Lock className="w-3 h-3 text-cyan-400 shrink-0" />
                       Strict NDA Confidentiality · No Sales Spam
                     </span>
-                    <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                      <Clock className="w-3 h-3 text-blue-600 shrink-0" />
+                    <span className="flex items-center gap-1.5 text-slate-300 font-medium">
+                      <Clock className="w-3 h-3 text-cyan-400 shrink-0" />
                       Direct Founder Review within 24 Hours
                     </span>
                   </div>

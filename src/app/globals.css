@@ -190,16 +190,37 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* Ticker Marquee Animation */
+/* Ticker Marquee Animation (Glitch-free hardware-accelerated twin-track) */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  will-change: transform;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  will-change: transform;
+  animation: marquee 35s linear infinite;
 }
 
 .animate-marquee:hover {

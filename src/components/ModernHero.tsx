@@ -78,44 +78,7 @@ export function ModernHero() {
           </div>
         </div>
 
-        {/* 3 Refined Minimal Performance Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4">
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-              Lead Routing Speed
-            </span>
-            <div className="text-2xl font-extrabold text-slate-950 tracking-tight">
-              &lt;30 Seconds SLA
-            </div>
-            <p className="text-xs text-slate-600 font-normal">
-              Instant sales team qualification via webhook &amp; CRM sync.
-            </p>
-          </div>
 
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-              Opportunity Quality
-            </span>
-            <div className="text-2xl font-extrabold text-blue-600 tracking-tight">
-              82% Sales-Accepted
-            </div>
-            <p className="text-xs text-slate-600 font-normal">
-              Filtered for actual budget, decision authority, and intent.
-            </p>
-          </div>
-
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-              Audience Precision
-            </span>
-            <div className="text-2xl font-extrabold text-slate-950 tracking-tight">
-              100% Verified ICP
-            </div>
-            <p className="text-xs text-slate-600 font-normal">
-              Strict exclusion of students, freelancers, and junior roles.
-            </p>
-          </div>
-        </div>
 
         {/* Understated Agency Metadata Strip */}
         <div className="pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">

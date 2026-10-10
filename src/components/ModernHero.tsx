@@ -44,11 +44,7 @@ export function ModernHero() {
             </span>
           </div>
 
-          {/* ========================================================= */}
-          {/* HEADLINE: HYBRID OF OPTION 1 & OPTION 3                   */}
-          {/* "enterprise" & "LinkedIn" in Option 3 frame pills         */}
-          {/* "predictable sales revenue" in Option 1 editorial serif   */}
-          {/* ========================================================= */}
+          {/* Headline: Hybrid Option 1 & 3 */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-sans font-extrabold tracking-tight text-white leading-[1.12]">
               We turn{' '}
@@ -66,12 +62,18 @@ export function ModernHero() {
             </h1>
           </div>
 
-          {/* Clean Sub-editorial Paragraph & Action Buttons */}
+          {/* Sub-editorial: Option C (Border Callout) & Action Buttons */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pt-2">
-            <div className="md:col-span-8 space-y-4">
-              <p className="text-lg sm:text-xl md:text-2xl text-slate-200 font-normal leading-relaxed drop-shadow-sm">
-                A dedicated B2B demand generation practice for technology, consulting, and manufacturing firms. We combine executive Thought Leader Ads, buying committee account targeting, and high-intent inbound acquisition.
-              </p>
+            
+            <div className="md:col-span-8">
+              <div className="border-l-2 border-cyan-400/70 pl-4 sm:pl-5 space-y-1.5">
+                <span className="text-[11px] font-mono text-cyan-300 uppercase tracking-widest block font-semibold">
+                  Core Delivery Protocol
+                </span>
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                  A dedicated B2B demand generation practice for technology, consulting, and manufacturing firms. We combine executive Thought Leader Ads, buying committee account targeting, and high-intent inbound acquisition.
+                </p>
+              </div>
             </div>
 
             <div className="md:col-span-4 flex flex-col gap-3">

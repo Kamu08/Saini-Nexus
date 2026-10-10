@@ -89,25 +89,26 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         
         {/* ========================================================= */}
-        {/* 1. LEFT BLOCK: BRAND IDENTITY (SOLID PURE WHITE)          */}
+        {/* 1. LEFT BLOCK: BRAND IDENTITY (CLICKS DIRECTLY TO HOME)   */}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs hover:border-slate-300 transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 duration-200 shadow-xs">
-              <Image
-                src="/saini-nexus-logo.png"
-                alt="Saini Nexus"
-                width={26}
-                height={26}
-                className="object-contain w-full h-full"
-                priority
-              />
-            </div>
-            <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors uppercase whitespace-nowrap">
-              Saini Nexus
-            </span>
-          </Link>
-        </div>
+        <Link 
+          href="/" 
+          className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs hover:border-slate-300 transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0 gap-3 group cursor-pointer"
+        >
+          <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 duration-200 shadow-xs">
+            <Image
+              src="/saini-nexus-logo.png"
+              alt="Saini Nexus"
+              width={26}
+              height={26}
+              className="object-contain w-full h-full"
+              priority
+            />
+          </div>
+          <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors uppercase whitespace-nowrap">
+            Saini Nexus
+          </span>
+        </Link>
 
         {/* ========================================================= */}
         {/* 2. CENTER BLOCK: NAVIGATION (CLEAN UNDERLINE REVEAL)      */}

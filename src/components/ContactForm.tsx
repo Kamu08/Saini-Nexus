@@ -138,17 +138,17 @@ export function ContactForm() {
       </div>
 
       {/* Main Container: Modern Split */}
-      <div className="bg-[#070B19] border border-slate-800/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 text-white relative overflow-hidden">
+      <div className="bg-[#08152a] border border-[#1b3f73]/70 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 text-white relative overflow-hidden">
         
-        {/* Subtle Ambient Cyan Glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Subtle Ambient Blue Glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1572b8]/15 rounded-full blur-3xl pointer-events-none" />
 
         {/* LEFT COLUMN: The Consultation Dossier (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-8 relative z-10">
           
           <div className="space-y-6">
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-cyan-400 block mb-1">
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#38a9eb] block mb-1">
                 How We Work
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
@@ -161,9 +161,9 @@ export function ContactForm() {
 
             {/* 3 Commitments */}
             <div className="space-y-3 pt-2">
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
+              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-400/30 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#0c2852] text-[#67c7f8] border border-[#38a9eb]/40 text-xs font-bold flex items-center justify-center">
                     01
                   </span>
                   <h4 className="font-bold text-white text-sm">
@@ -175,9 +175,9 @@ export function ContactForm() {
                 </p>
               </div>
 
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
+              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-blue-950 text-blue-300 border border-blue-400/30 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#0c2852] text-[#38a9eb] border border-[#38a9eb]/40 text-xs font-bold flex items-center justify-center">
                     02
                   </span>
                   <h4 className="font-bold text-white text-sm">
@@ -189,9 +189,9 @@ export function ContactForm() {
                 </p>
               </div>
 
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xs">
+              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-400/30 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-400/40 text-xs font-bold flex items-center justify-center">
                     03
                   </span>
                   <h4 className="font-bold text-white text-sm">
@@ -206,34 +206,34 @@ export function ContactForm() {
           </div>
 
           {/* Quick Contact & Verified Channels */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3 shadow-xs">
+          <div className="bg-[#091830]/90 border border-[#18365f] rounded-2xl p-5 space-y-3 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                 Direct Channels &amp; Advisory Hub
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-cyan-200 bg-cyan-950/60 border border-cyan-400/30 px-2 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-[#d4effc] bg-[#0c2852]/80 border border-[#38a9eb]/40 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38a9eb] animate-pulse" />
                 24h Response SLA
               </span>
             </div>
 
             <div className="space-y-2 text-xs">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300">
-                <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#07152b] border border-[#18365f] text-slate-300">
+                <MapPin className="w-3.5 h-3.5 text-[#38a9eb] shrink-0" />
                 <span>Jaipur, Rajasthan, India · Serving India &amp; Global B2B</span>
               </div>
 
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300">
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-[#07152b] border border-[#18365f] text-slate-300">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <Calendar className="w-3.5 h-3.5 text-[#38a9eb] shrink-0" />
                   <span className="font-semibold text-white">Private 1-on-1 Briefing</span>
                 </div>
                 <Link
                   href="/book"
-                  className="px-2.5 py-1 bg-white border border-transparent text-[10px] font-bold rounded hover:bg-cyan-100 transition-colors shrink-0 inline-flex items-center gap-1 text-slate-950 shadow-xs"
+                  className="px-2.5 py-1 bg-white border border-transparent text-[10px] font-bold rounded hover:bg-[#edf7fd] transition-colors shrink-0 inline-flex items-center gap-1 text-[#07152b] shadow-xs"
                 >
                   <span>Book Call</span>
-                  <ArrowUpRight className="w-3 h-3 text-slate-950" />
+                  <ArrowUpRight className="w-3 h-3 text-[#07152b]" />
                 </Link>
               </div>
             </div>
@@ -243,35 +243,35 @@ export function ContactForm() {
 
         {/* RIGHT COLUMN: Business Inquiry Card (7 cols) */}
         <div className="lg:col-span-7 relative z-10">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 lg:p-9 shadow-2xl">
+          <div className="bg-[#091830]/90 border border-[#18365f] rounded-2xl p-6 sm:p-8 lg:p-9 shadow-2xl">
             
             {submitted ? (
               <div className="py-12 text-center space-y-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600">
+                <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-400/40 flex items-center justify-center mx-auto text-emerald-400">
                   <Check className="w-8 h-8 stroke-[2.5]" />
                 </div>
                 
                 <div className="space-y-2">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                     Diagnostic Request Received
                   </h3>
-                  <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-slate-900">Dev Raj Saini</strong>. We will review your company profile and respond within 24 hours.
+                  <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong className="text-white">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-white">Dev Raj Saini</strong>. We will review your company profile and respond within 24 hours.
                   </p>
                 </div>
 
-                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl max-w-md mx-auto text-left text-xs space-y-1.5">
+                <div className="p-4 bg-[#07152b] border border-[#18365f] rounded-xl max-w-md mx-auto text-left text-xs space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Selected Focus:</span>
-                    <span className="font-semibold text-slate-900">{currentFocusObj.label}</span>
+                    <span className="text-slate-400">Selected Focus:</span>
+                    <span className="font-semibold text-white">{currentFocusObj.label}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Target Budget:</span>
-                    <span className="font-semibold text-slate-900">{currentBudgetObj.label}</span>
+                    <span className="text-slate-400">Target Budget:</span>
+                    <span className="font-semibold text-white">{currentBudgetObj.label}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Delivery Status:</span>
-                    <span className="font-semibold text-emerald-600">Dispatched to Founder Email</span>
+                    <span className="text-slate-400">Delivery Status:</span>
+                    <span className="font-semibold text-emerald-400">Dispatched to Founder Email</span>
                   </div>
                 </div>
 
@@ -282,13 +282,13 @@ export function ContactForm() {
                       setSubmitted(false);
                       setFormData({ name: "", workEmail: "", company: "", notes: "" });
                     }}
-                    className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-all shadow-xs"
+                    className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-[#07152b] hover:bg-[#edf7fd] transition-all shadow-xs"
                   >
                     Submit Another Inquiry
                   </button>
                   <Link
                     href="/case-studies"
-                    className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#1572b8] to-[#38a9eb] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-[#38a9eb]/20 transition-all"
                   >
                     <span>Explore Case Studies</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -302,7 +302,7 @@ export function ContactForm() {
                 <div className="space-y-2.5">
                   <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 flex items-center justify-between">
                     <span>1. What is your primary growth priority?</span>
-                    <span className="text-[10px] text-cyan-400 font-semibold">Select One</span>
+                    <span className="text-[10px] text-[#38a9eb] font-semibold">Select One</span>
                   </label>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -315,14 +315,14 @@ export function ContactForm() {
                           onClick={() => setSelectedFocus(area.id)}
                           className={`text-left p-3 rounded-xl border transition-all text-xs flex items-center justify-between cursor-pointer ${
                             isSelected
-                              ? "bg-cyan-950/70 border-cyan-400 font-semibold text-cyan-200 shadow-[0_0_15px_rgba(56,189,248,0.2)]"
-                              : "bg-slate-950/70 border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white"
+                              ? "bg-[#0c2852]/85 border-[#38a9eb] font-semibold text-[#f0f9ff] shadow-[0_0_15px_rgba(56,169,235,0.25)]"
+                              : "bg-[#07152b]/80 border-[#18365f] hover:border-[#1e4e8c] text-slate-300 hover:text-white"
                           }`}
                         >
                           <span className="truncate">{area.label}</span>
                           <span
                             className={`w-3.5 h-3.5 rounded-full border shrink-0 ml-2 ${
-                              isSelected ? "bg-cyan-400 border-cyan-400 shadow-[0_0_6px_#38bdf8]" : "bg-slate-900 border-slate-700"
+                              isSelected ? "bg-[#38a9eb] border-[#38a9eb] shadow-[0_0_6px_#38a9eb]" : "bg-slate-900 border-slate-700"
                             }`}
                           />
                         </button>
@@ -348,8 +348,8 @@ export function ContactForm() {
                           onClick={() => setSelectedBudget(tier.id)}
                           className={`py-2 px-2.5 rounded-xl border text-center transition-all text-xs cursor-pointer ${
                             isSelected
-                              ? "bg-cyan-400 border-cyan-400 font-bold text-slate-950 shadow-[0_0_12px_rgba(56,189,248,0.3)]"
-                              : "bg-slate-950/70 border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white"
+                              ? "bg-gradient-to-r from-[#1572b8] to-[#38a9eb] border-[#38a9eb] font-bold text-white shadow-[0_0_15px_rgba(56,169,235,0.35)]"
+                              : "bg-[#07152b]/80 border-[#18365f] hover:border-[#1e4e8c] text-slate-300 hover:text-white"
                           }`}
                         >
                           {tier.label}
@@ -373,7 +373,7 @@ export function ContactForm() {
                         placeholder="Your Full Name *"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
+                        className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
                       />
                     </div>
 
@@ -384,7 +384,7 @@ export function ContactForm() {
                         placeholder="Work Email Address *"
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                        className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
+                        className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
                       />
                     </div>
                   </div>
@@ -396,7 +396,7 @@ export function ContactForm() {
                       placeholder="Company Name & Website (e.g. Acme Corp · acme.com) *"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
+                      className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
                     />
                   </div>
 
@@ -406,7 +406,7 @@ export function ContactForm() {
                       placeholder="Briefly describe your acquisition bottleneck, target ACV, or primary objective..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none shadow-xs"
+                      className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all resize-none shadow-xs"
                     />
                   </div>
                 </div>
@@ -416,25 +416,25 @@ export function ContactForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-cyan-100 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-cyan-500/20 transition-all disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-[#edf7fd] text-[#07152b] font-bold text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Submitting Diagnostic Request...</span>
                     ) : (
                       <>
                         <span>Submit Inquiry &amp; Request Diagnostic</span>
-                        <ArrowRight className="w-4 h-4 shrink-0 text-slate-950" />
+                        <ArrowRight className="w-4 h-4 shrink-0 text-[#07152b]" />
                       </>
                     )}
                   </button>
 
                   <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2 text-center sm:text-left">
                     <span className="flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-cyan-400 shrink-0" />
+                      <Lock className="w-3 h-3 text-[#38a9eb] shrink-0" />
                       Strict NDA Confidentiality · No Sales Spam
                     </span>
                     <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                      <Clock className="w-3 h-3 text-cyan-400 shrink-0" />
+                      <Clock className="w-3 h-3 text-[#38a9eb] shrink-0" />
                       Direct Founder Review within 24 Hours
                     </span>
                   </div>

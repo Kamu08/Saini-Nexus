@@ -82,8 +82,8 @@ export function EditorialJournalDesk() {
         {/* Headline & Action Ribbon */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-1">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider">
-              <Newspaper className="w-3.5 h-3.5 text-blue-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] text-xs font-semibold uppercase tracking-wider">
+              <Newspaper className="w-3.5 h-3.5 text-[#1572b8]" />
               <span>Saini Nexus Editorial Journal</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -244,7 +244,7 @@ export function EditorialJournalDesk() {
       <div className="space-y-3 pt-2">
         <div className="flex items-center justify-between px-1">
           <span className="text-xs uppercase tracking-wider font-semibold text-slate-900 flex items-center gap-2">
-            <BookmarkCheck className="w-3.5 h-3.5 text-blue-600" />
+            <BookmarkCheck className="w-3.5 h-3.5 text-[#1572b8]" />
             Quarterly Dispatches Index (Click to spotlight or read)
           </span>
           <span className="text-xs text-slate-500 font-normal hidden sm:inline">
@@ -262,14 +262,14 @@ export function EditorialJournalDesk() {
                 onClick={() => setActiveIdx(idx)}
                 className={`bg-white border rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer text-left relative group ${
                   isCurrent
-                    ? "border-blue-600 ring-2 ring-blue-600/20 shadow-md"
+                    ? "border-[#1572b8] ring-2 ring-[#38a9eb]/30 shadow-md"
                     : "border-slate-200/90 shadow-xs hover:border-slate-300 hover:shadow-sm"
                 }`}
               >
                 {/* Top Badge & Read Time */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-semibold text-[10px] uppercase">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#e6f4fc] text-[#0f539a] font-semibold text-[10px] uppercase">
                       #{String(idx + 1).padStart(2, "0")}
                     </span>
 
@@ -285,7 +285,7 @@ export function EditorialJournalDesk() {
                   </span>
 
                   {/* Article Title */}
-                  <h4 className="text-base font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <h4 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#1572b8] transition-colors line-clamp-2">
                     {article.title}
                   </h4>
 
@@ -298,7 +298,7 @@ export function EditorialJournalDesk() {
                 {/* Bottom Card Action */}
                 <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
                   <span className={`text-[11px] font-medium transition-colors ${
-                    isCurrent ? "text-blue-600 font-semibold" : "text-slate-500 group-hover:text-slate-900"
+                    isCurrent ? "text-[#1572b8] font-semibold" : "text-slate-500 group-hover:text-slate-900"
                   }`}>
                     {isCurrent ? "● Featured Now" : "Spotlight Issue"}
                   </span>
@@ -308,8 +308,8 @@ export function EditorialJournalDesk() {
                     onClick={(e) => e.stopPropagation()}
                     className={`w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center transition-all ${
                       isCurrent 
-                        ? "bg-blue-600 text-white border-blue-600 shadow-xs" 
-                        : "bg-slate-50 text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-200"
+                        ? "bg-[#1572b8] text-white border-[#1572b8] shadow-xs" 
+                        : "bg-slate-50 text-slate-600 group-hover:bg-[#e6f4fc] group-hover:text-[#1572b8] group-hover:border-[#bae6fd]"
                     }`}
                     title="Read Full Article"
                   >
@@ -329,7 +329,7 @@ export function EditorialJournalDesk() {
       <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
-            <Sparkles className="w-4 h-4 text-blue-600" />
+            <Sparkles className="w-4 h-4 text-[#1572b8]" />
           </div>
           <div className="text-xs">
             <span className="font-bold text-slate-900 block text-sm">

@@ -97,8 +97,8 @@ export function CaseStudyShowcase() {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-sans font-semibold mb-3">
-            <Target className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] text-xs font-sans font-semibold mb-3">
+            <Target className="w-3.5 h-3.5 text-[#1572b8]" />
             Strategic Campaign Frameworks
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -124,16 +124,16 @@ export function CaseStudyShowcase() {
           return (
             <div
               key={study.slug}
-              className={`${spanClass} bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between border border-slate-200/90 hover:border-blue-400 shadow-2xs hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group relative overflow-hidden space-y-5`}
+              className={`${spanClass} bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between border border-slate-200/90 hover:border-[#38a9eb]/60 shadow-2xs hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group relative overflow-hidden space-y-5`}
             >
               {/* Subtle Ambient Corner Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 -mr-12 -mt-12 rounded-full pointer-events-none group-hover:bg-blue-500/10 transition-colors" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1572b8]/5 -mr-12 -mt-12 rounded-full pointer-events-none group-hover:bg-[#1572b8]/10 transition-colors" />
 
               <div className="space-y-4 relative z-10">
                 
                 {/* Header: Code Pill on Left, Sector Tag on Right */}
                 <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                  <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200/70 font-sans text-xs font-semibold shrink-0">
+                  <span className="px-2.5 py-1 rounded-full bg-[#e6f4fc] text-[#0f539a] border border-[#bae6fd] font-sans text-xs font-semibold shrink-0">
                     {study.clientCode}
                   </span>
                   <span className="text-[11px] font-sans font-medium text-slate-500 uppercase tracking-wider text-right">
@@ -153,10 +153,10 @@ export function CaseStudyShowcase() {
 
                 {/* Client Name & Headline */}
                 <div className="space-y-1">
-                  <span className="text-xs font-sans font-semibold text-blue-600 block">
+                  <span className="text-xs font-sans font-semibold text-[#1572b8] block">
                     {study.clientName}
                   </span>
-                  <h3 className="text-base sm:text-lg font-sans font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-base sm:text-lg font-sans font-bold text-slate-900 leading-snug group-hover:text-[#1572b8] transition-colors">
                     {study.headline}
                   </h3>
                 </div>
@@ -169,7 +169,7 @@ export function CaseStudyShowcase() {
                 {/* Secondary Verified Stat Pill */}
                 <div className="bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5 text-xs font-sans text-slate-700 flex items-center justify-between">
                   <span className="text-slate-500 text-[11px] font-medium">Key Efficiency:</span>
-                  <span className="text-blue-700 font-semibold">{study.secondaryStat}</span>
+                  <span className="text-[#0f539a] font-semibold">{study.secondaryStat}</span>
                 </div>
 
               </div>
@@ -181,7 +181,7 @@ export function CaseStudyShowcase() {
                 </span>
                 <Link
                   href={`/case-studies/${study.slug}`}
-                  className="px-4 py-2 rounded-full bg-slate-900 group-hover:bg-blue-600 text-white text-xs font-sans font-semibold shadow-xs transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-full bg-slate-900 group-hover:bg-[#1572b8] group-hover:shadow-[0_4px_14px_rgba(21,114,184,0.35)] text-white text-xs font-sans font-semibold shadow-xs transition-all flex items-center gap-1.5"
                 >
                   <span>Read Framework</span>
                   <ArrowRight className="w-3.5 h-3.5" />

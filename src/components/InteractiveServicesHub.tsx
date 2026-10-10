@@ -152,7 +152,7 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
                       className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-100 hover:border-slate-200 space-y-1 transition-colors"
                     >
                       <div className="flex items-center gap-2 font-sans font-semibold text-sm text-slate-900">
-                        <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#1572b8] shrink-0" />
                         <span className="line-clamp-1">{cap.title}</span>
                       </div>
                       <p className="text-xs text-slate-500 leading-relaxed font-normal pl-6 line-clamp-2">
@@ -166,13 +166,13 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
               {/* Direct Commercial Deliverables Bar */}
               <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-2 shadow-2xs">
                 <span className="text-xs font-sans font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5 text-blue-600" />
+                  <Target className="w-3.5 h-3.5 text-[#1572b8]" />
                   Direct Commercial Deliverables:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
                   {srv.deliverables.slice(0, 4).map((del, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1572b8] shrink-0" />
                       <span className="font-semibold line-clamp-1">{del}</span>
                     </div>
                   ))}
@@ -214,8 +214,8 @@ export function InteractiveServicesHub() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b border-slate-200/80 pb-4 mb-4 bg-white shrink-0">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-sans font-semibold mb-2">
-              <Layers className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] text-xs font-sans font-semibold mb-2">
+              <Layers className="w-3.5 h-3.5 text-[#1572b8]" />
               Capabilities Matrix
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-extrabold text-slate-900 tracking-tight">

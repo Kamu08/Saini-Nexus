@@ -61,7 +61,7 @@ export function SectorCarousel() {
           {/* Header Metadata Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-blue-600 inline-block animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#1572b8] inline-block animate-pulse shadow-[0_0_6px_#38a9eb]" />
               <span className="text-[11px] font-sans uppercase tracking-widest font-semibold text-slate-500">
                 SECTOR ARCHITECTURES // INDUSTRY PLAYBOOKS
               </span>
@@ -71,7 +71,7 @@ export function SectorCarousel() {
               <span className="px-3 py-1 bg-white border border-slate-200 rounded-full shadow-2xs">
                 REF: SN-IND-2026
               </span>
-              <span className="px-3 py-1 bg-blue-50 border border-blue-200 text-blue-700 font-semibold rounded-full">
+              <span className="px-3 py-1 bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] font-semibold rounded-full">
                 6 Active Playbooks
               </span>
             </div>
@@ -80,8 +80,8 @@ export function SectorCarousel() {
           {/* Section Headline */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-2xl space-y-2.5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-sans font-semibold">
-                <Briefcase className="w-3.5 h-3.5 text-blue-600" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] text-xs font-sans font-semibold">
+                <Briefcase className="w-3.5 h-3.5 text-[#1572b8]" />
                 <span>Industry-Specific Blueprints</span>
               </div>
               
@@ -122,13 +122,13 @@ export function SectorCarousel() {
                     onClick={() => setSelectedSlug(ind.slug)}
                     className={`w-full text-left p-3.5 sm:p-4 rounded-xl transition-all flex items-center justify-between border cursor-pointer shrink-0 min-w-[240px] lg:min-w-0 ${
                       isSelected
-                        ? "bg-slate-900 text-white border-slate-900 shadow-md"
+                        ? "bg-[#0b1c36] text-white border-[#1b3f73] shadow-md"
                         : "bg-white text-slate-800 hover:bg-slate-50 border-slate-200/90 shadow-2xs"
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-                        isSelected ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-600"
+                        isSelected ? "bg-[#1572b8] text-white shadow-[0_0_10px_rgba(56,169,235,0.3)]" : "bg-slate-100 text-slate-600"
                       }`}>
                         <ItemIcon className="w-4 h-4" />
                       </div>
@@ -147,7 +147,7 @@ export function SectorCarousel() {
                           </span>
                         </div>
                         <span className={`text-[11px] font-sans uppercase tracking-wider block mt-0.5 font-medium ${
-                          isSelected ? "text-blue-300" : "text-slate-500"
+                          isSelected ? "text-[#74cbf7]" : "text-slate-500"
                         }`}>
                           {tagInfo?.badge || "Enterprise"}
                         </span>
@@ -155,7 +155,7 @@ export function SectorCarousel() {
                     </div>
 
                     <span className={`text-xs font-sans font-bold ${
-                      isSelected ? "text-blue-400" : "text-slate-300"
+                      isSelected ? "text-[#38a9eb]" : "text-slate-300"
                     }`}>
                       {isSelected ? "●" : "→"}
                     </span>

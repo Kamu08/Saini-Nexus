@@ -36,7 +36,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-20 sm:space-y-32 pb-24 overflow-x-clip bg-white">
+    <div className="space-y-20 sm:space-y-32 pb-24 overflow-x-clip">
       
       {/* ========================================================= */}
       {/* 00. HERO SECTION                                          */}

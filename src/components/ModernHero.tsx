@@ -43,29 +43,7 @@ export function ModernHero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ========================================================= */}
-        {/* AGENCY EDITORIAL MASTHEAD RIBBON (Clean, Marketing Focus) */}
-        {/* ========================================================= */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-800 text-xs text-slate-400 mb-8 sm:mb-12 font-medium">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_12px_rgba(52,211,153,1)]" />
-            <span className="font-bold text-emerald-300 uppercase tracking-wider">SAINI NEXUS GROWTH STUDIO</span>
-            <span className="text-slate-700">/</span>
-            <span className="flex items-center gap-1 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-              Jaipur, India · Global B2B Practice
-            </span>
-          </div>
 
-          <div className="flex items-center gap-4 text-[11px] uppercase tracking-wider">
-            <span className="hidden sm:inline text-slate-500 font-semibold">PRACTICE LEAD:</span>
-            <span className="font-bold text-white">DEV RAJ SAINI</span>
-            <span className="text-slate-700">·</span>
-            <span className="text-emerald-300 font-semibold bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-700/60">
-              LINKEDIN MARKETING CERTIFIED
-            </span>
-          </div>
-        </div>
 
         {/* ========================================================= */}
         {/* 2-COLUMN MODERN AGENCY HERO GRID                          */}

@@ -184,15 +184,7 @@ export default function HomePage() {
                   {cert.num}
                 </div>
 
-                <div className="relative z-10 flex flex-col h-full gap-5">
-
-                  {/* Clean header with module ID */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-white/40 uppercase">
-                      <span className="w-1.5 h-1.5 bg-white/30 rounded-full group-hover/cert:bg-emerald-400 group-hover/cert:shadow-[0_0_8px_#34d399] transition-all duration-300" />
-                      Module {cert.num}
-                    </div>
-                  </div>
+                <div className="relative z-10 flex flex-col h-full gap-4">
 
                   {/* Title */}
                   <div>

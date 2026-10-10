@@ -17,19 +17,19 @@ export function ModernHero() {
     <section className="relative pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 text-white border-b border-slate-800/80 overflow-hidden bg-slate-950">
       
       {/* ========================================================= */}
-      {/* 1. TEXTURED GRAIN GRADIENT BACKGROUND (FROM USER IMAGE)   */}
+      {/* 1. TEXTURED GRAIN GRADIENT BACKGROUND (NATIVE WIDESCREEN) */}
       {/* ========================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/hero-noise-gradient.jpg"
-          alt="Ambient Gradient Texture"
+          src="/hero-noise-gradient-widescreen.jpg"
+          alt="Ambient Grain Gradient Texture"
           fill
           priority
-          className="object-cover object-top opacity-90 scale-105"
+          className="object-cover object-center"
         />
-        {/* Subtle dark gradient overlay to guarantee perfect contrast for text & navbar */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent" />
+        {/* Subtle executive dark vignette for high typography legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-slate-950/15 to-slate-950/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-transparent to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">

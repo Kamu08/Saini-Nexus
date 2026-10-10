@@ -92,15 +92,13 @@ export default function HomePage() {
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Outer shell — rich multi-stop Saini blue gradient */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[conic-gradient(at_top_left,_#38A9EB_0deg,_#1572B8_90deg,_#0E4A8A_180deg,_#0B3C7E_270deg,_#1260A8_360deg)] bg-gradient-to-br from-[#38a9eb] via-[#1572B8] to-[#0B3C7E]" style={{background: 'linear-gradient(135deg, #1a6ab5 0%, #0e4a8a 30%, #0b3c7e 55%, #1260a8 78%, #1e7cc8 100%)'}}>
+        {/* Outer shell — rich multi-stop Saini blue gradient (darkened) */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#1260a8] via-[#0e4a8a] to-[#08346e]">
 
           {/* ── Decorative radial glow blobs ── */}
-          <div className="pointer-events-none absolute -top-32 -left-20 w-[500px] h-[500px] rounded-full bg-[#67c7f8] opacity-[0.22] blur-[120px]" />
-          <div className="pointer-events-none absolute -bottom-28 right-0 w-[450px] h-[450px] rounded-full bg-[#38a9eb] opacity-[0.28] blur-[110px]" />
-          <div className="pointer-events-none absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#67c7f8] opacity-[0.15] blur-[80px]" />
-          {/* thin horizontal shimmer line */}
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+          <div className="pointer-events-none absolute -top-32 -left-20 w-[500px] h-[500px] rounded-full bg-[#38a9eb] opacity-[0.18] blur-[120px]" />
+          <div className="pointer-events-none absolute -bottom-28 right-0 w-[450px] h-[450px] rounded-full bg-[#1572b8] opacity-[0.25] blur-[110px]" />
+          <div className="pointer-events-none absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#67c7f8] opacity-[0.10] blur-[80px]" />
 
           {/* ── Header row ── */}
           <div className="relative z-10 flex flex-col gap-4 px-7 sm:px-10 pt-8 sm:pt-10 pb-7 border-b border-white/15">

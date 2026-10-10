@@ -47,8 +47,8 @@ export default function HomePage() {
       {/* DYNAMIC BREAK 01: CORE CAPABILITIES MOVING TICKER RIBBON  */}
       {/* Glitch-free twin-track marquee in vibrant Saini Logo Blue */}
       {/* ========================================================= */}
-      <div className="px-2 sm:px-3">
-        <div className="marquee-container group w-full bg-gradient-to-r from-[#0E4A8A] via-[#1572B8] to-[#0E4A8A] border border-[#67c7f8]/50 rounded-xl sm:rounded-2xl py-3.5 px-2 shadow-xl shadow-[#1572b8]/20 relative overflow-hidden select-none">
+      <div className="w-full">
+        <div className="marquee-container group w-full bg-gradient-to-r from-[#0E4A8A] via-[#1572B8] to-[#0E4A8A] border-y border-[#67c7f8]/50 rounded-none py-3.5 px-0 shadow-lg shadow-[#1572b8]/15 relative overflow-hidden select-none">
           
           {/* Edge Vignette Fades in Saini Brand Blue */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#0E4A8A] to-transparent z-10" />

@@ -14,7 +14,7 @@ import {
 
 export function ModernHero() {
   return (
-    <div className="p-2 sm:p-3">
+    <div className="p-2 sm:p-3 relative">
       {/* Outer container with uniform top/left/right margin and subtle rounded corners */}
       <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-800/80 shadow-2xl bg-[#070B19]">
         
@@ -44,11 +44,23 @@ export function ModernHero() {
             </span>
           </div>
 
-          {/* Massive Confident Agency Headline */}
+          {/* ========================================================= */}
+          {/* HEADLINE: HYBRID OF OPTION 1 & OPTION 3                   */}
+          {/* "enterprise" & "LinkedIn" in Option 3 frame pills         */}
+          {/* "predictable sales revenue" in Option 1 editorial serif   */}
+          {/* ========================================================= */}
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-extrabold tracking-tight text-white leading-[1.04] drop-shadow-sm">
-              We turn enterprise attention on LinkedIn into{' '}
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-white bg-clip-text text-transparent underline decoration-cyan-400/60 decoration-4 underline-offset-8">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-sans font-extrabold tracking-tight text-white leading-[1.12]">
+              We turn{' '}
+              <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-cyan-950/60 border border-cyan-400/30 backdrop-blur-md text-cyan-200 shadow-[0_0_20px_rgba(56,189,248,0.2)] mx-1 align-baseline">
+                enterprise
+              </span>{' '}
+              attention on{' '}
+              <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-cyan-950/60 border border-cyan-400/30 backdrop-blur-md text-cyan-200 shadow-[0_0_20px_rgba(56,189,248,0.2)] mx-1 align-baseline">
+                LinkedIn
+              </span>{' '}
+              into{' '}
+              <span className="font-serif italic font-medium bg-gradient-to-r from-cyan-300 via-sky-200 to-white bg-clip-text text-transparent px-1">
                 predictable sales revenue.
               </span>
             </h1>

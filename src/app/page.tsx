@@ -92,53 +92,44 @@ export default function HomePage() {
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Outer shell — vibrant Saini blue gradient */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0E4A8A] via-[#1260A8] to-[#0B3C7E]">
+        {/* Outer shell — rich multi-stop Saini blue gradient */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[conic-gradient(at_top_left,_#38A9EB_0deg,_#1572B8_90deg,_#0E4A8A_180deg,_#0B3C7E_270deg,_#1260A8_360deg)] bg-gradient-to-br from-[#38a9eb] via-[#1572B8] to-[#0B3C7E]" style={{background: 'linear-gradient(135deg, #1a6ab5 0%, #0e4a8a 30%, #0b3c7e 55%, #1260a8 78%, #1e7cc8 100%)'}}>
 
           {/* ── Decorative radial glow blobs ── */}
-          <div className="pointer-events-none absolute -top-32 -left-20 w-[420px] h-[420px] rounded-full bg-[#67c7f8] opacity-[0.20] blur-[110px]" />
-          <div className="pointer-events-none absolute -bottom-28 right-0 w-[380px] h-[380px] rounded-full bg-[#38a9eb] opacity-[0.25] blur-[100px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] rounded-full bg-[#1572b8] opacity-[0.30] blur-[80px]" />
-          {/* thin horizontal glow line across middle */}
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="pointer-events-none absolute -top-32 -left-20 w-[500px] h-[500px] rounded-full bg-[#67c7f8] opacity-[0.22] blur-[120px]" />
+          <div className="pointer-events-none absolute -bottom-28 right-0 w-[450px] h-[450px] rounded-full bg-[#38a9eb] opacity-[0.28] blur-[110px]" />
+          <div className="pointer-events-none absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#67c7f8] opacity-[0.15] blur-[80px]" />
+          {/* thin horizontal shimmer line */}
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
 
           {/* ── Header row ── */}
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-5 px-7 sm:px-10 pt-8 sm:pt-10 pb-7 border-b border-white/15">
-            <div className="space-y-2 max-w-2xl">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90">
-                  <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] animate-pulse" />
-                  LinkedIn Marketing Labs
-                </span>
-                <span className="h-px w-8 bg-white/30" />
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-white/50">Official Accreditation</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tight drop-shadow-sm">
-                Verified Practitioner Credentials
-              </h3>
-              <p className="text-[13px] text-white/65 leading-relaxed">
-                Every strategy and campaign we deploy is backed by LinkedIn&apos;s highest accreditation standard — independently verifiable on the official registry.
-              </p>
+          <div className="relative z-10 flex flex-col gap-4 px-7 sm:px-10 pt-8 sm:pt-10 pb-7 border-b border-white/15">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90">
+                <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] animate-pulse" />
+                LinkedIn Marketing Labs
+              </span>
+              <span className="h-px w-8 bg-white/30" />
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-white/50">Official Accreditation</span>
             </div>
-            {/* Trust stamp */}
-            <div className="shrink-0 flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl px-5 py-3 shadow-lg">
-              <ShieldCheck className="w-6 h-6 text-white shrink-0" />
-              <div>
-                <div className="text-[11px] font-bold text-white uppercase tracking-wider">4 of 4 Certified</div>
-                <div className="text-[10px] text-white/60 mt-0.5">All disciplines covered</div>
+            <div className="flex flex-col sm:flex-row sm:items-end gap-3">
+              <div className="space-y-1.5">
+                <h3 className="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tight drop-shadow-sm">
+                  Verified Practitioner Credentials
+                </h3>
+                <p className="text-[13px] text-white/65 leading-relaxed max-w-2xl">
+                  Every strategy and campaign we deploy is backed by LinkedIn&apos;s highest accreditation standard — independently verifiable on the official registry.
+                </p>
               </div>
             </div>
           </div>
 
           {/* ── Cards grid ── */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 p-5 sm:p-7">
             {[
               {
                 num: "01",
                 title: "Marketing Strategy",
-                subtitle: "Full-Funnel Campaign Architecture",
-                icon: <Target className="w-5 h-5" />,
-                accent: "#ffffff",
                 chipColor: "rgba(255,255,255,0.15)",
                 chipBorder: "rgba(255,255,255,0.25)",
                 glow: "rgba(255,255,255,0.08)",
@@ -149,9 +140,6 @@ export default function HomePage() {
               {
                 num: "02",
                 title: "Advertising Fundamentals",
-                subtitle: "Campaign Delivery & Bidding",
-                icon: <Zap className="w-5 h-5" />,
-                accent: "#ffffff",
                 chipColor: "rgba(255,255,255,0.15)",
                 chipBorder: "rgba(255,255,255,0.25)",
                 glow: "rgba(255,255,255,0.08)",
@@ -162,9 +150,6 @@ export default function HomePage() {
               {
                 num: "03",
                 title: "Content & Creative",
-                subtitle: "Thought Leader & Document Ads",
-                icon: <Sparkles className="w-5 h-5" />,
-                accent: "#ffffff",
                 chipColor: "rgba(255,255,255,0.15)",
                 chipBorder: "rgba(255,255,255,0.25)",
                 glow: "rgba(255,255,255,0.08)",
@@ -175,9 +160,6 @@ export default function HomePage() {
               {
                 num: "04",
                 title: "Marketing Measurement",
-                subtitle: "Pipeline Attribution & Analytics",
-                icon: <TrendingUp className="w-5 h-5" />,
-                accent: "#ffffff",
                 chipColor: "rgba(255,255,255,0.15)",
                 chipBorder: "rgba(255,255,255,0.25)",
                 glow: "rgba(255,255,255,0.08)",
@@ -186,7 +168,7 @@ export default function HomePage() {
                 verifyUrl: "https://training.marketing.linkedin.com/verify/wxa2wfgp5pew"
               }
             ].map((cert, idx) => (
-              <div key={idx} className="group/cert relative flex flex-col p-6 sm:p-7 lg:p-8 hover:bg-white/10 transition-colors duration-300 overflow-hidden">
+              <div key={idx} className="group/cert relative flex flex-col p-6 lg:p-7 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all duration-300 overflow-hidden rounded-2xl shadow-lg">
 
                 {/* Card inner glow on hover */}
                 <div
@@ -194,40 +176,39 @@ export default function HomePage() {
                   style={{ background: `radial-gradient(ellipse at top left, ${cert.glow}, transparent 65%)` }}
                 />
 
-                {/* Large ghost number */}
+                {/* Glowing top line indicator */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/0 group-hover/cert:bg-white/50 transition-colors duration-500 shadow-[0_0_10px_rgba(255,255,255,0)] group-hover/cert:shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+
+                {/* Large ghost number (moved to left and cleaner) */}
                 <div
-                  className="absolute -top-4 -right-3 text-[80px] sm:text-[100px] font-black leading-none select-none pointer-events-none opacity-[0.08] group-hover/cert:opacity-[0.15] transition-opacity font-sans text-white"
+                  className="absolute -bottom-4 -right-2 text-[100px] sm:text-[120px] font-black leading-none select-none pointer-events-none opacity-[0.03] group-hover/cert:opacity-[0.08] transition-opacity font-sans text-white"
                 >
                   {cert.num}
                 </div>
 
-                <div className="relative z-10 flex flex-col h-full gap-4">
+                <div className="relative z-10 flex flex-col h-full gap-5">
 
-                  {/* Icon + Verified badge row */}
+                  {/* Clean header with module ID */}
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-white/25 bg-white/15 text-white transition-all duration-300">
-                      {cert.icon}
+                    <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-white/40 uppercase">
+                      <span className="w-1.5 h-1.5 bg-white/30 rounded-full group-hover/cert:bg-emerald-400 group-hover/cert:shadow-[0_0_8px_#34d399] transition-all duration-300" />
+                      Module {cert.num}
                     </div>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase text-emerald-300 bg-emerald-400/15 border border-emerald-300/30 px-2.5 py-1 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Verified
-                    </span>
                   </div>
 
-                  {/* Title + subtitle */}
+                  {/* Title */}
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-white leading-snug group-hover/cert:text-[#bae6fd] transition-colors duration-300">
+                    <h4 className="text-lg sm:text-xl font-bold text-white leading-tight group-hover/cert:text-white transition-colors duration-300 drop-shadow-sm">
                       {cert.title}
                     </h4>
-                    <p className="text-[11px] text-white/50 mt-0.5">{cert.subtitle}</p>
                   </div>
 
                   {/* Skill chips */}
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 mt-1">
                     {cert.skills.map((s, si) => (
                       <span
                         key={si}
-                        className="text-[10px] font-medium px-2 py-0.5 rounded-md text-white/80"
+                        className="text-[10px] font-medium px-2 py-0.5 rounded-sm text-white/80 backdrop-blur-sm shadow-sm"
                         style={{ background: cert.chipColor, border: `1px solid ${cert.chipBorder}` }}
                       >
                         {s}
@@ -235,18 +216,15 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  {/* Divider */}
-                  <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mt-auto" />
-
-                  {/* Verify link row */}
+                  {/* Verify link row (pushed to bottom) */}
                   <a
                     href={cert.verifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between group/link"
+                    className="mt-auto pt-8 flex items-center justify-between group/link"
                   >
-                    <span className="flex items-center gap-1.5 text-[11px] font-bold text-white/75 group-hover/link:text-white transition-colors">
-                      Verify on LinkedIn
+                    <span className="flex items-center gap-1.5 text-[11px] font-bold text-white/60 group-hover/link:text-white transition-colors">
+                      Verify Credential
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </span>
                     <span className="font-mono text-[9px] text-white/30 group-hover/link:text-white/60 transition-colors">

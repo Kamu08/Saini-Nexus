@@ -116,7 +116,7 @@ export default function RootLayout({
         <JsonLd data={getWebSiteSchema()} />
         <JsonLd data={getLocalBusinessSchema()} />
         <Navbar />
-        <main className="pt-20">{children}</main>
+        <main className="pt-12 sm:pt-14">{children}</main>
         <Footer />
       </body>
     </html>

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
 import { MAIN_NAV_ITEMS } from '@/data/navigation';
 
 export function Navbar() {
@@ -84,18 +84,16 @@ export function Navbar() {
   return (
     <header 
       ref={navRef}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 pointer-events-none px-3 sm:px-6 lg:px-8 ${
-        scrolled ? 'pt-2.5 sm:pt-3' : 'pt-3 sm:pt-4'
-      }`}
+      className="fixed top-0 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 transition-all duration-300"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         
         {/* ========================================================= */}
-        {/* 1. LEFT BLOCK: BRAND IDENTITY (SHARP SQUARE, BIGGER LOGO)  */}
+        {/* 1. LEFT BLOCK: BRAND IDENTITY (SUBTLE ROUNDED EDGES)      */}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center">
+        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-none overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:rotate-6 duration-200">
+            <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 duration-200 shadow-xs">
               <Image
                 src="/saini-nexus-logo.png"
                 alt="Saini Nexus"
@@ -105,16 +103,16 @@ export function Navbar() {
                 priority
               />
             </div>
-            <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors uppercase">
+            <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors uppercase whitespace-nowrap">
               Saini Nexus
             </span>
           </Link>
         </div>
 
         {/* ========================================================= */}
-        {/* 2. CENTER BLOCK: NAVIGATION (SHARP SQUARE, CLEAR FONT)     */}
+        {/* 2. CENTER BLOCK: NAVIGATION (SPACED OUT, CLEAN FONT)      */}
         {/* ========================================================= */}
-        <nav className="pointer-events-auto hidden lg:flex items-center bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-sm h-13 sm:h-14 px-2">
+        <nav className="pointer-events-auto hidden lg:flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-3">
           {MAIN_NAV_ITEMS.map((item) => {
             const hasDropdown = item.children && item.children.length > 0;
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -130,10 +128,10 @@ export function Navbar() {
                 >
                   <button
                     onClick={() => toggleDropdown(item.title)}
-                    className={`h-full px-4.5 font-sans text-[13.5px] font-bold tracking-wide uppercase flex items-center gap-2 transition-all cursor-pointer border-b-2 ${
+                    className={`h-9 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center gap-2 transition-all cursor-pointer ${
                       isActive || isDropdownOpen
-                        ? 'border-blue-600 text-blue-600 bg-blue-50/40'
-                        : 'border-transparent text-slate-700 hover:text-slate-950 hover:bg-slate-50'
+                        ? 'bg-slate-100 text-blue-600'
+                        : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
                     }`}
                   >
                     <span>{item.title}</span>
@@ -144,15 +142,15 @@ export function Navbar() {
                     />
                   </button>
 
-                  {/* Sharp Dropdown Window with Smooth Animation */}
+                  {/* Dropdown Window with Subtle Rounded Edges */}
                   {isDropdownOpen && (
-                    <div className="absolute top-[calc(100%+6px)] left-1/2 -translate-x-1/2 w-80 bg-white border border-slate-200 shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                    <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-80 bg-white border border-slate-200 rounded-xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                       <div className="space-y-1">
                         {item.children?.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="px-3.5 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-900 hover:text-white border border-transparent flex items-center justify-between group transition-all duration-150"
+                            className="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-800 hover:bg-slate-900 hover:text-white border border-transparent flex items-center justify-between group transition-all duration-150"
                           >
                             <div className="flex flex-col text-left pr-2">
                               <span className="font-bold text-xs uppercase tracking-wider">{sub.title}</span>
@@ -176,10 +174,10 @@ export function Navbar() {
               <Link
                 key={item.title}
                 href={item.href}
-                className={`h-full px-4.5 font-sans text-[13.5px] font-bold tracking-wide uppercase flex items-center transition-all border-b-2 ${
+                className={`h-9 px-4 rounded-lg font-sans text-sm font-bold tracking-wider uppercase flex items-center transition-all ${
                   isActive
-                    ? 'border-blue-600 text-blue-600 bg-blue-50/40'
-                    : 'border-transparent text-slate-700 hover:text-slate-950 hover:bg-slate-50'
+                    ? 'bg-slate-100 text-blue-600'
+                    : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
                 }`}
               >
                 {item.title}
@@ -189,20 +187,12 @@ export function Navbar() {
         </nav>
 
         {/* ========================================================= */}
-        {/* 3. RIGHT BLOCK: CONVERSION CTAS (SHARP SQUARE, CLEAR FONT) */}
+        {/* 3. RIGHT BLOCK: CONVERSION CTA (SUBTLE ROUNDED EDGES)     */}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-sm h-13 sm:h-14 px-2 sm:px-3 flex items-center gap-2">
-          
-          <Link
-            href="/audit"
-            className="hidden xl:inline-flex items-center px-3.5 py-2 font-sans text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-all"
-          >
-            Growth Audit
-          </Link>
-
+        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
           <Link
             href="/book"
-            className="inline-flex items-center justify-center gap-2 px-4.5 sm:px-6 h-9 sm:h-10 text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-sm hover:shadow-md transition-all duration-200 group whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-9 sm:h-10 rounded-lg text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-xs hover:shadow-md transition-all duration-200 group whitespace-nowrap"
           >
             <span>Book Consultation</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -211,7 +201,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 transition-colors"
+            className="lg:hidden ml-2 p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -221,7 +211,7 @@ export function Navbar() {
       </div>
 
       {/* ========================================================= */}
-      {/* MOBILE DRAWER WITH SHARP EDGES & SMOOTH TRANSITION        */}
+      {/* MOBILE DRAWER WITH SUBTLE ROUNDED EDGES                   */}
       {/* ========================================================= */}
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden pointer-events-auto">
@@ -232,7 +222,7 @@ export function Navbar() {
             aria-hidden="true"
           />
 
-          {/* Sharp Slide-out Drawer Panel */}
+          {/* Slide-out Drawer Panel */}
           <div className="fixed top-0 right-0 bottom-0 w-[88vw] sm:w-96 max-w-sm bg-white border-l border-slate-200 shadow-2xl flex flex-col justify-between overflow-hidden z-50 animate-in slide-in-from-right duration-250">
             
             {/* Drawer Header */}
@@ -242,7 +232,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-2.5 group"
               >
-                <div className="w-7 h-7 rounded-none overflow-hidden bg-slate-950 border border-slate-800 p-0.5 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-7 h-7 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-0.5 flex items-center justify-center shrink-0 shadow-xs">
                   <Image
                     src="/saini-nexus-logo.png"
                     alt="Saini Nexus"
@@ -257,7 +247,7 @@ export function Navbar() {
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-none border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all cursor-pointer"
+                className="p-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -273,7 +263,7 @@ export function Navbar() {
 
                 if (hasChildren) {
                   return (
-                    <div key={item.title} className="rounded-none border border-slate-200/90 bg-white overflow-hidden shadow-xs">
+                    <div key={item.title} className="rounded-xl border border-slate-200/90 bg-white overflow-hidden shadow-xs">
                       <div className="flex items-center justify-between p-3.5 bg-slate-50/50">
                         <Link
                           href={item.href}
@@ -287,7 +277,7 @@ export function Navbar() {
                         <button
                           type="button"
                           onClick={() => toggleMobileSubmenu(item.title)}
-                          className="p-1 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer"
+                          className="p-1 rounded-md border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer"
                           aria-label={`Toggle ${item.title} submenu`}
                         >
                           <ChevronDown
@@ -305,7 +295,7 @@ export function Navbar() {
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setIsOpen(false)}
-                              className="p-2.5 block hover:bg-slate-900 hover:text-white transition-colors group"
+                              className="p-2.5 rounded-lg block hover:bg-slate-900 hover:text-white transition-colors group"
                             >
                               <div className="font-sans text-xs font-bold text-slate-800 group-hover:text-white flex items-center justify-between uppercase tracking-wider">
                                 <span>{sub.title}</span>
@@ -329,7 +319,7 @@ export function Navbar() {
                     key={item.title}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block p-3.5 border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
+                    className={`block p-3.5 rounded-xl border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
                       isActive
                         ? 'bg-blue-50/80 border-blue-200 text-blue-700'
                         : 'bg-white border-slate-200/90 text-slate-800 hover:bg-slate-50'
@@ -346,7 +336,7 @@ export function Navbar() {
               <Link
                 href="/book"
                 onClick={() => setIsOpen(false)}
-                className="w-full inline-flex items-center justify-center px-5 py-3.5 text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-sm transition-all"
+                className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-xl text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-sm transition-all"
               >
                 <span>Book Strategy Conversation</span>
                 <span className="ml-2 font-bold">→</span>

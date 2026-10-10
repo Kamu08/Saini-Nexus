@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { TEAM_MEMBERS, TeamMember } from "@/data/team";
-import { Users, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { Users, ShieldCheck, Sparkles, CheckCircle2, Linkedin } from "lucide-react";
 
 interface DeptFilter {
   id: string;
@@ -77,12 +77,12 @@ export function TeamGrid() {
               key={member.name}
               className={`rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 relative border-2 border-black ${
                 isFounder 
-                  ? "bg-[#EFF6FF] shadow-[5px_5px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] hover:-translate-y-0.5"
-                  : "bg-white shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5"
+                  ? "bg-[#EFF6FF] shadow-[5px_5px_0px_#000000] hover:shadow-[7px_7px_0px_#000000]"
+                  : "bg-white shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000]"
               }`}
             >
               <div className="space-y-4">
-                {/* Header: Circular Portrait + Department Badge */}
+                {/* Header: Circular Portrait + Department Badge & LinkedIn */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="relative p-0.5 rounded-full bg-black shrink-0 shadow-[2px_2px_0px_#000000]">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden bg-zinc-100 border-2 border-white relative">
@@ -99,9 +99,24 @@ export function TeamGrid() {
                     </div>
                   </div>
 
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider bg-[#BFDBFE] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] shrink-0">
-                    {member.department}
-                  </span>
+                  <div className="flex flex-col items-end gap-2 shrink-0">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider bg-[#BFDBFE] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] shrink-0 text-right">
+                      {member.department}
+                    </span>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-white hover:bg-[#0077b5] text-[#0077b5] hover:text-white border border-black shadow-[1.5px_1.5px_0px_#000000] transition-colors"
+                        title={`View ${member.name} on LinkedIn`}
+                        aria-label={`View ${member.name} on LinkedIn`}
+                      >
+                        <Linkedin className="w-3 h-3" />
+                        <span>Profile ↗</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Member Details */}

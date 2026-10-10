@@ -66,116 +66,172 @@ export default function CredentialsPage() {
       {/* Credentials Grid Across Key Disciplines */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        {/* 1. LinkedIn Marketing */}
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all">
-          <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
-            <Award className="w-5 h-5" />
+        {/* 1. LinkedIn Marketing Strategy */}
+        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
+              <Award className="w-5 h-5" />
+            </div>
+            <div className="space-y-1">
+              <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">CERTIFIED EXPERTISE</span>
+              <h2 className="text-2xl font-serif font-bold text-black">LinkedIn Marketing Strategy</h2>
+            </div>
+            <p className="text-sm text-zinc-700 leading-relaxed font-normal">
+              Certified through LinkedIn Marketing Labs for organic strategy, company page orchestration, executive thought leadership, and audience building frameworks.
+            </p>
+            <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Full-Funnel Organic & Paid Integration</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Executive Profile & Thought Leadership Positioning</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Target Account & Buyer Committee Engagement</span>
+              </li>
+            </ul>
           </div>
-          <div className="space-y-1">
-            <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">CERTIFIED EXPERTISE</span>
-            <h2 className="text-2xl font-serif font-bold text-black">LinkedIn Marketing Strategy</h2>
+
+          <div className="pt-4 border-t-2 border-black/10">
+            <a
+              href="https://training.marketing.linkedin.com/verify/tpdhuiyzq33a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#EFF6FF] hover:bg-[#60A5FA] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] transition-colors"
+            >
+              <span>Verify Official Credential</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#2563EB]" />
+            </a>
           </div>
-          <p className="text-sm text-zinc-700 leading-relaxed font-normal">
-            Certified through LinkedIn Marketing Labs for organic strategy, company page orchestration, executive thought leadership, and audience building frameworks.
-          </p>
-          <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Full-Funnel Organic & Paid Integration</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Executive Profile & Thought Leadership Positioning</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Target Account & Buyer Committee Engagement</span>
-            </li>
-          </ul>
         </div>
 
-        {/* 2. LinkedIn Advertising */}
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all">
-          <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
-            <Target className="w-5 h-5" />
+        {/* 2. LinkedIn Advertising Fundamentals */}
+        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
+              <Target className="w-5 h-5" />
+            </div>
+            <div className="space-y-1">
+              <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">PAID MEDIA MASTERY</span>
+              <h2 className="text-2xl font-serif font-bold text-black">LinkedIn Advertising Fundamentals</h2>
+            </div>
+            <p className="text-sm text-zinc-700 leading-relaxed font-normal">
+              Certified through LinkedIn Marketing Labs for campaign architecture, Campaign Manager optimization, Thought Leader Ads, and native Lead Gen Forms.
+            </p>
+            <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Thought Leader Ads & Single Image Ads Engineering</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Precision ABM & Matched Audience Layering</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Bid Management & Cost-Per-Qualified-Lead Control</span>
+              </li>
+            </ul>
           </div>
-          <div className="space-y-1">
-            <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">PAID MEDIA MASTERY</span>
-            <h2 className="text-2xl font-serif font-bold text-black">LinkedIn Advertising</h2>
+
+          <div className="pt-4 border-t-2 border-black/10">
+            <a
+              href="https://training.marketing.linkedin.com/verify/vjbijavyd84i"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#EFF6FF] hover:bg-[#60A5FA] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] transition-colors"
+            >
+              <span>Verify Official Credential</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#2563EB]" />
+            </a>
           </div>
-          <p className="text-sm text-zinc-700 leading-relaxed font-normal">
-            Hands-on campaign architecture and certified execution across LinkedIn Campaign Manager, Thought Leader Ads, Matched Audiences, and native Lead Gen Forms.
-          </p>
-          <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Thought Leader Ads & Single Image Ads Engineering</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Precision ABM & Matched Audience Layering</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Bid Management & Cost-Per-Qualified-Lead Control</span>
-            </li>
-          </ul>
         </div>
 
-        {/* 3. Content & Creative */}
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all">
-          <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
-            <BookOpen className="w-5 h-5" />
+        {/* 3. Content & Creative Design */}
+        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div className="space-y-1">
+              <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">EDITORIAL CRAFT</span>
+              <h2 className="text-2xl font-serif font-bold text-black">Content & Creative Design</h2>
+            </div>
+            <p className="text-sm text-zinc-700 leading-relaxed font-normal">
+              Certified through LinkedIn Marketing Labs for high-impact creative development, visual document carousels, and contrarian executive perspectives.
+            </p>
+            <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Document Ad & Native PDF Carousel Formatting</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Executive POV Ghostwriting & Storytelling</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Ungated High-Value Intellectual Property Assets</span>
+              </li>
+            </ul>
           </div>
-          <div className="space-y-1">
-            <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">EDITORIAL CRAFT</span>
-            <h2 className="text-2xl font-serif font-bold text-black">Content & Creative Design</h2>
+
+          <div className="pt-4 border-t-2 border-black/10">
+            <a
+              href="https://training.marketing.linkedin.com/verify/cres5ub84zqj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#EFF6FF] hover:bg-[#60A5FA] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] transition-colors"
+            >
+              <span>Verify Official Credential</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#2563EB]" />
+            </a>
           </div>
-          <p className="text-sm text-zinc-700 leading-relaxed font-normal">
-            Certified through LinkedIn Marketing Labs for high-impact creative development, visual document carousels, and contrarian executive perspectives.
-          </p>
-          <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Document Ad & Native PDF Carousel Formatting</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Executive POV Ghostwriting & Storytelling</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Ungated High-Value Intellectual Property Assets</span>
-            </li>
-          </ul>
         </div>
 
         {/* 4. Marketing Measurement */}
-        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all">
-          <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
-            <BarChart3 className="w-5 h-5" />
+        <div className="bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-10 h-10 rounded-xl bg-[#60A5FA] text-black border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#000000]">
+              <BarChart3 className="w-5 h-5" />
+            </div>
+            <div className="space-y-1">
+              <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">ANALYTICS & ATTRIBUTION</span>
+              <h2 className="text-2xl font-serif font-bold text-black">Marketing Measurement</h2>
+            </div>
+            <p className="text-sm text-zinc-700 leading-relaxed font-normal">
+              Certified through LinkedIn Marketing Labs for conversion tracking, offline conversion API integration, pipeline attribution, and sales velocity metrics.
+            </p>
+            <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Insight Tag & Server-Side Webhook Instrumentation</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Closed-Loop Pipeline & SQL Attribution</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
+                <span>Customer Acquisition Cost (CAC) Efficiency Audits</span>
+              </li>
+            </ul>
           </div>
-          <div className="space-y-1">
-            <span className="text-xs font-mono text-[#2563EB] font-bold uppercase">ANALYTICS & ATTRIBUTION</span>
-            <h2 className="text-2xl font-serif font-bold text-black">Marketing Measurement</h2>
+
+          <div className="pt-4 border-t-2 border-black/10">
+            <a
+              href="https://training.marketing.linkedin.com/verify/wxa2wfgp5pew"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#EFF6FF] hover:bg-[#60A5FA] text-black border border-black shadow-[1.5px_1.5px_0px_#000000] transition-colors"
+            >
+              <span>Verify Official Credential</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#2563EB]" />
+            </a>
           </div>
-          <p className="text-sm text-zinc-700 leading-relaxed font-normal">
-            Certified through LinkedIn Marketing Labs for conversion tracking, offline conversion API integration, pipeline attribution, and sales velocity metrics.
-          </p>
-          <ul className="space-y-2 text-xs text-zinc-800 pt-3 border-t-2 border-black/10 font-medium">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Insight Tag & Server-Side Webhook Instrumentation</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Closed-Loop Pipeline & SQL Attribution</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>Customer Acquisition Cost (CAC) Efficiency Audits</span>
-            </li>
-          </ul>
         </div>
 
       </div>

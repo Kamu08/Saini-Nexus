@@ -82,52 +82,60 @@ export default function HomePage() {
                   LinkedIn Marketing Certifications
                 </h3>
                 <p className="text-xs text-zinc-600 font-medium mt-0.5">
-                  Saini Nexus is led by a marketing practitioner with certifications in LinkedIn marketing strategy, content &amp; creative design, and marketing measurement.
+                  Saini Nexus is led by certified practitioners across LinkedIn marketing strategy, advertising fundamentals, content &amp; creative design, and marketing measurement.
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-400 px-3 py-1 rounded-full w-fit shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>LINKEDIN MARKETING LABS</span>
+              <span>LINKEDIN MARKETING LABS VERIFIED</span>
             </div>
           </div>
 
-          {/* 4 Sleek Horizontal Credential Badges */}
+          {/* 4 Verified Credential Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {[
               {
                 title: "Marketing Strategy",
-                code: "Certified",
+                code: "Verified",
                 issuer: "LinkedIn Marketing Labs",
+                verifyUrl: "https://training.marketing.linkedin.com/verify/tpdhuiyzq33a",
                 bg: "bg-white",
                 dot: "bg-[#2563EB]"
               },
               {
-                title: "Content & Creative Design",
-                code: "Certified",
+                title: "Advertising Fundamentals",
+                code: "Verified",
                 issuer: "LinkedIn Marketing Labs",
+                verifyUrl: "https://training.marketing.linkedin.com/verify/vjbijavyd84i",
+                bg: "bg-white",
+                dot: "bg-purple-600"
+              },
+              {
+                title: "Content & Creative Design",
+                code: "Verified",
+                issuer: "LinkedIn Marketing Labs",
+                verifyUrl: "https://training.marketing.linkedin.com/verify/cres5ub84zqj",
                 bg: "bg-white",
                 dot: "bg-amber-500"
               },
               {
                 title: "Marketing Measurement",
-                code: "Certified",
+                code: "Verified",
                 issuer: "LinkedIn Marketing Labs",
+                verifyUrl: "https://training.marketing.linkedin.com/verify/wxa2wfgp5pew",
                 bg: "bg-white",
                 dot: "bg-emerald-500"
-              },
-              {
-                title: "Thought Leader & Document Ads",
-                code: "Applied Practice",
-                issuer: "Campaign Architecture Focus",
-                bg: "bg-white",
-                dot: "bg-purple-500"
               }
             ].map((cert, idx) => (
-              <div
+              <a
                 key={idx}
-                className={`${cert.bg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] hover:shadow-[3.5px_3.5px_0px_#000000] transition-all duration-150 flex items-center justify-between gap-3`}
+                href={cert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Verify ${cert.title} on LinkedIn Marketing Labs`}
+                className={`${cert.bg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] hover:shadow-[4px_4px_0px_#000000] transition-all duration-150 flex items-center justify-between gap-3 group/cert`}
               >
                 <div className="space-y-0.5 min-w-0">
                   <div className="flex items-center gap-1.5">
@@ -136,17 +144,18 @@ export default function HomePage() {
                       {cert.code}
                     </span>
                   </div>
-                  <h4 className="text-sm font-serif font-bold text-black leading-tight truncate">
+                  <h4 className="text-sm font-serif font-bold text-black leading-tight truncate group-hover/cert:text-[#2563EB] transition-colors">
                     {cert.title}
                   </h4>
-                  <p className="text-[10px] font-mono text-zinc-600 truncate">
-                    {cert.issuer}
+                  <p className="text-[10px] font-mono text-zinc-600 truncate flex items-center gap-1">
+                    <span>{cert.issuer}</span>
+                    <span className="text-[#2563EB] font-bold">↗</span>
                   </p>
                 </div>
-                <div className="w-6 h-6 rounded-lg bg-[#EFF6FF] border border-black flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
+                <div className="w-6 h-6 rounded-lg bg-[#EFF6FF] border border-black flex items-center justify-center shrink-0 group-hover/cert:bg-[#60A5FA] transition-colors">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] group-hover/cert:text-black transition-colors" />
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 

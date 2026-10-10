@@ -11,22 +11,37 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     let ticking = false;
+
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          const currentScrollY = window.scrollY;
+          
+          setScrolled(currentScrollY > 20);
+          
+          // Hide on scroll down, show on scroll up
+          if (currentScrollY > lastScrollY && currentScrollY > 200) {
+            setHidden(true);
+          } else if (currentScrollY < lastScrollY) {
+            setHidden(false);
+          }
+          
+          lastScrollY = currentScrollY;
           ticking = false;
         });
         ticking = true;
       }
     };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -84,7 +99,7 @@ export function Navbar() {
   return (
     <header 
       ref={navRef}
-      className="fixed top-0 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 transition-all duration-300"
+      className={`fixed top-0 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 transition-all duration-500 ease-in-out ${hidden ? '-translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'}`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         

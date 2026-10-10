@@ -13,26 +13,14 @@ import {
 } from "lucide-react";
 import { SERVICES, ServiceItem } from "@/data/services";
 
-const ACCENT_STYLES = [
-  { badgeBg: "bg-blue-600 text-white", headerBg: "bg-blue-50/50", borderAccent: "border-blue-100", textAccent: "text-blue-600" },
-  { badgeBg: "bg-indigo-600 text-white", headerBg: "bg-indigo-50/50", borderAccent: "border-indigo-100", textAccent: "text-indigo-600" },
-  { badgeBg: "bg-sky-600 text-white", headerBg: "bg-sky-50/50", borderAccent: "border-sky-100", textAccent: "text-sky-600" },
-  { badgeBg: "bg-emerald-600 text-white", headerBg: "bg-emerald-50/50", borderAccent: "border-emerald-100", textAccent: "text-emerald-600" },
-  { badgeBg: "bg-violet-600 text-white", headerBg: "bg-violet-50/50", borderAccent: "border-violet-100", textAccent: "text-violet-600" },
-  { badgeBg: "bg-cyan-600 text-white", headerBg: "bg-cyan-50/50", borderAccent: "border-cyan-100", textAccent: "text-cyan-600" },
-  { badgeBg: "bg-blue-700 text-white", headerBg: "bg-blue-50/50", borderAccent: "border-blue-100", textAccent: "text-blue-700" },
-  { badgeBg: "bg-slate-900 text-white", headerBg: "bg-slate-50/70", borderAccent: "border-slate-200", textAccent: "text-slate-900" }
-];
-
 interface CardProps {
   srv: ServiceItem;
   idx: number;
   total: number;
   progress: MotionValue<number>;
-  accent: (typeof ACCENT_STYLES)[0];
 }
 
-function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
+function ServiceSlideCard({ srv, idx, total, progress }: CardProps) {
   const step = 0.88 / (total - 1);
   const start = idx === 0 ? 0 : (idx - 1) * step;
   const end = idx === 0 ? 0 : idx * step;
@@ -61,101 +49,108 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
         pointerEvents,
         zIndex: idx + 1,
       }}
-      className="absolute top-0 left-0 right-0 bottom-0"
+      className="absolute top-0 left-0 right-0 bottom-0 py-1"
     >
-      {/* Modern Card Shell */}
-      <div className="w-full h-full bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-900/5 flex flex-col justify-between overflow-hidden">
+      {/* Sleek Dark Card Shell - ROUNDED CORNERS */}
+      <div className="w-full h-full bg-[#0A1628] rounded-3xl border border-[#1572B8]/30 flex flex-col justify-between overflow-hidden relative shadow-[0_-5px_30px_rgba(0,0,0,0.4)]">
         
+        {/* Glow behind card */}
+        <div 
+          className="pointer-events-none absolute inset-0 opacity-100"
+          style={{ background: `radial-gradient(ellipse at top left, rgba(56,169,235,0.1), transparent 70%)` }}
+        />
+
         {/* Top Header Bar */}
-        <div className={`w-full ${accent.headerBg} border-b border-slate-200/80 px-5 sm:px-7 py-3 sm:py-3.5 flex items-center justify-between gap-3 select-none shrink-0`}>
+        <div className="w-full bg-[#0F1E36]/90 backdrop-blur-md border-b border-[#1572B8]/20 px-5 sm:px-7 py-3 flex items-center justify-between gap-3 select-none shrink-0 relative z-10">
           <div className="flex items-center gap-3">
-            <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${accent.badgeBg} flex items-center justify-center font-sans text-xs sm:text-sm font-bold shadow-xs`}>
+            <span className="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-xs sm:text-sm font-bold bg-[#38a9eb]/10 text-[#38a9eb] border border-[#38a9eb]/30 shadow-sm">
               {srv.number}
             </span>
-            <span className="text-xs sm:text-sm font-sans font-bold uppercase tracking-wider text-slate-800">
-              SERVICE {srv.number} OF 08 • {srv.title}
+            <span className="text-xs sm:text-sm font-sans font-bold uppercase tracking-widest text-slate-100">
+              MODULE {srv.number} // {srv.title}
             </span>
           </div>
 
           <div className="flex items-center gap-2.5">
-            <span className="hidden md:inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-sans text-xs font-semibold shadow-2xs">
+            <span className="hidden md:inline-block px-3 py-1 bg-white/5 border border-white/10 text-[#67C7F8] font-sans text-xs font-semibold rounded-full shadow-sm">
               {srv.premiumPositioning}
-            </span>
-            <span className="text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-wider text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
-              {srv.strategicRole}
             </span>
           </div>
         </div>
 
         {/* Card Body */}
-        <div className="p-5 sm:p-7 lg:p-8 flex-1 flex flex-col justify-between overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start">
+        <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between overflow-hidden relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start h-full">
             
             {/* Left Column: Title, Short Description, Pain Points & CTAs */}
-            <div className="lg:col-span-5 space-y-4">
+            <div className="lg:col-span-5 flex flex-col h-full gap-4">
               <div>
-                <h3 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-sans font-extrabold text-slate-900 tracking-tight leading-snug">
+                <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-sans font-black text-white tracking-tight leading-tight drop-shadow-md">
                   {srv.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mt-1.5">
+                <p className="text-sm text-slate-300 leading-relaxed font-normal mt-2 line-clamp-3">
                   {srv.shortDescription}
                 </p>
               </div>
 
               {/* Solves Friction Box */}
-              <div className="p-4 rounded-2xl bg-rose-50/50 border border-rose-100 space-y-2">
-                <span className="text-xs font-sans font-bold uppercase tracking-wider text-rose-900 flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-rose-600" />
-                  Core Roadblocks Eliminated:
+              <div className="p-3.5 bg-rose-950/20 border border-rose-900/50 rounded-2xl relative overflow-hidden shrink-0 mt-auto shadow-sm">
+                <div className="absolute top-0 left-0 bottom-0 w-1 bg-rose-500/50" />
+                <span className="text-[11px] font-sans font-bold uppercase tracking-widest text-rose-400 flex items-center gap-2 mb-2">
+                  <Zap className="w-3.5 h-3.5 text-rose-500" />
+                  Core Roadblocks Eliminated
                 </span>
-                <ul className="space-y-1.5 text-xs text-slate-700 font-medium">
+                <ul className="space-y-1.5 text-[11px] text-slate-300 font-medium pl-1">
                   {srv.whatWeSolve.slice(0, 2).map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-rose-600 font-bold shrink-0">✕</span>
-                      <span>{item}</span>
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="text-rose-500 font-bold shrink-0 mt-0.5">✕</span>
+                      <span className="leading-snug line-clamp-2">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-1 flex flex-wrap items-center gap-3">
+              {/* Action Buttons at bottom of left col */}
+              <div className="flex flex-wrap items-center gap-2.5 shrink-0 pt-1">
                 <Link
                   href={`/services/${srv.slug}`}
-                  className="neo-btn-white text-xs"
+                  className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider transition-all"
                 >
-                  <span>Explore Service</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <span>Explore</span>
                 </Link>
                 <Link
                   href="/book"
-                  className="neo-btn-blue text-xs"
+                  className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1572B8] hover:bg-[#38A9EB] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg"
                 >
                   <span>Book Strategy Call</span>
-                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
 
             {/* Right Column: Execution Capabilities & Direct Deliverables */}
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-7 flex flex-col gap-4 h-full overflow-hidden">
               
               {/* 4 Capabilities Grid */}
-              <div className="space-y-2">
-                <span className="text-xs font-sans uppercase tracking-wider text-slate-500 font-bold block">
-                  Included Execution Capabilities:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="flex-1 overflow-y-auto pr-1 space-y-3">
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2 shrink-0">
+                  <span className="w-1.5 h-1.5 bg-[#38A9EB] rounded-full shadow-[0_0_8px_#38a9eb]" />
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#38A9EB] font-bold">
+                    Execution Capabilities
+                  </span>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {srv.capabilities.map((cap, i) => (
                     <div 
                       key={i} 
-                      className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-100 hover:border-slate-200 space-y-1 transition-colors"
+                      className="p-3.5 bg-white/[0.02] border border-white/5 hover:border-white/20 transition-colors space-y-1.5 rounded-xl group/cap"
                     >
-                      <div className="flex items-center gap-2 font-sans font-semibold text-sm text-slate-900">
-                        <CheckCircle2 className="w-4 h-4 text-[#1572b8] shrink-0" />
+                      <div className="flex items-center gap-2.5 font-sans font-bold text-sm text-white">
+                        <CheckCircle2 className="w-4 h-4 text-[#38a9eb] shrink-0 opacity-80 group-hover/cap:opacity-100 transition-opacity" />
                         <span className="line-clamp-1">{cap.title}</span>
                       </div>
-                      <p className="text-xs text-slate-500 leading-relaxed font-normal pl-6 line-clamp-2">
+                      <p className="text-xs text-slate-400 leading-relaxed font-normal pl-6.5 line-clamp-2">
                         {cap.description}
                       </p>
                     </div>
@@ -164,16 +159,16 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
               </div>
 
               {/* Direct Commercial Deliverables Bar */}
-              <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-2 shadow-2xs">
-                <span className="text-xs font-sans font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5 text-[#1572b8]" />
-                  Direct Commercial Deliverables:
+              <div className="p-3.5 bg-[#050A14] border border-[#1572b8]/30 rounded-xl space-y-2 shrink-0">
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#67c7f8] flex items-center gap-2 font-bold">
+                  <Target className="w-3.5 h-3.5 text-[#38a9eb]" />
+                  Direct Commercial Deliverables
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-[11px] text-slate-300 font-medium">
                   {srv.deliverables.slice(0, 4).map((del, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1572b8] shrink-0" />
-                      <span className="font-semibold line-clamp-1">{del}</span>
+                    <div key={i} className="flex items-center gap-2.5">
+                      <span className="w-1 h-1 rounded-full bg-[#38a9eb]" />
+                      <span className="line-clamp-1">{del}</span>
                     </div>
                   ))}
                 </div>
@@ -208,17 +203,17 @@ export function InteractiveServicesHub() {
   return (
     <div ref={containerRef} className="relative h-[360vh] sm:h-[400vh]">
       
-      {/* Pinned Sticky Stage */}
-      <div className="sticky top-20 sm:top-24 w-full h-[620px] sm:h-[560px] lg:h-[540px] flex flex-col justify-start">
+      {/* Pinned Sticky Stage - Tightened top spacing and responsive height */}
+      <div className="sticky top-6 sm:top-8 w-full h-[calc(100vh-80px)] min-h-[500px] max-h-[600px] flex flex-col justify-start">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b border-slate-200/80 pb-4 mb-4 bg-white shrink-0">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e6f4fc] border border-[#bae6fd] text-[#0f539a] text-xs font-sans font-semibold mb-2">
-              <Layers className="w-3.5 h-3.5 text-[#1572b8]" />
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b border-[#1572B8]/20 pb-3 mb-3 shrink-0">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#38A9EB] mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#38A9EB] shadow-[0_0_8px_#38A9EB] animate-pulse" />
               Capabilities Matrix
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-black text-white tracking-tight">
               What We Do: 8 Core Growth Services
             </h2>
           </div>
@@ -226,7 +221,7 @@ export function InteractiveServicesHub() {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/services"
-              className="neo-btn-white text-xs py-2 px-4"
+              className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[11px] font-bold uppercase tracking-wider transition-colors shadow-md backdrop-blur-sm"
             >
               <span>View All Services</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -234,8 +229,8 @@ export function InteractiveServicesHub() {
           </div>
         </div>
 
-        {/* Card Deck Viewport */}
-        <div className="relative w-full flex-1">
+        {/* Card Deck Viewport - Decreased width to max-w-4xl for tighter layout */}
+        <div className="relative w-full max-w-4xl mx-auto flex-1">
           {serviceList.map((srv, idx) => (
             <ServiceSlideCard
               key={srv.slug}
@@ -243,7 +238,6 @@ export function InteractiveServicesHub() {
               idx={idx}
               total={serviceList.length}
               progress={smoothProgress}
-              accent={ACCENT_STYLES[idx % ACCENT_STYLES.length]}
             />
           ))}
         </div>

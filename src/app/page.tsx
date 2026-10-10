@@ -242,11 +242,13 @@ export default function HomePage() {
 
       {/* ========================================================= */}
       {/* 02. WHAT WE DO: THE 8 SERVICES                            */}
-      {/* Light structured canvas                                   */}
+      {/* Dark Structured Canvas                                    */}
       {/* ========================================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <InteractiveServicesHub />
-      </div>
+      <section className="bg-[#040B16] w-full border-y border-[#1572B8]/20 py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <InteractiveServicesHub />
+        </div>
+      </section>
 
       {/* ========================================================= */}
       {/* 03. LIVE PIPELINE VISUALIZER: ARCHITECTURAL CRAFT          */}

@@ -16,7 +16,7 @@ export function ModernHero() {
   return (
     <div className="p-2 sm:p-3 relative">
       {/* Outer container with uniform top/left/right margin and subtle rounded corners */}
-      <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-800/80 shadow-2xl bg-[#070B19]">
+      <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-xl sm:rounded-2xl overflow-hidden border border-blue-900/60 shadow-2xl bg-[#091528]">
         
         {/* ========================================================= */}
         {/* 1. BLUE FLUTED BANDS BACKGROUND (SAINI LOGO BLUE PALETTE) */}
@@ -29,91 +29,93 @@ export function ModernHero() {
             priority
             className="object-cover object-center"
           />
-          {/* Subtle gentle vignette to ensure crisp typography readability without darkening */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#070B19]/30 via-transparent to-[#070B19]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070B19]/40 via-transparent to-transparent" />
+          {/* Balanced subtle vignette so the lighter Saini blue texture breathes naturally */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#091528]/20 via-transparent to-[#091528]/55" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#091528]/30 via-transparent to-transparent" />
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">
-          
-          {/* Live Client Demand Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-cyan-400/30 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-wider text-cyan-200 font-sans">
-              Enterprise LinkedIn Demand Generation
+        
+        {/* Live Client Demand Pill - tuned to Saini logo blue */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a1f40]/80 backdrop-blur-md border border-[#38a9eb]/45 shadow-lg shadow-[#1572b8]/15">
+          <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] animate-pulse" />
+          <span className="text-xs font-bold uppercase tracking-wider text-[#e0f2fe] font-sans">
+            Enterprise LinkedIn Demand Generation
+          </span>
+        </div>
+
+        {/* Headline: Tuned frosted badges and Saini gradient */}
+        <div className="space-y-4">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-sans font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-sm">
+            We turn{' '}
+            <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-[#0c2852]/85 border border-[#38a9eb]/50 backdrop-blur-md text-[#f0f9ff] shadow-[0_0_24px_rgba(56,169,235,0.3)] mx-1 align-baseline font-extrabold">
+              enterprise
+            </span>{' '}
+            attention on{' '}
+            <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-[#0c2852]/85 border border-[#38a9eb]/50 backdrop-blur-md text-[#f0f9ff] shadow-[0_0_24px_rgba(56,169,235,0.3)] mx-1 align-baseline font-extrabold">
+              LinkedIn
+            </span>{' '}
+            into{' '}
+            <span className="font-serif italic font-medium bg-gradient-to-r from-[#67c7f8] via-[#b9e9fe] to-white bg-clip-text text-transparent px-1 drop-shadow-sm">
+              predictable sales revenue.
             </span>
-          </div>
+          </h1>
+        </div>
 
-          {/* Headline: Hybrid Option 1 & 3 */}
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-sans font-extrabold tracking-tight text-white leading-[1.12]">
-              We turn{' '}
-              <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-cyan-950/60 border border-cyan-400/30 backdrop-blur-md text-cyan-200 shadow-[0_0_20px_rgba(56,189,248,0.2)] mx-1 align-baseline">
-                enterprise
-              </span>{' '}
-              attention on{' '}
-              <span className="inline-block px-3 sm:px-4 py-0.5 sm:py-1 rounded-xl bg-cyan-950/60 border border-cyan-400/30 backdrop-blur-md text-cyan-200 shadow-[0_0_20px_rgba(56,189,248,0.2)] mx-1 align-baseline">
-                LinkedIn
-              </span>{' '}
-              into{' '}
-              <span className="font-serif italic font-medium bg-gradient-to-r from-cyan-300 via-sky-200 to-white bg-clip-text text-transparent px-1">
-                predictable sales revenue.
+        {/* Sub-editorial: Option C (Border Callout) & Action Buttons */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pt-2">
+          
+          <div className="md:col-span-8">
+            <div className="border-l-2 border-[#38a9eb] pl-4 sm:pl-5 space-y-1.5">
+              <span className="text-[11px] font-mono text-[#74cbf7] uppercase tracking-widest block font-bold">
+                Core Delivery Protocol
               </span>
-            </h1>
-          </div>
-
-          {/* Sub-editorial: Option C (Border Callout) & Action Buttons */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pt-2">
-            
-            <div className="md:col-span-8">
-              <div className="border-l-2 border-cyan-400/70 pl-4 sm:pl-5 space-y-1.5">
-                <span className="text-[11px] font-mono text-cyan-300 uppercase tracking-widest block font-semibold">
-                  Core Delivery Protocol
-                </span>
-                <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-                  A dedicated B2B demand generation practice for technology, consulting, and manufacturing firms. We combine executive Thought Leader Ads, buying committee account targeting, and high-intent inbound acquisition.
-                </p>
-              </div>
-            </div>
-
-            <div className="md:col-span-4 flex flex-col gap-3">
-              <Link
-                href="/book"
-                className="w-full inline-flex items-center justify-between px-7 py-4 rounded-full text-sm font-semibold text-slate-950 bg-white hover:bg-cyan-100 transition-all duration-200 group shadow-lg hover:shadow-cyan-500/20"
-              >
-                <span>Book Strategy Consultation</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-slate-950" />
-              </Link>
-
-              <Link
-                href="/case-studies"
-                className="w-full inline-flex items-center justify-between px-7 py-4 rounded-full text-sm font-semibold text-white bg-slate-900/80 backdrop-blur-md border border-white/20 hover:border-white/40 hover:bg-slate-900 transition-all"
-              >
-                <span>View Campaign Frameworks</span>
-                <ArrowUpRight className="w-4 h-4 text-cyan-300" />
-              </Link>
+              <p className="text-base sm:text-lg text-slate-100 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+                A dedicated B2B demand generation practice for technology, consulting, and manufacturing firms. We combine executive Thought Leader Ads, buying committee account targeting, and high-intent inbound acquisition.
+              </p>
             </div>
           </div>
 
-          {/* Understated Executive Metadata Strip */}
-          <div className="pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm backdrop-blur-xs">
-            <div>
-              <span className="text-xs text-sky-200/70 uppercase font-semibold block">Practice Lead</span>
-              <span className="font-bold text-white mt-1 block">Dev Raj Saini</span>
-            </div>
-            <div>
-              <span className="text-xs text-sky-200/70 uppercase font-semibold block">HQ &amp; Coverage</span>
-              <span className="font-bold text-white mt-1 block">Jaipur, India · Global B2B</span>
-            </div>
-            <div>
-              <span className="text-xs text-sky-200/70 uppercase font-semibold block">Accreditation</span>
-              <span className="font-bold text-cyan-300 mt-1 block">LinkedIn Marketing Labs</span>
-            </div>
-            <div>
-              <span className="text-xs text-sky-200/70 uppercase font-semibold block">Client Focus</span>
-              <span className="font-bold text-sky-300 mt-1 block">Mid-Market &amp; Enterprise</span>
-            </div>
+          <div className="md:col-span-4 flex flex-col gap-3">
+            {/* Primary Consultation CTA - High contrast pure white with glowing Saini blue shadow */}
+            <Link
+              href="/book"
+              className="w-full inline-flex items-center justify-between px-7 py-4 rounded-full text-sm font-bold text-[#07152b] bg-white hover:bg-[#edf7fd] transition-all duration-200 group shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5"
+            >
+              <span>Book Strategy Consultation</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform text-[#07152b]" />
+            </Link>
+
+            {/* Secondary Frameworks CTA - Deep glass button with crisp Saini blue border */}
+            <Link
+              href="/case-studies"
+              className="w-full inline-flex items-center justify-between px-7 py-4 rounded-full text-sm font-semibold text-white bg-[#0b2144]/75 backdrop-blur-md border border-[#38a9eb]/40 hover:border-[#38a9eb]/80 hover:bg-[#0f2c59]/90 transition-all shadow-md group"
+            >
+              <span>View Campaign Frameworks</span>
+              <ArrowUpRight className="w-4 h-4 text-[#74cbf7] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </div>
+        </div>
+
+        {/* Understated Executive Metadata Strip - tuned borders & labels */}
+        <div className="pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm backdrop-blur-2xs">
+          <div>
+            <span className="text-xs text-[#a3d4f1] uppercase font-semibold block tracking-wider">Practice Lead</span>
+            <span className="font-bold text-white mt-1 block">Dev Raj Saini</span>
+          </div>
+          <div>
+            <span className="text-xs text-[#a3d4f1] uppercase font-semibold block tracking-wider">HQ &amp; Coverage</span>
+            <span className="font-bold text-white mt-1 block">Jaipur, India · Global B2B</span>
+          </div>
+          <div>
+            <span className="text-xs text-[#a3d4f1] uppercase font-semibold block tracking-wider">Accreditation</span>
+            <span className="font-bold text-[#62c4f8] mt-1 block">LinkedIn Marketing Labs</span>
+          </div>
+          <div>
+            <span className="text-xs text-[#a3d4f1] uppercase font-semibold block tracking-wider">Client Focus</span>
+            <span className="font-bold text-[#d4effc] mt-1 block">Mid-Market &amp; Enterprise</span>
+          </div>
+        </div>
 
         </div>
       </section>

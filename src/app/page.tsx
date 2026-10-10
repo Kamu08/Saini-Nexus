@@ -23,6 +23,8 @@ import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
+import { LivePipelineVisualizer } from "@/components/LivePipelineVisualizer";
+import { EditorialJournalDesk } from "@/components/EditorialJournalDesk";
 
 export default function HomePage() {
   const CAPABILITIES = [
@@ -171,7 +173,15 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 03. THE 7-STAGE PIPELINE AUDIT INVITATION (LEAN CALLOUT)  */}
+      {/* 03. LIVE PIPELINE VISUALIZER: ARCHITECTURAL CRAFT          */}
+      {/* Interactive 5-stage commercial engine with telemetry       */}
+      {/* ========================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <LivePipelineVisualizer />
+      </section>
+
+      {/* ========================================================= */}
+      {/* 04. THE 7-STAGE PIPELINE AUDIT INVITATION (LEAN CALLOUT)  */}
       {/* Clean high-converting banner directing to dedicated /audit */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,6 +246,12 @@ export default function HomePage() {
       {/* High-craft editorial case teardowns & verified ARR metrics */}
       {/* ========================================================= */}
       <CaseStudyShowcase />
+
+      {/* ========================================================= */}
+      {/* 06B. EDITORIAL JOURNAL DESK: RESEARCH DISPATCHES          */}
+      {/* Authoritative research archive & practitioner journalism  */}
+      {/* ========================================================= */}
+      <EditorialJournalDesk />
 
       {/* ========================================================= */}
       {/* 07. FOUNDER AUTHORITY: EXECUTIVE PROFILE DOSSIER          */}

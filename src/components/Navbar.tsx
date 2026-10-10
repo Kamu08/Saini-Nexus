@@ -89,9 +89,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         
         {/* ========================================================= */}
-        {/* 1. LEFT BLOCK: BRAND IDENTITY (SUBTLE ROUNDED EDGES)      */}
+        {/* 1. LEFT BLOCK: BRAND IDENTITY (MATCHING HERO BG PURE WHITE) */}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0">
+        <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 duration-200 shadow-xs">
               <Image
@@ -110,9 +110,9 @@ export function Navbar() {
         </div>
 
         {/* ========================================================= */}
-        {/* 2. CENTER BLOCK: NAVIGATION (SPACED OUT, CLEAN FONT)      */}
+        {/* 2. CENTER BLOCK: NAVIGATION (MATCHING HERO BG PURE WHITE)  */}
         {/* ========================================================= */}
-        <nav className="pointer-events-auto hidden lg:flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-3">
+        <nav className="pointer-events-auto hidden lg:flex items-center gap-2 bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-3">
           {MAIN_NAV_ITEMS.map((item) => {
             const hasDropdown = item.children && item.children.length > 0;
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -187,9 +187,9 @@ export function Navbar() {
         </nav>
 
         {/* ========================================================= */}
-        {/* 3. RIGHT BLOCK: CONVERSION CTA (SUBTLE ROUNDED EDGES)     */}
+        {/* 3. RIGHT BLOCK: CONVERSION CTA (MATCHING HERO BG PURE WHITE)*/}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
+        <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
           <Link
             href="/book"
             className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-9 sm:h-10 rounded-lg text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-xs hover:shadow-md transition-all duration-200 group whitespace-nowrap"

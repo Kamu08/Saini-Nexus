@@ -23,20 +23,7 @@ export function ModernHero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
-        {/* Top Minimalist Tag */}
-        <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-semibold tracking-widest uppercase text-slate-500 border-b border-slate-100 pb-4">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            <span className="text-slate-900 font-bold">Saini Nexus</span>
-            <span className="text-slate-300">/</span>
-            <span>B2B LinkedIn Marketing &amp; Demand Generation</span>
-          </div>
 
-          <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span>ACCEPTING NEW CLIENT COHORTS</span>
-          </div>
-        </div>
 
         {/* Massive Confident Agency Headline */}
         <div className="space-y-4">

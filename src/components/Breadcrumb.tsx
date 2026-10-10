@@ -37,8 +37,8 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-zinc-700 py-2.5 border-b-2 border-black/10 font-mono font-medium">
-        <Link href="/" className="hover:text-[#2563EB] flex items-center gap-1 transition-colors text-zinc-800 font-bold shrink-0">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 py-3 border-b border-slate-100 font-medium">
+        <Link href="/" className="hover:text-blue-600 flex items-center gap-1 transition-colors text-slate-600 shrink-0">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
@@ -46,11 +46,11 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
           const isLast = index === items.length - 1;
           return (
             <React.Fragment key={index}>
-              <ChevronRight className="w-3 h-3 text-black/40 shrink-0" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               {isLast || !item.href ? (
-                <span className="text-black font-extrabold bg-[#60A5FA]/30 px-2 py-0.5 rounded-md border border-black/20 break-words">{item.label}</span>
+                <span className="text-blue-700 font-medium bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60 break-words">{item.label}</span>
               ) : (
-                <Link href={item.href} className="hover:text-[#2563EB] text-zinc-800 transition-colors font-semibold shrink-0">
+                <Link href={item.href} className="hover:text-blue-600 text-slate-600 transition-colors shrink-0">
                   {item.label}
                 </Link>
               )}

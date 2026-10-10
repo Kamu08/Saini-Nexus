@@ -85,84 +85,84 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       </div>
 
       {/* 01. DOSSIER HEADER */}
-      <header className="bg-white border-2 border-black rounded-3xl p-6 sm:p-12 lg:p-14 shadow-[6px_6px_0px_#000000] space-y-6 relative overflow-hidden">
+      <header className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 lg:p-14 shadow-sm space-y-6 relative overflow-hidden">
         
         {/* Top Badges */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b-2 border-black/10">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-100">
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono font-extrabold uppercase tracking-wider shadow-[1.5px_1.5px_0px_#000000]">
+            <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono font-bold uppercase tracking-wider">
               STRATEGIC FRAMEWORK // {study.clientCode}
             </span>
-            <span className="px-3 py-1 rounded-full bg-[#FAF7EF] border border-black/30 text-black text-xs font-mono font-bold uppercase">
+            <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-medium uppercase">
               {study.industry}
             </span>
-            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-[11px] font-mono font-bold">
+            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-mono font-medium">
               Sample Execution Architecture
             </span>
           </div>
-          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-600 font-semibold bg-zinc-100 px-3 py-1 rounded-full">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500 font-medium bg-slate-50 px-3 py-1 rounded-full border border-slate-200/60">
             <span>Market Focus: {study.market}</span>
-            <span className="text-zinc-400">·</span>
+            <span className="text-slate-300">·</span>
             <span>Standard Horizon: {study.timeline}</span>
           </div>
         </div>
 
         {/* Title & Core Context */}
         <div className="space-y-4">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
-            {study.clientName}: <span className="bubble-highlight-blue">Execution Blueprint</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+            {study.clientName}: <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Execution Blueprint</span>
           </h1>
-          <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium max-w-4xl">
+          <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal max-w-4xl">
             {study.businessContext}
           </p>
         </div>
 
         {/* Key Quick Takeaways Ledger */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
-          <div className="bg-[#EFF6FF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
-            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+          <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-4 shadow-xs">
+            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block mb-1">
               Primary Outcome
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block leading-none">
+            <strong className="text-2xl sm:text-3xl font-mono font-bold text-blue-600 block leading-none">
               {study.businessOutcomes[1]?.metric || study.businessOutcomes[0]?.metric}
             </strong>
-            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+            <span className="text-xs text-slate-600 font-mono font-medium block mt-1">
               {study.businessOutcomes[1]?.label || study.businessOutcomes[0]?.label}
             </span>
           </div>
 
-          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
-            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block mb-1">
               Core Conversion
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-black block leading-none">
+            <strong className="text-2xl sm:text-3xl font-mono font-bold text-slate-900 block leading-none">
               {study.businessOutcomes[0]?.metric}
             </strong>
-            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+            <span className="text-xs text-slate-600 font-mono font-medium block mt-1">
               {study.businessOutcomes[0]?.label}
             </span>
           </div>
 
-          <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
-            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block mb-1">
               Ad Efficiency
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block leading-none">
+            <strong className="text-2xl sm:text-3xl font-mono font-bold text-blue-600 block leading-none">
               {study.campaignMetrics[2]?.metric || study.campaignMetrics[0]?.metric}
             </strong>
-            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+            <span className="text-xs text-slate-600 font-mono font-medium block mt-1">
               {study.campaignMetrics[2]?.label || study.campaignMetrics[0]?.label}
             </span>
           </div>
 
-          <div className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
-            <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block mb-1">
+          <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block mb-1">
               Velocity / Payback
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-700 block leading-none">
+            <strong className="text-2xl sm:text-3xl font-mono font-bold text-emerald-600 block leading-none">
               {study.businessOutcomes[2]?.metric}
             </strong>
-            <span className="text-xs text-zinc-700 font-mono font-medium block mt-1">
+            <span className="text-xs text-slate-600 font-mono font-medium block mt-1">
               {study.businessOutcomes[2]?.label}
             </span>
           </div>
@@ -185,7 +185,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       {/* 02. FORENSIC DIAGNOSIS: BEFORE VS AFTER */}
       <section className="space-y-6">
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+          <span className="px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-mono uppercase font-semibold">
             Phase 01 // Forensic Diagnosis
           </span>
         </div>
@@ -193,37 +193,37 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           
           {/* The Pre-Existing Bottleneck (Before) */}
-          <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <div className="flex items-center gap-2 text-rose-700 text-xs font-mono uppercase tracking-wider font-bold">
-              <AlertCircle className="w-4 h-4 text-rose-600" />
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center gap-2 text-rose-600 text-xs font-mono uppercase tracking-wider font-semibold">
+              <AlertCircle className="w-4 h-4 text-rose-500" />
               <span>The Commercial Roadblock</span>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-black">
+            <h3 className="text-2xl font-bold text-slate-900">
               Why the Previous Method Failed
             </h3>
-            <p className="text-zinc-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               {study.coreChallenge}
             </p>
-            <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-xs text-rose-900 leading-relaxed font-mono">
+            <div className="bg-rose-50/70 border border-rose-200/70 rounded-2xl p-4 text-xs text-rose-900 leading-relaxed font-mono">
               <strong className="block font-bold mb-1">Pre-Audit Diagnosis:</strong>
               {study.diagnosis}
             </div>
           </div>
 
           {/* The Strategic Pivot (After) */}
-          <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <div className="flex items-center gap-2 text-[#2563EB] text-xs font-mono uppercase tracking-wider font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
+          <div className="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center gap-2 text-blue-600 text-xs font-mono uppercase tracking-wider font-semibold">
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
               <span>The Strategic Bet &amp; Hypothesis</span>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-black">
+            <h3 className="text-2xl font-bold text-slate-900">
               The Architecture Tested
             </h3>
-            <p className="text-zinc-900 text-sm sm:text-base leading-relaxed italic font-serif bg-white p-4 rounded-2xl border border-black/20">
+            <p className="text-slate-900 text-sm sm:text-base leading-relaxed italic bg-white p-4 rounded-2xl border border-slate-200/80">
               &ldquo;{study.hypothesis}&rdquo;
             </p>
-            <p className="text-zinc-700 text-xs sm:text-sm leading-relaxed">
-              <strong className="text-black font-semibold">Strategic Implementation: </strong>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <strong className="text-slate-900 font-semibold">Strategic Implementation: </strong>
               {study.strategy}
             </p>
           </div>
@@ -232,15 +232,15 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       </section>
 
       {/* 03. EXECUTION ARCHITECTURE: 4-STEP MECHANICS */}
-      <section className="bg-white border-2 border-black rounded-3xl p-6 sm:p-10 shadow-[4px_4px_0px_#000000] space-y-8">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-xs space-y-8">
         <div>
-          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+          <span className="px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-mono uppercase font-semibold">
             Phase 02 // Execution Mechanics
           </span>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black mt-3">
+          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-3">
             How We Engineered the Growth Architecture
           </h2>
-          <p className="text-zinc-700 text-sm sm:text-base mt-1 max-w-2xl font-medium">
+          <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl font-normal">
             Systematic deployment protocol across matched account targeting, creative assets, and qualification funnels.
           </p>
         </div>
@@ -249,16 +249,16 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           {study.execution.map((step, idx) => (
             <div 
               key={idx} 
-              className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-5 flex items-start gap-3.5 shadow-[2px_2px_0px_#000000]"
+              className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-5 flex items-start gap-3.5 hover:border-blue-300 transition-colors"
             >
-              <div className="w-7 h-7 rounded-full bg-[#60A5FA] border-2 border-black flex items-center justify-center text-black font-mono font-bold text-xs shrink-0 shadow-[1px_1px_0px_#000000]">
+              <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 font-mono font-bold text-xs shrink-0">
                 {idx + 1}
               </div>
               <div className="space-y-1">
-                <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+                <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
                   Implementation Step 0{idx + 1}
                 </span>
-                <p className="text-xs sm:text-sm text-zinc-900 font-semibold leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                   {step}
                 </p>
               </div>
@@ -271,47 +271,47 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         
         {/* Creative Angle Specimen (7 cols) */}
-        <div className="lg:col-span-7 bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-          <span className="px-3 py-1 rounded-full bg-[#60A5FA] border border-black text-black text-xs font-mono font-bold uppercase">
+        <div className="lg:col-span-7 bg-blue-50/50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+          <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-mono font-bold uppercase">
             In-Market Ad Specimen &amp; Angle
           </span>
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-black">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
             The Exact Campaign Hook Deployed
           </h3>
-          <div className="bg-white border-2 border-black rounded-2xl p-5 shadow-[2px_2px_0px_#000000] space-y-2">
-            <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
+          <div className="bg-white border border-blue-100 rounded-2xl p-5 shadow-xs space-y-2">
+            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
               Sponsored Post / Document Ad Angle:
             </span>
-            <p className="text-base sm:text-lg font-serif italic text-black font-medium leading-relaxed">
+            <p className="text-base sm:text-lg italic text-slate-900 font-medium leading-relaxed">
               {study.campaignHook}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-            <span className="bg-white px-3 py-1 rounded-full border border-black font-bold text-zinc-800">
+            <span className="bg-white px-3 py-1 rounded-full border border-blue-200 font-bold text-slate-700">
               Format: {study.creativeFormat}
             </span>
           </div>
         </div>
 
         {/* Spend Profile & Media Budget (5 cols) */}
-        <div className="lg:col-span-5 bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000] flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs flex flex-col justify-between">
           <div className="space-y-3">
-            <span className="px-3 py-1 rounded-full bg-[#FAF7EF] border border-black text-black text-xs font-mono font-bold uppercase">
+            <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-medium uppercase">
               Capital Efficiency
             </span>
-            <h3 className="text-xl font-serif font-bold text-black">
+            <h3 className="text-xl font-bold text-slate-900">
               Spend Profile &amp; Pacing
             </h3>
-            <div className="bg-[#FAF7EF] border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
-              <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">Capital Allocation:</span>
-              <p className="text-sm font-mono font-bold text-black mt-1">
+            <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4">
+              <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">Capital Allocation:</span>
+              <p className="text-sm font-mono font-bold text-slate-900 mt-1">
                 {study.spendProfile}
               </p>
             </div>
           </div>
 
-          <div className="border-t-2 border-black/10 pt-4 text-xs text-zinc-700 leading-relaxed">
-            <strong className="text-black font-mono font-bold uppercase block mb-1">
+          <div className="border-t border-slate-100 pt-4 text-xs text-slate-600 leading-relaxed">
+            <strong className="text-slate-900 font-mono font-bold uppercase block mb-1">
               Core Strategic Takeaway:
             </strong>
             {study.keyLearning}
@@ -323,13 +323,13 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       {/* 05. DATA MATRIX: AD METRICS VS COMMERCIAL OUTCOMES */}
       <section className="space-y-6">
         <div>
-          <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
+          <span className="px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-mono uppercase font-semibold">
             Phase 03 // Framework Metrics &amp; Commercial Targets
           </span>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black mt-3">
+          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-3">
             Aligning Campaign Mechanics With Sales Pipeline
           </h2>
-          <p className="text-zinc-700 text-sm sm:text-base mt-1 max-w-2xl font-medium">
+          <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl font-normal">
             We structure every campaign around sales-accepted commercial pipeline rather than vanity clicks.
           </p>
         </div>
@@ -337,12 +337,12 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           
           {/* Table 1: In-Feed Operational Metrics */}
-          <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
-              <span className="text-xs font-mono uppercase font-bold text-black">
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <span className="text-xs font-mono uppercase font-bold text-slate-900">
                 1. Campaign Execution Mechanics
               </span>
-              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-full font-bold">
+              <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-bold">
                 Platform Setup
               </span>
             </div>
@@ -351,17 +351,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               {study.campaignMetrics.map((item, idx) => (
                 <div 
                   key={idx}
-                  className="bg-[#FAF7EF] border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]"
+                  className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-4 flex items-center justify-between"
                 >
                   <div>
-                    <div className="text-xs font-mono uppercase font-bold text-black">
+                    <div className="text-xs font-mono uppercase font-bold text-slate-900">
                       {item.label}
                     </div>
-                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">
+                    <div className="text-xs text-slate-600 mt-0.5 font-normal">
                       {item.context}
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-mono font-extrabold text-black shrink-0 pl-4">
+                  <div className="text-2xl sm:text-3xl font-mono font-bold text-slate-900 shrink-0 pl-4">
                     {item.metric}
                   </div>
                 </div>
@@ -370,9 +370,9 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           </div>
 
           {/* Table 2: Strategic Commercial Objectives */}
-          <div className="bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
-              <span className="text-xs font-mono uppercase font-bold text-[#2563EB]">
+          <div className="bg-blue-50/40 border border-blue-200/70 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center justify-between pb-3 border-b border-blue-100">
+              <span className="text-xs font-mono uppercase font-bold text-blue-700">
                 2. Strategic Commercial Objectives
               </span>
               <span className="text-[10px] font-mono text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200 font-bold">
@@ -384,17 +384,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               {study.businessOutcomes.map((item, idx) => (
                 <div 
                   key={idx}
-                  className="bg-white border-2 border-black rounded-xl p-4 flex items-center justify-between shadow-[2px_2px_0px_#000000]"
+                  className="bg-white border border-blue-100 rounded-xl p-4 flex items-center justify-between shadow-xs"
                 >
                   <div>
-                    <div className="text-xs font-mono uppercase font-bold text-[#2563EB]">
+                    <div className="text-xs font-mono uppercase font-bold text-blue-700">
                       {item.label}
                     </div>
-                    <div className="text-xs text-zinc-600 mt-0.5 font-medium">
+                    <div className="text-xs text-slate-600 mt-0.5 font-normal">
                       {item.context}
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] shrink-0 pl-4">
+                  <div className="text-2xl sm:text-3xl font-mono font-bold text-blue-600 shrink-0 pl-4">
                     {item.metric}
                   </div>
                 </div>
@@ -406,16 +406,16 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       </section>
 
       {/* 06. THE VERDICT / WHAT CHANGED */}
-      <section className="bg-white border-2 border-black rounded-3xl p-6 sm:p-10 shadow-[4px_4px_0px_#000000] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="space-y-2 max-w-3xl">
           <span className="text-xs font-mono uppercase font-bold text-emerald-700 flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             Strategic Impact &amp; Architecture Shift
           </span>
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-black">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
             The Structural Advantage of {study.clientName}
           </h3>
-          <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-medium">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
             {study.whatChanged}
           </p>
         </div>
@@ -435,39 +435,39 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         {/* Next Case Study Preview */}
         <Link 
           href={`/case-studies/${nextStudy.slug}`}
-          className="group bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[7px_7px_0px_#000000] hover:-translate-y-1 transition-all"
+          className="group bg-slate-50/70 border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-blue-300 hover:shadow-md transition-all"
         >
           <div>
-            <span className="text-xs font-mono text-zinc-500 uppercase font-bold block mb-1">
+            <span className="text-xs font-mono text-slate-500 uppercase font-bold block mb-1">
               Next Teardown →
             </span>
-            <h4 className="text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors">
+            <h4 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
               {nextStudy.clientName}
             </h4>
-            <p className="text-xs text-zinc-600 mt-1 font-mono">
+            <p className="text-xs text-slate-500 mt-1 font-mono">
               {nextStudy.industry} · {nextStudy.businessOutcomes[0]?.metric}
             </p>
           </div>
-          <div className="pt-4 mt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono font-bold text-black">
+          <div className="pt-4 mt-4 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono font-bold text-slate-900">
             <span>Read Teardown</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </Link>
 
         {/* Schedule Strategy Session */}
-        <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000]">
+        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs">
           <div>
-            <span className="text-xs font-mono text-[#2563EB] uppercase font-bold block mb-1">
+            <span className="text-xs font-mono text-blue-600 uppercase font-bold block mb-1">
               Want Similar Outcomes?
             </span>
-            <h4 className="text-2xl font-serif font-bold text-black">
+            <h4 className="text-2xl font-bold text-slate-900">
               Engineering a Demand Engine for Your Firm
             </h4>
-            <p className="text-xs text-zinc-600 mt-1 leading-relaxed">
+            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
               We audit your target market, CAC tolerance, and positioning to design a verified growth sprint.
             </p>
           </div>
-          <div className="pt-4 mt-4 border-t border-black/10">
+          <div className="pt-4 mt-4 border-t border-slate-100">
             <Link href="/book" className="neo-btn-blue w-full text-center text-xs font-mono">
               <span>Book an Acquisition Strategy Call</span>
               <ArrowRight className="w-4 h-4 ml-2 inline-block" />

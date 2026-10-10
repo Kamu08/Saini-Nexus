@@ -91,76 +91,20 @@ const ACCENTS = [
 ];
 
 export function CaseStudyShowcase() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [isGliding, setIsGliding] = useState(false);
-  const [shadowStyle, setShadowStyle] = useState<{
-    top: number;
-    left: number;
-    width: number;
-    height: number;
-    opacity: number;
-  }>({ top: 0, left: 0, width: 0, height: 0, opacity: 0 });
-
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const activeHoverRef = useRef(false);
-
-  const updateShadowPosition = (index: number, animate: boolean) => {
-    const el = cardRefs.current[index];
-    if (!el) return;
-
-    // Refined 5px right and bottom offset
-    const OFFSET_RIGHT = 5;
-    const OFFSET_BOTTOM = 5;
-
-    setIsGliding(animate);
-    setShadowStyle({
-      top: el.offsetTop + OFFSET_BOTTOM,
-      left: el.offsetLeft + OFFSET_RIGHT,
-      width: el.offsetWidth,
-      height: el.offsetHeight,
-      opacity: 1,
-    });
-    setHoveredIdx(index);
-  };
-
-  const handleMouseEnter = (index: number) => {
-    const shouldAnimate = activeHoverRef.current;
-    activeHoverRef.current = true;
-    updateShadowPosition(index, shouldAnimate);
-  };
-
-  const handleContainerMouseLeave = () => {
-    activeHoverRef.current = false;
-    setHoveredIdx(null);
-    setShadowStyle((prev) => ({ ...prev, opacity: 0 }));
-    setIsGliding(false);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (hoveredIdx !== null) {
-        updateShadowPosition(hoveredIdx, false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [hoveredIdx]);
-
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
-            <Target className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-sans font-semibold mb-3">
+            <Target className="w-3.5 h-3.5 text-blue-600" />
             Strategic Campaign Frameworks
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-extrabold text-slate-900 tracking-tight leading-tight">
             B2B Campaign Architectures &amp; Execution Models
           </h2>
-          <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-xl font-normal leading-relaxed">
             Five structured B2B campaign models demonstrating our audience targeting, content proof, and LinkedIn distribution methodologies across key sectors.
           </p>
         </div>
@@ -171,110 +115,73 @@ export function CaseStudyShowcase() {
         </Link>
       </div>
 
-      {/* Grid Container with Shared Animated Traveling Shadow: 2 Top Wide Cards, 3 Bottom Cards */}
-      <div
-        ref={containerRef}
-        onMouseLeave={handleContainerMouseLeave}
-        className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6"
-      >
-        {/* The Smooth Traveling Shadow Element (Lives behind cards, glides from card to card) */}
-        <motion.div
-          className="absolute bg-black rounded-[2rem] pointer-events-none z-0"
-          initial={false}
-          animate={{
-            top: shadowStyle.top,
-            left: shadowStyle.left,
-            width: shadowStyle.width,
-            height: shadowStyle.height,
-            opacity: shadowStyle.opacity,
-          }}
-          transition={{
-            top: isGliding 
-              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
-              : { duration: 0 },
-            left: isGliding 
-              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
-              : { duration: 0 },
-            width: isGliding 
-              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
-              : { duration: 0 },
-            height: isGliding 
-              ? { type: "spring", stiffness: 350, damping: 30, mass: 0.8 } 
-              : { duration: 0 },
-            opacity: { duration: 0.2, ease: "easeInOut" },
-          }}
-        />
+      {/* Grid Container: 2 Top Wide Cards, 3 Bottom Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
 
-        {/* Five Cards: 2 on Top Row (lg:col-span-3), 3 on Bottom Row (lg:col-span-2) */}
         {CASE_PREVIEWS.map((study, index) => {
-          const accent = ACCENTS[index % ACCENTS.length];
           const spanClass = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
 
           return (
             <div
               key={study.slug}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              onMouseEnter={() => handleMouseEnter(index)}
-              className={`${spanClass} bg-white rounded-[2rem] p-5 sm:p-7 flex flex-col justify-between border-2 border-black group relative overflow-hidden z-10 space-y-5`}
+              className={`${spanClass} bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between border border-slate-200/90 hover:border-blue-400 shadow-2xs hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group relative overflow-hidden space-y-5`}
             >
-              {/* Corner Ambient Accent */}
-              <div className={`absolute top-0 right-0 w-24 h-24 ${accent.badgeBg} opacity-20 -mr-10 -mt-10 rounded-full pointer-events-none`} />
+              {/* Subtle Ambient Corner Glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 -mr-12 -mt-12 rounded-full pointer-events-none group-hover:bg-blue-500/10 transition-colors" />
 
-              <div className="space-y-3.5 relative z-10">
+              <div className="space-y-4 relative z-10">
                 
                 {/* Header: Code Pill on Left, Sector Tag on Right */}
-                <div className="flex items-center justify-between gap-2 border-b-2 border-black/10 pb-2.5">
-                  <span className={`px-2.5 py-0.5 rounded-full ${accent.badgeBg} border-2 border-black text-black font-mono text-xs font-extrabold shadow-[1px_1px_0px_#000000] shrink-0`}>
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                  <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200/70 font-sans text-xs font-semibold shrink-0">
                     {study.clientCode}
                   </span>
-                  <span className="text-[11px] font-mono font-bold text-zinc-600 uppercase tracking-wider text-right">
+                  <span className="text-[11px] font-sans font-medium text-slate-500 uppercase tracking-wider text-right">
                     {study.sector}
                   </span>
                 </div>
 
                 {/* Primary Outcome Callout Banner */}
-                <div className={`${accent.headerBg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] space-y-0.5`}>
-                  <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
+                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 space-y-0.5">
+                  <span className="text-[11px] font-sans uppercase font-semibold text-slate-500 block">
                     {study.metricLabel}
                   </span>
-                  <div className="text-2xl sm:text-3xl font-serif font-black text-black tracking-tight">
+                  <div className="text-2xl sm:text-3xl font-sans font-extrabold text-slate-900 tracking-tight">
                     {study.primaryMetric}
                   </div>
                 </div>
 
                 {/* Client Name & Headline */}
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono font-bold text-zinc-500 block">
+                  <span className="text-xs font-sans font-semibold text-blue-600 block">
                     {study.clientName}
                   </span>
-                  <h3 className="text-base sm:text-lg font-serif font-bold text-black leading-snug group-hover:text-[#2563EB] transition-colors">
+                  <h3 className="text-base sm:text-lg font-sans font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
                     {study.headline}
                   </h3>
                 </div>
 
                 {/* Concise Summary */}
-                <p className="text-xs text-zinc-700 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {study.summary}
                 </p>
 
                 {/* Secondary Verified Stat Pill */}
-                <div className="bg-[#FAF7EF] border border-black rounded-xl px-3 py-2 text-[11px] font-mono font-bold text-black flex items-center justify-between">
-                  <span className="text-zinc-500 uppercase text-[10px]">Key Efficiency:</span>
-                  <span className="text-[#2563EB]">{study.secondaryStat}</span>
+                <div className="bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5 text-xs font-sans text-slate-700 flex items-center justify-between">
+                  <span className="text-slate-500 text-[11px] font-medium">Key Efficiency:</span>
+                  <span className="text-blue-700 font-semibold">{study.secondaryStat}</span>
                 </div>
 
               </div>
 
-              {/* Action Button: 1-Click Link to Detailed Teardown Page */}
-              <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between relative z-10">
-                <span className="text-[11px] font-mono font-bold text-zinc-500 group-hover:text-black transition-colors">
+              {/* Action Button */}
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
+                <span className="text-xs font-sans font-medium text-slate-500 group-hover:text-slate-900 transition-colors">
                   Campaign Blueprint
                 </span>
                 <Link
                   href={`/case-studies/${study.slug}`}
-                  className={`px-3.5 py-1.5 rounded-full ${accent.badgeBg} border-2 border-black text-black text-xs font-mono font-bold shadow-[1.5px_1.5px_0px_#000000] hover:shadow-[2.5px_2.5px_0px_#000000] transition-all flex items-center gap-1.5`}
+                  className="px-4 py-2 rounded-full bg-slate-900 group-hover:bg-blue-600 text-white text-xs font-sans font-semibold shadow-xs transition-colors flex items-center gap-1.5"
                 >
                   <span>Read Framework</span>
                   <ArrowRight className="w-3.5 h-3.5" />

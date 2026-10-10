@@ -111,7 +111,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#FAF7EF] text-[#111827] font-sans antialiased selection:bg-[#60A5FA] selection:text-black">
+      <body className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
         <JsonLd data={getOrganizationSchema()} />
         <JsonLd data={getWebSiteSchema()} />
         <JsonLd data={getLocalBusinessSchema()} />

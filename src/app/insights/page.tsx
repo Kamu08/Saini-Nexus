@@ -24,20 +24,20 @@ export default function InsightsIndexPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
           <BookOpen className="w-3.5 h-3.5" />
           B2B Growth Intelligence &amp; Field Notes
         </div>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
           B2B Growth Intelligence
         </h1>
-        <p className="text-black/80 text-base sm:text-lg leading-relaxed font-sans">
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
           Research, strategic perspectives and field observations on B2B marketing, LinkedIn, demand generation, advertising and growth.
         </p>
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b-2 border-black/10">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-slate-100">
         
         {/* Category Pills */}
         <div className="flex sm:flex-wrap items-center gap-2 pt-2 pb-2.5 px-1 lg:pb-0 overflow-x-auto no-scrollbar scroll-smooth">
@@ -45,10 +45,10 @@ export default function InsightsIndexPage() {
             <button
               key={cat.slug}
               onClick={() => setActiveCategory(cat.slug)}
-              className={`px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all whitespace-nowrap border-2 border-black ${
+              className={`px-4 py-2 rounded-full text-xs font-mono font-medium tracking-wider transition-all whitespace-nowrap border ${
                 activeCategory === cat.slug
-                  ? "bg-[#60A5FA] text-black shadow-[3px_3px_0px_#000000] -translate-y-0.5"
-                  : "bg-white text-black/80 hover:bg-[#FAF7EF] shadow-[2px_2px_0px_#000000]"
+                  ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+                  : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
               }`}
             >
               {cat.name}
@@ -58,13 +58,13 @@ export default function InsightsIndexPage() {
 
         {/* Search Input */}
         <div className="relative w-full lg:w-72 shrink-0">
-          <Search className="w-4 h-4 text-black absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search guides & field notes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white border-2 border-black rounded-full pl-10 pr-4 py-2 text-xs font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-[#60A5FA] shadow-[3px_3px_0px_#000000]"
+            className="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-2 text-xs font-sans text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-xs"
           />
         </div>
 
@@ -76,47 +76,47 @@ export default function InsightsIndexPage() {
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all group"
+            className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-blue-300 hover:shadow-md transition-all group"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className={`px-3 py-1 rounded-full border-2 border-black font-bold uppercase tracking-wider text-[10px] shadow-[2px_2px_0px_#000000] ${
+                <span className={`px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider ${
                   article.isFieldNote 
-                    ? "bg-amber-200 text-black" 
-                    : "bg-[#60A5FA] text-black"
+                    ? "bg-amber-50 text-amber-800 border-amber-200" 
+                    : "bg-blue-50 text-blue-700 border-blue-200/60"
                 }`}>
                   {article.category}
                 </span>
-                <span className="text-black/70 flex items-center gap-1 text-[11px] font-mono font-bold">
+                <span className="text-slate-500 flex items-center gap-1 text-[11px] font-mono font-medium">
                   <Clock className="w-3.5 h-3.5" />
                   {article.readTime}
                 </span>
               </div>
 
-              <h2 className="text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors leading-snug">
+              <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                 {article.title}
               </h2>
 
-              <p className="text-xs sm:text-sm text-black/75 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 {article.summary}
               </p>
 
-              <div className="pt-3 border-t-2 border-black/10 space-y-1">
-                <span className="text-[10px] font-mono text-black/60 uppercase tracking-wider font-bold">Key Point:</span>
-                <p className="text-xs text-black italic font-medium">
+              <div className="pt-3 border-t border-slate-100 space-y-1">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold">Key Point:</span>
+                <p className="text-xs text-slate-700 italic font-normal">
                   &ldquo;{article.keyTakeaways[0]}&rdquo;
                 </p>
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono text-black">
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-700">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-[#60A5FA] border border-black flex items-center justify-center text-[10px] font-bold text-black">
+                <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center text-[10px] font-bold">
                   {article.author.name.charAt(0)}
                 </div>
-                <span className="font-bold">{article.author.name}</span>
+                <span className="font-semibold text-slate-800">{article.author.name}</span>
               </div>
-              <span className="text-black group-hover:text-[#2563EB] flex items-center gap-1 font-bold uppercase tracking-wider text-[11px]">
+              <span className="text-slate-800 group-hover:text-blue-600 flex items-center gap-1 font-bold uppercase tracking-wider text-[11px] transition-colors">
                 <span>Read Full Article</span>
                 <ArrowUpRight className="w-4 h-4" />
               </span>
@@ -126,11 +126,11 @@ export default function InsightsIndexPage() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-[6px_6px_0px_#000000]">
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Have questions about implementing these playbooks?
         </h3>
-        <p className="text-black/80 text-sm max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed font-normal">
           Book a 1-on-1 strategy session to audit your current B2B funnel and formulate an actionable roadmap.
         </p>
         <div className="pt-2">

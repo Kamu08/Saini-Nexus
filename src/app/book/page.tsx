@@ -30,18 +30,19 @@ export default function BookStrategyCallPage() {
       <Breadcrumbs items={[{ label: "Book a Strategy Conversation" }]} />
 
       {/* Hero */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000]">
-        <div className="max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+      <section className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-sm">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+        <div className="relative z-10 max-w-3xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
             <Calendar className="w-3.5 h-3.5" />
             Executive Strategy Consultation
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
-            Book a Strategy <span className="bubble-highlight-blue">Conversation</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+            Book a Strategy <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span>
           </h1>
 
-          <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium">
+          <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal">
             No aggressive pitches. No generic slides. A focused 30-minute diagnostic discussion of your ideal customer profile, buyer journey, LinkedIn acquisition model, and pipeline bottlenecks.
           </p>
         </div>
@@ -53,73 +54,73 @@ export default function BookStrategyCallPage() {
         {/* Left Column: Agenda & Preparation */}
         <div className="lg:col-span-6 space-y-6">
           
-          <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-6 shadow-[4px_4px_0px_#000000]">
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
             <div className="space-y-1">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Call Agenda</span>
-              <h2 className="text-2xl font-serif font-bold text-black">What We Cover in 30 Minutes</h2>
+              <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Call Agenda</span>
+              <h2 className="text-2xl font-bold text-slate-900">What We Cover in 30 Minutes</h2>
             </div>
 
             <div className="space-y-3.5">
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <span className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 shadow-[1px_1px_0px_#000000]">
+              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+                <span className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5">
                   01
                 </span>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-serif font-bold text-black">ICP & Buying Committee Calibration</h3>
-                  <p className="text-xs text-zinc-700 leading-relaxed font-normal">Reviewing target firmographics, job title seniority, and account list exclusions to prevent wasted ad spend.</p>
+                  <h3 className="text-sm font-bold text-slate-900">ICP & Buying Committee Calibration</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">Reviewing target firmographics, job title seniority, and account list exclusions to prevent wasted ad spend.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <span className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 shadow-[1px_1px_0px_#000000]">
+              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+                <span className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5">
                   02
                 </span>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-serif font-bold text-black">Commercial Point-of-View & Messaging Audit</h3>
-                  <p className="text-xs text-zinc-700 leading-relaxed font-normal">Evaluating whether your messaging resonates with the 95% of buyers who are currently out-of-market.</p>
+                  <h3 className="text-sm font-bold text-slate-900">Commercial Point-of-View & Messaging Audit</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">Evaluating whether your messaging resonates with the 95% of buyers who are currently out-of-market.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <span className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 shadow-[1px_1px_0px_#000000]">
+              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+                <span className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5">
                   03
                 </span>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-serif font-bold text-black">LinkedIn Channel & ABM Architecture</h3>
-                  <p className="text-xs text-zinc-700 leading-relaxed font-normal">Assessing the optimal mix between Thought Leader Ads, Document carousels, and Lead Gen forms.</p>
+                  <h3 className="text-sm font-bold text-slate-900">LinkedIn Channel & ABM Architecture</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">Assessing the optimal mix between Thought Leader Ads, Document carousels, and Lead Gen forms.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <span className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 shadow-[1px_1px_0px_#000000]">
+              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+                <span className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5">
                   04
                 </span>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-serif font-bold text-black">Actionable 90-Day Pipeline Roadmap</h3>
-                  <p className="text-xs text-zinc-700 leading-relaxed font-normal">Concrete steps to improve Sales Acceptance Rate (SAR) and reduce Customer Acquisition Cost (CAC).</p>
+                  <h3 className="text-sm font-bold text-slate-900">Actionable 90-Day Pipeline Roadmap</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">Concrete steps to improve Sales Acceptance Rate (SAR) and reduce Customer Acquisition Cost (CAC).</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Qualification Gate */}
-          <div className="bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-            <div className="flex items-center gap-2 text-black text-xs font-mono uppercase tracking-wider font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
+          <div className="bg-blue-50/50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center gap-2 text-blue-700 text-xs font-mono uppercase tracking-wider font-bold">
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
               Ideal Fit Criteria
             </div>
-            <h3 className="text-lg font-serif font-bold text-black">Who Gets the Most Value From This Call</h3>
-            <ul className="space-y-2 text-xs text-zinc-800 font-medium">
+            <h3 className="text-lg font-bold text-slate-900">Who Gets the Most Value From This Call</h3>
+            <ul className="space-y-2 text-xs text-slate-700 font-medium">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                 <span>B2B SaaS, Technology, IT Services, or Enterprise Consulting firms with Deal Size &gt; ₹2 Lakhs.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                 <span>Industrial Manufacturing exporters seeking direct global buyers.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                 <span>Founders & Marketing Leaders ready to build an integrated pipeline engine.</span>
               </li>
             </ul>
@@ -129,69 +130,69 @@ export default function BookStrategyCallPage() {
 
         {/* Right Column: Direct Calendar / Booking Request Form */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-6 shadow-[4px_4px_0px_#000000]">
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
             <div className="space-y-1">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Direct Scheduling</span>
-              <h2 className="text-2xl font-serif font-bold text-black">Request Strategy Session</h2>
-              <p className="text-xs text-zinc-700 font-medium">Submit your details below and our team will confirm your session slot within 4 business hours.</p>
+              <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Direct Scheduling</span>
+              <h2 className="text-2xl font-bold text-slate-900">Request Strategy Session</h2>
+              <p className="text-xs text-slate-600 font-normal">Submit your details below and our team will confirm your session slot within 4 business hours.</p>
             </div>
 
             <form 
               action="https://formsubmit.co/kamal0sharma02@gmail.com" 
               method="POST" 
-              className="space-y-4 text-xs font-mono"
+              className="space-y-4 text-xs font-sans"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-black uppercase font-bold">Your Full Name *</label>
+                  <label className="text-slate-700 text-xs font-medium">Your Full Name *</label>
                   <input
                     type="text"
                     name="name"
                     required
                     placeholder="e.g. Vikram Sharma"
-                    className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                    className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-black uppercase font-bold">Work Email *</label>
+                  <label className="text-slate-700 text-xs font-medium">Work Email *</label>
                   <input
                     type="email"
                     name="email"
                     required
                     placeholder="vikram@company.com"
-                    className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                    className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-black uppercase font-bold">Company Website *</label>
+                  <label className="text-slate-700 text-xs font-medium">Company Website *</label>
                   <input
                     type="text"
                     name="website"
                     required
                     placeholder="company.com"
-                    className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                    className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-black uppercase font-bold">Job Title *</label>
+                  <label className="text-slate-700 text-xs font-medium">Job Title *</label>
                   <input
                     type="text"
                     name="title"
                     required
                     placeholder="Founder / VP Marketing"
-                    className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                    className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-black uppercase font-bold">Primary Commercial Objective *</label>
+                <label className="text-slate-700 text-xs font-medium">Primary Commercial Objective *</label>
                 <select
                   name="objective"
-                  className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                  className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                 >
                   <option value="scale-linkedin-ads">Scale LinkedIn Ads & Thought Leader Ads</option>
                   <option value="build-demand-generation">Build B2B Demand Generation Engine</option>
@@ -203,10 +204,10 @@ export default function BookStrategyCallPage() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-black uppercase font-bold">Current Monthly Marketing / Ad Budget</label>
+                <label className="text-slate-700 text-xs font-medium">Current Monthly Marketing / Ad Budget</label>
                 <select
                   name="budget"
-                  className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all font-medium"
+                  className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium"
                 >
                   <option value="starter">₹25,000 – ₹50,000 / month (Starter Engine)</option>
                   <option value="growth">₹50,000 – ₹1,00,000 / month (Growth Tier)</option>
@@ -216,23 +217,23 @@ export default function BookStrategyCallPage() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-black uppercase font-bold">Current Growth Roadblock / Notes</label>
+                <label className="text-slate-700 text-xs font-medium">Current Growth Roadblock / Notes</label>
                 <textarea
                   name="notes"
                   rows={3}
                   placeholder="Share any specific context about your current sales cycle, target ICP, or recent acquisition tests..."
-                  className="w-full bg-[#FAF7EF] border-2 border-black rounded-xl p-3 text-black placeholder:text-zinc-500 focus:outline-none focus:bg-white focus:shadow-[2px_2px_0px_#000000] transition-all resize-none font-medium"
+                  className="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none font-medium"
                 />
               </div>
 
               <button
                 type="submit"
-                className="neo-btn-blue w-full py-4 text-sm uppercase tracking-wider"
+                className="neo-btn-blue w-full py-3.5 text-sm uppercase tracking-wider"
               >
                 Confirm Strategy Call Request
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-zinc-600 text-[11px] pt-1 font-semibold">
+              <div className="flex items-center justify-center gap-2 text-slate-500 text-[11px] pt-1 font-medium">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>NDA Protected · Direct Senior Strategist Access · No Spam</span>
               </div>

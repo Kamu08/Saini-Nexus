@@ -22,14 +22,14 @@ export default function IndustriesPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
           <Briefcase className="w-3.5 h-3.5" />
           Vertical Growth Architectures
         </div>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
           B2B Growth Across Industries
         </h1>
-        <p className="text-black/80 text-base sm:text-lg leading-relaxed font-sans">
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
           B2B growth doesn&apos;t follow one industry template. Our approach adapts to your market, buyers, sales cycle, competitive environment and commercial objectives.
         </p>
       </div>
@@ -39,29 +39,29 @@ export default function IndustriesPage() {
         {industryList.map((ind) => (
           <div
             key={ind.slug}
-            className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all group"
+            className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-blue-300 hover:shadow-md transition-all group"
           >
             <div className="space-y-4">
-              <span className="bg-sky-50 border border-black text-black font-bold uppercase tracking-wider text-[10px] px-2.5 py-0.5 rounded-full inline-block">
+              <span className="bg-blue-50 border border-blue-100 text-blue-700 font-semibold uppercase tracking-wider text-[10px] px-2.5 py-0.5 rounded-full inline-block">
                 {ind.tagline}
               </span>
 
-              <h2 className="text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors leading-snug">
+              <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                 {ind.name}
               </h2>
 
-              <p className="text-black/75 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 {ind.heroSubheadline}
               </p>
 
-              <div className="pt-4 border-t-2 border-black/10 space-y-2">
-                <span className="text-[11px] font-mono text-black/60 uppercase tracking-wider block font-bold">
+              <div className="pt-4 border-t border-slate-100 space-y-2">
+                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block font-bold">
                   Core Playbook Elements:
                 </span>
-                <ul className="space-y-1 text-xs text-black/80">
+                <ul className="space-y-1 text-xs text-slate-700">
                   {ind.playbookStrategy.slice(0, 2).map((st, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#60A5FA] border border-black mt-1 shrink-0"></span>
+                      <span className="w-2 h-2 rounded-full bg-blue-500 mt-1 shrink-0"></span>
                       <span className="font-medium">{st.title}</span>
                     </li>
                   ))}
@@ -69,13 +69,13 @@ export default function IndustriesPage() {
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t-2 border-black/10 flex items-center justify-between">
-              <span className="text-xs font-mono text-[#2563EB] font-bold">
-                {ind.featuredResult.metric} <span className="font-normal text-black/60 text-[11px]">benchmark</span>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-mono text-blue-600 font-bold">
+                {ind.featuredResult.metric} <span className="font-normal text-slate-400 text-[11px]">benchmark</span>
               </span>
               <Link
                 href={`/industries/${ind.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-black group-hover:text-[#2563EB] font-bold uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-800 group-hover:text-blue-600 font-bold uppercase tracking-wider"
               >
                 <span>View Playbook</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -86,11 +86,11 @@ export default function IndustriesPage() {
       </div>
 
       {/* Don't See Your Industry? */}
-      <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-[6px_6px_0px_#000000]">
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Don&apos;t See Your Industry?
         </h3>
-        <p className="text-black/80 text-sm max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed font-normal">
           Our B2B growth frameworks can be adapted to different industries and business models. Tell us about your market and we&apos;ll explore the right approach.
         </p>
         <div className="pt-2">

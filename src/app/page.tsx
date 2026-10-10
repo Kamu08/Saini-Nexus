@@ -45,16 +45,16 @@ export default function HomePage() {
       {/* DYNAMIC BREAK 01: CORE CAPABILITIES RIBBON                */}
       {/* Clean, authoritative capability strip without hype claims */}
       {/* ========================================================= */}
-      <div className="w-full bg-[#60A5FA] border-y-3 border-black py-3 sm:py-3.5 shadow-[0_4px_0px_#000000]">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-10 gap-y-2.5 text-center">
+      <div className="w-full bg-slate-900 border-y border-slate-800 py-4 text-slate-300">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-2.5 text-center">
           {CAPABILITIES.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 sm:gap-5">
-              <span className="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-black inline-block shrink-0" />
+            <div key={idx} className="flex items-center gap-4 sm:gap-6">
+              <span className="font-sans text-xs sm:text-sm font-semibold tracking-wide text-slate-200 flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block shrink-0" />
                 {item}
               </span>
               {idx < CAPABILITIES.length - 1 && (
-                <span className="text-black font-mono font-bold text-sm hidden md:inline">✦</span>
+                <span className="text-slate-600 font-sans text-xs hidden md:inline">✦</span>
               )}
             </div>
           ))}
@@ -66,28 +66,28 @@ export default function HomePage() {
       {/* Accurate, professional LinkedIn Marketing Labs credentials */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-5 sm:p-7 shadow-[4px_4px_0px_#000000] space-y-5">
+        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-xs space-y-6">
           
           {/* Header strip */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-black/10 pb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#60A5FA] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_#000000]">
-                <ShieldCheck className="w-5 h-5 text-black" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/70 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#2563EB] font-extrabold block">
+                <span className="text-[11px] font-sans uppercase tracking-widest text-blue-600 font-semibold block">
                   Professional Credentials
                 </span>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-tight">
+                <h3 className="text-lg sm:text-xl font-sans font-bold text-slate-900 leading-tight">
                   LinkedIn Marketing Certifications
                 </h3>
-                <p className="text-xs text-zinc-600 font-medium mt-0.5">
+                <p className="text-xs text-slate-500 font-normal mt-0.5">
                   Saini Nexus is led by certified practitioners across LinkedIn marketing strategy, advertising fundamentals, content &amp; creative design, and marketing measurement.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-400 px-3 py-1 rounded-full w-fit shrink-0">
+            <div className="flex items-center gap-2 text-xs font-sans font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full w-fit shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>LINKEDIN MARKETING LABS VERIFIED</span>
             </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
                 issuer: "LinkedIn Marketing Labs",
                 verifyUrl: "https://training.marketing.linkedin.com/verify/tpdhuiyzq33a",
                 bg: "bg-white",
-                dot: "bg-[#2563EB]"
+                dot: "bg-blue-600"
               },
               {
                 title: "Advertising Fundamentals",
@@ -110,7 +110,7 @@ export default function HomePage() {
                 issuer: "LinkedIn Marketing Labs",
                 verifyUrl: "https://training.marketing.linkedin.com/verify/vjbijavyd84i",
                 bg: "bg-white",
-                dot: "bg-purple-600"
+                dot: "bg-indigo-600"
               },
               {
                 title: "Content & Creative Design",
@@ -135,25 +135,25 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Verify ${cert.title} on LinkedIn Marketing Labs`}
-                className={`${cert.bg} border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] hover:shadow-[4px_4px_0px_#000000] transition-all duration-150 flex items-center justify-between gap-3 group/cert`}
+                className={`${cert.bg} border border-slate-200/90 hover:border-blue-400 rounded-2xl p-4 shadow-2xs hover:shadow-md transition-all duration-200 flex items-center justify-between gap-3 group/cert`}
               >
-                <div className="space-y-0.5 min-w-0">
+                <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-1.5">
                     <span className={`w-2 h-2 rounded-full ${cert.dot} shrink-0`} />
-                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider truncate">
+                    <span className="text-[11px] font-sans font-semibold text-slate-500 uppercase tracking-wider truncate">
                       {cert.code}
                     </span>
                   </div>
-                  <h4 className="text-sm font-serif font-bold text-black leading-tight truncate group-hover/cert:text-[#2563EB] transition-colors">
+                  <h4 className="text-sm font-sans font-bold text-slate-900 leading-tight truncate group-hover/cert:text-blue-600 transition-colors">
                     {cert.title}
                   </h4>
-                  <p className="text-[10px] font-mono text-zinc-600 truncate flex items-center gap-1">
+                  <p className="text-[11px] font-sans text-slate-500 truncate flex items-center gap-1">
                     <span>{cert.issuer}</span>
-                    <span className="text-[#2563EB] font-bold">↗</span>
+                    <span className="text-blue-600 font-semibold">↗</span>
                   </p>
                 </div>
-                <div className="w-6 h-6 rounded-lg bg-[#EFF6FF] border border-black flex items-center justify-center shrink-0 group-hover/cert:bg-[#60A5FA] transition-colors">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] group-hover/cert:text-black transition-colors" />
+                <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 group-hover/cert:bg-blue-600 transition-colors">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 group-hover/cert:text-white transition-colors" />
                 </div>
               </a>
             ))}
@@ -175,53 +175,55 @@ export default function HomePage() {
       {/* Clean high-converting banner directing to dedicated /audit */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-6 sm:p-8 lg:p-9 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDE047] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000]">
-              <Sparkles className="w-3.5 h-3.5" />
+        <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 border border-slate-800 rounded-3xl p-7 sm:p-10 lg:p-12 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="space-y-4 max-w-2xl relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-sans font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
               The Saini Nexus Growth Architecture
             </div>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-black tracking-tight leading-snug">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-extrabold text-white tracking-tight leading-snug">
               Where Is Your B2B Growth Engine Leaking Opportunities?
             </h3>
-            <p className="text-zinc-700 text-sm sm:text-base font-medium leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base font-normal leading-relaxed">
               Evaluate your buying committee coverage, content proof, and LinkedIn distribution across our 7 connected stages.
             </p>
 
             {/* 7-Step Mini Indicator */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[11px] font-mono font-bold text-zinc-600">
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">01 Context</span>
-              <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">02 Positioning</span>
-              <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">03 Proof</span>
-              <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">04 Audience</span>
-              <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">05 Distribution</span>
-              <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">06 Demand</span>
-              <span>→</span>
-              <span className="bg-[#86EFAC] text-black px-2 py-0.5 rounded border border-black font-extrabold">07 Pipeline</span>
+            <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[11px] font-sans font-semibold text-slate-300">
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">01 Context</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">02 Positioning</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">03 Proof</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">04 Audience</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">05 Distribution</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">06 Demand</span>
+              <span className="text-slate-500">→</span>
+              <span className="bg-blue-600 text-white px-2.5 py-1 rounded-md font-bold shadow-xs">07 Pipeline</span>
             </div>
           </div>
 
-          <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+          <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3 relative z-10">
             <Link 
               href="/audit" 
-              className="neo-btn-blue text-xs font-mono font-bold flex items-center justify-center gap-2 text-center whitespace-nowrap shadow-[3px_3px_0px_#000000]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-sans font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 hover:shadow-lg transition-all text-center whitespace-nowrap"
             >
               <span>Request Growth Assessment</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
-            <span className="text-[10px] font-mono text-zinc-500 text-center">
+            <span className="text-[11px] font-sans text-slate-400 text-center">
               Takes ~2 minutes · Actionable insights
             </span>
           </div>
         </div>
       </section>
-
-
 
       {/* ========================================================= */}
       {/* 05. FEATURED INDUSTRIES: MINIMALIST HIGH-CONTRAST SLIDER  */}
@@ -237,41 +239,38 @@ export default function HomePage() {
 
       {/* ========================================================= */}
       {/* 07. FOUNDER AUTHORITY: EXECUTIVE PROFILE DOSSIER          */}
-      {/* Two-tone accent frame with official seal styling          */}
+      {/* Modern corporate leadership highlight                     */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
-          className="bg-white border-3 border-black rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 lg:p-14 text-black shadow-[6px_6px_0px_#000000] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/textures/founder-bg.jpg')",
-          }}
+          className="bg-white border border-slate-200/90 rounded-3xl sm:rounded-[32px] p-6 sm:p-10 lg:p-14 text-slate-900 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden"
         >
           <div className="lg:col-span-7 space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-sans font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
               Executive Profile &amp; Practice Lead
             </div>
 
             <div>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-extrabold text-slate-900 leading-tight tracking-tight">
                 Dev Raj Saini
               </h2>
-              <p className="text-sm font-mono text-[#2563EB] font-bold mt-1.5 uppercase tracking-wider">
-                Founder &amp; B2B Growth Strategist
+              <p className="text-sm font-sans text-blue-600 font-semibold mt-1.5 uppercase tracking-wider">
+                Founder &amp; Lead B2B Growth Strategist
               </p>
             </div>
 
-            <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium">
-              Marketing founder and strategist focused on the intersection of B2B marketing, LinkedIn, thought leadership, personal branding and professional authority. Founder of <strong className="text-black font-bold">Saini Nexus</strong> (B2B Demand &amp; Pipeline Growth) and <strong className="text-black font-bold">Saini Prime</strong> (Executive Authority &amp; Positioning). Based in Jaipur, Rajasthan, serving India &amp; global B2B markets.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+              Marketing founder and strategist focused on the intersection of B2B marketing, LinkedIn, thought leadership, personal branding and professional authority. Founder of <strong className="text-slate-900 font-semibold">Saini Nexus</strong> (B2B Demand &amp; Pipeline Growth) and <strong className="text-slate-900 font-semibold">Saini Prime</strong> (Executive Authority &amp; Positioning). Based in Jaipur, Rajasthan, serving India &amp; global B2B markets.
             </p>
 
-            <div className="flex flex-wrap gap-2.5 text-xs font-mono text-black font-bold pt-1">
-              <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <MapPin className="w-4 h-4 text-[#2563EB] shrink-0" />
+            <div className="flex flex-wrap gap-2.5 text-xs font-sans text-slate-700 font-medium pt-1">
+              <span className="inline-flex items-center gap-1.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200">
+                <MapPin className="w-4 h-4 text-blue-600 shrink-0" />
                 Jaipur, Rajasthan, India
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
-                <ShieldCheck className="w-4 h-4 text-[#2563EB] shrink-0" />
+              <span className="inline-flex items-center gap-1.5 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200 text-blue-700">
+                <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
                 LinkedIn Marketing Labs Certified
               </span>
             </div>
@@ -288,20 +287,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Founder photo with offset accent block */}
+          {/* Founder photo with clean modern border */}
           <div className="lg:col-span-5 flex justify-center relative z-10">
-            <div className="relative pb-3 pr-3">
-              {/* Offset blue decorative block */}
-              <div className="absolute bottom-0 right-0 w-full h-full rounded-3xl bg-[#60A5FA] border-2 border-black" />
-              <div className="relative p-2.5 rounded-3xl bg-[#FAF7EF] border-2 border-black shadow-[4px_4px_0px_#000000]">
-                <div className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-black bg-zinc-100">
-                  <Image
-                    src="/team/dev-raj-saini.jpg"
-                    alt="Dev Raj Saini — Founder, Saini Nexus"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
+            <div className="relative p-2 rounded-3xl bg-slate-50 border border-slate-200/90 shadow-md">
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden bg-slate-100">
+                <Image
+                  src="/team/dev-raj-saini.jpg"
+                  alt="Dev Raj Saini — Founder, Saini Nexus"
+                  fill
+                  className="object-cover object-top"
+                />
               </div>
             </div>
           </div>

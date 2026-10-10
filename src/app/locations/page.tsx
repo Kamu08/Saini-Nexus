@@ -19,15 +19,15 @@ export default function LocationsIndexPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
           <MapPin className="w-3.5 h-3.5" />
           Regional Presence &amp; Authority
         </div>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
           Regional Roots. <br />
-          <span className="text-[#2563EB]">Global B2B Acquisition Standard.</span>
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Global B2B Acquisition Standard.</span>
         </h1>
-        <p className="text-black/80 text-base sm:text-lg leading-relaxed font-sans">
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
           From our Jaipur headquarters, we empower industrial exporters, high-growth tech firms, and professional consultancies across Rajasthan and India to win international enterprise deals.
         </p>
       </div>
@@ -37,31 +37,31 @@ export default function LocationsIndexPage() {
         {Object.values(LOCATIONS).map((loc) => (
           <div
             key={loc.slug}
-            className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all group"
+            className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:border-blue-300 hover:shadow-md transition-all group"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="bg-sky-50 border border-black text-black font-bold uppercase tracking-wider text-[10px] px-2.5 py-0.5 rounded-full">
+                <span className="bg-blue-50 border border-blue-100 text-blue-700 font-semibold uppercase tracking-wider text-[10px] px-2.5 py-0.5 rounded-full">
                   {loc.heroTagline}
                 </span>
               </div>
 
-              <h2 className="text-2xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors leading-snug">
+              <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                 {loc.name}
               </h2>
 
-              <p className="text-black/75 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
                 {loc.heroDescription}
               </p>
 
-              <div className="pt-4 border-t-2 border-black/10 space-y-2">
-                <span className="text-[11px] font-mono text-black/60 uppercase tracking-wider block font-bold">
+              <div className="pt-4 border-t border-slate-100 space-y-2">
+                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block font-bold">
                   Key Focus Sectors:
                 </span>
-                <ul className="space-y-1 text-xs text-black/80">
+                <ul className="space-y-1 text-xs text-slate-700">
                   {loc.keySectors.slice(0, 3).map((sec, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#60A5FA] border border-black shrink-0"></span>
+                      <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
                       <span className="font-medium">{sec.name}</span>
                     </li>
                   ))}
@@ -69,11 +69,11 @@ export default function LocationsIndexPage() {
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t-2 border-black/10 flex items-center justify-between">
-              <span className="text-xs font-mono text-black/60 font-bold">HQ: Jaipur, RJ</span>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-500 font-medium">HQ: Jaipur, RJ</span>
               <Link
                 href={`/locations/${loc.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-black group-hover:text-[#2563EB] font-bold uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-800 group-hover:text-blue-600 font-bold uppercase tracking-wider"
               >
                 <span>Explore Hub</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -84,12 +84,12 @@ export default function LocationsIndexPage() {
       </div>
 
       {/* Philosophy Banner */}
-      <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-[6px_6px_0px_#000000]">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Strategic Philosophy</span>
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
+        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Strategic Philosophy</span>
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
           &ldquo;Building the next generation of B2B marketing from Rajasthan.&rdquo;
         </h3>
-        <p className="text-black/80 text-sm max-w-2xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed font-normal">
           We do not spam generic city keywords. We build legitimate topical and regional authority through verified case studies, local industrial expertise, and measurable commercial results.
         </p>
       </div>

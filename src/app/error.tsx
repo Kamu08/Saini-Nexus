@@ -17,16 +17,16 @@ export default function Error({
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
-      <div className="max-w-md w-full text-center space-y-6 bg-white border-2 border-black p-8 sm:p-10 rounded-3xl shadow-[6px_6px_0px_#000000]">
-        <div className="w-16 h-16 rounded-2xl bg-amber-200 border-2 border-black text-black flex items-center justify-center mx-auto shadow-[3px_3px_0px_#000000]">
-          <AlertTriangle className="w-8 h-8 text-black" />
+      <div className="max-w-md w-full text-center space-y-6 bg-white border border-slate-200/90 p-8 sm:p-10 rounded-3xl shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mx-auto">
+          <AlertTriangle className="w-8 h-8 text-amber-600" />
         </div>
 
-        <h1 className="text-3xl font-serif font-bold text-black">
+        <h1 className="text-3xl font-bold text-slate-900">
           Something went wrong
         </h1>
 
-        <p className="text-xs sm:text-sm text-black/80 leading-relaxed font-sans">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
           An unexpected error occurred while processing this pipeline view. Please try resetting or return to the main dashboard.
         </p>
 

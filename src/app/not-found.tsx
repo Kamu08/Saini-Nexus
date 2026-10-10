@@ -5,16 +5,16 @@ import { Home, Sparkles } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
-      <div className="max-w-md w-full text-center space-y-6 bg-white border-2 border-black p-8 sm:p-10 rounded-3xl shadow-[6px_6px_0px_#000000]">
-        <div className="w-16 h-16 rounded-2xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center mx-auto font-mono text-2xl font-bold shadow-[3px_3px_0px_#000000]">
+      <div className="max-w-md w-full text-center space-y-6 bg-white border border-slate-200/90 p-8 sm:p-10 rounded-3xl shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mx-auto font-mono text-2xl font-bold">
           404
         </div>
 
-        <h1 className="text-3xl font-serif font-bold text-black">
+        <h1 className="text-3xl font-bold text-slate-900">
           Page Not Found
         </h1>
 
-        <p className="text-xs sm:text-sm text-black/80 leading-relaxed font-sans">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
           The B2B resource or route you are looking for has been relocated or does not exist in our system.
         </p>
 

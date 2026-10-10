@@ -177,11 +177,11 @@ export function NexusGrowthMap() {
   };
 
   return (
-    <section className="w-full bg-[#0D121F] text-white rounded-none sm:rounded-3xl p-6 sm:p-10 lg:p-14 space-y-10 relative overflow-hidden border-3 border-black shadow-[8px_8px_0px_#000000]">
+    <section className="w-full bg-slate-950 text-white rounded-3xl p-6 sm:p-10 lg:p-14 space-y-10 relative overflow-hidden border border-slate-800 shadow-2xl">
       
       {/* Background Architectural Tech Grid */}
       <div 
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(#60A5FA 1px, transparent 1px)",
           backgroundSize: "28px 28px"
@@ -189,40 +189,40 @@ export function NexusGrowthMap() {
       />
 
       {/* Decorative Glow Orb */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* ========================================================= */}
       {/* SECTION HEADER: TITLE & CORE STATS                        */}
       {/* ========================================================= */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b-2 border-white/10 pb-8 relative z-10">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slate-800/80 pb-8 relative z-10">
         <div className="max-w-2xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2.5px_2.5px_0px_#000000]">
-            <Workflow className="w-4 h-4 text-black" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+            <Workflow className="w-4 h-4 text-blue-400" />
             <span>03 · Commercial Engine</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
             The Saini Nexus Commercial Architecture.
           </h2>
           
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
             Strategy before random execution. We engineer an integrated 7-stage pipeline connecting executive buyer psychology directly to sales-accepted opportunities and ARR.
           </p>
         </div>
 
         {/* 3 Quick Performance Anchors */}
         <div className="grid grid-cols-3 gap-2.5 sm:gap-3 shrink-0">
-          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
-            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#60A5FA]">07</span>
-            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">Stages</span>
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+            <span className="block text-base sm:text-xl font-bold text-blue-400">07</span>
+            <span className="text-[10px] uppercase text-slate-400 font-medium">Stages</span>
           </div>
-          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
-            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#86EFAC]">82%</span>
-            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">SAR SLA</span>
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+            <span className="block text-base sm:text-xl font-bold text-emerald-400">82%</span>
+            <span className="text-[10px] uppercase text-slate-400 font-medium">SAR SLA</span>
           </div>
-          <div className="p-3 bg-[#161F33] border-2 border-black rounded-none shadow-[2px_2px_0px_#000000] text-center">
-            <span className="block text-base sm:text-xl font-mono font-extrabold text-[#FDE047]">&lt;30s</span>
-            <span className="text-[10px] font-mono uppercase text-zinc-400 font-bold">Routing</span>
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+            <span className="block text-base sm:text-xl font-bold text-amber-400">&lt;30s</span>
+            <span className="text-[10px] uppercase text-slate-400 font-medium">Routing</span>
           </div>
         </div>
       </div>
@@ -231,12 +231,12 @@ export function NexusGrowthMap() {
       {/* 7-STAGE PIPELINE STEPPER TRACK                            */}
       {/* ========================================================= */}
       <div className="space-y-3 relative z-10">
-        <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-zinc-400">
+        <div className="flex items-center justify-between text-xs uppercase tracking-wider text-slate-400 font-medium">
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#60A5FA]" />
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             Select Stage to Inspect Blueprint
           </span>
-          <span className="font-bold text-white">
+          <span className="font-semibold text-slate-200">
             {currentIndex + 1} / 07 Active
           </span>
         </div>
@@ -249,31 +249,31 @@ export function NexusGrowthMap() {
               <button
                 key={st.id}
                 onClick={() => setActiveStageId(st.id)}
-                className={`p-3 rounded-none text-left border-2 transition-all flex flex-col justify-between gap-2 cursor-pointer ${
+                className={`p-3 rounded-xl text-left border transition-all flex flex-col justify-between gap-2 cursor-pointer ${
                   isActive
-                    ? "bg-[#60A5FA] text-black font-extrabold border-black shadow-[4px_4px_0px_#000000] -translate-y-1"
-                    : "bg-[#151D30] text-zinc-300 hover:text-white hover:bg-[#1C2740] border-black/80 hover:border-[#60A5FA] shadow-[2px_2px_0px_#000000]"
+                    ? "bg-blue-600 text-white font-semibold border-blue-500 shadow-md"
+                    : "bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800/90 border-slate-800/80 hover:border-slate-700 shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
-                  <span className={`w-6 h-6 rounded-none flex items-center justify-center font-mono text-xs font-extrabold border ${
+                  <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
                     isActive
-                      ? "bg-black text-white border-black"
-                      : "bg-black/50 text-zinc-300 border-white/20"
+                      ? "bg-white text-blue-600"
+                      : "bg-slate-800 text-slate-300 border border-slate-700"
                   }`}>
                     {st.step}
                   </span>
-                  <span className={`text-[9px] font-mono uppercase tracking-widest px-1.5 py-0.5 border ${
+                  <span className={`text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${
                     isActive
-                      ? "bg-black/10 text-black border-black/30 font-bold"
-                      : "bg-white/5 text-zinc-400 border-transparent"
+                      ? "bg-white/20 text-white font-semibold"
+                      : "bg-slate-800 text-slate-400"
                   }`}>
                     P{idx < 2 ? "1" : idx < 4 ? "2" : "3"}
                   </span>
                 </div>
 
                 <div>
-                  <span className="block text-xs font-serif font-bold tracking-tight line-clamp-1">
+                  <span className="block text-xs font-bold tracking-tight line-clamp-1">
                     {st.title}
                   </span>
                 </div>
@@ -284,7 +284,7 @@ export function NexusGrowthMap() {
       </div>
 
       {/* ========================================================= */}
-      {/* ACTIVE STAGE BLUEPRINT SHOWCASE (HIGH CONTRAST DOSSIER)   */}
+      {/* ACTIVE STAGE BLUEPRINT SHOWCASE (MODERN DOSSIER)          */}
       {/* ========================================================= */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -296,43 +296,43 @@ export function NexusGrowthMap() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10"
         >
           {/* Left Column: Strategic Thesis & Problem Dossier */}
-          <div className="lg:col-span-7 bg-[#141C2E] border-3 border-black rounded-none p-6 sm:p-9 flex flex-col justify-between space-y-6 shadow-[6px_6px_0px_#000000]">
+          <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-9 flex flex-col justify-between space-y-6 shadow-md">
             <div className="space-y-5">
               
               {/* Badge & Phase Indicator */}
               <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3 py-1 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold shadow-[2px_2px_0px_#000000]">
+                <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-semibold">
                   STAGE {currentStage.step} OF 07
                 </span>
-                <span className="text-xs font-mono font-extrabold uppercase tracking-widest text-[#93C5FD] bg-[#1E2B44] px-2.5 py-1 border border-black">
+                <span className="text-xs font-medium uppercase tracking-widest text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700/60">
                   {currentStage.phase}
                 </span>
               </div>
 
               {/* Subtitle */}
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-snug">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
                 {currentStage.subtitle}
               </h3>
 
               {/* Core Strategic Question Callout */}
-              <div className="p-4 sm:p-5 rounded-none bg-[#0B0F1A] border-2 border-black space-y-1.5 shadow-[3px_3px_0px_#000000]">
-                <div className="flex items-center gap-2 text-[#FDE047] font-mono font-extrabold text-xs uppercase tracking-wider">
+              <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs uppercase tracking-wider">
                   <Zap className="w-3.5 h-3.5" />
                   <span>Core Strategic Question</span>
                 </div>
-                <p className="font-serif text-base sm:text-lg text-white font-medium italic leading-relaxed">
+                <p className="text-base sm:text-lg text-slate-200 font-medium italic leading-relaxed">
                   &ldquo;{currentStage.question}&rdquo;
                 </p>
               </div>
 
               {/* Operational Narrative */}
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
                 {currentStage.description}
               </p>
 
               {/* Sales Impact Note */}
-              <div className="p-3 bg-[#1C263B] border border-white/10 rounded-none flex items-start gap-2.5 text-xs text-zinc-300 font-mono">
-                <Target className="w-4 h-4 text-[#60A5FA] shrink-0 mt-0.5" />
+              <div className="p-3 bg-slate-800/60 border border-slate-700/60 rounded-xl flex items-start gap-2.5 text-xs text-slate-300">
+                <Target className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>
                   <strong className="text-white uppercase font-bold">Why Sales Wins:</strong> {currentStage.salesImpact}
                 </span>
@@ -340,10 +340,10 @@ export function NexusGrowthMap() {
             </div>
 
             {/* Stepper Navigation Buttons */}
-            <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
+            <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-4">
               <button
                 onClick={handlePrev}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border-2 border-black text-white hover:bg-[#60A5FA] hover:text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[2px_2px_0px_#000000] cursor-pointer transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-white rounded-xl text-xs font-semibold cursor-pointer transition-all"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
                 <span>Prev Stage</span>
@@ -351,7 +351,7 @@ export function NexusGrowthMap() {
 
               <button
                 onClick={handleNext}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[2px_2px_0px_#000000] hover:translate-x-0.5 cursor-pointer transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-500 text-white rounded-xl text-xs font-semibold cursor-pointer transition-all shadow-xs"
               >
                 <span>Next Stage</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -359,50 +359,50 @@ export function NexusGrowthMap() {
             </div>
           </div>
 
-          {/* Right Column: Tactical Deliverables & Commercial Standard (High-Contrast Dossier) */}
-          <div className="lg:col-span-5 bg-[#FAF7EF] text-black border-3 border-black rounded-none p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-[6px_6px_0px_#000000]">
+          {/* Right Column: Deliverables & Commercial Standard (Modern White Card) */}
+          <div className="lg:col-span-5 bg-white text-slate-900 border border-slate-200/90 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-md">
             <div className="space-y-5">
               
               {/* Header Bar */}
-              <div className="flex items-center justify-between pb-3 border-b-2 border-black">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
-                  <FileCheck2 className="w-4 h-4 text-black" />
-                  <span className="text-xs font-mono uppercase tracking-widest font-extrabold text-black">
+                  <FileCheck2 className="w-4 h-4 text-slate-900" />
+                  <span className="text-xs uppercase tracking-widest font-bold text-slate-900">
                     Engineering Deliverables
                   </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase font-extrabold bg-[#60A5FA] text-black px-2 py-0.5 border border-black shadow-[1px_1px_0px_#000000]">
+                <span className="text-[10px] uppercase font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
                   Production
                 </span>
               </div>
 
               {/* Deliverables List */}
-              <ul className="space-y-3.5 text-xs sm:text-sm text-zinc-900">
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
                 {currentStage.deliverables.map((del, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-none bg-black text-white flex items-center justify-center shrink-0 mt-0.5 border border-black shadow-[1px_1px_0px_#000000]">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+                    <div className="w-5 h-5 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5 border border-blue-200">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
-                    <span className="font-semibold leading-snug">{del}</span>
+                    <span className="font-medium leading-snug">{del}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Bottom Commercial Metric Anchor */}
-            <div className="space-y-3 pt-4 border-t-2 border-black">
-              <div className="p-4 rounded-none bg-white border-2 border-black shadow-[3px_3px_0px_#000000] space-y-1">
-                <span className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-zinc-600 block">
+            <div className="space-y-3 pt-4 border-t border-slate-200">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">
                   {currentStage.metricLabel}:
                 </span>
-                <span className="text-base sm:text-lg font-serif font-bold text-black block leading-tight">
+                <span className="text-base sm:text-lg font-bold text-slate-900 block leading-tight">
                   {currentStage.metrics}
                 </span>
               </div>
 
               <Link
                 href={`/audit?stage=${currentStage.id}`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
               >
                 <span>Audit Stage {currentStage.step} for Your Firm</span>
                 <ArrowRight className="w-3.5 h-3.5" />

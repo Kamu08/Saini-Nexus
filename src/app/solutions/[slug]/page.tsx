@@ -85,18 +85,19 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       />
 
       {/* Hero Section */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000]">
-        <div className="max-w-4xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+      <section className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-sm">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+        <div className="relative z-10 max-w-4xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             Solution {solution.number} • {solution.tagline}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
             {solution.title}
           </h1>
 
-          <p className="text-base sm:text-xl text-black/80 leading-relaxed font-normal">
+          <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal">
             {solution.fullDescription}
           </p>
 
@@ -122,49 +123,49 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       {/* Metrics Row */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {solution.metricsThatMatter.map((metric, i) => (
-          <div key={i} className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-2 shadow-[4px_4px_0px_#000000]">
-            <div className="text-4xl font-serif font-bold text-[#2563EB]">{metric.metric}</div>
-            <div className="text-xs sm:text-sm text-black/80 leading-relaxed font-medium">{metric.context}</div>
+          <div key={i} className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-2 shadow-xs">
+            <div className="text-4xl font-mono font-bold text-blue-600">{metric.metric}</div>
+            <div className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{metric.context}</div>
           </div>
         ))}
       </section>
 
       {/* The Core Problem */}
-      <section className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-8 sm:p-10 space-y-4 shadow-[6px_6px_0px_#000000]">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-200 border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold">
-          <AlertCircle className="w-4 h-4 text-rose-700" />
+      <section className="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-10 space-y-4 shadow-xs">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono uppercase tracking-wider font-semibold">
+          <AlertCircle className="w-4 h-4 text-rose-600" />
           The Commercial Challenge
         </div>
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-black">Why This Problem Persists</h2>
-        <p className="text-black/80 text-base leading-relaxed">{solution.problemStatement}</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Why This Problem Persists</h2>
+        <p className="text-slate-600 text-base leading-relaxed font-normal">{solution.problemStatement}</p>
       </section>
 
       {/* Strategic Framework / Multi-Phase Solution */}
       <section className="space-y-8">
         <div className="max-w-3xl space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Execution Blueprint</span>
-          <h2 className="text-3xl font-serif font-bold text-black">How We Solve This Systematically</h2>
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Execution Blueprint</span>
+          <h2 className="text-3xl font-bold text-slate-900">How We Solve This Systematically</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {solution.strategicFramework.map((framework, i) => (
-            <div key={i} className="bg-white border-2 border-black rounded-3xl p-6 space-y-3 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all">
-              <span className="px-3 py-1 bg-[#60A5FA] border-2 border-black text-black text-xs font-mono font-bold rounded-full inline-block shadow-[2px_2px_0px_#000000]">
+            <div key={i} className="bg-white border border-slate-200/80 rounded-3xl p-6 space-y-3 shadow-xs hover:border-blue-300 hover:shadow-md transition-all">
+              <span className="px-3 py-1 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-bold rounded-full inline-block">
                 {framework.phase}
               </span>
-              <h3 className="text-lg font-serif font-bold text-black pt-1">{framework.title}</h3>
-              <p className="text-xs sm:text-sm text-black/75 leading-relaxed">{framework.details}</p>
+              <h3 className="text-lg font-bold text-slate-900 pt-1">{framework.title}</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{framework.details}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Relevant Services Combined in this Solution */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-10 shadow-[6px_6px_0px_#000000] space-y-6">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs space-y-6">
         <div className="space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Integrated Capabilities</span>
-          <h2 className="text-2xl font-serif font-bold text-black">Services Combined in This Solution</h2>
-          <p className="text-black/80 text-sm">We combine multiple specialized capabilities to ensure seamless execution.</p>
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Integrated Capabilities</span>
+          <h2 className="text-2xl font-bold text-slate-900">Services Combined in This Solution</h2>
+          <p className="text-slate-600 text-sm">We combine multiple specialized capabilities to ensure seamless execution.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -172,42 +173,42 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
             <Link
               key={i}
               href={srv.href}
-              className="p-5 rounded-2xl bg-[#FAF7EF] border-2 border-black hover:bg-sky-50 shadow-[3px_3px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] hover:-translate-y-0.5 transition-all flex items-start justify-between group"
+              className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-blue-50/40 hover:border-blue-300 transition-all flex items-start justify-between group"
             >
               <div className="space-y-1 pr-4">
-                <h4 className="text-base font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors">
+                <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                   {srv.title}
                 </h4>
-                <p className="text-xs text-black/75">{srv.description}</p>
+                <p className="text-xs text-slate-600">{srv.description}</p>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-black group-hover:text-[#2563EB] shrink-0 mt-0.5" />
+              <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-blue-600 shrink-0 mt-0.5" />
             </Link>
           ))}
         </div>
       </section>
 
       {/* Deliverables */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-10 shadow-[6px_6px_0px_#000000] space-y-6">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs space-y-6">
         <div className="space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Tangible Outcomes</span>
-          <h2 className="text-2xl font-serif font-bold text-black">What You Receive</h2>
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Tangible Outcomes</span>
+          <h2 className="text-2xl font-bold text-slate-900">What You Receive</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {solution.deliverables.map((item, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-              <span className="text-xs sm:text-sm text-black font-semibold">{item}</span>
+            <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+              <span className="text-xs sm:text-sm text-slate-800 font-medium">{item}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-[6px_6px_0px_#000000]">
+      <section className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
         <div className="space-y-2">
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">Ready to solve {solution.title}?</h3>
-          <p className="text-black/80 text-sm">Schedule a direct strategy consultation with our senior B2B team.</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Ready to solve {solution.title}?</h3>
+          <p className="text-slate-600 text-sm font-normal">Schedule a direct strategy consultation with our senior B2B team.</p>
         </div>
         <Link
           href="/book"

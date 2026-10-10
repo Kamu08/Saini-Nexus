@@ -26,11 +26,11 @@ export default function SolutionsIndexPage() {
       <NexusGrowthMap />
 
       {/* Bottom CTA */}
-      <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-[6px_6px_0px_#000000]">
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Not sure which solution matches your current growth stage?
         </h3>
-        <p className="text-black/80 text-sm max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed font-normal">
           We conduct comprehensive B2B positioning and pipeline audits to determine the highest-leverage growth motion for your business.
         </p>
         <div className="pt-2">

@@ -23,14 +23,14 @@ export default function ServicesIndexPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
-          <Sparkles className="w-3.5 h-3.5 text-black" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
+          <Sparkles className="w-3.5 h-3.5" />
           Execution Capabilities
         </div>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
           B2B Marketing &amp; Growth Services
         </h1>
-        <p className="text-black/80 text-base sm:text-lg leading-relaxed font-sans">
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
           Saini Nexus provides strategy-led B2B marketing services designed to connect positioning, LinkedIn, paid distribution, demand generation and pipeline growth.
         </p>
       </div>
@@ -40,34 +40,34 @@ export default function ServicesIndexPage() {
         {serviceList.map((srv) => (
           <div
             key={srv.slug}
-            className="bg-white border-2 border-black rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all group"
+            className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-blue-300 hover:shadow-md transition-all group"
           >
             <div className="space-y-4">
               <div className="flex items-start justify-between gap-3 text-xs font-mono">
-                <span className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center font-bold shrink-0 shadow-[2px_2px_0px_#000000]">
+                <span className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center font-bold shrink-0">
                   {srv.number}
                 </span>
-                <span className="bg-[#EFF6FF] border border-black text-black font-bold uppercase tracking-wider text-[10px] px-2.5 py-1 rounded-full text-right leading-tight max-w-[70%]">
+                <span className="bg-blue-50/70 border border-blue-100 text-blue-800 font-semibold uppercase tracking-wider text-[10px] px-2.5 py-1 rounded-full text-right leading-tight max-w-[70%]">
                   {srv.strategicRole}
                 </span>
               </div>
 
-              <h2 className="text-xl font-serif font-bold text-black group-hover:text-[#2563EB] transition-colors leading-snug">
+              <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                 {srv.title}
               </h2>
 
-              <p className="text-black/75 text-xs sm:text-sm leading-relaxed line-clamp-3">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                 {srv.shortDescription}
               </p>
 
-              <div className="pt-3 border-t-2 border-black/10 space-y-1.5">
-                <span className="text-[10px] font-mono text-black/60 uppercase tracking-wider block font-bold">
+              <div className="pt-3 border-t border-slate-100 space-y-1.5">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-bold">
                   Core Capabilities:
                 </span>
-                <ul className="space-y-1 text-xs text-black/80">
+                <ul className="space-y-1 text-xs text-slate-700">
                   {srv.capabilities.slice(0, 2).map((cap, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                       <span className="line-clamp-1 font-medium">{cap.title}</span>
                     </li>
                   ))}
@@ -75,10 +75,10 @@ export default function ServicesIndexPage() {
               </div>
             </div>
 
-            <div className="pt-5 mt-5 border-t-2 border-black/10 flex items-center justify-between">
+            <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
               <Link
                 href={`/services/${srv.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-black group-hover:text-[#2563EB] font-bold uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-800 group-hover:text-blue-600 font-bold uppercase tracking-wider"
               >
                 <span>Explore Service</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -92,11 +92,11 @@ export default function ServicesIndexPage() {
       <NexusGrowthMap />
 
       {/* Bottom CTA */}
-      <div className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-[6px_6px_0px_#000000]">
-        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Need an integrated scope across multiple capabilities?
         </h3>
-        <p className="text-black/80 text-sm max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed font-normal">
           We construct tailored growth retainers that blend strategic narrative, LinkedIn execution, ABM, and pipeline generation based on your target buyer dynamic.
         </p>
         <div className="pt-2">

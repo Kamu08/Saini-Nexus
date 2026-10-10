@@ -40,15 +40,16 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
-        display: ["var(--font-serif)", "Georgia", "serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        display: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       boxShadow: {
-        neo: "3px 3px 0px #000000",
-        'neo-sm': "2px 2px 0px #000000",
-        'neo-lg': "5px 5px 0px #000000",
-        'neo-xl': "7px 7px 0px #000000",
+        neo: "0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03)",
+        'neo-sm': "0 1px 2px rgba(0, 0, 0, 0.04)",
+        'neo-lg': "0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03)",
+        'neo-xl': "0 20px 30px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.04)",
+        modern: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
       },
       letterSpacing: {
         tighter: "-0.04em",

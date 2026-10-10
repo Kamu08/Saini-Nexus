@@ -17,7 +17,7 @@ export default function AuditPage() {
       <Breadcrumbs items={[{ label: "Commercial Architecture Audit" }]} />
 
       <Suspense fallback={
-        <div className="w-full bg-[#FAF7EF] border-3 border-black p-12 text-center font-mono text-sm">
+        <div className="w-full bg-slate-50 border border-slate-200 rounded-3xl p-12 text-center font-mono text-sm text-slate-500">
           Loading Commercial Audit Interface...
         </div>
       }>

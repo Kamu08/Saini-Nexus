@@ -134,27 +134,27 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-xl bg-[#FAF7EF] border-3 border-black shadow-[8px_8px_0px_#000000] p-6 sm:p-8 z-10 space-y-6 max-h-[92vh] overflow-y-auto no-scrollbar"
+          className="relative w-full max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 sm:p-8 z-10 space-y-6 max-h-[92vh] overflow-y-auto no-scrollbar"
         >
           {/* Header Bar */}
-          <div className="flex items-start justify-between gap-4 border-b-2 border-black pb-4">
+          <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-[11px] font-extrabold uppercase shadow-[1.5px_1.5px_0px_#000000]">
+                <span className="px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-[11px] font-semibold uppercase">
                   STAGE {stage.step} AUDIT INTAKE
                 </span>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-600">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
                   {stage.phase}
                 </span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-black tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                 {stage.title} Commercial Audit
               </h3>
             </div>
 
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-none border-2 border-black bg-white hover:bg-rose-100 flex items-center justify-center text-black font-bold shadow-[2px_2px_0px_#000000] transition-all cursor-pointer shrink-0"
+              className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center text-slate-600 transition-all cursor-pointer shrink-0"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
@@ -164,27 +164,27 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
           {submitted ? (
             /* Success State */
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-none bg-[#60A5FA] border-3 border-black text-black flex items-center justify-center mx-auto shadow-[4px_4px_0px_#000000]">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-2xl font-serif font-bold text-black">
+                <h4 className="text-2xl font-extrabold text-slate-900">
                   Audit Request Dispatched
                 </h4>
-                <p className="text-xs sm:text-sm text-zinc-700 max-w-md mx-auto font-medium">
-                  Your diagnostic request for <strong className="text-black">Stage {stage.step}: {stage.title}</strong> has been transferred to Dev Raj Saini (<span className="font-mono text-zinc-900 font-bold">kamal0sharma02@gmail.com</span>).
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-normal">
+                  Your diagnostic request for <strong className="text-slate-900">Stage {stage.step}: {stage.title}</strong> has been transferred to Dev Raj Saini (<span className="text-slate-900 font-semibold">kamal0sharma02@gmail.com</span>).
                 </p>
               </div>
 
-              <div className="p-4 bg-white border-2 border-black rounded-none shadow-[2.5px_2.5px_0px_#000000] text-left text-xs font-mono space-y-1 max-w-md mx-auto">
-                <span className="text-emerald-700 font-extrabold block">✓ Lead Routing Protocol Confirmed</span>
-                <span className="text-zinc-600 block">We will audit your buyer architecture and email your customized assessment within 24 business hours.</span>
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-left text-xs space-y-1 max-w-md mx-auto">
+                <span className="text-emerald-700 font-semibold block">✓ Lead Routing Protocol Confirmed</span>
+                <span className="text-slate-600 block">We will audit your buyer architecture and email your customized assessment within 24 business hours.</span>
               </div>
 
               <button
                 onClick={onClose}
-                className="neo-btn-blue text-xs uppercase px-8 py-3 font-extrabold cursor-pointer"
+                className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs uppercase font-semibold tracking-wider cursor-pointer shadow-sm transition-all"
               >
                 Close &amp; Return
               </button>
@@ -194,11 +194,11 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
             <form onSubmit={handleSubmit} className="space-y-4">
               
               {/* Question Context Pill */}
-              <div className="p-3 bg-white border-2 border-black rounded-none text-xs font-mono space-y-0.5 shadow-[2px_2px_0px_#000000]">
-                <span className="text-[#2563EB] font-extrabold uppercase text-[10px] block">
+              <div className="p-3.5 bg-blue-50/50 border border-blue-100 rounded-xl text-xs space-y-0.5">
+                <span className="text-blue-600 font-semibold uppercase text-[10px] block">
                   Diagnostic Problem Being Analyzed:
                 </span>
-                <span className="text-zinc-800 italic block font-serif text-xs sm:text-sm">
+                <span className="text-slate-700 italic block text-xs sm:text-sm">
                   &ldquo;{stage.question}&rdquo;
                 </span>
               </div>
@@ -206,7 +206,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
               {/* Name & Email Fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-mono font-bold text-black mb-1">
+                  <label className="block text-xs font-semibold text-slate-800 mb-1">
                     Your Name <span className="text-rose-600">*</span>
                   </label>
                   <input
@@ -215,12 +215,12 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                     placeholder="e.g. Vikram Sharma"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-medium text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000]"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold text-black mb-1">
+                  <label className="block text-xs font-semibold text-slate-800 mb-1">
                     Work Email <span className="text-rose-600">*</span>
                   </label>
                   <input
@@ -229,7 +229,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                     placeholder="vikram@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-medium text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000]"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
                   />
                 </div>
               </div>
@@ -237,7 +237,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
               {/* Company & Deal Size */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-mono font-bold text-black mb-1">
+                  <label className="block text-xs font-semibold text-slate-800 mb-1">
                     Company Name &amp; Website <span className="text-rose-600">*</span>
                   </label>
                   <input
@@ -246,18 +246,18 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                     placeholder="e.g. CloudScale (cloudscale.io)"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-medium text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000]"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold text-black mb-1">
+                  <label className="block text-xs font-semibold text-slate-800 mb-1">
                     Estimated Deal Size (ACV)
                   </label>
                   <select
                     value={formData.dealSize}
                     onChange={(e) => setFormData({ ...formData, dealSize: e.target.value })}
-                    className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-mono font-medium text-black focus:outline-none focus:shadow-[2px_2px_0px_#000000] cursor-pointer"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 cursor-pointer shadow-xs"
                   >
                     <option value="Under ₹5 Lakhs">Under ₹5 Lakhs (Early-Stage / Services)</option>
                     <option value="₹5 Lakhs – ₹15 Lakhs">₹5 Lakhs – ₹15 Lakhs (Mid-Market B2B)</option>
@@ -269,15 +269,15 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
 
               {/* Current Roadblock / Notes */}
               <div>
-                <label className="block text-xs font-mono font-bold text-black mb-1">
-                  Specific Challenge for {stage.title} <span className="text-zinc-500 text-[10px] font-normal">(Optional)</span>
+                <label className="block text-xs font-semibold text-slate-800 mb-1">
+                  Specific Challenge for {stage.title} <span className="text-slate-400 text-[10px] font-normal">(Optional)</span>
                 </label>
                 <textarea
                   rows={2}
                   placeholder={`Tell us where you currently face roadblocks regarding ${stage.title}...`}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-white border-2 border-black rounded-none p-2.5 text-xs font-medium text-black placeholder:text-zinc-400 focus:outline-none focus:shadow-[2px_2px_0px_#000000] resize-none"
+                  className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 resize-none shadow-xs"
                 />
               </div>
 
@@ -286,7 +286,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-none bg-[#60A5FA] border-2 border-black text-black font-mono text-xs font-extrabold uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1.5px_1.5px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
                 >
                   {loading ? (
                     <span>Dispatching Diagnostic to Strategy Team...</span>
@@ -299,13 +299,13 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] font-mono text-zinc-600 pt-1 border-t border-black/10">
-                <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-emerald-600" />
+              <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   Sent directly to strategy team
                 </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-[#2563EB]" />
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-blue-600" />
                   &lt;24h turnaround
                 </span>
               </div>

@@ -62,18 +62,19 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
       />
 
       {/* Hero */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-[6px_6px_0px_#000000]">
-        <div className="max-w-4xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
+      <section className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-sm">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+        <div className="relative z-10 max-w-4xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
             <Briefcase className="w-3.5 h-3.5" />
             {industry.tagline}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-[1.1] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
             {industry.heroHeadline}
           </h1>
 
-          <p className="text-base sm:text-xl text-black/80 leading-relaxed font-normal">
+          <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal">
             {industry.heroSubheadline}
           </p>
 
@@ -91,36 +92,36 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
 
       {/* Market Context & Benchmark */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white border-2 border-black rounded-3xl p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Market Reality</span>
-          <h2 className="text-2xl font-serif font-bold text-black">Industry Dynamics &amp; Buyer Behavior</h2>
-          <p className="text-sm sm:text-base text-black/80 leading-relaxed">{industry.marketContext}</p>
+        <div className="lg:col-span-2 bg-white border border-slate-200/80 rounded-3xl p-8 space-y-4 shadow-xs">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Market Reality</span>
+          <h2 className="text-2xl font-bold text-slate-900">Industry Dynamics &amp; Buyer Behavior</h2>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">{industry.marketContext}</p>
         </div>
 
-        <div className="bg-[#60A5FA] border-2 border-black rounded-3xl p-8 space-y-3 flex flex-col justify-center shadow-[4px_4px_0px_#000000]">
-          <span className="text-xs font-mono uppercase tracking-widest text-black font-bold">Featured Benchmark</span>
-          <div className="text-4xl sm:text-5xl font-serif font-bold text-black">{industry.featuredResult.metric}</div>
-          <p className="text-xs text-black/90 leading-relaxed font-semibold">{industry.featuredResult.context}</p>
+        <div className="bg-blue-600 border border-blue-500 rounded-3xl p-8 space-y-3 flex flex-col justify-center text-white shadow-xs">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-100 font-bold">Featured Benchmark</span>
+          <div className="text-4xl sm:text-5xl font-mono font-bold text-white">{industry.featuredResult.metric}</div>
+          <p className="text-xs text-blue-100 leading-relaxed font-medium">{industry.featuredResult.context}</p>
         </div>
       </section>
 
       {/* Core Friction / Bottlenecks */}
-      <section className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-8 sm:p-10 space-y-6 shadow-[6px_6px_0px_#000000]">
+      <section className="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-10 space-y-6 shadow-xs">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-200 border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold">
-            <AlertCircle className="w-4 h-4 text-rose-700" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono uppercase tracking-wider font-semibold">
+            <AlertCircle className="w-4 h-4 text-rose-600" />
             Sector Friction Points
           </div>
-          <h2 className="text-2xl font-serif font-bold text-black">Why Standard Generic Marketing Fails in {industry.name}</h2>
+          <h2 className="text-2xl font-bold text-slate-900">Why Standard Generic Marketing Fails in {industry.name}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {industry.coreFriction.map((fric, i) => (
-            <div key={i} className="p-5 rounded-2xl bg-white border-2 border-black text-xs sm:text-sm text-black space-y-2 shadow-[3px_3px_0px_#000000]">
-              <span className="w-7 h-7 rounded-lg bg-rose-200 border-2 border-black text-black flex items-center justify-center text-xs font-bold font-mono">
+            <div key={i} className="p-5 rounded-2xl bg-white border border-slate-200/80 text-xs sm:text-sm text-slate-800 space-y-2 shadow-xs">
+              <span className="w-7 h-7 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center text-xs font-bold font-mono">
                 0{i + 1}
               </span>
-              <p className="font-medium text-black/85">{fric}</p>
+              <p className="font-medium text-slate-700">{fric}</p>
             </div>
           ))}
         </div>
@@ -129,44 +130,44 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
       {/* Playbook Strategy */}
       <section className="space-y-8">
         <div className="max-w-2xl space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Playbook Strategy</span>
-          <h2 className="text-3xl font-serif font-bold text-black">The Saini Nexus Acquisition Blueprint for {industry.name}</h2>
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Playbook Strategy</span>
+          <h2 className="text-3xl font-bold text-slate-900">The Saini Nexus Acquisition Blueprint for {industry.name}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {industry.playbookStrategy.map((strat, i) => (
-            <div key={i} className="bg-white border-2 border-black rounded-3xl p-6 space-y-3 shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 transition-all">
-              <div className="w-8 h-8 rounded-xl bg-[#60A5FA] border-2 border-black text-black flex items-center justify-center font-mono text-xs font-bold shadow-[2px_2px_0px_#000000]">
+            <div key={i} className="bg-white border border-slate-200/80 rounded-3xl p-6 space-y-3 shadow-xs hover:border-blue-300 hover:shadow-md transition-all">
+              <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center font-mono text-xs font-bold">
                 0{i + 1}
               </div>
-              <h3 className="text-xl font-serif font-bold text-black">{strat.title}</h3>
-              <p className="text-xs sm:text-sm text-black/75 leading-relaxed">{strat.description}</p>
+              <h3 className="text-xl font-bold text-slate-900">{strat.title}</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{strat.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Buying Committee Architecture */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-10 shadow-[6px_6px_0px_#000000] space-y-6">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs space-y-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold">
-            <Users className="w-4 h-4 text-black" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
+            <Users className="w-4 h-4 text-blue-600" />
             Buying Committee Dynamics
           </div>
-          <h2 className="text-2xl font-serif font-bold text-black">How We Position Across the Decision Matrix</h2>
+          <h2 className="text-2xl font-bold text-slate-900">How We Position Across the Decision Matrix</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {industry.buyingCommittee.map((stakeholder, i) => (
-            <div key={i} className="p-5 rounded-2xl bg-[#FAF7EF] border-2 border-black space-y-3 shadow-[3px_3px_0px_#000000]">
-              <div className="font-serif font-bold text-black text-base">{stakeholder.role}</div>
-              <div className="text-xs text-black/80 space-y-1">
-                <span className="font-bold text-black/60 uppercase tracking-wider block text-[10px]">Primary Hesitation:</span>
+            <div key={i} className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3 hover:border-blue-300 transition-colors">
+              <div className="font-bold text-slate-900 text-base">{stakeholder.role}</div>
+              <div className="text-xs text-slate-600 space-y-1">
+                <span className="font-bold text-slate-400 uppercase tracking-wider block text-[10px]">Primary Hesitation:</span>
                 <p>{stakeholder.concern}</p>
               </div>
-              <div className="text-xs text-[#2563EB] space-y-1 pt-2 border-t-2 border-black/10">
+              <div className="text-xs text-blue-600 space-y-1 pt-2 border-t border-slate-200">
                 <span className="font-bold uppercase tracking-wider block text-[10px]">Winning Narrative:</span>
-                <p className="font-semibold text-black">{stakeholder.winningAngle}</p>
+                <p className="font-medium text-slate-800">{stakeholder.winningAngle}</p>
               </div>
             </div>
           ))}
@@ -174,27 +175,27 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
       </section>
 
       {/* Deliverables */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-10 shadow-[6px_6px_0px_#000000] space-y-6">
+      <section className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xs space-y-6">
         <div className="space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Playbook Deliverables</span>
-          <h2 className="text-2xl font-serif font-bold text-black">What We Build &amp; Deploy</h2>
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">Playbook Deliverables</span>
+          <h2 className="text-2xl font-bold text-slate-900">What We Build &amp; Deploy</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {industry.deliverables.map((item, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-[#FAF7EF] border-2 border-black shadow-[2px_2px_0px_#000000]">
-              <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-              <span className="text-xs sm:text-sm text-black font-semibold">{item}</span>
+            <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+              <span className="text-xs sm:text-sm text-slate-800 font-medium">{item}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-white border-2 border-black rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-[6px_6px_0px_#000000]">
+      <section className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
         <div className="space-y-2">
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black">Ready to execute in {industry.name}?</h3>
-          <p className="text-black/80 text-sm">Schedule a direct strategy consultation with our senior B2B vertical leads.</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Ready to execute in {industry.name}?</h3>
+          <p className="text-slate-600 text-sm font-normal">Schedule a direct strategy consultation with our senior B2B vertical leads.</p>
         </div>
         <Link
           href="/book"

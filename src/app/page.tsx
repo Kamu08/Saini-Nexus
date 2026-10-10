@@ -166,7 +166,7 @@ export default function HomePage() {
                 verifyUrl: "https://training.marketing.linkedin.com/verify/wxa2wfgp5pew"
               }
             ].map((cert, idx) => (
-              <div key={idx} className="group/cert relative flex flex-col p-6 lg:p-7 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all duration-300 overflow-hidden rounded-2xl shadow-lg">
+              <div key={idx} className="group/cert relative flex flex-col p-6 lg:p-7 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all duration-300 overflow-hidden rounded-none shadow-lg">
 
                 {/* Card inner glow on hover */}
                 <div

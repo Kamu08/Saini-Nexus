@@ -87,154 +87,186 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 01. TRUST & VERIFIED CREDENTIALS: CERTIFICATION RIBBON    */}
-      {/* Official LinkedIn Marketing Labs Certifications Showcase */}
+      {/* 01. TRUST & VERIFIED CREDENTIALS — BOLD EDITORIAL LAYOUT  */}
+      {/* Premium dark glass credential showcase, Saini blue theme  */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-900/5 space-y-8 relative overflow-hidden">
-          
-          {/* Subtle Ambient Background Gradients in Saini Blue Palette */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#38a9eb]/10 via-[#1572b8]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#1572b8]/5 via-[#38a9eb]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-          {/* Section Header Strip */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-100 pb-7 relative z-10">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#EBF6FC] border border-[#38a9eb]/35 flex items-center justify-center shrink-0 shadow-sm shadow-[#1572b8]/10 text-[#1572B8]">
-                <ShieldCheck className="w-6 h-6 text-[#1572B8]" />
+        {/* Outer shell — dark navy with vivid radial glows */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#050f1f]">
+
+          {/* ── Decorative radial glow blobs ── */}
+          <div className="pointer-events-none absolute -top-32 -left-20 w-[420px] h-[420px] rounded-full bg-[#1572b8] opacity-[0.18] blur-[100px]" />
+          <div className="pointer-events-none absolute -bottom-28 right-0 w-[360px] h-[360px] rounded-full bg-[#38a9eb] opacity-[0.13] blur-[90px]" />
+          {/* thin horizontal glow line across middle */}
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-[#38a9eb]/40 to-transparent" />
+
+          {/* ── Header row ── */}
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-5 px-7 sm:px-10 pt-8 sm:pt-10 pb-7 border-b border-[#1572b8]/25">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#67c7f8]">
+                  <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] animate-pulse" />
+                  LinkedIn Marketing Labs
+                </span>
+                <span className="h-px w-8 bg-[#38a9eb]/50" />
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#38a9eb]/60">Official Accreditation</span>
               </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-sans uppercase tracking-widest text-[#1572b8] font-bold">
-                    Official Accreditation
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300" />
-                  <span className="text-[11px] font-sans font-semibold text-slate-500 uppercase tracking-wider">
-                    Verified Competency
-                  </span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-sans font-extrabold text-slate-950 tracking-tight leading-snug">
-                  LinkedIn Marketing Certifications
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal max-w-2xl leading-relaxed">
-                  Saini Nexus is led by officially certified practitioners across LinkedIn marketing strategy, campaign architecture, executive creative, and revenue attribution. Every framework adheres to verified LinkedIn Marketing Labs standards.
-                </p>
-              </div>
+              <h3 className="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tight">
+                Verified Practitioner Credentials
+              </h3>
+              <p className="text-[13px] text-slate-400 leading-relaxed">
+                Every strategy and campaign we deploy is backed by LinkedIn&apos;s highest accreditation standard — independently verifiable on the official registry.
+              </p>
             </div>
-
-            <div className="flex items-center gap-2.5 text-xs font-sans font-bold text-[#0F539A] bg-[#EBF6FC] border border-[#38a9eb]/40 px-4 py-2 rounded-full w-fit shrink-0 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] animate-pulse" />
-              <span className="tracking-wide">LINKEDIN MARKETING LABS VERIFIED</span>
+            {/* Trust stamp */}
+            <div className="shrink-0 flex items-center gap-3 bg-[#0a1f3f] border border-[#1572b8]/50 rounded-xl px-5 py-3 shadow-[0_0_24px_rgba(21,114,184,0.2)]">
+              <ShieldCheck className="w-6 h-6 text-[#38a9eb] shrink-0" />
+              <div>
+                <div className="text-[11px] font-bold text-white uppercase tracking-wider">4 of 4 Certified</div>
+                <div className="text-[10px] text-slate-400 mt-0.5">All disciplines covered</div>
+              </div>
             </div>
           </div>
 
-          {/* 4 Official Verified Credential Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative z-10">
+          {/* ── Cards grid ── */}
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#1572b8]/20">
             {[
               {
+                num: "01",
                 title: "Marketing Strategy",
                 subtitle: "Full-Funnel Campaign Architecture",
-                code: "Verified Practitioner",
+                icon: <Target className="w-5 h-5" />,
+                accent: "#38a9eb",
+                glow: "rgba(56,169,235,0.3)",
                 id: "tpdhuiyzq33a",
-                issuer: "LinkedIn Marketing Labs",
                 skills: ["Buying Committee Mapping", "Full-Funnel Strategy"],
                 verifyUrl: "https://training.marketing.linkedin.com/verify/tpdhuiyzq33a"
               },
               {
+                num: "02",
                 title: "Advertising Fundamentals",
                 subtitle: "Campaign Delivery & Bidding",
-                code: "Verified Practitioner",
+                icon: <Zap className="w-5 h-5" />,
+                accent: "#1572b8",
+                glow: "rgba(21,114,184,0.3)",
                 id: "vjbijavyd84i",
-                issuer: "LinkedIn Marketing Labs",
-                skills: ["Campaign Manager Architecture", "Matched Audiences"],
+                skills: ["Campaign Manager", "Matched Audiences"],
                 verifyUrl: "https://training.marketing.linkedin.com/verify/vjbijavyd84i"
               },
               {
-                title: "Content & Creative Design",
+                num: "03",
+                title: "Content & Creative",
                 subtitle: "Thought Leader & Document Ads",
-                code: "Verified Practitioner",
+                icon: <Sparkles className="w-5 h-5" />,
+                accent: "#67c7f8",
+                glow: "rgba(103,199,248,0.25)",
                 id: "cres5ub84zqj",
-                issuer: "LinkedIn Marketing Labs",
                 skills: ["Thought Leader Ads", "Executive Storytelling"],
                 verifyUrl: "https://training.marketing.linkedin.com/verify/cres5ub84zqj"
               },
               {
+                num: "04",
                 title: "Marketing Measurement",
                 subtitle: "Pipeline Attribution & Analytics",
-                code: "Verified Practitioner",
+                icon: <TrendingUp className="w-5 h-5" />,
+                accent: "#38a9eb",
+                glow: "rgba(56,169,235,0.3)",
                 id: "wxa2wfgp5pew",
-                issuer: "LinkedIn Marketing Labs",
-                skills: ["Offline Conversions", "Pipeline ROI Attribution"],
+                skills: ["Offline Conversions", "Pipeline ROI"],
                 verifyUrl: "https://training.marketing.linkedin.com/verify/wxa2wfgp5pew"
               }
             ].map((cert, idx) => (
-              <div
-                key={idx}
-                className="bg-[#FAFCFF] hover:bg-white border border-slate-200/90 hover:border-[#1572B8] rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#1572B8]/12 hover:-translate-y-1 flex flex-col justify-between group/cert"
-              >
-                <div className="space-y-3.5">
-                  {/* Top: LinkedIn Logo & Verified Status Pill */}
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#0A66C2]/10 border border-[#0A66C2]/20 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                      </svg>
+              <div key={idx} className="group/cert relative flex flex-col p-6 sm:p-7 lg:p-8 hover:bg-[#0c1e38] transition-colors duration-300 overflow-hidden">
+
+                {/* Card inner glow on hover */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-500"
+                  style={{ background: `radial-gradient(ellipse at top left, ${cert.glow}, transparent 65%)` }}
+                />
+
+                {/* Large ghost number */}
+                <div
+                  className="absolute -top-4 -right-3 text-[80px] sm:text-[100px] font-black leading-none select-none pointer-events-none opacity-[0.05] group-hover/cert:opacity-[0.09] transition-opacity font-sans"
+                  style={{ color: cert.accent }}
+                >
+                  {cert.num}
+                </div>
+
+                <div className="relative z-10 flex flex-col h-full gap-4">
+
+                  {/* Icon + Verified badge row */}
+                  <div className="flex items-center justify-between">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300"
+                      style={{
+                        backgroundColor: `${cert.accent}15`,
+                        borderColor: `${cert.accent}40`,
+                        color: cert.accent,
+                        boxShadow: `0 0 0 0 ${cert.glow}`
+                      }}
+                    >
+                      {cert.icon}
                     </div>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase text-emerald-400 bg-emerald-400/10 border border-emerald-400/30 px-2.5 py-1 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       Verified
                     </span>
                   </div>
 
-                  {/* Title & Subtitle */}
-                  <div className="space-y-1">
-                    <h4 className="text-base font-sans font-bold text-slate-900 group-hover/cert:text-[#1572B8] transition-colors leading-snug">
+                  {/* Title + subtitle */}
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-white leading-snug group-hover/cert:text-[#67c7f8] transition-colors duration-300">
                       {cert.title}
                     </h4>
-                    <p className="text-xs text-slate-500 font-medium">
-                      {cert.subtitle}
-                    </p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">{cert.subtitle}</p>
                   </div>
 
-                  {/* Issuer & Credential ID */}
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                    <span className="font-medium text-slate-600">{cert.issuer}</span>
-                    <span className="font-mono text-[10px] text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
-                      ID: {cert.id}
-                    </span>
-                  </div>
-
-                  {/* Key Skills Chips */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {cert.skills.map((skill, sIdx) => (
+                  {/* Skill chips */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {cert.skills.map((s, si) => (
                       <span
-                        key={sIdx}
-                        className="text-[10px] font-medium bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md"
+                        key={si}
+                        className="text-[10px] font-medium px-2 py-0.5 rounded-md border"
+                        style={{ color: cert.accent, borderColor: `${cert.accent}35`, background: `${cert.accent}0f` }}
                       >
-                        {skill}
+                        {s}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Bottom: Direct Verification Button */}
-                <a
-                  href={cert.verifyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={`Verify ${cert.title} credential on LinkedIn Marketing Labs`}
-                  className="mt-5 pt-3.5 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-[#1572B8] group-hover/cert:text-[#0B3C7E] transition-colors"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <span>Verify Credential</span>
-                    <span className="text-[#38a9eb] font-semibold group-hover/cert:translate-x-1 group-hover/cert:-translate-y-0.5 transition-transform duration-200">↗</span>
-                  </span>
-                  <span className="text-[10px] font-sans font-medium text-slate-400 group-hover/cert:text-[#1572B8] transition-colors">
-                    Official Registry
-                  </span>
-                </a>
+                  {/* Divider */}
+                  <div className="h-px bg-gradient-to-r from-transparent via-[#1572b8]/30 to-transparent mt-auto" />
+
+                  {/* Verify link row */}
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between group/link"
+                  >
+                    <span className="flex items-center gap-1.5 text-[11px] font-bold text-[#38a9eb] group-hover/link:text-white transition-colors">
+                      Verify on LinkedIn
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                    </span>
+                    <span className="font-mono text-[9px] text-slate-600 group-hover/link:text-slate-400 transition-colors">
+                      {cert.id}
+                    </span>
+                  </a>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* ── Bottom bar ── */}
+          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-7 sm:px-10 py-4 border-t border-[#1572b8]/25 bg-[#03080f]/60">
+            <div className="flex items-center gap-2.5">
+              <svg className="w-4 h-4 shrink-0 fill-[#0A66C2]" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+              <span className="text-[11px] text-slate-500 font-medium">Issued by <span className="text-slate-300 font-semibold">LinkedIn Marketing Labs</span> — click any card to verify on the official registry</span>
+            </div>
+            <span className="text-[10px] uppercase tracking-widest text-slate-600 font-bold">training.marketing.linkedin.com</span>
           </div>
 
         </div>

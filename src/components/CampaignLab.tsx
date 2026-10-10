@@ -32,13 +32,13 @@ export function CampaignLab() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
             <FlaskConical className="w-3.5 h-3.5" />
-            Empirical Case Teardowns
+            B2B Execution Frameworks
           </div>
           <h3 className="text-2xl sm:text-4xl font-serif font-bold text-black tracking-tight">
             The Saini Nexus Campaign Lab
           </h3>
           <p className="text-zinc-700 text-sm mt-1 max-w-xl font-medium">
-            We document client growth with total transparency: Diagnosis, Hypothesis, Creative Hooks, Campaign Metrics, and Verified Business Outcomes.
+            Explore our campaign methodologies: Strategic Diagnosis, Tested Hypothesis, Creative Hooks, Targeting Architecture, and Commercial KPIs.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export function CampaignLab() {
               </div>
 
               <div className="pt-3 border-t-2 border-black/15 w-full flex items-center justify-between text-xs font-mono">
-                <span className="text-zinc-700 font-semibold">Business Impact:</span>
+                <span className="text-zinc-700 font-semibold">Target Outcome:</span>
                 <span className="font-extrabold text-black">{item.businessOutcomes[0].metric}</span>
               </div>
             </button>

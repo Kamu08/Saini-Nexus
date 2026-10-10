@@ -36,36 +36,36 @@ export default function CaseStudiesPage() {
           The Campaign Lab
         </div>
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
-          B2B Growth <span className="bubble-highlight-blue">Case Studies</span>
+          B2B Campaign <span className="bubble-highlight-blue">Architectures</span>
         </h1>
         <p className="text-zinc-700 text-base sm:text-xl leading-relaxed font-medium">
-          Forensic teardowns of real B2B campaigns. Every dossier exposes the pre-existing bottleneck, the tested hypothesis, exact ad creative hooks, and verified commercial revenue outcomes.
+          Strategic frameworks and execution models for modern B2B demand generation. Each blueprint breaks down the underlying market bottleneck, audience targeting structure, creative format, and qualification mechanics.
         </p>
 
-        {/* Aggregate Stats Ribbon */}
+        {/* Aggregate Pillars Ribbon */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
           <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
             <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
-              Aggregate Pipeline Generated
+              Audience Mapping Model
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-[#2563EB] block mt-1">
-              ₹1.6Cr+ Pipeline
+            <strong className="text-lg sm:text-xl font-mono font-extrabold text-[#2563EB] block mt-1">
+              Committee ABM Focus
             </strong>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
             <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
-              Average Discovery Acceptance
+              Content &amp; Creative Standard
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-black block mt-1">
-              82% Sales Rate
+            <strong className="text-lg sm:text-xl font-mono font-extrabold text-black block mt-1">
+              Ungated Proof &amp; POV
             </strong>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 shadow-[2px_2px_0px_#000000]">
             <span className="text-[10px] font-mono uppercase font-bold text-zinc-500 block">
-              Attribution Standard
+              Evaluation Criterion
             </span>
-            <strong className="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-700 block mt-1">
-              Zero Vanity Fluff
+            <strong className="text-lg sm:text-xl font-mono font-extrabold text-emerald-700 block mt-1">
+              Sales-Accepted Pipeline
             </strong>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function CaseStudiesPage() {
                 {/* Outcome Pill */}
                 <div className="bg-[#EFF6FF] border-2 border-black rounded-2xl p-3.5 shadow-[2px_2px_0px_#000000] space-y-1">
                   <span className="text-[10px] font-mono uppercase font-bold text-zinc-600 block">
-                    Verified Outcome
+                    Target Outcome
                   </span>
                   <div className="text-xl font-mono font-extrabold text-[#2563EB]">
                     {study.businessOutcomes[1]?.metric || study.businessOutcomes[0].metric}
@@ -131,7 +131,7 @@ export default function CaseStudiesPage() {
 
               <div className="pt-5 mt-5 border-t-2 border-black/10 flex items-center justify-between text-xs font-mono">
                 <span className="font-bold text-black group-hover:text-[#2563EB] transition-colors">
-                  Inspect Dossier
+                  Explore Framework
                 </span>
                 <span className="p-2 rounded-full bg-[#FAF7EF] group-hover:bg-[#60A5FA] border-2 border-black shadow-[1.5px_1.5px_0px_#000000] text-black transition-colors">
                   <ArrowUpRight className="w-3.5 h-3.5" />

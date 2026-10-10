@@ -157,7 +157,7 @@ export const SERVICES: Record<string, ServiceItem> = {
     capabilities: [
       { title: "LinkedIn Advertising Strategy", description: "Structuring full-funnel account architecture from cold demand creation to retargeting." },
       { title: "Audience Targeting", description: "Precision targeting by job seniority, company lists (ABM), and negative exclusions." },
-      { title: "Thought Leader Ads", description: "Sponsoring authentic founder and executive posts for 3x higher CTR and trust." },
+      { title: "Thought Leader Ads", description: "Amplifying authentic founder and executive perspectives to build trust and engage buying committees through credible voices." },
       { title: "Ad Creative & Lead Gen Campaigns", description: "High-converting native Document Ads, single image creatives, and in-feed forms." }
     ],
     whatWeSolve: [
@@ -169,11 +169,11 @@ export const SERVICES: Record<string, ServiceItem> = {
       "Full Campaign Account Architecture",
       "Custom Creative Assets & Document Carousels",
       "Matched Account (ABM) Audiences",
-      "Weekly Optimization & CAC Telemetry"
+      "Weekly Optimization & Performance Reporting"
     ],
     whoThisIsFor: [
-      "B2B SaaS companies scaling past ₹1L/month MRR.",
-      "Enterprise IT, consulting, and export firms targeting global buyers.",
+      "B2B software and technology companies seeking qualified opportunities.",
+      "Enterprise IT, consulting, and industrial export firms targeting global buyers.",
       "Growth teams looking to optimize LinkedIn Ads ROI."
     ],
     relatedSolutionHref: "/solutions/reach-high-value-accounts",

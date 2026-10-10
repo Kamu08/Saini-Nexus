@@ -112,7 +112,7 @@ export function ContactForm() {
       <div className="border-b-2 border-black/15 pb-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EF] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-extrabold shadow-[2px_2px_0px_#000000] mb-4">
           <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-          <span>Direct Commercial Intake</span>
+          <span>Start a Conversation</span>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-3xl space-y-3">
@@ -130,7 +130,7 @@ export function ContactForm() {
               className="neo-btn-white text-xs font-mono font-bold flex items-center gap-2 whitespace-nowrap shadow-[3px_3px_0px_#000000]"
             >
               <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Or Book a 15-Min Briefing</span>
+              <span>Or Book a 30-Min Strategy Call</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -146,7 +146,7 @@ export function ContactForm() {
           <div className="space-y-6">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-widest text-[#2563EB] font-extrabold block mb-1">
-                Engagement Protocol
+                How We Work
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-black leading-snug">
                 How We Partner With B2B Leaders

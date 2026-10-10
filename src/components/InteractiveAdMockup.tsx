@@ -124,7 +124,7 @@ export function InteractiveAdMockup() {
                   If 100% of your LinkedIn budget is spent screaming &ldquo;Book a Demo&rdquo; to cold audiences, you&apos;re paying ₹20,000+ CPLs for junior staff with zero budget authority.
                 </p>
                 <p className="text-zinc-700">
-                  Here is the exact 4-point Demand Architecture we deployed for our enterprise SaaS client to increase Sales Acceptance Rate to 82%:
+                  Here is the 4-point Demand Architecture we deploy to generate qualified, sales-accepted conversations:
                 </p>
                 <div className="p-3.5 bg-[#EFF6FF] border-2 border-black rounded-xl space-y-1.5 text-xs shadow-[2px_2px_0px_#000000]">
                   <div className="font-bold text-black uppercase font-mono text-[11px]">The 4-Point Pre-Flight Audit:</div>
@@ -226,9 +226,9 @@ export function InteractiveAdMockup() {
               {activeFormat === "leadgen" && "Native Lead Gen Conversion Engine"}
             </h4>
             <p className="text-zinc-700 text-sm leading-relaxed font-medium">
-              {activeFormat === "tla" && "LinkedIn members engage 3x more with real executive voices than corporate logos. We sponsor founder insights directly into buying committees."}
-              {activeFormat === "document" && "PDF carousels deliver high-value technical frameworks inside the feed. Outperforms standard image banners with 4.8x higher save rates."}
-              {activeFormat === "leadgen" && "Native 1-click in-feed forms pull verified corporate profile data with zero typing friction, driving 18.4% form completion rates."}
+              {activeFormat === "tla" && "LinkedIn research shows B2B buyers engage significantly more with real executive voices than corporate logos. We sponsor founder insights directly into buying committees."}
+              {activeFormat === "document" && "PDF carousels deliver high-value technical frameworks inside the feed, educating buyers with ungated architecture proofs before sales conversations."}
+              {activeFormat === "leadgen" && "Native in-feed forms pull verified professional profile data with minimal friction, qualifying budget and seniority directly within the campaign."}
             </p>
           </div>
 

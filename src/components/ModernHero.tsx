@@ -41,7 +41,7 @@ export function ModernHero() {
 
         {/* Clean Editorial Subheadline */}
         <p className="font-sans text-base sm:text-lg md:text-2xl text-zinc-800 max-w-3xl mx-auto leading-relaxed mt-6 sm:mt-8 font-normal">
-          Saini Nexus helps B2B companies build demand, reach decision-makers and generate qualified pipeline through LinkedIn-led marketing, advertising and growth systems.
+          Saini Nexus helps B2B companies reach the right decision-makers, build demand and generate qualified sales opportunities through LinkedIn marketing, advertising and strategic growth programs.
         </p>
 
         {/* Dual Action Buttons (CauseHouse Neo-Pills) */}

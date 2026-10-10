@@ -17,8 +17,8 @@ import { Breadcrumbs } from "@/components/Breadcrumb";
 import { TeamGrid } from "@/components/TeamGrid";
 
 export const metadata: Metadata = {
-  title: "Meet the Team | Saini Nexus B2B Growth & Marketing Specialists",
-  description: "Meet the 18-member specialized B2B growth, paid media, editorial content, and pipeline team at Saini Nexus in Jaipur, Rajasthan.",
+  title: "Meet the Saini Nexus Team | B2B Marketing Specialists",
+  description: "Meet the Saini Nexus team in Jaipur, India, working across B2B marketing, LinkedIn advertising, demand generation, content and campaign measurement.",
   alternates: {
     canonical: "https://saininexus.com/team",
   },
@@ -33,26 +33,26 @@ export default function TeamPage() {
       <section className="text-center max-w-4xl mx-auto space-y-5">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider font-bold shadow-[2px_2px_0px_#000000]">
           <Users className="w-3.5 h-3.5" />
-          <span>The Saini Nexus Collective</span>
+          <span>The Saini Nexus Practice</span>
         </div>
 
         <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black leading-[1.05]">
-          The Specialists Powering <span className="bubble-highlight-blue">B2B Demand</span>
+          Meet the <span className="bubble-highlight-blue">Saini Nexus Team</span>
         </h1>
 
         <p className="font-sans text-base sm:text-lg md:text-xl text-zinc-700 max-w-2xl mx-auto leading-relaxed font-medium">
-          An interdisciplinary team of 18 B2B growth strategists, LinkedIn advertising engineers, editorial writers, creative designers, and pipeline data analysts based in Jaipur, Rajasthan.
+          A multidisciplinary team working across B2B marketing strategy, LinkedIn advertising, demand generation, editorial content, and campaign measurement based in Jaipur, Rajasthan.
         </p>
 
         {/* Status & Verification Badges */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-mono text-black font-bold">
           <span className="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
             <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
-            Jaipur Headquarters · Rajasthan, India
+            Jaipur, Rajasthan, India · Serving India &amp; International Markets
           </span>
           <span className="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            100% In-House Delivery Pods
+            18 Team Members across 5 Specialist Functions
           </span>
           <span className="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
             <Award className="w-3.5 h-3.5 text-[#2563EB]" />
@@ -63,20 +63,20 @@ export default function TeamPage() {
         {/* Key Metrics Ribbon */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 max-w-3xl mx-auto">
           <div className="bg-white border-2 border-black rounded-2xl p-4 text-center shadow-[3px_3px_0px_#000000]">
-            <div className="text-3xl font-serif font-bold text-black">18+</div>
+            <div className="text-3xl font-serif font-bold text-black">18</div>
             <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Specialists</div>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 text-center shadow-[3px_3px_0px_#000000]">
-            <div className="text-3xl font-serif font-bold text-black">100%</div>
-            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">In-House Pods</div>
+            <div className="text-3xl font-serif font-bold text-black">5</div>
+            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Functional Pods</div>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 text-center shadow-[3px_3px_0px_#000000]">
-            <div className="text-3xl font-serif font-bold text-black">3x</div>
-            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Labs Certified</div>
+            <div className="text-3xl font-serif font-bold text-black">3</div>
+            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Core Certifications</div>
           </div>
           <div className="bg-white border-2 border-black rounded-2xl p-4 text-center shadow-[3px_3px_0px_#000000]">
             <div className="text-3xl font-serif font-bold text-black">Global</div>
-            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Market Reach</div>
+            <div className="text-[11px] font-mono text-zinc-600 uppercase font-bold mt-0.5">Market Coverage</div>
           </div>
         </div>
       </section>

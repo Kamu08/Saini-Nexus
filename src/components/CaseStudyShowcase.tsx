@@ -27,58 +27,58 @@ interface CasePreview {
 const CASE_PREVIEWS: CasePreview[] = [
   {
     slug: "cloudscale-enterprise-saas",
-    clientCode: "CSS-2024",
-    clientName: "CloudScale Systems",
-    sector: "Enterprise B2B SaaS",
-    headline: "From Low-Intent Junior Clicks to ₹38L Enterprise Pipeline",
-    primaryMetric: "₹38L ARR",
-    metricLabel: "Verified Qualified Pipeline",
-    secondaryStat: "82% Sales Accepted · -46% Lead Cost",
-    summary: "Replaced generic 'Book Demo' forms with un-gated technical architecture teardowns and CEO Thought Leader Ads targeting 450 verified enterprise accounts."
+    clientCode: "FRAMEWORK 01",
+    clientName: "Enterprise B2B SaaS Model",
+    sector: "Enterprise Software & Cloud",
+    headline: "Full-Funnel ABM & Buying Committee Demand",
+    primaryMetric: "3-Tier ABM",
+    metricLabel: "Campaign Architecture",
+    secondaryStat: "Strict Seniority Filters · Ungated Proof",
+    summary: "Replaces generic 'Book Demo' forms with ungated technical architecture teardowns and Founder Thought Leader Ads targeting verified accounts."
   },
   {
     slug: "apex-industrial-export",
-    clientCode: "AHP-2024",
-    clientName: "Apex Heavy Precision",
-    sector: "Industrial Export & CNC",
-    headline: "Bypassing Export Brokers for Direct OEM Supply Contracts",
-    primaryMetric: "₹42L",
-    metricLabel: "Closed Annual Contracts",
-    secondaryStat: "24 Direct RFQs · +22% Gross Margin",
-    summary: "Served automated CNC tolerance capability dossiers directly to European & US VP of Supply Chain titles, eliminating 18% middleman broker commissions."
+    clientCode: "FRAMEWORK 02",
+    clientName: "Industrial Manufacturing Direct Sourcing",
+    sector: "Precision Engineering & Export",
+    headline: "Direct OEM Sourcing & Procurement Demand",
+    primaryMetric: "Direct RFQ Engine",
+    metricLabel: "Execution Model",
+    secondaryStat: "QA Tolerance Carousels · Zero Broker Fees",
+    summary: "Delivers technical facility tolerances and ISO/AS9100 quality dossiers directly to global supply chain and procurement decision-makers."
   },
   {
     slug: "fintech-consulting-demand-engine",
-    clientCode: "NAP-2024",
-    clientName: "Novus Advisory Partners",
-    sector: "FinTech & Regulatory Advisory",
-    headline: "Executive Thought Leadership to ₹18L Annual Retainers",
-    primaryMetric: "₹18L ARR",
-    metricLabel: "New Annual Retainers Won",
-    secondaryStat: "38 C-Level Calls · <45 Days CAC Payback",
-    summary: "Turned Managing Partner regulatory intellectual property into contrarian LinkedIn teardowns, generating direct corporate advisory inbound inquiries."
+    clientCode: "FRAMEWORK 03",
+    clientName: "Financial & Regulatory Advisory Model",
+    sector: "FinTech & Management Consulting",
+    headline: "Partner-Led Authority & Regulatory Teardowns",
+    primaryMetric: "Thought Leader Ads",
+    metricLabel: "Executive Distribution",
+    secondaryStat: "Contrarian Industry POV · C-Level Funnel",
+    summary: "Transforms managing partner regulatory insights into high-signal LinkedIn carousels, driving inbound commercial consultations without broker dependencies."
   },
   {
     slug: "vanguard-enterprise-it-services",
-    clientCode: "VIT-2024",
-    clientName: "Vanguard IT Solutions",
-    sector: "Enterprise IT & Cloud",
-    headline: "From Cold Email Outbound to ₹28L Inbound IT Pipeline",
-    primaryMetric: "₹28L",
-    metricLabel: "Sales-Accepted Pipeline",
-    secondaryStat: "42 C-Suite Sessions · -54% CAC",
-    summary: "Shifted from low-response SDR emails to targeted Account-Based Thought Leader Ads and technical cloud risk blueprints targeting enterprise CISOs."
+    clientCode: "FRAMEWORK 04",
+    clientName: "Enterprise IT & Cloud Security Model",
+    sector: "Cybersecurity & IT Infrastructure",
+    headline: "Technical Risk Blueprints for Enterprise IT Leaders",
+    primaryMetric: "Account-Based Ads",
+    metricLabel: "Audience Architecture",
+    secondaryStat: "CISO Risk Matrices · Engineering Call SLA",
+    summary: "Replaces generic cold outbound with ungated cloud compliance risk breakdowns, educating enterprise technology buyers before sales engagement."
   },
   {
     slug: "zenith-healthcare-diagnostics",
-    clientCode: "ZDS-2024",
-    clientName: "Zenith Diagnostic Systems",
-    sector: "Healthcare & Diagnostics",
-    headline: "Bypassing Medical Distributors for Direct Hospital Contracts",
-    primaryMetric: "₹34L",
-    metricLabel: "Direct Supply Contracts",
-    secondaryStat: "18 Direct RFQs · +19% Margin Lift",
-    summary: "Targeted 500 private hospital networks with clinical equipment uptime guarantees and direct manufacturer warranty, cutting out third-party markups."
+    clientCode: "FRAMEWORK 05",
+    clientName: "Healthcare & Diagnostic Equipment Model",
+    sector: "Medical Devices & Diagnostic Tech",
+    headline: "Direct Institutional Sourcing for Hospital Networks",
+    primaryMetric: "Institutional Direct",
+    metricLabel: "Commercial Channel",
+    secondaryStat: "Calibration Dossiers · Direct Sourcing",
+    summary: "Targets hospital managing directors and lab operators with equipment uptime guarantees and direct manufacturer warranty, removing distributor friction."
   }
 ];
 
@@ -155,18 +155,18 @@ export function CaseStudyShowcase() {
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono uppercase tracking-wider mb-3 font-bold shadow-[2px_2px_0px_#000000]">
             <Target className="w-3.5 h-3.5" />
-            Evidence &amp; Verified Teardowns
+            Strategic Campaign Frameworks
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-black tracking-tight leading-tight">
-            Real Work. Real Campaigns. Real Proof.
+            B2B Campaign Architectures &amp; Execution Models
           </h2>
           <p className="text-zinc-700 text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
-            Five empirical client teardowns with verified pipeline metrics. Click any card to explore the complete campaign dossier.
+            Five structured B2B campaign models demonstrating our audience targeting, content proof, and LinkedIn distribution methodologies across key sectors.
           </p>
         </div>
 
         <Link href="/case-studies" className="neo-btn-white w-fit shrink-0">
-          <span>View All Case Studies</span>
+          <span>Explore All Frameworks</span>
           <ArrowUpRight className="w-4 h-4 shrink-0" />
         </Link>
       </div>
@@ -270,13 +270,13 @@ export function CaseStudyShowcase() {
               {/* Action Button: 1-Click Link to Detailed Teardown Page */}
               <div className="pt-3 border-t-2 border-black/10 flex items-center justify-between relative z-10">
                 <span className="text-[11px] font-mono font-bold text-zinc-500 group-hover:text-black transition-colors">
-                  Full Teardown
+                  Campaign Blueprint
                 </span>
                 <Link
                   href={`/case-studies/${study.slug}`}
                   className={`px-3.5 py-1.5 rounded-full ${accent.badgeBg} border-2 border-black text-black text-xs font-mono font-bold shadow-[1.5px_1.5px_0px_#000000] hover:shadow-[2.5px_2.5px_0px_#000000] transition-all flex items-center gap-1.5`}
                 >
-                  <span>Read Dossier</span>
+                  <span>Read Framework</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

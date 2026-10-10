@@ -91,23 +91,26 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b-2 border-black/10">
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="px-3 py-1 rounded-full bg-[#60A5FA] border-2 border-black text-black text-xs font-mono font-extrabold uppercase tracking-wider shadow-[1.5px_1.5px_0px_#000000]">
-              CASE DOSSIER // {study.clientCode}
+              STRATEGIC FRAMEWORK // {study.clientCode}
             </span>
             <span className="px-3 py-1 rounded-full bg-[#FAF7EF] border border-black/30 text-black text-xs font-mono font-bold uppercase">
               {study.industry}
             </span>
+            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-[11px] font-mono font-bold">
+              Sample Execution Architecture
+            </span>
           </div>
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-600 font-semibold bg-zinc-100 px-3 py-1 rounded-full">
-            <span>Market: {study.market}</span>
+            <span>Market Focus: {study.market}</span>
             <span className="text-zinc-400">·</span>
-            <span>Duration: {study.timeline}</span>
+            <span>Standard Horizon: {study.timeline}</span>
           </div>
         </div>
 
         {/* Title & Core Context */}
         <div className="space-y-4">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight tracking-tight">
-            {study.clientName}: <span className="bubble-highlight-blue">Growth Teardown</span>
+            {study.clientName}: <span className="bubble-highlight-blue">Execution Blueprint</span>
           </h1>
           <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium max-w-4xl">
             {study.businessContext}
@@ -317,17 +320,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
 
       </section>
 
-      {/* 05. VERIFIED DATA MATRIX: AD METRICS VS ARR OUTCOMES */}
+      {/* 05. DATA MATRIX: AD METRICS VS COMMERCIAL OUTCOMES */}
       <section className="space-y-6">
         <div>
           <span className="px-3 py-1 rounded-full bg-black text-white text-xs font-mono uppercase font-bold">
-            Phase 03 // Attribution &amp; Data Matrix
+            Phase 03 // Framework Metrics &amp; Commercial Targets
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-black mt-3">
-            Separating Ad Activity from Closed-Won Revenue
+            Aligning Campaign Mechanics With Sales Pipeline
           </h2>
           <p className="text-zinc-700 text-sm sm:text-base mt-1 max-w-2xl font-medium">
-            We hold ourselves accountable to closed commercial pipeline, not just clicks.
+            We structure every campaign around sales-accepted commercial pipeline rather than vanity clicks.
           </p>
         </div>
 
@@ -337,10 +340,10 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
             <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
               <span className="text-xs font-mono uppercase font-bold text-black">
-                1. Campaign Operational Benchmarks
+                1. Campaign Execution Mechanics
               </span>
-              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-full">
-                Platform Data
+              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-full font-bold">
+                Platform Setup
               </span>
             </div>
 
@@ -366,14 +369,14 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             </div>
           </div>
 
-          {/* Table 2: Verifiable Commercial ARR Outcomes */}
+          {/* Table 2: Strategic Commercial Objectives */}
           <div className="bg-[#EFF6FF] border-2 border-black rounded-3xl p-6 sm:p-8 space-y-4 shadow-[4px_4px_0px_#000000]">
             <div className="flex items-center justify-between pb-3 border-b-2 border-black/10">
               <span className="text-xs font-mono uppercase font-bold text-[#2563EB]">
-                2. Commercial Pipeline &amp; Revenue Outcomes
+                2. Strategic Commercial Objectives
               </span>
               <span className="text-[10px] font-mono text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200 font-bold">
-                Sales Ledger Verified
+                Commercial Target
               </span>
             </div>
 
@@ -407,10 +410,10 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         <div className="space-y-2 max-w-3xl">
           <span className="text-xs font-mono uppercase font-bold text-emerald-700 flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-            Verified Commercial Transformation
+            Strategic Impact &amp; Architecture Shift
           </span>
           <h3 className="text-xl sm:text-2xl font-serif font-bold text-black">
-            What Changed Permanently for {study.clientName}
+            The Structural Advantage of {study.clientName}
           </h3>
           <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-medium">
             {study.whatChanged}

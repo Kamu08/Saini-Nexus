@@ -1,4 +1,4 @@
-export interface IndustryItem {
+export interface IndustryPlaybook {
   slug: string;
   name: string;
   tagline: string;
@@ -24,25 +24,28 @@ export interface IndustryItem {
   };
 }
 
-export const INDUSTRIES: Record<string, IndustryItem> = {
+export type IndustryItem = IndustryPlaybook;
+
+export const INDUSTRIES: Record<string, IndustryPlaybook> = {
   "b2b-saas": {
     slug: "b2b-saas",
     name: "B2B SaaS",
-    tagline: "High-ACV Software & Subscription Platforms",
+    tagline: "Software, Cloud & Subscription Platforms",
     metaTitle: "B2B SaaS Marketing & LinkedIn Growth | Saini Nexus",
-    metaDescription: "Scale predictable pipeline and sales-accepted demos for B2B SaaS platforms with Saini Nexus full-funnel demand generation.",
-    heroHeadline: "B2B SaaS Marketing Built for ACV & Pipeline Velocity.",
-    heroSubheadline: "Move beyond shallow free-trial signups. Saini Nexus helps B2B SaaS companies reach buying committees, educate out-of-market accounts, and generate high-ACV enterprise pipeline.",
-    marketContext: "SaaS buyers are exhausted by generic feature pitches and cold spam. 95% of software accounts are not in an active buying cycle today. Winning requires establishing category authority and commercial point-of-view long before the RFP stage.",
+    metaDescription: "Build demand among the buying committees that influence software purchasing decisions with Saini Nexus full-funnel demand generation.",
+    heroHeadline: "B2B SaaS Marketing Built for Buying Committees.",
+    heroSubheadline: "Move beyond shallow clicks. Saini Nexus helps B2B SaaS companies reach buying committees, educate out-of-market accounts, and generate qualified sales opportunities.",
+    marketContext: "SaaS buyers are overwhelmed by generic feature pitches and cold outbound. Most software accounts are not in an active buying cycle today. Winning requires establishing category authority and commercial point-of-view before the RFP stage.",
     coreFriction: [
-      "Spending high budgets on 'Book a Demo' ads with ₹25,000+ CPLs that sales reps reject.",
-      "High landing page bounce rates on complex multi-tier pricing structures.",
-      "Product marketing focused on technical features rather than business CFO impact."
+      "Product messaging focuses on features instead of business outcomes.",
+      "Marketing reaches end-users but not economic buyers.",
+      "Demo campaigns generate leads without sufficient buying intent.",
+      "Sales and marketing teams disagree on lead quality criteria."
     ],
     playbookStrategy: [
-      { title: "Point-of-View Demand Creation", description: "Framing the commercial cost of existing manual workflows through ungated technical teardowns." },
-      { title: "Matched Account ABM", description: "Targeting enterprise accounts with ACV > ₹10 Lakhs with customized multi-threading campaigns." },
-      { title: "Founder Thought Leader Ads", description: "Amplifying CEO/CTO product vision for 3x higher CTR and lower customer acquisition costs." }
+      { title: "Point-of-View Demand Creation", description: "Framing the commercial cost of manual workflows through ungated technical teardowns." },
+      { title: "Matched Account ABM", description: "Targeting priority accounts with customized multi-threading campaigns across roles." },
+      { title: "Founder Thought Leader Ads", description: "Amplifying leadership product vision to engage target buying committees through trusted executive voices." }
     ],
     buyingCommittee: [
       { role: "CFO / Finance", concern: "CAC payback, total cost of ownership, and verifiable ROI timeline.", winningAngle: "Unit economics proof and operational cost reduction metrics." },
@@ -52,12 +55,12 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     deliverables: [
       "SaaS Category Positioning & Commercial Narrative Dossier",
       "Full-Funnel LinkedIn Ads & Document Carousel Architecture",
-      "Lead Gen Form Integration with Automated Demo Routing",
-      "CAC Payback & Sales-Accepted Pipeline Attribution Dashboard"
+      "Lead Gen Form Integration with Automated Routing",
+      "Sales-Accepted Opportunity Measurement Dashboard"
     ],
     featuredResult: {
-      metric: "18.4%",
-      context: "Form completion rate on native LinkedIn Lead Gen campaigns"
+      metric: "Committee ABM",
+      context: "Engaging 3–5 buying committee stakeholders across target software accounts"
     }
   },
   "technology": {
@@ -71,7 +74,7 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     marketContext: "Enterprise technology decisions involve multiple departments, rigorous security evaluations, and significant capital expenditure. Marketing must demonstrate operational reliability and compliance at every touchpoint.",
     coreFriction: [
       "Translating complex technical architecture into language executive buyers understand.",
-      "Protracted 6-12 month evaluation cycles with high stakeholder turnover.",
+      "Protracted evaluation cycles with high stakeholder turnover.",
       "Heavy reliance on traditional trade shows and RFP brokerages."
     ],
     playbookStrategy: [
@@ -91,8 +94,8 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
       "Executive Account Engagement Scoring System"
     ],
     featuredResult: {
-      metric: "82%",
-      context: "Sales Acceptance Rate on inbound tech infrastructure leads"
+      metric: "Technical Proof",
+      context: "Translating complex infrastructure into ungated architecture proofs"
     }
   },
   "consulting": {
@@ -105,12 +108,12 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     heroSubheadline: "Consulting is bought on trust and intellect. Saini Nexus helps advisory firms and boutique consultancies turn partner expertise into category-defining thought leadership.",
     marketContext: "Consulting clients do not buy service packages—they hire trusted advisors to solve high-stakes business risks. Word-of-mouth alone cannot scale a practice in competitive global markets.",
     coreFriction: [
-      "Partners have deep advisory wisdom but zero time for digital distribution.",
-      "Company branding sounds generic and indistinguishable from Big 4 boilerplate.",
+      "Partners have deep advisory wisdom but limited time for systematic distribution.",
+      "Company branding sounds generic and indistinguishable from competitor boilerplate.",
       "Difficulty establishing credibility when expanding into new geographic markets."
     ],
     playbookStrategy: [
-      { title: "Partner Point-of-View Architecture", description: "Extracting contrarian strategic frameworks from partners and publishing them weekly." },
+      { title: "Partner Point-of-View Architecture", description: "Extracting contrarian strategic frameworks from partners and publishing them regularly." },
       { title: "Thought Leader Ad Amplification", description: "Promoting partner articles to C-level executives at target enterprise accounts." },
       { title: "Strategic Field Notes", description: "Publishing anonymized case teardowns demonstrating operational problem-solving." }
     ],
@@ -126,8 +129,8 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
       "Executive Advisory Discovery Pipeline Tracking"
     ],
     featuredResult: {
-      metric: "3.4x",
-      context: "Increase in direct C-level inbound consultation requests"
+      metric: "Partner Authority",
+      context: "Publishing contrarian partner viewpoints directly to target enterprise C-suites"
     }
   },
   "professional-services": {
@@ -160,8 +163,8 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
       "Client Engagement & Retention Attribution Model"
     ],
     featuredResult: {
-      metric: "4.8x",
-      context: "Higher content save rate among corporate decision-makers"
+      metric: "Fiduciary Trust",
+      context: "Establishing category authority through regulatory and industry analysis"
     }
   },
   "industrial-manufacturing": {
@@ -180,7 +183,7 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     ],
     playbookStrategy: [
       { title: "Factory Capability Teardowns", description: "Showcasing factory floor robotics, ISO tolerances, and QA workflows in high-craft Document Ads." },
-      { title: "Cross-Border Procurement ABM", description: "Targeting VP of Supply Chain and Procurement Directors across the US, UK, and Europe." },
+      { title: "Cross-Border Procurement ABM", description: "Targeting VP of Supply Chain and Procurement Directors across target export markets." },
       { title: "Direct RFQ Gate Automation", description: "Deploying 1-click technical spec submission forms with instant sales engineering routing." }
     ],
     buyingCommittee: [
@@ -195,8 +198,8 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
       "International Deal Value & Inquiry Attribution Dashboard"
     ],
     featuredResult: {
-      metric: "42%",
-      context: "Increase in direct overseas RFQ inquiries with 28% margin improvement"
+      metric: "Direct Sourcing",
+      context: "Connecting factory QA tolerances directly to international procurement heads"
     }
   },
   "real-estate": {
@@ -207,7 +210,7 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
     metaDescription: "Attract enterprise tenants, industrial occupiers, and institutional investors with Saini Nexus commercial real estate growth systems.",
     heroHeadline: "Commercial Real Estate Marketing Built for Enterprise Occupiers.",
     heroSubheadline: "We help commercial developers, business park operators, and REITs reach corporate real estate directors, logistics heads, and institutional investors.",
-    marketContext: "Commercial real estate transactions involve massive multi-year leases and extensive boardroom diligence. Standard consumer real estate marketing fails to address corporate financial and spatial criteria.",
+    marketContext: "Commercial real estate transactions involve multi-year commitments and extensive boardroom diligence. Standard consumer real estate marketing fails to address corporate financial and spatial criteria.",
     coreFriction: [
       "Marketing campaigns attracting individual retail buyers instead of corporate occupiers.",
       "Long vacancy cycles due to lack of direct reach to corporate relocation committees.",
@@ -229,8 +232,8 @@ export const INDUSTRIES: Record<string, IndustryItem> = {
       "Leasing Pipeline Velocity & Investor Reach Telemetry"
     ],
     featuredResult: {
-      metric: "5.2x",
-      context: "Increase in verified enterprise site inspection bookings"
+      metric: "Occupier Direct",
+      context: "Targeting corporate real estate directors and workplace decision-makers"
     }
   }
 };

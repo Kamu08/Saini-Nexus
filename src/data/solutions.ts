@@ -162,9 +162,9 @@ export const SOLUTIONS: Record<string, SolutionItem> = {
       "Thought Leader Ad Campaign Setup & Optimization on LinkedIn"
     ],
     metricsThatMatter: [
-      { metric: "3x", context: "Higher Click-Through Rate (CTR) compared to standard company ads" },
-      { metric: "65%", context: "Lower Cost-Per-Click (CPC) using Thought Leader Ad formats" },
-      { metric: "100%", context: "Authentic founder voice with zero generic AI filler" }
+      { metric: "Authentic Voice", context: "Founder and executive viewpoints rather than corporate logos" },
+      { metric: "Targeted Reach", context: "Sponsoring leadership perspectives into verified buying committees" },
+      { metric: "Proprietary POV", context: "Original strategic viewpoints extracted directly from leadership" }
     ]
   },
   "generate-qualified-b2b-pipeline": {
@@ -176,7 +176,7 @@ export const SOLUTIONS: Record<string, SolutionItem> = {
     metaTitle: "Generate Qualified B2B Pipeline | Commercial Growth Solutions | Saini Nexus",
     metaDescription: "Connect marketing activity to commercial pipeline with verified work email capture, strict qualification, and sales acceptance.",
     shortDescription: "For companies that need marketing connected closely to commercial outcomes, sales-accepted discovery calls, and closed-won ARR.",
-    fullDescription: "Saini Nexus rejects marketing vanity metrics. We measure success strictly in Sales-Accepted Pipeline (SAP), customer acquisition cost (CAC), and revenue attribution. Our pipeline generation solution combines audience filtering, qualification gates, speed-to-lead webhook routing, and closed-loop CRM telemetry.",
+    fullDescription: "Saini Nexus focuses on commercial pipeline quality rather than vanity metrics. We measure success in Sales-Accepted Pipeline (SAP), customer acquisition cost (CAC), and revenue attribution. Our pipeline generation solution combines audience filtering, qualification gates, speed-to-lead webhook routing, and closed-loop CRM alignment.",
     problemStatement: "Marketing delivers high volumes of low-intent contact submissions that sales reps reject, creating friction and wasted commercial expenditure.",
     relevantServices: [
       { title: "B2B Lead & Pipeline Generation", href: "/services/b2b-lead-pipeline-generation", description: "ICP capture, qualification gates, and speed-to-lead." },
@@ -186,20 +186,20 @@ export const SOLUTIONS: Record<string, SolutionItem> = {
     ],
     strategicFramework: [
       { phase: "Stage 1", title: "Strict Qualification Gating", details: "Require verified work emails, budget range, and timeline verification." },
-      { phase: "Stage 2", title: "Speed-to-Lead Webhook Routing", details: "Push submitted leads to CRM and sales Slack channels in <30 seconds." },
+      { phase: "Stage 2", title: "Speed-to-Lead Webhook Routing", details: "Push submitted leads to CRM and sales notifications in real time." },
       { phase: "Stage 3", title: "Sales Enablement Briefs", details: "Equip SDRs with the exact ad creative and pain point that triggered the conversion." },
-      { phase: "Stage 4", title: "Closed-Loop Revenue Telemetry", details: "Track opportunity progression from initial ad click to closed-won ARR." }
+      { phase: "Stage 4", title: "Closed-Loop Revenue Tracking", details: "Track opportunity progression from initial ad engagement to closed-won opportunities." }
     ],
     deliverables: [
       "In-Feed Lead Capture Funnel with Custom Qualification Gates",
-      "Real-Time CRM & Webhook Automation Pipeline (<30s SLA)",
+      "Real-Time CRM & Webhook Automation Pipeline",
       "Sales Handoff Intelligence Dossier for Account Executives",
-      "Sales Acceptance Rate (SAR) & Closed-Loop Attribution Model"
+      "Sales Acceptance Rate (SAR) & Opportunity Tracking Model"
     ],
     metricsThatMatter: [
-      { metric: "82%", context: "Sales Acceptance Rate (SAR) on inbound pipeline opportunities" },
-      { metric: "<30s", context: "Speed-to-lead webhook notification SLA to sales team" },
-      { metric: "34%", context: "Compression in average enterprise sales cycle duration" }
+      { metric: "Sales Alignment", context: "Focusing on sales-accepted opportunities rather than vanity leads" },
+      { metric: "Fast Routing", context: "Real-time webhook notifications for immediate sales follow-up" },
+      { metric: "Pre-Educated", context: "Buyers enter discovery calls having reviewed technical proof" }
     ]
   }
 };

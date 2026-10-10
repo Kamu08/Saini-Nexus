@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { TEAM_MEMBERS } from "@/data/team";
+import { TEAM_MEMBERS, TeamMember } from "@/data/team";
 import { Users, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface DeptFilter {
@@ -14,28 +14,18 @@ interface DeptFilter {
 export function TeamGrid() {
   const [selectedDept, setSelectedDept] = useState("All");
 
-  const filterMember = (m: typeof TEAM_MEMBERS[0], dept: string) => {
-    if (dept === "All") return true;
-    const deptLower = m.department.toLowerCase();
-    const roleLower = m.role.toLowerCase();
-    if (dept === "Leadership") return roleLower.includes("founder") || roleLower.includes("lead") || deptLower.includes("leadership") || m.name.includes("Dev Raj") || m.name.includes("Dau Raj") || m.name.includes("Jyoti");
-    if (dept === "Strategy & Demand") return deptLower.includes("strategy") || deptLower.includes("demand") || deptLower.includes("research");
-    if (dept === "Paid Media & Ads") return deptLower.includes("paid") || deptLower.includes("media") || deptLower.includes("growth");
-    if (dept === "Creative & Content") return deptLower.includes("creative") || deptLower.includes("design") || deptLower.includes("content") || deptLower.includes("distribution");
-    if (dept === "Operations & Analytics") return deptLower.includes("operations") || deptLower.includes("analytics") || deptLower.includes("tech");
-    return true;
-  };
-
   const departments: DeptFilter[] = [
     { id: "All", label: "All Members", count: TEAM_MEMBERS.length },
-    { id: "Leadership", label: "Leadership", count: TEAM_MEMBERS.filter((m) => filterMember(m, "Leadership")).length },
-    { id: "Strategy & Demand", label: "Strategy & Demand", count: TEAM_MEMBERS.filter((m) => filterMember(m, "Strategy & Demand")).length },
-    { id: "Paid Media & Ads", label: "Paid Media & Ads", count: TEAM_MEMBERS.filter((m) => filterMember(m, "Paid Media & Ads")).length },
-    { id: "Creative & Content", label: "Creative & Content", count: TEAM_MEMBERS.filter((m) => filterMember(m, "Creative & Content")).length },
-    { id: "Operations & Analytics", label: "Operations & Data", count: TEAM_MEMBERS.filter((m) => filterMember(m, "Operations & Analytics")).length },
+    { id: "Leadership & Strategy", label: "Leadership & Strategy", count: TEAM_MEMBERS.filter((m) => m.department === "Leadership & Strategy").length },
+    { id: "Paid Media & LinkedIn Ads", label: "Paid Media & Ads", count: TEAM_MEMBERS.filter((m) => m.department === "Paid Media & LinkedIn Ads").length },
+    { id: "Demand Generation & ABM", label: "Demand Gen & ABM", count: TEAM_MEMBERS.filter((m) => m.department === "Demand Generation & ABM").length },
+    { id: "Content & Creative", label: "Content & Creative", count: TEAM_MEMBERS.filter((m) => m.department === "Content & Creative").length },
+    { id: "Operations & Analytics", label: "Operations & Data", count: TEAM_MEMBERS.filter((m) => m.department === "Operations & Analytics").length },
   ];
 
-  const filteredMembers = TEAM_MEMBERS.filter((m) => filterMember(m, selectedDept));
+  const filteredMembers = selectedDept === "All" 
+    ? TEAM_MEMBERS 
+    : TEAM_MEMBERS.filter((m) => m.department === selectedDept);
 
   return (
     <section id="directory" className="space-y-8">
@@ -136,10 +126,10 @@ export function TeamGrid() {
               <div className="pt-4 mt-4 border-t-2 border-black/10 flex items-center justify-between text-[11px] font-mono text-zinc-600">
                 <span className="flex items-center gap-1 font-bold text-black">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#2563EB]" />
-                  <span>Saini Nexus Pod</span>
+                  <span>Saini Nexus Team</span>
                 </span>
-                <span className="text-emerald-700 font-extrabold flex items-center gap-0.5">
-                  <span>Verified</span>
+                <span className="text-zinc-600 font-bold">
+                  Jaipur, India
                 </span>
               </div>
             </div>
@@ -149,5 +139,3 @@ export function TeamGrid() {
     </section>
   );
 }
-
-

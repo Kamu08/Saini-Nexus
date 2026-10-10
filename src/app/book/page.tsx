@@ -18,7 +18,7 @@ import { Breadcrumbs } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Book a B2B Growth Strategy Conversation | Saini Nexus",
-  description: "Schedule a high-intent 45-minute B2B growth and LinkedIn acquisition consultation with the Saini Nexus strategy team.",
+  description: "Schedule a focused 30-minute B2B growth and LinkedIn strategy conversation with Dev Raj Saini and the Saini Nexus strategy team.",
   alternates: {
     canonical: "https://saininexus.com/book",
   },
@@ -42,7 +42,7 @@ export default function BookStrategyCallPage() {
           </h1>
 
           <p className="text-base sm:text-xl text-zinc-700 leading-relaxed font-medium">
-            No sales pitches. No generic slides. A direct, diagnostic audit of your ideal customer profile, buyer journey, LinkedIn acquisition model, and pipeline bottlenecks.
+            No aggressive pitches. No generic slides. A focused 30-minute diagnostic discussion of your ideal customer profile, buyer journey, LinkedIn acquisition model, and pipeline bottlenecks.
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function BookStrategyCallPage() {
           <div className="bg-white border-2 border-black rounded-3xl p-6 sm:p-8 space-y-6 shadow-[4px_4px_0px_#000000]">
             <div className="space-y-1">
               <span className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-bold">Call Agenda</span>
-              <h2 className="text-2xl font-serif font-bold text-black">What We Cover in 45 Minutes</h2>
+              <h2 className="text-2xl font-serif font-bold text-black">What We Cover in 30 Minutes</h2>
             </div>
 
             <div className="space-y-3.5">

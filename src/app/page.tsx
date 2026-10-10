@@ -25,16 +25,12 @@ import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
 
 export default function HomePage() {
-
-  const TICKER_ITEMS = [
-    "LINKEDIN MARKETING LABS CERTIFIED",
-    "B2B DEMAND ARCHITECTURE",
-    "ENTERPRISE ABM & MATCHED ACCOUNTS",
-    "THOUGHT LEADER AD SPECIALISTS",
-    "PREDICTABLE PIPELINE ENGINE",
-    "JAIPUR, INDIA & GLOBAL B2B MARKETS",
-    "ZERO VANITY AD SPEND PROTOCOL",
-    "82% SALES ACCEPTANCE RATE BENCHMARK"
+  const CAPABILITIES = [
+    "B2B Marketing Strategy",
+    "LinkedIn Ads & Thought Leader Ads",
+    "Demand Generation",
+    "Account-Based Marketing",
+    "Founder-Led Marketing"
   ];
 
   return (
@@ -46,26 +42,28 @@ export default function HomePage() {
       <ModernHero />
 
       {/* ========================================================= */}
-      {/* DYNAMIC BREAK 01: INFINITE RUNNING TICKER RIBBON          */}
-      {/* Breaks the monotony right after Hero with high energy     */}
+      {/* DYNAMIC BREAK 01: CORE CAPABILITIES RIBBON                */}
+      {/* Clean, authoritative capability strip without hype claims */}
       {/* ========================================================= */}
-      <div className="w-full bg-[#60A5FA] border-y-3 border-black py-3.5 overflow-hidden shadow-[0_4px_0px_#000000] rotate-[-0.5deg] scale-[1.01]">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-8">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-6 shrink-0">
-              <span className="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-widest text-black flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-black inline-block" />
+      <div className="w-full bg-[#60A5FA] border-y-3 border-black py-3 sm:py-3.5 shadow-[0_4px_0px_#000000]">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-10 gap-y-2.5 text-center">
+          {CAPABILITIES.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-3 sm:gap-5">
+              <span className="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-black inline-block shrink-0" />
                 {item}
               </span>
-              <span className="text-black font-mono font-bold text-base">✦</span>
+              {idx < CAPABILITIES.length - 1 && (
+                <span className="text-black font-mono font-bold text-sm hidden md:inline">✦</span>
+              )}
             </div>
           ))}
         </div>
       </div>
 
       {/* ========================================================= */}
-      {/* 01. TRUST & VERIFIED CREDENTIALS: ACCREDITATION RIBBON     */}
-      {/* Sleek, compact horizontal verification bar (Idea 1)       */}
+      {/* 01. TRUST & VERIFIED CREDENTIALS: CERTIFICATION RIBBON    */}
+      {/* Accurate, professional LinkedIn Marketing Labs credentials */}
       {/* ========================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#FAF7EF] border-2 border-black rounded-3xl p-5 sm:p-7 shadow-[4px_4px_0px_#000000] space-y-5">
@@ -78,17 +76,20 @@ export default function HomePage() {
               </div>
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#2563EB] font-extrabold block">
-                  Official Accreditation Protocol
+                  Professional Credentials
                 </span>
                 <h3 className="text-lg sm:text-xl font-serif font-bold text-black leading-tight">
-                  LinkedIn Marketing Labs Certified Practitioner
+                  LinkedIn Marketing Certifications
                 </h3>
+                <p className="text-xs text-zinc-600 font-medium mt-0.5">
+                  Saini Nexus is led by a marketing practitioner with certifications in LinkedIn marketing strategy, content &amp; creative design, and marketing measurement.
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-400 px-3 py-1 rounded-full w-fit">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-400 px-3 py-1 rounded-full w-fit shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>ACTIVE VERIFIED STATUS (2024–2026)</span>
+              <span>LINKEDIN MARKETING LABS</span>
             </div>
           </div>
 
@@ -97,29 +98,29 @@ export default function HomePage() {
             {[
               {
                 title: "Marketing Strategy",
-                code: "CERT-LMS-2024",
+                code: "Certified",
                 issuer: "LinkedIn Marketing Labs",
                 bg: "bg-white",
                 dot: "bg-[#2563EB]"
               },
               {
                 title: "Content & Creative Design",
-                code: "CERT-CCD-2024",
+                code: "Certified",
                 issuer: "LinkedIn Marketing Labs",
                 bg: "bg-white",
                 dot: "bg-amber-500"
               },
               {
                 title: "Marketing Measurement",
-                code: "CERT-MM-2024",
+                code: "Certified",
                 issuer: "LinkedIn Marketing Labs",
                 bg: "bg-white",
                 dot: "bg-emerald-500"
               },
               {
-                title: "Enterprise Ad Architecture",
-                code: "DIRECT-PRACTICE",
-                issuer: "Thought Leader & Document Ads",
+                title: "Thought Leader & Document Ads",
+                code: "Applied Practice",
+                issuer: "Campaign Architecture Focus",
                 bg: "bg-white",
                 dot: "bg-purple-500"
               }
@@ -172,23 +173,23 @@ export default function HomePage() {
               The Saini Nexus Growth Architecture
             </div>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-black tracking-tight leading-snug">
-              Where Is Your B2B Acquisition Engine Leaking Revenue?
+              Where Is Your B2B Growth Engine Leaking Opportunities?
             </h3>
             <p className="text-zinc-700 text-sm sm:text-base font-medium leading-relaxed">
-              Audit your buying committee coverage, content proof, and ad distribution across our proprietary 7 connected stages.
+              Evaluate your buying committee coverage, content proof, and LinkedIn distribution across our 7 connected stages.
             </p>
 
             {/* 7-Step Mini Indicator */}
             <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[11px] font-mono font-bold text-zinc-600">
               <span className="bg-white px-2 py-0.5 rounded border border-black/30">01 Context</span>
               <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">02 POV</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">02 Positioning</span>
               <span>→</span>
               <span className="bg-white px-2 py-0.5 rounded border border-black/30">03 Proof</span>
               <span>→</span>
               <span className="bg-white px-2 py-0.5 rounded border border-black/30">04 Audience</span>
               <span>→</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-black/30">05 Engine</span>
+              <span className="bg-white px-2 py-0.5 rounded border border-black/30">05 Distribution</span>
               <span>→</span>
               <span className="bg-white px-2 py-0.5 rounded border border-black/30">06 Demand</span>
               <span>→</span>
@@ -201,11 +202,11 @@ export default function HomePage() {
               href="/audit" 
               className="neo-btn-blue text-xs font-mono font-bold flex items-center justify-center gap-2 text-center whitespace-nowrap shadow-[3px_3px_0px_#000000]"
             >
-              <span>Take the 7-Stage Audit</span>
+              <span>Request Growth Assessment</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
             <span className="text-[10px] font-mono text-zinc-500 text-center">
-              Takes ~2 minutes · Zero gated spam
+              Takes ~2 minutes · Actionable insights
             </span>
           </div>
         </div>

@@ -108,7 +108,7 @@ export const NEXUS_GROWTH_STAGES: GrowthStage[] = [
     step: "06",
     title: "Thought Leader Ads",
     shortDesc: "Human-to-human executive sponsored content",
-    headline: "Boost executive posts to drive 3x higher CTR at 40% lower CPL.",
+    headline: "Amplify executive perspectives to build authentic trust and engage decision-makers through credible voices.",
     whatItMeans: "Amplifying authentic posts directly from founder and C-suite profiles into target account feeds.",
     whyItMatters: "Decision-makers trust people far more than sterile corporate logos. Thought Leader Ads humanize the enterprise pitch.",
     whatSainiNexusDoes: [

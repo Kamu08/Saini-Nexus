@@ -14,9 +14,9 @@ import {
 
 export function ModernHero() {
   return (
-    <div className="pt-2 sm:pt-4 px-2.5 sm:px-4 md:px-6 lg:px-8">
-      {/* Outer rounded card container with margins */}
-      <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-3xl sm:rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-[#070B19]">
+    <div className="pt-2 sm:pt-3 px-1.5 sm:px-3 md:px-4">
+      {/* Outer rounded card container with sleek subtle margin */}
+      <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-2xl sm:rounded-3xl lg:rounded-[2rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-[#070B19]">
         
         {/* ========================================================= */}
         {/* 1. BLUE FLUTED BANDS BACKGROUND (ZOOMED-OUT WIDESCREEN)   */}

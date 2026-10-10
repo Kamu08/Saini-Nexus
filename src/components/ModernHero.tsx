@@ -19,12 +19,12 @@ export function ModernHero() {
       <section className="relative pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 text-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-800/80 shadow-2xl bg-[#070B19]">
         
         {/* ========================================================= */}
-        {/* 1. BLUE FLUTED BANDS BACKGROUND (SAINI LOGO BLUE THEME)   */}
+        {/* 1. BLUE FLUTED BANDS BACKGROUND (ZOOMED-OUT WIDESCREEN)   */}
         {/* ========================================================= */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
-            src="/hero-fluted-logo-blue.jpg"
-            alt="Architectural Saini Logo Blue Fluted Slats Texture"
+            src="/hero-fluted-blue-widescreen.jpg"
+            alt="Architectural Blue Fluted Slats Texture"
             fill
             priority
             className="object-cover object-center"

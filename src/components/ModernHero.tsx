@@ -42,21 +42,7 @@ export function ModernHero() {
               A dedicated B2B demand generation practice for technology, consulting, and manufacturing firms. We combine executive Thought Leader Ads, buying committee account targeting, and high-intent inbound acquisition.
             </p>
 
-            {/* Direct Value Points */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-700 pt-2">
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-blue-600 stroke-[3]" />
-                Zero Vanity Metrics
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-blue-600 stroke-[3]" />
-                Verified Decision Makers Only
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-blue-600 stroke-[3]" />
-                Direct Lead-to-CRM Sync
-              </span>
-            </div>
+
           </div>
 
           <div className="md:col-span-4 flex flex-col gap-3">

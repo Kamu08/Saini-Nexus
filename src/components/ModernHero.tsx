@@ -16,11 +16,7 @@ import {
 
 export function ModernHero() {
   return (
-    <section className="relative pt-8 sm:pt-12 md:pt-14 pb-20 sm:pb-28 bg-white text-slate-950 border-b border-slate-200">
-      
-      {/* Subtle top ambient warmth (barely perceptible, premium paper texture feel) */}
-      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
-
+    <section className="relative pt-24 sm:pt-32 md:pt-36 pb-20 sm:pb-28 bg-white text-slate-950 border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
 

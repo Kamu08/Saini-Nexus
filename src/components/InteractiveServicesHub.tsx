@@ -130,14 +130,14 @@ function ServiceSlideCard({ srv, idx, total, progress, accent }: CardProps) {
                   href={`/services/${srv.slug}`}
                   className="neo-btn-white text-xs font-bold"
                 >
-                  <span>Explore Deep-Dive</span>
+                  <span>Explore Service</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
                 <Link
                   href="/book"
                   className={`inline-flex items-center justify-center px-5 py-2.5 rounded-none text-xs font-mono font-extrabold uppercase tracking-wider text-black ${accent.badgeBg} border-2 border-black shadow-[2.5px_2.5px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_#000000] transition-all`}
                 >
-                  <span>Scope Call</span>
+                  <span>Book Strategy Call</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </Link>
               </div>

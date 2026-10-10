@@ -29,9 +29,9 @@ export function ModernHero() {
             priority
             className="object-cover object-center"
           />
-          {/* Subtle dark vignette to ensure crisp typography readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#070B19]/50 via-transparent to-[#070B19]/85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070B19]/65 via-transparent to-[#070B19]/25" />
+          {/* Subtle gentle vignette to ensure crisp typography readability without darkening */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#070B19]/30 via-transparent to-[#070B19]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070B19]/40 via-transparent to-transparent" />
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">

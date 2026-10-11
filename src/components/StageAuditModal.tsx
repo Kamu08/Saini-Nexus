@@ -75,37 +75,49 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
       dealSize: formData.dealSize,
       notes: formData.notes,
       stage: stage.title,
-      step: stage.step,
-      recipient: "kamal0sharma02@gmail.com"
+      step: stage.step
     };
 
     try {
-      // 1. Post to our internal API route which proxies to FormSubmit for kamal0sharma02@gmail.com
+      // 1. Post to our internal API route which proxies to both recipients
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
-      // 2. Client-side direct fallback to ensure delivery to kamal0sharma02@gmail.com
+      // 2. Client-side direct fallback to ensure delivery to both recipients
       if (!res.ok) {
-        await fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            _subject: `New Commercial Audit Lead: Stage ${stage.step} - ${stage.title}`,
-            _template: "table",
-            "Full Name": formData.name,
-            "Work Email": formData.email,
-            "Company": formData.company,
-            "Target Stage": `Stage ${stage.step}: ${stage.title}`,
-            "Deal Size": formData.dealSize,
-            "Notes": formData.notes
+        const fallbackPayload = {
+          _subject: `New Commercial Audit Lead: Stage ${stage.step} - ${stage.title}`,
+          _template: "table",
+          _cc: "devraj@saininexus.com",
+          "Full Name": formData.name,
+          "Work Email": formData.email,
+          "Company": formData.company,
+          "Target Stage": `Stage ${stage.step}: ${stage.title}`,
+          "Deal Size": formData.dealSize,
+          "Notes": formData.notes
+        };
+
+        await Promise.allSettled([
+          fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
+          }),
+          fetch("https://formsubmit.co/ajax/devraj@saininexus.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
           })
-        });
+        ]);
       }
     } catch (err) {
       console.warn("Audit dispatch fallback executed:", err);
@@ -173,7 +185,7 @@ export function StageAuditModal({ isOpen, onClose, stage }: StageAuditModalProps
                   Audit Request Dispatched
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-normal">
-                  Your diagnostic request for <strong className="text-slate-900">Stage {stage.step}: {stage.title}</strong> has been transferred to Dev Raj Saini (<span className="text-slate-900 font-semibold">kamal0sharma02@gmail.com</span>).
+                  Your diagnostic request for <strong className="text-slate-900">Stage {stage.step}: {stage.title}</strong> has been transferred directly to our senior growth leadership.
                 </p>
               </div>
 

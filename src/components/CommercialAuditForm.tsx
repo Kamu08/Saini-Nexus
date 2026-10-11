@@ -99,12 +99,11 @@ export function CommercialAuditForm() {
       stage: activeStageObj.title,
       step: activeStageObj.step,
       notes: formData.notes,
-      currency: "INR (₹)",
-      recipient: "kamal0sharma02@gmail.com"
+      currency: "INR (₹)"
     };
 
     try {
-      // 1. Post to internal API route forwarding to kamal0sharma02@gmail.com
+      // 1. Post to internal API route forwarding to both recipients
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -113,26 +112,39 @@ export function CommercialAuditForm() {
 
       // 2. Direct client-side FormSubmit fallback
       if (!res.ok) {
-        await fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            _subject: `New Indian B2B Audit Lead: Stage ${activeStageObj.step} - ${formData.company}`,
-            _template: "table",
-            "Client Name": formData.name,
-            "Work Email": formData.email,
-            "WhatsApp / Phone": formData.phone,
-            "Company": formData.company,
-            "City / Region": formData.city,
-            "Target Stage": `Stage ${activeStageObj.step}: ${activeStageObj.title}`,
-            "Average Deal Size (INR)": formData.dealSize,
-            "Monthly Growth Budget (INR)": formData.budget,
-            "Specific Roadblock": formData.notes
+        const fallbackPayload = {
+          _subject: `New Indian B2B Audit Lead: Stage ${activeStageObj.step} - ${formData.company}`,
+          _template: "table",
+          _cc: "devraj@saininexus.com",
+          "Client Name": formData.name,
+          "Work Email": formData.email,
+          "WhatsApp / Phone": formData.phone,
+          "Company": formData.company,
+          "City / Region": formData.city,
+          "Target Stage": `Stage ${activeStageObj.step}: ${activeStageObj.title}`,
+          "Average Deal Size (INR)": formData.dealSize,
+          "Monthly Growth Budget (INR)": formData.budget,
+          "Specific Roadblock": formData.notes
+        };
+
+        await Promise.allSettled([
+          fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
+          }),
+          fetch("https://formsubmit.co/ajax/devraj@saininexus.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
           })
-        });
+        ]);
       }
     } catch (err) {
       console.warn("Audit dispatch fallback executed:", err);
@@ -274,7 +286,7 @@ export function CommercialAuditForm() {
                   Audit Request Dispatched!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-normal leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your audit inquiry for <strong className="text-slate-900">Stage {activeStageObj.step}: {activeStageObj.title}</strong> has been transferred directly to <span className="font-semibold text-slate-900">kamal0sharma02@gmail.com</span>.
+                  Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your audit inquiry for <strong className="text-slate-900">Stage {activeStageObj.step}: {activeStageObj.title}</strong> has been transferred directly to our senior strategy partners.
                 </p>
               </div>
 
@@ -463,7 +475,7 @@ export function CommercialAuditForm() {
               <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  Sent directly to kamal0sharma02@gmail.com
+                  Direct senior partner routing · NDA protected
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-blue-600" />

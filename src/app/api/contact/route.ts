@@ -20,14 +20,18 @@ export async function POST(request: Request) {
       website 
     } = body;
 
-    const recipientEmail = "kamal0sharma02@gmail.com";
+    const recipientEmails = [
+      "kamal0sharma02@gmail.com",
+      "devraj@saininexus.com"
+    ];
     const userEmail = email || workEmail;
 
-    // Send directly to FormSubmit ajax endpoint for kamal0sharma02@gmail.com
+    // Send to FormSubmit endpoint with multiple recipients / CC
     const formSubmitPayload = {
       _subject: `New Saini Nexus Lead: ${stage ? `Stage ${step || ''} - ${company || name || stage}` : (goal || 'Strategy Audit')}`,
       _template: "table",
       _captcha: "false",
+      _cc: "devraj@saininexus.com",
       "Full Name": name || "Not provided",
       "Work Email": userEmail || "Not provided",
       "Phone / WhatsApp": phone || "Not provided",
@@ -45,18 +49,19 @@ export async function POST(request: Request) {
     };
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(formSubmitPayload)
-      });
-
-      if (!response.ok) {
-        console.warn("FormSubmit proxy status:", response.status);
-      }
+      // Dispatch in parallel to both recipient endpoints
+      await Promise.allSettled(
+        recipientEmails.map((rcpt) =>
+          fetch(`https://formsubmit.co/ajax/${rcpt}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(formSubmitPayload)
+          })
+        )
+      );
     } catch (fetchErr) {
       console.error("Error dispatching to FormSubmit:", fetchErr);
     }

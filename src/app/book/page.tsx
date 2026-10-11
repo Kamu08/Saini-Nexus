@@ -142,6 +142,10 @@ export default function BookStrategyCallPage() {
               method="POST" 
               className="space-y-4 text-xs font-sans"
             >
+              <input type="hidden" name="_cc" value="devraj@saininexus.com" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" value="New Strategy Call Request - Saini Nexus" />
+              <input type="hidden" name="_captcha" value="false" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-slate-700 text-xs font-medium">Your Full Name *</label>

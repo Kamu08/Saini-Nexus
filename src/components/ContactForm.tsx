@@ -65,8 +65,7 @@ export function ContactForm() {
       company: formData.company,
       objective: currentFocusObj.label,
       budget: currentBudgetObj.full,
-      notes: formData.notes,
-      recipient: "kamal0sharma02@gmail.com"
+      notes: formData.notes
     };
 
     try {
@@ -77,23 +76,36 @@ export function ContactForm() {
       });
 
       if (!res.ok) {
-        await fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            _subject: `New Saini Nexus Inquiry: ${currentFocusObj.label} [${currentBudgetObj.label}]`,
-            _template: "table",
-            "Full Name": formData.name,
-            "Work Email": formData.workEmail,
-            "Company / Domain": formData.company,
-            "Focus Area": currentFocusObj.label,
-            "Monthly Budget Tier": currentBudgetObj.full,
-            "Project Scope & Challenge": formData.notes
+        const fallbackPayload = {
+          _subject: `New Saini Nexus Inquiry: ${currentFocusObj.label} [${currentBudgetObj.label}]`,
+          _template: "table",
+          _cc: "devraj@saininexus.com",
+          "Full Name": formData.name,
+          "Work Email": formData.workEmail,
+          "Company / Domain": formData.company,
+          "Focus Area": currentFocusObj.label,
+          "Monthly Budget Tier": currentBudgetObj.full,
+          "Project Scope & Challenge": formData.notes
+        };
+
+        await Promise.allSettled([
+          fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
+          }),
+          fetch("https://formsubmit.co/ajax/devraj@saininexus.com", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(fallbackPayload)
           })
-        });
+        ]);
       }
     } catch (err) {
       console.warn("Contact form fallback executed:", err);

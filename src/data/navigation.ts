@@ -26,34 +26,7 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
   },
   {
     title: "About",
-    href: "/about",
-    children: [
-      {
-        title: "About Saini Nexus",
-        href: "/about",
-        description: "Our philosophy, approach & commercial standard"
-      },
-      {
-        title: "Dev Raj Saini (Founder)",
-        href: "/about/dev-raj-saini",
-        description: "Founder & Lead B2B Growth Strategist"
-      },
-      {
-        title: "Credentials & Certifications",
-        href: "/about/credentials",
-        description: "LinkedIn Marketing Labs verified expertise"
-      },
-      {
-        title: "Meet the Team",
-        href: "/team",
-        description: "Our 18-member growth & creative collective"
-      },
-      {
-        title: "Regional Authority Hubs",
-        href: "/locations",
-        description: "Jaipur, Rajasthan & India presence"
-      }
-    ]
+    href: "/about"
   }
 ];
 
@@ -85,10 +58,8 @@ export const FOOTER_LINKS = {
   ],
   company: [
     { title: "About Saini Nexus", href: "/about" },
-    { title: "Meet Our Team", href: "/team" },
-    { title: "Dev Raj Saini (Founder)", href: "/about/dev-raj-saini" },
-    { title: "Saini Nexus Field Notes", href: "/insights" },
     { title: "Case Studies (Teardowns)", href: "/case-studies" },
+    { title: "Insights & Field Notes", href: "/insights" },
     { title: "Book a Strategy Call", href: "/book" },
     { title: "Contact Us", href: "/contact" }
   ],

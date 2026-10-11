@@ -1,23 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { 
-  FlaskConical, 
-  ArrowUpRight, 
-  ArrowRight, 
-  Sparkles, 
-  Layers, 
-  TrendingUp, 
-  BarChart3,
-  ShieldCheck,
-  Zap
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Target, Sparkles } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumb";
-import { CampaignLab } from "@/components/CampaignLab";
-import { CASE_STUDIES } from "@/data/caseStudies";
+import { CaseStudiesDirectory } from "@/components/CaseStudiesDirectory";
 
 export const metadata: Metadata = {
-  title: "B2B Marketing Case Studies | LinkedIn & Growth Results | Saini Nexus",
+  title: "B2B Marketing Case Studies & Teardowns | Saini Nexus",
   description: "Explore Saini Nexus B2B marketing, LinkedIn advertising, demand generation and growth case studies with campaign strategy, execution and results.",
   alternates: {
     canonical: "https://saininexus.com/case-studies",
@@ -26,140 +15,86 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-20 space-y-12 sm:space-y-16">
-      <Breadcrumbs items={[{ label: "Case Studies" }]} />
+    <div className="w-full pb-24 overflow-x-clip">
+      
+      {/* ========================================================= */}
+      {/* 01. CLEAN AGENCY HERO                                     */}
+      {/* ========================================================= */}
+      <section className="pt-32 lg:pt-40 pb-12 sm:pb-16 border-b border-slate-200/80 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          
+          <Breadcrumbs items={[{ label: "Case Studies" }]} />
 
-      {/* Header */}
-      <div className="max-w-4xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-mono uppercase tracking-wider font-semibold">
-          <FlaskConical className="w-3.5 h-3.5" />
-          The Campaign Lab
-        </div>
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
-          B2B Campaign <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Architectures</span>
-        </h1>
-        <p className="text-slate-600 text-base sm:text-xl leading-relaxed font-normal">
-          Strategic frameworks and execution models for modern B2B demand generation. Each blueprint breaks down the underlying market bottleneck, audience targeting structure, creative format, and qualification mechanics.
-        </p>
+          <div className="max-w-4xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900 text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em]">
+              <Target className="w-3 h-3 text-[#38A9EB]" />
+              Saini Nexus // Case Studies
+            </div>
 
-        {/* Aggregate Pillars Ribbon */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
-          <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
-            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
-              Audience Mapping Model
-            </span>
-            <strong className="text-lg sm:text-xl font-mono font-bold text-blue-600 block mt-1">
-              Committee ABM Focus
-            </strong>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-sans font-black text-slate-900 leading-[1.05] tracking-tight">
+              Campaign Teardowns &amp; Outcomes.
+            </h1>
+
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
+              Real-world B2B demand and pipeline architectures. Tested across enterprise SaaS, precision industrial exports, FinTech advisory, and cybersecurity.
+            </p>
           </div>
-          <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
-            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
-              Content &amp; Creative Standard
-            </span>
-            <strong className="text-lg sm:text-xl font-mono font-bold text-slate-900 block mt-1">
-              Ungated Proof &amp; POV
-            </strong>
-          </div>
-          <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
-            <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
-              Evaluation Criterion
-            </span>
-            <strong className="text-lg sm:text-xl font-mono font-bold text-emerald-600 block mt-1">
-              Sales-Accepted Pipeline
-            </strong>
-          </div>
+
         </div>
-      </div>
+      </section>
 
-      {/* Interactive Campaign Lab Terminal */}
-      <CampaignLab />
+      {/* ========================================================= */}
+      {/* 02. CASE STUDIES DIRECTORY (CLEAN AGENCY ROWS)            */}
+      {/* ========================================================= */}
+      <section className="py-12 sm:py-16">
+        <CaseStudiesDirectory />
+      </section>
 
-      {/* Grid of All Teardowns */}
-      <div className="space-y-6">
-        <div>
-          <span className="text-xs font-mono font-bold uppercase text-slate-500 block mb-1">
-            Complete Dossier Directory
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            All Campaign Teardowns
-          </h2>
-        </div>
+      {/* ========================================================= */}
+      {/* 03. CLEAN COMMERCIAL CTA BANNER                           */}
+      {/* ========================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16">
+        <div className="bg-[#0B3C7E] text-white p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-xl relative overflow-hidden">
+          
+          {/* Subtle architectural dot pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {CASE_STUDIES.map((study) => (
+          <div className="relative z-10 max-w-2xl space-y-3">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#67C7F8] block">
+              NEXT STEPS
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-sans font-black tracking-tight leading-tight">
+              Ready to Run an Acquisition Blueprint for Your Firm?
+            </h2>
+            <p className="text-blue-100 text-sm sm:text-base font-normal leading-relaxed">
+              We construct tailored B2B growth architectures that blend strategic narrative, LinkedIn execution, ABM, and pipeline generation.
+            </p>
+          </div>
+
+          <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
             <Link
-              key={study.slug}
-              href={`/case-studies/${study.slug}`}
-              className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-blue-300 transition-all group"
+              href="/book"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-slate-100 text-slate-900 text-xs font-sans font-bold uppercase tracking-widest transition-colors shadow-sm text-center"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-blue-700 font-bold px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200/60 uppercase">
-                    {study.clientCode}
-                  </span>
-                  <span className="text-slate-500 font-medium bg-slate-100 px-2.5 py-0.5 rounded-full">
-                    {study.timeline}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors tracking-tight leading-snug">
-                    {study.clientName}
-                  </h3>
-                  <p className="text-xs text-slate-500 font-bold uppercase font-mono mt-1">
-                    {study.industry}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed pt-2 border-t border-slate-100">
-                  {study.coreChallenge}
-                </p>
-
-                {/* Outcome Pill */}
-                <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-3.5 space-y-1">
-                  <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
-                    Target Outcome
-                  </span>
-                  <div className="text-xl font-mono font-bold text-blue-600">
-                    {study.businessOutcomes[1]?.metric || study.businessOutcomes[0].metric}
-                  </div>
-                  <span className="text-[11px] font-mono text-slate-600 block font-medium">
-                    {study.businessOutcomes[1]?.label || study.businessOutcomes[0].label}
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
-                <span className="font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">
-                  Explore Framework
-                </span>
-                <span className="p-2 rounded-full bg-slate-50 group-hover:bg-blue-600 group-hover:text-white border border-slate-200 text-slate-700 transition-all">
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
+              <span>Book Strategy Call</span>
+              <ArrowRight className="w-4 h-4 text-slate-900" />
             </Link>
-          ))}
-        </div>
-      </div>
 
-      {/* Bottom CTA */}
-      <div className="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-sm">
-        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
-          Ready to run an acquisition experiment for your firm?
-        </h3>
-        <p className="text-slate-600 text-sm max-w-xl mx-auto font-normal">
-          We audit your current CAC, customer economics, and target account list to design a tailored pipeline generation plan.
-        </p>
-        <div className="pt-2">
-          <Link
-            href="/book"
-            className="neo-btn-blue w-fit shrink-0"
-          >
-            <span>Book a Strategy Call</span>
-            <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
-          </Link>
+            <Link
+              href="/audit"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black/20 hover:bg-black/35 text-white border border-white/30 hover:border-white/60 text-xs font-sans font-bold uppercase tracking-widest transition-colors text-center"
+            >
+              <span>Request Assessment</span>
+              <ArrowUpRight className="w-4 h-4 text-[#67C7F8]" />
+            </Link>
+          </div>
+
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }

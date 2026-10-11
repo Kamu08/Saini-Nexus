@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AuditPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-20 space-y-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-20 space-y-10">
       <Breadcrumbs items={[{ label: "Commercial Architecture Audit" }]} />
 
       <Suspense fallback={

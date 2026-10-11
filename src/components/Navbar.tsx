@@ -120,7 +120,7 @@ export function Navbar() {
               priority
             />
           </div>
-          <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors uppercase whitespace-nowrap">
+          <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-[#1572B8] transition-colors uppercase whitespace-nowrap">
             Saini Nexus
           </span>
         </Link>
@@ -147,7 +147,7 @@ export function Navbar() {
                     onClick={() => toggleDropdown(item.title)}
                     className={`group relative h-full px-4 font-sans text-[13px] font-bold tracking-wider uppercase flex items-center transition-colors cursor-pointer select-none ${
                       isActive
-                        ? 'text-blue-600 font-extrabold'
+                        ? 'text-[#1572B8] font-extrabold'
                         : isDropdownOpen
                         ? 'text-slate-950 font-extrabold'
                         : 'text-slate-600 hover:text-slate-950'
@@ -159,8 +159,8 @@ export function Navbar() {
                     <span 
                       className={`absolute bottom-0 inset-x-3 h-0.5 transition-all duration-200 ${
                         isActive
-                          ? 'bg-blue-600 opacity-100 scale-x-100'
-                          : 'bg-slate-950 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                          ? 'bg-[#1572B8] opacity-100 scale-x-100'
+                          : 'bg-[#1572B8] opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                       }`}
                     />
                   </button>
@@ -173,7 +173,7 @@ export function Navbar() {
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600 border border-transparent flex items-center justify-between group transition-colors"
+                            className="px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-800 hover:bg-[#F0F9FF] hover:text-[#1572B8] border border-transparent flex items-center justify-between group transition-colors"
                           >
                             <div className="flex flex-col text-left pr-2">
                               <span className="font-bold text-xs uppercase tracking-wider">{sub.title}</span>
@@ -183,7 +183,7 @@ export function Navbar() {
                                 </span>
                               )}
                             </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 shrink-0 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1572B8] shrink-0 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                           </Link>
                         ))}
                       </div>
@@ -199,7 +199,7 @@ export function Navbar() {
                 href={item.href}
                 className={`group relative h-full px-4 font-sans text-[13px] font-bold tracking-wider uppercase flex items-center transition-colors select-none ${
                   isActive
-                    ? 'text-blue-600 font-extrabold'
+                    ? 'text-[#1572B8] font-extrabold'
                     : 'text-slate-600 hover:text-slate-950'
                 }`}
               >
@@ -209,8 +209,8 @@ export function Navbar() {
                 <span 
                   className={`absolute bottom-0 inset-x-3 h-0.5 transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 opacity-100 scale-x-100'
-                      : 'bg-slate-950 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                      ? 'bg-[#1572B8] opacity-100 scale-x-100'
+                      : 'bg-[#1572B8] opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                   }`}
                 />
               </Link>
@@ -224,7 +224,7 @@ export function Navbar() {
         <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
           <Link
             href="/book"
-            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-9 sm:h-10 rounded-lg text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-xs hover:shadow-md transition-all duration-200 group whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-9 sm:h-10 rounded-sm text-xs font-sans font-bold uppercase tracking-wider text-white bg-[#1572B8] hover:bg-[#38A9EB] shadow-xs hover:shadow-md transition-all duration-200 group whitespace-nowrap"
           >
             <span>Book Consultation</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -301,7 +301,7 @@ export function Navbar() {
                           href={item.href}
                           onClick={() => setIsOpen(false)}
                           className={`font-sans text-sm font-bold uppercase tracking-wider flex-1 ${
-                            isActive ? 'text-blue-600' : 'text-slate-900'
+                            isActive ? 'text-[#1572B8]' : 'text-slate-900'
                           }`}
                         >
                           {item.title}
@@ -323,11 +323,11 @@ export function Navbar() {
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setIsOpen(false)}
-                              className="p-2.5 rounded-lg block hover:bg-slate-50 transition-colors group"
+                              className="p-2.5 rounded-lg block hover:bg-[#F0F9FF] transition-colors group"
                             >
-                              <div className="font-sans text-xs font-bold text-slate-800 group-hover:text-blue-600 flex items-center justify-between uppercase tracking-wider">
+                              <div className="font-sans text-xs font-bold text-slate-800 group-hover:text-[#1572B8] flex items-center justify-between uppercase tracking-wider">
                                 <span>{sub.title}</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1572B8]" />
                               </div>
                               {sub.description && (
                                 <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 font-normal normal-case">
@@ -349,7 +349,7 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`block p-3.5 rounded-xl border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
                       isActive
-                        ? 'bg-blue-50 border-blue-200 text-blue-600'
+                        ? 'bg-[#F0F9FF] border-[#B9E1F9] text-[#1572B8]'
                         : 'bg-white border-slate-200/90 text-slate-800 hover:bg-slate-50'
                     }`}
                   >
@@ -364,7 +364,7 @@ export function Navbar() {
               <Link
                 href="/book"
                 onClick={() => setIsOpen(false)}
-                className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-xl text-xs font-sans font-bold uppercase tracking-wider text-white bg-slate-950 hover:bg-blue-600 shadow-sm transition-all"
+                className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-sm text-xs font-sans font-bold uppercase tracking-wider text-white bg-[#1572B8] hover:bg-[#38A9EB] shadow-sm transition-all"
               >
                 <span>Book Strategy Conversation</span>
                 <span className="ml-2 font-bold">→</span>

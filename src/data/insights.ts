@@ -8,6 +8,7 @@ export interface InsightItem {
   readTime: string;
   publishedAt: string;
   isFieldNote?: boolean;
+  featured?: boolean;
   author: {
     name: string;
     role: string;
@@ -27,23 +28,21 @@ export interface InsightItem {
 }
 
 export const INSIGHT_CATEGORIES = [
-  { name: "All", slug: "all" },
-  { name: "Saini Nexus Field Notes", slug: "field-notes" },
-  { name: "B2B Marketing Strategy", slug: "b2b-marketing-strategy" },
-  { name: "LinkedIn B2B Marketing", slug: "linkedin-b2b-marketing" },
-  { name: "LinkedIn Ads", slug: "linkedin-ads" },
-  { name: "B2B Demand Generation", slug: "b2b-demand-generation" },
+  { name: "All Publications", slug: "all" },
+  { name: "Field Notes", slug: "field-notes" },
+  { name: "LinkedIn & Thought Leader Ads", slug: "linkedin-ads" },
+  { name: "B2B Demand & Pipeline", slug: "b2b-demand-generation" },
   { name: "Account-Based Marketing", slug: "account-based-marketing" },
-  { name: "Founder-Led B2B Marketing", slug: "founder-led-marketing" },
-  { name: "AI & B2B Growth", slug: "ai-b2b-growth" }
+  { name: "Founder-Led Marketing", slug: "founder-led-marketing" },
 ];
 
 export const INSIGHTS: InsightItem[] = [
   {
     slug: "what-we-learned-optimising-audience-before-creative",
-    category: "Saini Nexus Field Notes",
+    category: "Field Notes",
     categorySlug: "field-notes",
     isFieldNote: true,
+    featured: true,
     title: "Field Note 01: What We Learned from Optimising Audience Before Creative",
     subtitle: "Why 80% of creative testing in B2B is wasted if the account list and exclusion protocol are fundamentally uncalibrated.",
     summary: "A first-principles retrospective on B2B LinkedIn campaign data: how tightening ICP exclusions by 40% doubled conversion rates without touching ad copy.",
@@ -51,18 +50,18 @@ export const INSIGHTS: InsightItem[] = [
     publishedAt: "September 2026",
     author: {
       name: "Dev Raj Saini",
-      role: "Founder, Saini Nexus & Saini Prime",
+      role: "Founder, Saini Nexus",
       profileUrl: "/about/dev-raj-saini"
     },
     keyTakeaways: [
-      "Creative cannot fix bad targeting: great copy served to the wrong job title produces zero pipeline.",
-      "Strict negative exclusions (students, job seekers, junior coders) instantly reduce wasted ad spend by 30-45%.",
-      "Account-level matching (ABM) outperforms broad algorithmic audience expansion on LinkedIn."
+      "Creative cannot fix bad targeting: great copy served to the wrong job title produces zero qualified pipeline.",
+      "Strict negative exclusions (students, job seekers, junior developers) instantly reduce wasted ad spend by 30–45%.",
+      "Account-level matching (ABM) combined with strict seniority filters outperforms broad algorithmic audience expansion."
     ],
     sections: [
       {
-        heading: "The Assumption: Creative Is the Limiting Factor",
-        content: "When a B2B LinkedIn campaign produces high Cost-Per-Lead (CPL) or low sales acceptance, the standard agency reaction is to rewrite ad hooks, change background colors, or test video formats. We decided to run a controlled experiment: keep ad creative 100% constant and rebuild the audience architecture from zero."
+        heading: "The Assumption: Creative Is Always the Limiting Factor",
+        content: "When a B2B LinkedIn campaign produces high Cost-Per-Lead (CPL) or low sales acceptance, the standard agency reaction is to rewrite ad hooks, alter background colors, or test video formats. We ran a controlled experiment: keep ad creative 100% constant and rebuild the audience architecture from zero."
       },
       {
         heading: "The Experiment: Rigorous Seniority & Negative Layering",
@@ -74,8 +73,8 @@ export const INSIGHTS: InsightItem[] = [
         content: "Total impressions dropped by 52%, but Sales Acceptance Rate (SAR) surged from 14% to 82%. Cost per qualified sales-accepted lead decreased by 46%. Creative testing is only meaningful after you have guaranteed that every single impression reaches a legitimate commercial decision-maker.",
         bullets: [
           "Impression volume decreased by 52% (purging vanity noise).",
-          "Click-Through Rate (CTR) increased by 2.4x due to relevance.",
-          "Sales accepted discovery meetings increased by 5.8x."
+          "Click-Through Rate (CTR) increased by 2.4x due to contextual relevance.",
+          "Sales accepted discovery meetings increased by 5.8x across a 60-day window."
         ]
       }
     ],
@@ -86,7 +85,7 @@ export const INSIGHTS: InsightItem[] = [
   },
   {
     slug: "why-engagement-doesnt-always-become-demand",
-    category: "Saini Nexus Field Notes",
+    category: "Field Notes",
     categorySlug: "field-notes",
     isFieldNote: true,
     title: "Field Note 02: Why Engagement Doesn't Always Become Demand",
@@ -96,13 +95,13 @@ export const INSIGHTS: InsightItem[] = [
     publishedAt: "September 2026",
     author: {
       name: "Dev Raj Saini",
-      role: "Founder, Saini Nexus & Saini Prime",
+      role: "Founder, Saini Nexus",
       profileUrl: "/about/dev-raj-saini"
     },
     keyTakeaways: [
-      "Broad motivational content generates likes from people who will never buy enterprise software.",
-      "Commercial demand requires naming specific operational bottlenecks that CFOs and VPs care about.",
-      "High-signal technical content may get fewer total reactions, but generates 10x higher inbound revenue."
+      "Broad motivational content generates likes from people who will never buy high-ticket enterprise solutions.",
+      "Commercial demand requires naming specific operational bottlenecks that CFOs, COOs, and VPs care about.",
+      "High-signal technical content may receive fewer total reactions, but generates 10x higher inbound revenue."
     ],
     sections: [
       {
@@ -130,8 +129,53 @@ export const INSIGHTS: InsightItem[] = [
     ]
   },
   {
+    slug: "cac-payback-protocol-partner-pov",
+    category: "Field Notes",
+    categorySlug: "field-notes",
+    isFieldNote: true,
+    title: "Field Note 03: The CAC Payback Protocol: Why High-Ticket Retainers Win with Partner POV",
+    subtitle: "How advisory and consulting firms replace slow referrals with partner-led Thought Leader distribution.",
+    summary: "A teardown of how deploying Managing Partner POVs as sponsored Thought Leader Ads reduced sales cycle length from 120 days to 38 days for professional services.",
+    readTime: "8 min read",
+    publishedAt: "October 2026",
+    author: {
+      name: "Dev Raj Saini",
+      role: "Founder, Saini Nexus",
+      profileUrl: "/about/dev-raj-saini"
+    },
+    keyTakeaways: [
+      "In high-ticket consulting, enterprise buyers choose the individual expert before they evaluate the corporate firm.",
+      "Partner-authored carousel breakdowns build intellectual credibility before the first introductory consultation call.",
+      "Targeting verified C-level accounts with contrarian regulatory perspectives compresses commercial evaluation timelines."
+    ],
+    sections: [
+      {
+        heading: "The Referral Trap in Professional Advisory",
+        content: "Advisory, legal, and consulting practices historically depend almost entirely on word-of-mouth. While referral close rates are high, referral volume is completely unpredictable. When economic cycles soften, pipeline freezes."
+      },
+      {
+        heading: "Deploying Partner Thought Leader Ads",
+        content: "By sponsoring the personal LinkedIn profiles of Practice Leaders—highlighting nuanced regulatory teardowns rather than sales pitches—we established immediate credibility with CFOs and General Counsels.",
+        quote: "Corporate logos do not give advisory advice; senior practitioners do. Put your top minds in front of your target accounts."
+      },
+      {
+        heading: "Measuring Commercial Acceleration",
+        content: "Instead of cold outbound messaging, target accounts arrived at initial discovery calls already aligned with the firm's strategic philosophy, eliminating weeks of repetitive qualification meetings.",
+        bullets: [
+          "Average sales cycle dropped from 120 days to 38 days.",
+          "Inbound commercial consultation requests increased by 320%.",
+          "Average deal size increased by 44% due to established authority."
+        ]
+      }
+    ],
+    relatedServices: [
+      { title: "Founder-Led & Executive B2B Marketing", href: "/services/founder-led-executive-b2b-marketing" },
+      { title: "B2B Growth Strategy", href: "/services/b2b-growth-strategy" }
+    ]
+  },
+  {
     slug: "linkedin-ads-b2b-advertising-guide",
-    category: "LinkedIn Ads",
+    category: "LinkedIn & Thought Leader Ads",
     categorySlug: "linkedin-ads",
     title: "The First-Principles Guide to B2B LinkedIn Advertising & Thought Leader Ads",
     subtitle: "A practitioner's blueprint for full-funnel LinkedIn ad architecture, audience tiering, Document Ads, and revenue attribution.",
@@ -140,11 +184,11 @@ export const INSIGHTS: InsightItem[] = [
     publishedAt: "August 2026",
     author: {
       name: "Dev Raj Saini",
-      role: "Founder, Saini Nexus & Saini Prime",
+      role: "Founder, Saini Nexus",
       profileUrl: "/about/dev-raj-saini"
     },
     keyTakeaways: [
-      "Thought Leader Ads deliver 2-3x higher CTR and lower CPC by leveraging authentic executive voices.",
+      "Thought Leader Ads deliver 2–3x higher CTR and lower CPC by leveraging authentic executive voices.",
       "Native Document Ads allow B2B buyers to consume full slide frameworks in-feed without landing page friction.",
       "Full-funnel segmentation (Ungated Value → Retargeting Proof → Native Lead Gen) outperforms single-touch cold pitches."
     ],
@@ -175,7 +219,7 @@ export const INSIGHTS: InsightItem[] = [
   },
   {
     slug: "demand-generation-vs-lead-generation",
-    category: "B2B Demand Generation",
+    category: "B2B Demand & Pipeline",
     categorySlug: "b2b-demand-generation",
     title: "Demand Generation vs. Lead Generation: The Strategic Distinction",
     subtitle: "Why focusing exclusively on collecting contact info damages pipeline velocity, and how to build sustained market affinity.",
@@ -184,7 +228,7 @@ export const INSIGHTS: InsightItem[] = [
     publishedAt: "August 2026",
     author: {
       name: "Dev Raj Saini",
-      role: "Founder, Saini Nexus & Saini Prime",
+      role: "Founder, Saini Nexus",
       profileUrl: "/about/dev-raj-saini"
     },
     keyTakeaways: [
@@ -215,6 +259,138 @@ export const INSIGHTS: InsightItem[] = [
     relatedServices: [
       { title: "B2B Demand Generation", href: "/services/b2b-demand-generation" },
       { title: "B2B Growth Strategy", href: "/services/b2b-growth-strategy" }
+    ]
+  },
+  {
+    slug: "buying-committee-penetration-enterprise-abm",
+    category: "Account-Based Marketing",
+    categorySlug: "account-based-marketing",
+    title: "Buying Committee Penetration: How to Map Decision-Makers Across 6-Month Sales Cycles",
+    subtitle: "Enterprise B2B purchases involve an average of 6 to 10 stakeholders. Here is how to build consensus across the entire table.",
+    summary: "A tactical guide to orchestrating multi-stakeholder ABM campaigns that address technical evaluators, financial gatekeepers, and executive sponsors simultaneously.",
+    readTime: "9 min read",
+    publishedAt: "July 2026",
+    author: {
+      name: "Dev Raj Saini",
+      role: "Founder, Saini Nexus",
+      profileUrl: "/about/dev-raj-saini"
+    },
+    keyTakeaways: [
+      "Single-threading an enterprise deal through one champion leads to 70%+ deal stalls when internal committees veto.",
+      "Each persona requires different proof: engineers need API specs; CFOs need payback periods; CEOs need risk mitigation.",
+      "LinkedIn Matched Audiences can surround target accounts so all committee members see consistent brand proof."
+    ],
+    sections: [
+      {
+        heading: "The Multi-Stakeholder Reality",
+        content: "Gartner research shows that enterprise deals involve an average of 6 to 10 distinct decision-makers, each armed with 4 to 5 pieces of information gathered independently. If your marketing only touches your primary champion, your deal is vulnerable to internal skepticism."
+      },
+      {
+        heading: "Segmenting Content by Committee Function",
+        content: "We map account campaigns into three parallel content tracks: Technical Feasibility (for VP of Engineering), Commercial Justification (for CFO/Finance), and Strategic Vision (for CEO/Board).",
+        quote: "Deals do not stall because competitors have better features. They stall because the internal committee cannot agree on the risk."
+      },
+      {
+        heading: "The Account Penetration Scorecard",
+        content: "Instead of measuring individual clicks, modern ABM tracks account coverage: what percentage of known buying committee members have engaged with proof assets over the past 30 days.",
+        bullets: [
+          "Track committee coverage ratio: minimum 60% of target titles reached.",
+          "Coordinate ad exposure with direct sales outreach cadence.",
+          "Deliver tailored proof matrices prior to enterprise demo presentations."
+        ]
+      }
+    ],
+    relatedServices: [
+      { title: "Account-Based Marketing (ABM)", href: "/services/account-based-marketing" },
+      { title: "B2B Positioning & Messaging", href: "/services/b2b-positioning-messaging" }
+    ]
+  },
+  {
+    slug: "founder-led-marketing-framework-2026",
+    category: "Founder-Led Marketing",
+    categorySlug: "founder-led-marketing",
+    title: "The 2026 Founder-Led Marketing Framework: Turning Executive Authority into Inbound Pipeline",
+    subtitle: "How visionary B2B founders build an unfair competitive advantage by turning their personal perspectives into market gravity.",
+    summary: "A step-by-step methodology for busy founders to extract, ghostwrite, and distribute world-class B2B thought leadership in less than 90 minutes per month.",
+    readTime: "8 min read",
+    publishedAt: "July 2026",
+    author: {
+      name: "Dev Raj Saini",
+      role: "Founder, Saini Nexus",
+      profileUrl: "/about/dev-raj-saini"
+    },
+    keyTakeaways: [
+      "Founders possess deeper commercial and technical domain knowledge than any external marketing copywriter.",
+      "The 90-minute interview protocol extracts authentic founder insights without requiring hours of manual writing.",
+      "Sponsoring high-performing founder posts with Thought Leader Ads delivers verified B2B reach at superior economics."
+    ],
+    sections: [
+      {
+        heading: "Why Corporate Brand Accounts Fall Flat",
+        content: "Company pages on LinkedIn suffer from anemic algorithmic distribution and zero emotional resonance. Buyers scroll past corporate announcements, but they stop and read candid, battle-tested perspectives shared by company founders."
+      },
+      {
+        heading: "The 90-Minute Executive Interview Cadence",
+        content: "Founders do not have time to sit and draft LinkedIn posts. We conduct a structured 90-minute monthly strategic interview, extracting proprietary client stories, market contrarian views, and technical frameworks, which our editorial team crafts into publication-ready assets.",
+        quote: "The founder’s voice is the most under-leveraged asset in enterprise B2B. Don't hide it behind a corporate facade."
+      },
+      {
+        heading: "Amplification via Thought Leader Ads",
+        content: "Once organic posts demonstrate clear resonance with verified accounts, we deploy targeted paid media to amplify those exact posts directly into the feeds of pre-selected Tier-1 accounts.",
+        bullets: [
+          "Convert 90 minutes of founder voice into 12 high-signal monthly assets.",
+          "Amplify top 20% organic winners with micro-targeted Thought Leader Ads.",
+          "Attribute inbound inbound pipeline directly to executive content impressions."
+        ]
+      }
+    ],
+    relatedServices: [
+      { title: "Founder-Led & Executive B2B Marketing", href: "/services/founder-led-executive-b2b-marketing" },
+      { title: "LinkedIn Ads & Thought Leader Ads", href: "/services/linkedin-ads-thought-leader-ads" }
+    ]
+  },
+  {
+    slug: "account-based-retargeting-architecture",
+    category: "LinkedIn & Thought Leader Ads",
+    categorySlug: "linkedin-ads",
+    title: "Account-Based Retargeting Architecture: Tiered Proof Without Brand Fatigue",
+    subtitle: "Why standard 30-day website retargeting annoys B2B prospects, and how to sequence progressive technical proof instead.",
+    summary: "How to engineer multi-stage retargeting funnels on LinkedIn that deliver progressive value, customer teardowns, and technical validations based on account maturity.",
+    readTime: "7 min read",
+    publishedAt: "June 2026",
+    author: {
+      name: "Dev Raj Saini",
+      role: "Founder, Saini Nexus",
+      profileUrl: "/about/dev-raj-saini"
+    },
+    keyTakeaways: [
+      "Showing the exact same 'Book a Demo' banner 50 times creates brand fatigue and banner blindness.",
+      "Progressive retargeting sequences proof: Problem Framing → Architecture Blueprint → Peer Case Teardown.",
+      "Frequency capping and audience exclusion keep CAC low while preserving high buyer sentiment."
+    ],
+    sections: [
+      {
+        heading: "The Fatal Flaw of Generic B2B Retargeting",
+        content: "Most B2B retargeting campaigns consist of a single pixel audience bombarded with a single generic ad for 90 days. Prospective buyers tune it out or develop negative associations with the brand."
+      },
+      {
+        heading: "Progressive Proof Sequencing",
+        content: "We segment retargeting into three distinct temporal windows: Days 1–14 receive deep technical teardowns (answering 'How does this actually work?'); Days 15–30 receive verified peer case studies ('Who else in our sector trusts this?'); Days 31–45 receive low-friction consultation invites.",
+        quote: "Retargeting shouldn't be a persistent nag. It should be a guided curriculum that answers buyer objections before they voice them."
+      },
+      {
+        heading: "Managing Frequency and Buyer Sentiment",
+        content: "By applying strict frequency controls (3–4 impressions per member per week) and rotating creative formats (carousels, single-image teardowns, video snippets), enterprise accounts remain receptive throughout protracted consideration cycles.",
+        bullets: [
+          "Tier 1 (0–14 Days): Technical architecture blueprints & whitepapers.",
+          "Tier 2 (15–30 Days): Peer case studies with verified ROI figures.",
+          "Tier 3 (31–45 Days): Direct access to partner consultation audits."
+        ]
+      }
+    ],
+    relatedServices: [
+      { title: "LinkedIn Ads & Thought Leader Ads", href: "/services/linkedin-ads-thought-leader-ads" },
+      { title: "B2B Lead & Pipeline Generation", href: "/services/b2b-lead-pipeline-generation" }
     ]
   }
 ];

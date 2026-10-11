@@ -177,7 +177,7 @@ export function NexusGrowthMap() {
   };
 
   return (
-    <section className="w-full bg-slate-950 text-white rounded-3xl p-6 sm:p-10 lg:p-14 space-y-10 relative overflow-hidden border border-slate-800 shadow-2xl">
+    <section className="w-full bg-slate-950 text-white rounded-none p-6 sm:p-10 lg:p-14 space-y-10 relative overflow-hidden border border-slate-800 shadow-2xl">
       
       {/* Background Architectural Tech Grid */}
       <div 
@@ -212,15 +212,15 @@ export function NexusGrowthMap() {
 
         {/* 3 Quick Performance Anchors */}
         <div className="grid grid-cols-3 gap-2.5 sm:gap-3 shrink-0">
-          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-none text-center shadow-xs">
             <span className="block text-base sm:text-xl font-bold text-blue-400">07</span>
             <span className="text-[10px] uppercase text-slate-400 font-medium">Stages</span>
           </div>
-          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-none text-center shadow-xs">
             <span className="block text-base sm:text-xl font-bold text-emerald-400">82%</span>
             <span className="text-[10px] uppercase text-slate-400 font-medium">SAR SLA</span>
           </div>
-          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl text-center shadow-xs">
+          <div className="p-3 bg-slate-900/90 border border-slate-800 rounded-none text-center shadow-xs">
             <span className="block text-base sm:text-xl font-bold text-amber-400">&lt;30s</span>
             <span className="text-[10px] uppercase text-slate-400 font-medium">Routing</span>
           </div>
@@ -249,14 +249,14 @@ export function NexusGrowthMap() {
               <button
                 key={st.id}
                 onClick={() => setActiveStageId(st.id)}
-                className={`p-3 rounded-xl text-left border transition-all flex flex-col justify-between gap-2 cursor-pointer ${
+                className={`p-3 rounded-none text-left border transition-all flex flex-col justify-between gap-2 cursor-pointer ${
                   isActive
                     ? "bg-blue-600 text-white font-semibold border-blue-500 shadow-md"
                     : "bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800/90 border-slate-800/80 hover:border-slate-700 shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
-                  <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
+                  <span className={`w-6 h-6 rounded-none flex items-center justify-center text-xs font-bold ${
                     isActive
                       ? "bg-white text-blue-600"
                       : "bg-slate-800 text-slate-300 border border-slate-700"
@@ -296,7 +296,7 @@ export function NexusGrowthMap() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10"
         >
           {/* Left Column: Strategic Thesis & Problem Dossier */}
-          <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-9 flex flex-col justify-between space-y-6 shadow-md">
+          <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-none p-6 sm:p-9 flex flex-col justify-between space-y-6 shadow-md">
             <div className="space-y-5">
               
               {/* Badge & Phase Indicator */}
@@ -315,7 +315,7 @@ export function NexusGrowthMap() {
               </h3>
 
               {/* Core Strategic Question Callout */}
-              <div className="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+              <div className="p-4 sm:p-5 rounded-none bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs uppercase tracking-wider">
                   <Zap className="w-3.5 h-3.5" />
                   <span>Core Strategic Question</span>
@@ -331,7 +331,7 @@ export function NexusGrowthMap() {
               </p>
 
               {/* Sales Impact Note */}
-              <div className="p-3 bg-slate-800/60 border border-slate-700/60 rounded-xl flex items-start gap-2.5 text-xs text-slate-300">
+              <div className="p-3 bg-slate-800/60 border border-slate-700/60 rounded-none flex items-start gap-2.5 text-xs text-slate-300">
                 <Target className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>
                   <strong className="text-white uppercase font-bold">Why Sales Wins:</strong> {currentStage.salesImpact}
@@ -343,7 +343,7 @@ export function NexusGrowthMap() {
             <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-4">
               <button
                 onClick={handlePrev}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-white rounded-xl text-xs font-semibold cursor-pointer transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-white rounded-none text-xs font-semibold cursor-pointer transition-all"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
                 <span>Prev Stage</span>
@@ -351,7 +351,7 @@ export function NexusGrowthMap() {
 
               <button
                 onClick={handleNext}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-500 text-white rounded-xl text-xs font-semibold cursor-pointer transition-all shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-500 text-white rounded-none text-xs font-semibold cursor-pointer transition-all shadow-xs"
               >
                 <span>Next Stage</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -360,7 +360,7 @@ export function NexusGrowthMap() {
           </div>
 
           {/* Right Column: Deliverables & Commercial Standard (Modern White Card) */}
-          <div className="lg:col-span-5 bg-white text-slate-900 border border-slate-200/90 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-md">
+          <div className="lg:col-span-5 bg-white text-slate-900 border border-slate-200/90 rounded-none p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-md">
             <div className="space-y-5">
               
               {/* Header Bar */}
@@ -380,7 +380,7 @@ export function NexusGrowthMap() {
               <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
                 {currentStage.deliverables.map((del, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5 border border-blue-200">
+                    <div className="w-5 h-5 rounded-none bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5 border border-blue-200">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                     <span className="font-medium leading-snug">{del}</span>
@@ -391,7 +391,7 @@ export function NexusGrowthMap() {
 
             {/* Bottom Commercial Metric Anchor */}
             <div className="space-y-3 pt-4 border-t border-slate-200">
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+              <div className="p-4 rounded-none bg-slate-50 border border-slate-200/80 space-y-1">
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">
                   {currentStage.metricLabel}:
                 </span>
@@ -402,7 +402,7 @@ export function NexusGrowthMap() {
 
               <Link
                 href={`/audit?stage=${currentStage.id}`}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
               >
                 <span>Audit Stage {currentStage.step} for Your Firm</span>
                 <ArrowRight className="w-3.5 h-3.5" />

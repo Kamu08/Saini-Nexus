@@ -32,10 +32,10 @@ const FOCUS_AREAS: FocusOption[] = [
 ];
 
 const BUDGET_TIERS = [
-  { id: "starter", label: "₹25k – ₹50k / mo", full: "₹25,000 – ₹50,000 / mo (Starter Engine)" },
-  { id: "growth", label: "₹50k – ₹1L / mo", full: "₹50,000 – ₹1,00,000 / mo (Growth Tier)" },
-  { id: "scale", label: "₹1L – ₹2.5L / mo", full: "₹1,00,000 – ₹2,50,000 / mo (Scale Tier)" },
-  { id: "enterprise", label: "₹2.5L+ / mo", full: "₹2,50,000+ / mo (Enterprise & Global)" }
+  { id: "starter", label: "$1.5k – $2k / mo", full: "$1,500 – $2,000 / mo (Starter Engine)" },
+  { id: "growth", label: "$2k – $10k / mo", full: "$2,000 – $10,000 / mo (Growth Tier)" },
+  { id: "scale", label: "$10k – $15k / mo", full: "$10,000 – $15,000 / mo (Scale Tier)" },
+  { id: "enterprise", label: "$15k+ / mo", full: "$15,000+ / mo (Enterprise & Global)" }
 ];
 
 export function ContactForm() {
@@ -70,14 +70,12 @@ export function ContactForm() {
     };
 
     try {
-      // 1. Post to internal API route forwarding to kamal0sharma02@gmail.com
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
-      // 2. Client-side fallback to FormSubmit
       if (!res.ok) {
         await fetch("https://formsubmit.co/ajax/kamal0sharma02@gmail.com", {
           method: "POST",
@@ -106,206 +104,170 @@ export function ContactForm() {
   };
 
   return (
-    <section className="space-y-10">
+    <section className="space-y-12 py-12">
       
       {/* Editorial Section Header */}
-      <div className="border-b border-slate-200 pb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-          <span>Start a Conversation</span>
-        </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          <div className="max-w-3xl space-y-3">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+      <div className="border-b border-slate-200 pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#1572B8] text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em]">
+              <Sparkles className="w-3.5 h-3.5" />
+              Start a Conversation
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-slate-900 tracking-tighter leading-[1.05]">
               Let&apos;s Scale Your Pipeline.
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed max-w-2xl">
               Have an enterprise ACV, a long sales cycle, or paid clicks that aren&apos;t turning into sales-accepted meetings? Tell us about your acquisition model or request a complimentary pipeline diagnostic.
             </p>
           </div>
-          
-          <div className="shrink-0 flex items-center gap-3">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 text-xs font-semibold shadow-xs hover:shadow-sm transition-all"
-            >
-              <Calendar className="w-3.5 h-3.5 text-blue-600" />
-              <span>Or Book a 30-Min Strategy Call</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+          <div className="shrink-0">
+             <Link href="/book" className="group flex items-center justify-center gap-3 bg-white border border-slate-200 text-slate-900 px-6 py-4 text-[10px] font-sans font-bold uppercase tracking-[0.2em] hover:border-slate-900 transition-colors shadow-xs">
+                <Calendar className="w-4 h-4 text-[#1572B8]" />
+                Book a Strategy Call
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-slate-400" />
+             </Link>
           </div>
-        </div>
       </div>
 
-      {/* Main Container: Modern Split */}
-      <div className="bg-[#08152a] border border-[#1b3f73]/70 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 text-white relative overflow-hidden">
+      {/* Main Container: Sharp Architectural Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-slate-200 bg-white shadow-2xl relative">
         
-        {/* Subtle Ambient Blue Glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1572b8]/15 rounded-full blur-3xl pointer-events-none" />
-
         {/* LEFT COLUMN: The Consultation Dossier (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-8 relative z-10">
-          
-          <div className="space-y-6">
-            <div>
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#38a9eb] block mb-1">
-                How We Work
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-                How We Partner With B2B Leaders
-              </h3>
-              <p className="text-slate-300 text-sm mt-2 leading-relaxed">
-                We work directly with founders, CMOs, and revenue leaders who require rigorous, verifiable demand architecture.
-              </p>
-            </div>
+        <div className="lg:col-span-5 bg-[#1572B8] p-8 sm:p-12 lg:p-16 border-r border-b border-slate-200 text-white relative overflow-hidden flex flex-col justify-between">
+           {/* Subtle Blueprint Grid */}
+           <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+           
+           <div className="relative z-10 space-y-12">
+             <div className="space-y-4">
+               <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#EBF6FC] opacity-90 block mb-1">
+                 How We Work
+               </span>
+               <h3 className="text-3xl sm:text-4xl font-sans font-black text-white leading-tight tracking-tight">
+                 How We Partner With B2B Leaders
+               </h3>
+               <p className="text-[#EBF6FC] text-sm leading-relaxed font-medium">
+                 We work directly with founders, CMOs, and revenue leaders who require rigorous, verifiable demand architecture.
+               </p>
+             </div>
 
-            {/* 3 Commitments */}
-            <div className="space-y-3 pt-2">
-              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-[#0c2852] text-[#67c7f8] border border-[#38a9eb]/40 text-xs font-bold flex items-center justify-center">
-                    01
-                  </span>
-                  <h4 className="font-bold text-white text-sm">
-                    Direct Partner Review
+             <div className="space-y-8">
+               <div className="border-l-2 border-[#67C7F8] pl-6 space-y-2">
+                  <h4 className="font-sans font-bold text-white text-base tracking-wide flex items-center gap-3">
+                    <span className="text-[#67C7F8] text-sm">01</span> Direct Partner Review
                   </h4>
-                </div>
-                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
-                  Every inquiry is personally reviewed by Dev Raj Saini. Zero screening calls with junior SDRs or outsourced coordinators.
-                </p>
-              </div>
-
-              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-[#0c2852] text-[#38a9eb] border border-[#38a9eb]/40 text-xs font-bold flex items-center justify-center">
-                    02
-                  </span>
-                  <h4 className="font-bold text-white text-sm">
-                    Diagnostic in 24–48 Hours
+                  <p className="text-sm text-[#EBF6FC]/90 leading-relaxed font-medium">
+                    Every inquiry is personally reviewed by Dev Raj Saini. Zero screening calls with junior SDRs or outsourced coordinators.
+                  </p>
+               </div>
+               
+               <div className="border-l-2 border-[#67C7F8] pl-6 space-y-2">
+                  <h4 className="font-sans font-bold text-white text-base tracking-wide flex items-center gap-3">
+                    <span className="text-[#67C7F8] text-sm">02</span> Diagnostic in 24–48 Hours
                   </h4>
-                </div>
-                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
-                  We evaluate your committee coverage, negative exclusions, and technical proof gaps before suggesting any budget commitment.
-                </p>
-              </div>
+                  <p className="text-sm text-[#EBF6FC]/90 leading-relaxed font-medium">
+                    We evaluate your committee coverage, negative exclusions, and technical proof gaps before suggesting any budget commitment.
+                  </p>
+               </div>
 
-              <div className="bg-[#091830]/80 border border-[#18365f] rounded-2xl p-4 shadow-xs">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="w-6 h-6 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-400/40 text-xs font-bold flex items-center justify-center">
-                    03
-                  </span>
-                  <h4 className="font-bold text-white text-sm">
-                    Zero Vanity Metrics
+               <div className="border-l-2 border-[#67C7F8] pl-6 space-y-2">
+                  <h4 className="font-sans font-bold text-white text-base tracking-wide flex items-center gap-3">
+                    <span className="text-[#67C7F8] text-sm">03</span> Zero Vanity Metrics
                   </h4>
-                </div>
-                <p className="text-xs text-slate-300 pl-8 leading-relaxed">
-                  We measure success strictly on Sales-Accepted Pipeline, qualified ACVs, and customer acquisition cost reduction.
-                </p>
-              </div>
-            </div>
-          </div>
+                  <p className="text-sm text-[#EBF6FC]/90 leading-relaxed font-medium">
+                    We measure success strictly on Sales-Accepted Pipeline, qualified ACVs, and customer acquisition cost reduction.
+                  </p>
+               </div>
+             </div>
+           </div>
 
-          {/* Quick Contact & Verified Channels */}
-          <div className="bg-[#091830]/90 border border-[#18365f] rounded-2xl p-5 space-y-3 shadow-xs">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+           <div className="relative z-10 mt-12 pt-10 border-t border-[#38A9EB]/40">
+              <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#EBF6FC] block mb-4">
                 Direct Channels &amp; Advisory Hub
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-[#d4effc] bg-[#0c2852]/80 border border-[#38a9eb]/40 px-2 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38a9eb] animate-pulse" />
-                24h Response SLA
-              </span>
-            </div>
-
-            <div className="space-y-2 text-xs">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#07152b] border border-[#18365f] text-slate-300">
-                <MapPin className="w-3.5 h-3.5 text-[#38a9eb] shrink-0" />
-                <span>Jaipur, Rajasthan, India · Serving India &amp; Global B2B</span>
-              </div>
-
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-[#07152b] border border-[#18365f] text-slate-300">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-[#38a9eb] shrink-0" />
-                  <span className="font-semibold text-white">Private 1-on-1 Briefing</span>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-xs font-sans font-bold tracking-wider text-white uppercase">
+                  <MapPin className="w-4 h-4 text-[#67C7F8]" />
+                  Jaipur, Rajasthan · Serving India &amp; Global B2B
                 </div>
-                <Link
-                  href="/book"
-                  className="px-2.5 py-1 bg-white border border-transparent text-[10px] font-bold rounded hover:bg-[#edf7fd] transition-colors shrink-0 inline-flex items-center gap-1 text-[#07152b] shadow-xs"
-                >
-                  <span>Book Call</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#07152b]" />
-                </Link>
+                <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-sans font-bold tracking-wider text-white uppercase">
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-4 h-4 text-[#67C7F8]" />
+                    Private 1-on-1 Briefing
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] bg-white text-[#1572B8] px-3 py-1 font-bold">
+                    <span className="w-1.5 h-1.5 bg-[#1572B8] animate-pulse" />
+                    24h Response SLA
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
+           </div>
 
         </div>
 
         {/* RIGHT COLUMN: Business Inquiry Card (7 cols) */}
-        <div className="lg:col-span-7 relative z-10">
-          <div className="bg-[#091830]/90 border border-[#18365f] rounded-2xl p-6 sm:p-8 lg:p-9 shadow-2xl">
+        <div className="lg:col-span-7 bg-white relative z-10 p-8 sm:p-12 lg:p-16 border-r border-b border-slate-200">
             
             {submitted ? (
-              <div className="py-12 text-center space-y-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-400/40 flex items-center justify-center mx-auto text-emerald-400">
+              <div className="py-16 text-center space-y-6">
+                <div className="w-16 h-16 bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600 shadow-sm">
                   <Check className="w-8 h-8 stroke-[2.5]" />
                 </div>
                 
-                <div className="space-y-2">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                <div className="space-y-3">
+                  <h3 className="text-2xl sm:text-4xl font-sans font-black text-slate-900 tracking-tight">
                     Diagnostic Request Received
                   </h3>
-                  <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-white">Dev Raj Saini</strong>. We will review your company profile and respond within 24 hours.
+                  <p className="text-slate-600 text-base max-w-md mx-auto leading-relaxed font-medium">
+                    Thank you, <strong className="text-slate-900 font-bold">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-slate-900 font-bold">Dev Raj Saini</strong>. We will review your company profile and respond within 24 hours.
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#07152b] border border-[#18365f] rounded-xl max-w-md mx-auto text-left text-xs space-y-1.5">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Selected Focus:</span>
-                    <span className="font-semibold text-white">{currentFocusObj.label}</span>
+                <div className="p-6 bg-slate-50 border border-slate-200 max-w-md mx-auto text-left text-xs font-sans space-y-3">
+                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider">Selected Focus:</span>
+                    <span className="font-bold text-slate-900">{currentFocusObj.label}</span>
+                  </div>
+                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider">Target Budget:</span>
+                    <span className="font-bold text-slate-900">{currentBudgetObj.label}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Target Budget:</span>
-                    <span className="font-semibold text-white">{currentBudgetObj.label}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Delivery Status:</span>
-                    <span className="font-semibold text-emerald-400">Dispatched to Founder Email</span>
+                    <span className="text-slate-500 font-bold uppercase tracking-wider">Delivery Status:</span>
+                    <span className="font-bold text-emerald-600 uppercase tracking-wider">Dispatched to Founder</span>
                   </div>
                 </div>
 
-                <div className="pt-2 flex justify-center gap-4">
+                <div className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
                   <button
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
                       setFormData({ name: "", workEmail: "", company: "", notes: "" });
                     }}
-                    className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-[#07152b] hover:bg-[#edf7fd] transition-all shadow-xs"
+                    className="px-6 py-4 bg-white border border-slate-200 text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-700 hover:border-slate-400 hover:text-slate-900 transition-all cursor-pointer"
                   >
                     Submit Another Inquiry
                   </button>
                   <Link
                     href="/case-studies"
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#1572b8] to-[#38a9eb] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-[#38a9eb]/20 transition-all"
+                    className="px-6 py-4 bg-[#1572B8] text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-slate-900 transition-all cursor-pointer"
                   >
                     <span>Explore Case Studies</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-10">
                 
                 {/* Step 1: Strategic Focus Area */}
-                <div className="space-y-2.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 flex items-center justify-between">
+                <div className="space-y-4">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest text-slate-900 flex items-center justify-between border-b border-slate-100 pb-2">
                     <span>1. What is your primary growth priority?</span>
-                    <span className="text-[10px] text-[#38a9eb] font-semibold">Select One</span>
+                    <span className="text-[10px] text-[#1572B8]">Select One</span>
                   </label>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {FOCUS_AREAS.map((area) => {
                       const isSelected = selectedFocus === area.id;
                       return (
@@ -313,18 +275,14 @@ export function ContactForm() {
                           key={area.id}
                           type="button"
                           onClick={() => setSelectedFocus(area.id)}
-                          className={`text-left p-3 rounded-xl border transition-all text-xs flex items-center justify-between cursor-pointer ${
+                          className={`text-left p-4 border transition-all text-xs font-sans font-bold uppercase tracking-wide flex items-center justify-between cursor-pointer ${
                             isSelected
-                              ? "bg-[#0c2852]/85 border-[#38a9eb] font-semibold text-[#f0f9ff] shadow-[0_0_15px_rgba(56,169,235,0.25)]"
-                              : "bg-[#07152b]/80 border-[#18365f] hover:border-[#1e4e8c] text-slate-300 hover:text-white"
+                              ? "bg-slate-900 border-slate-900 text-white shadow-md"
+                              : "bg-slate-50 border-slate-200 hover:border-slate-400 text-slate-600"
                           }`}
                         >
                           <span className="truncate">{area.label}</span>
-                          <span
-                            className={`w-3.5 h-3.5 rounded-full border shrink-0 ml-2 ${
-                              isSelected ? "bg-[#38a9eb] border-[#38a9eb] shadow-[0_0_6px_#38a9eb]" : "bg-slate-900 border-slate-700"
-                            }`}
-                          />
+                          {isSelected && <Check className="w-4 h-4 shrink-0 ml-2" />}
                         </button>
                       );
                     })}
@@ -332,13 +290,13 @@ export function ContactForm() {
                 </div>
 
                 {/* Step 2: Estimated Monthly Budget */}
-                <div className="space-y-2.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 flex items-center justify-between">
+                <div className="space-y-4">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest text-slate-900 flex items-center justify-between border-b border-slate-100 pb-2">
                     <span>2. Estimated Monthly Growth &amp; Media Budget</span>
-                    <span className="text-[10px] text-slate-400 font-medium">INR (₹)</span>
+                    <span className="text-[10px] text-slate-400 font-bold">USD ($)</span>
                   </label>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {BUDGET_TIERS.map((tier) => {
                       const isSelected = selectedBudget === tier.id;
                       return (
@@ -346,10 +304,10 @@ export function ContactForm() {
                           key={tier.id}
                           type="button"
                           onClick={() => setSelectedBudget(tier.id)}
-                          className={`py-2 px-2.5 rounded-xl border text-center transition-all text-xs cursor-pointer ${
+                          className={`py-3 px-2 border text-center transition-all text-[11px] font-sans font-bold tracking-wider cursor-pointer ${
                             isSelected
-                              ? "bg-gradient-to-r from-[#1572b8] to-[#38a9eb] border-[#38a9eb] font-bold text-white shadow-[0_0_15px_rgba(56,169,235,0.35)]"
-                              : "bg-[#07152b]/80 border-[#18365f] hover:border-[#1e4e8c] text-slate-300 hover:text-white"
+                              ? "bg-[#1572B8] border-[#1572B8] text-white shadow-md"
+                              : "bg-slate-50 border-slate-200 hover:border-slate-400 text-slate-600"
                           }`}
                         >
                           {tier.label}
@@ -360,12 +318,12 @@ export function ContactForm() {
                 </div>
 
                 {/* Step 3: Contact & Company Details */}
-                <div className="space-y-3.5 pt-1">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-200 block">
+                <div className="space-y-4">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest text-slate-900 block border-b border-slate-100 pb-2">
                     3. Your Commercial Details
                   </label>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <input
                         type="text"
@@ -373,7 +331,7 @@ export function ContactForm() {
                         placeholder="Your Full Name *"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
+                        className="w-full bg-slate-50 border border-slate-200 px-4 py-3.5 text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1572B8] focus:ring-1 focus:ring-[#1572B8] transition-all"
                       />
                     </div>
 
@@ -384,7 +342,7 @@ export function ContactForm() {
                         placeholder="Work Email Address *"
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                        className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
+                        className="w-full bg-slate-50 border border-slate-200 px-4 py-3.5 text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1572B8] focus:ring-1 focus:ring-[#1572B8] transition-all"
                       />
                     </div>
                   </div>
@@ -393,48 +351,48 @@ export function ContactForm() {
                     <input
                       type="text"
                       required
-                      placeholder="Company Name & Website (e.g. Acme Corp · acme.com) *"
+                      placeholder="Company Name & Website (e.g. Acme Corp — acme.com) *"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-200 px-4 py-3.5 text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1572B8] focus:ring-1 focus:ring-[#1572B8] transition-all"
                     />
                   </div>
 
                   <div>
                     <textarea
-                      rows={3}
+                      rows={4}
                       placeholder="Briefly describe your acquisition bottleneck, target ACV, or primary objective..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-[#07152b] border border-[#18365f] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[#38a9eb] focus:ring-2 focus:ring-[#38a9eb]/25 transition-all resize-none shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-200 px-4 py-3.5 text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1572B8] focus:ring-1 focus:ring-[#1572B8] transition-all resize-none"
                     />
                   </div>
                 </div>
 
                 {/* Submit Action */}
-                <div className="pt-2 space-y-3">
+                <div className="pt-4 space-y-4">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-[#edf7fd] text-[#07152b] font-bold text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer"
+                    className="group w-full py-5 px-6 bg-[#1572B8] hover:bg-slate-900 text-white font-sans font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-colors disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Submitting Diagnostic Request...</span>
                     ) : (
                       <>
                         <span>Submit Inquiry &amp; Request Diagnostic</span>
-                        <ArrowRight className="w-4 h-4 shrink-0 text-[#07152b]" />
+                        <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                       </>
                     )}
                   </button>
 
-                  <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2 text-center sm:text-left">
-                    <span className="flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-[#38a9eb] shrink-0" />
-                      Strict NDA Confidentiality · No Sales Spam
+                  <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] font-sans font-bold uppercase tracking-wider text-slate-400 gap-3 text-center sm:text-left">
+                    <span className="flex items-center gap-2">
+                      <Lock className="w-3.5 h-3.5 text-[#1572B8] shrink-0" />
+                      Strict NDA Confidentiality — No Sales Spam
                     </span>
-                    <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                      <Clock className="w-3 h-3 text-[#38a9eb] shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-500">
+                      <Clock className="w-3.5 h-3.5 text-[#1572B8] shrink-0" />
                       Direct Founder Review within 24 Hours
                     </span>
                   </div>
@@ -443,7 +401,6 @@ export function ContactForm() {
               </form>
             )}
 
-          </div>
         </div>
 
       </div>

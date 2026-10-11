@@ -23,8 +23,6 @@ import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
-import { LivePipelineVisualizer } from "@/components/LivePipelineVisualizer";
-import { EditorialJournalDesk } from "@/components/EditorialJournalDesk";
 
 export default function HomePage() {
   const CAPABILITIES = [
@@ -36,7 +34,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-20 sm:space-y-32 pb-24 overflow-x-clip">
+    <div className="overflow-x-clip">
       
       {/* ========================================================= */}
       {/* 00. HERO SECTION                                          */}
@@ -47,7 +45,7 @@ export default function HomePage() {
       {/* DYNAMIC BREAK 01: CORE CAPABILITIES MOVING TICKER RIBBON  */}
       {/* Glitch-free twin-track marquee in vibrant Saini Logo Blue */}
       {/* ========================================================= */}
-      <div className="w-full">
+      <div className="w-full my-8 sm:my-14">
         <div className="marquee-container group w-full bg-gradient-to-r from-[#0E4A8A] via-[#1572B8] to-[#0E4A8A] border-y border-[#67c7f8]/50 rounded-none py-3.5 px-0 shadow-lg shadow-[#1572b8]/15 relative overflow-hidden select-none">
           
           {/* Edge Vignette Fades in Saini Brand Blue */}
@@ -90,7 +88,7 @@ export default function HomePage() {
       {/* 01. TRUST & VERIFIED CREDENTIALS — BOLD EDITORIAL LAYOUT  */}
       {/* Premium dark glass credential showcase, Saini blue theme  */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 sm:my-20">
 
         {/* Outer shell — rich multi-stop Saini blue gradient (darkened) */}
         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#1260a8] via-[#0e4a8a] to-[#08346e]">
@@ -242,74 +240,112 @@ export default function HomePage() {
 
       {/* ========================================================= */}
       {/* 02. WHAT WE DO: THE 8 SERVICES                            */}
-      {/* Dark Structured Canvas                                    */}
+      {/* Light Structured Canvas with White Fluted Stripes Texture  */}
       {/* ========================================================= */}
-      <section className="bg-[#040B16] w-full border-y border-[#1572B8]/20 py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="relative w-full border-y border-slate-200/80 py-12 sm:py-20 bg-cover bg-top bg-fixed bg-no-repeat"
+        style={{ backgroundImage: "url('/fluted-services-bg-dense.jpg')" }}
+      >
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <InteractiveServicesHub />
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* 03. LIVE PIPELINE VISUALIZER: ARCHITECTURAL CRAFT          */}
-      {/* Interactive 5-stage commercial engine with telemetry       */}
-      {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <LivePipelineVisualizer />
-      </section>
+
 
       {/* ========================================================= */}
       {/* 04. THE 7-STAGE PIPELINE AUDIT INVITATION (LEAN CALLOUT)  */}
       {/* Clean high-converting banner directing to dedicated /audit */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#08152a] border border-[#1b3f73]/70 rounded-2xl sm:rounded-3xl p-7 sm:p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        {/* The Container */}
+        <div className="bg-white border border-slate-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] relative flex flex-col gap-12 lg:gap-16 p-8 sm:p-12 lg:p-16 group/box overflow-hidden">
           
-          {/* Subtle Ambient Blue Glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#1572b8]/15 rounded-full blur-3xl pointer-events-none" />
+          {/* Accent Gradient Top Bar */}
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0B3C7E] via-[#1572B8] to-[#38A9EB]" />
+          
+          {/* Subtle Background Pattern (Dot Grid) */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
-          <div className="space-y-4 max-w-2xl relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0c2852]/80 border border-[#38a9eb]/40 text-[#d4effc] text-xs font-sans font-semibold shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#38a9eb]" />
-              The Saini Nexus Growth Architecture
+          {/* Top Half: Copy & CTA */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-10 lg:gap-16 relative z-10">
+            <div className="w-full max-w-2xl space-y-6 text-center lg:text-left">
+              
+              {/* High-Contrast Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em] shadow-sm">
+                <Sparkles className="w-3 h-3 text-[#38A9EB]" />
+                The Saini Nexus Growth Architecture
+              </div>
+              
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-black text-slate-900 tracking-tight leading-[1.15]">
+                Where Is Your B2B Growth Engine <span className="text-[#1572B8]">Leaking Opportunities?</span>
+              </h3>
+              
+              <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Evaluate your buying committee coverage, content proof, and LinkedIn distribution across our 7 connected stages.
+              </p>
             </div>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-extrabold text-white tracking-tight leading-snug">
-              Where Is Your B2B Growth Engine Leaking Opportunities?
-            </h3>
-            <p className="text-slate-300 text-sm sm:text-base font-normal leading-relaxed">
-              Evaluate your buying committee coverage, content proof, and LinkedIn distribution across our 7 connected stages.
-            </p>
 
-            {/* 7-Step Mini Indicator */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[11px] font-sans font-semibold text-slate-300">
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">01 Context</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">02 Positioning</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">03 Proof</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">04 Audience</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">05 Distribution</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-[#091b36]/80 px-2.5 py-1 rounded-md border border-[#18365f]">06 Demand</span>
-              <span className="text-slate-500">→</span>
-              <span className="bg-gradient-to-r from-[#1572b8] to-[#38a9eb] text-white px-2.5 py-1 rounded-md font-bold shadow-[0_0_15px_rgba(56,169,235,0.4)]">07 Pipeline</span>
+            <div className="shrink-0 flex flex-col items-center lg:items-end gap-3 w-full lg:w-auto">
+              {/* Premium Gradient Button */}
+              <Link 
+                href="/audit" 
+                className="group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1572B8] to-[#0E4A8A] hover:from-[#38A9EB] hover:to-[#1572B8] text-white text-xs font-sans font-bold uppercase tracking-widest transition-all shadow-xl hover:shadow-[0_10px_30px_rgba(21,114,184,0.3)] border border-transparent"
+              >
+                <span>Request Growth Assessment</span>
+                <ArrowRight className="w-4 h-4 shrink-0 text-[#67C7F8] group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+                Takes ~2 minutes • Actionable insights
+              </span>
             </div>
           </div>
 
-          <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3 relative z-10">
-            <Link 
-              href="/audit" 
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-sans font-bold text-[#07152b] bg-white hover:bg-[#edf7fd] shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5 transition-all text-center whitespace-nowrap"
-            >
-              <span>Request Growth Assessment</span>
-              <ArrowRight className="w-4 h-4 shrink-0 text-[#07152b]" />
-            </Link>
-            <span className="text-[11px] font-sans text-slate-400 text-center">
-              Takes ~2 minutes · Actionable insights
-            </span>
+          {/* Bottom Half: 7-Stage Architectural Grid */}
+          <div className="w-full relative z-10">
+            {/* Grounding line for the architecture */}
+            <div className="w-full h-[2px] bg-slate-800 mb-6" />
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+              {[
+                { name: "Context", role: "Foundation" },
+                { name: "Positioning", role: "Differentiation" },
+                { name: "Proof", role: "Validation" },
+                { name: "Audience", role: "Targeting" },
+                { name: "Distribution", role: "Reach" },
+                { name: "Demand", role: "Capture" },
+                { name: "Pipeline", role: "Commercial Yield" }
+              ].map((stage, idx) => (
+                <div 
+                  key={idx}
+                  className={`flex flex-col justify-between p-4 h-28 border ${idx === 6 ? 'bg-[#1572B8] border-[#1572B8] shadow-lg' : 'bg-slate-50 border-slate-200 hover:border-[#38A9EB]/40 hover:bg-white'} transition-colors relative group cursor-default`}
+                >
+                  {/* Top: Number & Glow */}
+                  <div className="flex items-start justify-between">
+                    <span className={`text-[10px] font-mono font-bold ${idx === 6 ? 'text-[#67C7F8]' : 'text-slate-400 group-hover:text-[#1572B8]'} transition-colors`}>
+                      0{idx + 1}
+                    </span>
+                    {idx === 6 ? (
+                      <span className="w-1.5 h-1.5 bg-white shadow-[0_0_8px_white] animate-pulse" />
+                    ) : (
+                      <span className="w-1.5 h-1.5 bg-slate-200 group-hover:bg-[#38A9EB]/50 transition-colors" />
+                    )}
+                  </div>
+                  
+                  {/* Bottom: Stage Info */}
+                  <div>
+                    <div className={`text-[9px] font-sans font-bold uppercase tracking-wider ${idx === 6 ? 'text-[#67C7F8]' : 'text-slate-400 group-hover:text-slate-500'} transition-colors mb-1`}>
+                      {stage.role}
+                    </div>
+                    <div className={`text-xs font-sans font-bold ${idx === 6 ? 'text-white' : 'text-slate-900'} tracking-wide`}>
+                      {stage.name}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -325,85 +361,89 @@ export default function HomePage() {
       {/* ========================================================= */}
       <CaseStudyShowcase />
 
-      {/* ========================================================= */}
-      {/* 06B. EDITORIAL JOURNAL DESK: RESEARCH DISPATCHES          */}
-      {/* Authoritative research archive & practitioner journalism  */}
-      {/* ========================================================= */}
-      <EditorialJournalDesk />
+
 
       {/* ========================================================= */}
       {/* 07. FOUNDER AUTHORITY: EXECUTIVE PROFILE DOSSIER          */}
       {/* Modern corporate leadership highlight                     */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
-          className="bg-[#08152a] border border-[#1b3f73]/70 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden"
-        >
-          {/* Subtle Ambient Blue Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#1572b8]/15 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="lg:col-span-7 space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0c2852]/80 border border-[#38a9eb]/40 text-[#d4effc] text-xs font-sans font-semibold shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#38a9eb]" />
-              Executive Profile &amp; Practice Lead
+      <section 
+        className="w-full relative py-16 sm:py-24"
+        style={{
+          backgroundImage: "url('/bg/torn_paper.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 border border-slate-200 shadow-2xl bg-white overflow-hidden">
+            
+            {/* Left: The Photo (5 cols) */}
+            <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-[600px] border-r border-slate-200 bg-[#FAFCFF] overflow-hidden group">
+              <Image 
+                src="/team/dev-raj-saini.jpg" 
+                fill 
+                className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" 
+                alt="Dev Raj Saini — Founder, Saini Nexus" 
+              />
+              <div className="absolute inset-0 bg-[#1572B8]/15 group-hover:bg-transparent transition-colors duration-700 pointer-events-none" />
             </div>
 
-            <div>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-extrabold text-white leading-tight tracking-tight">
-                Dev Raj Saini
-              </h2>
-              <p className="text-sm font-sans text-[#38a9eb] font-semibold mt-1.5 uppercase tracking-wider">
-                Founder &amp; Lead B2B Growth Strategist
-              </p>
-            </div>
+            {/* Right: The Content (7 cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-center p-8 sm:p-12 lg:p-16 relative overflow-hidden bg-white">
+              
+              {/* Subtle structural grid lines inside the white box */}
+              <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1572B8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-              Marketing founder and strategist focused on the intersection of B2B marketing, LinkedIn, thought leadership, personal branding and professional authority. Founder of <strong className="text-white font-semibold">Saini Nexus</strong> (B2B Demand &amp; Pipeline Growth) and <strong className="text-white font-semibold">Saini Prime</strong> (Executive Authority &amp; Positioning). Based in Jaipur, Rajasthan, serving India &amp; global B2B markets.
-            </p>
+              <div className="space-y-6 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em] shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-[#38A9EB]" />
+                  Executive Profile &amp; Practice Lead
+                </div>
 
-            <div className="flex flex-wrap gap-2.5 text-xs font-sans text-slate-300 font-medium pt-1">
-              <span className="inline-flex items-center gap-1.5 bg-[#091b36]/80 px-3.5 py-1.5 rounded-full border border-[#18365f]">
-                <MapPin className="w-4 h-4 text-[#38a9eb] shrink-0" />
-                Jaipur, Rajasthan, India
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-[#0c2852]/80 px-3.5 py-1.5 rounded-full border border-[#38a9eb]/40 text-[#d4effc]">
-                <ShieldCheck className="w-4 h-4 text-[#38a9eb] shrink-0" />
-                LinkedIn Marketing Labs Certified
-              </span>
-            </div>
+                <div>
+                  <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black text-slate-900 leading-tight tracking-tight">
+                    Dev Raj Saini
+                  </h2>
+                  <p className="text-xs sm:text-sm font-sans text-[#1572B8] font-bold mt-1.5 uppercase tracking-[0.2em]">
+                    Founder &amp; Lead B2B Growth Strategist
+                  </p>
+                </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <Link 
-                href="/about/dev-raj-saini" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-sans font-bold text-[#07152b] bg-white hover:bg-[#edf7fd] shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5 transition-all text-center whitespace-nowrap"
-              >
-                <span>Meet the Founder</span>
-                <ArrowRight className="w-4 h-4 shrink-0 text-[#07152b]" />
-              </Link>
-              <Link 
-                href="/about" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-sans font-semibold text-white bg-[#0b2144]/75 border border-[#38a9eb]/40 hover:border-[#38a9eb]/80 hover:bg-[#0f2c59]/90 transition-all text-center whitespace-nowrap"
-              >
-                <span>About Saini Nexus</span>
-                <ArrowUpRight className="w-4 h-4 shrink-0 text-[#74cbf7]" />
-              </Link>
-            </div>
-          </div>
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+                  Marketing founder and strategist focused on the intersection of B2B marketing, LinkedIn, thought leadership, personal branding and professional authority. Founder of <strong className="text-slate-900 font-semibold">Saini Nexus</strong> (B2B Demand &amp; Pipeline Growth) and <strong className="text-slate-900 font-semibold">Saini Prime</strong> (Executive Authority &amp; Positioning). Based in Jaipur, Rajasthan, serving India &amp; global B2B markets.
+                </p>
 
-          {/* Founder photo with clean modern border */}
-          <div className="lg:col-span-5 flex justify-center relative z-10">
-            <div className="relative p-2 rounded-3xl bg-[#091b36] border border-[#18365f] shadow-2xl">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden bg-slate-950">
-                <Image
-                  src="/team/dev-raj-saini.jpg"
-                  alt="Dev Raj Saini — Founder, Saini Nexus"
-                  fill
-                  className="object-cover object-top"
-                />
+                <div className="flex flex-wrap gap-2.5 text-xs font-sans text-slate-700 font-medium pt-1">
+                  <span className="inline-flex items-center gap-1.5 bg-slate-50 px-3.5 py-1.5 border border-slate-200">
+                    <MapPin className="w-4 h-4 text-[#1572B8] shrink-0" />
+                    Jaipur, Rajasthan, India
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-slate-50 px-3.5 py-1.5 border border-slate-200 text-slate-900">
+                    <ShieldCheck className="w-4 h-4 text-[#1572B8] shrink-0" />
+                    LinkedIn Marketing Labs Certified
+                  </span>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                  <Link 
+                    href="/about" 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-sans font-bold uppercase tracking-[0.2em] text-white bg-[#1572B8] hover:bg-[#38A9EB] transition-colors shadow-sm text-center whitespace-nowrap"
+                  >
+                    <span>About Saini Nexus</span>
+                    <ArrowRight className="w-4 h-4 shrink-0" />
+                  </Link>
+                  <Link 
+                    href="/book" 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-700 bg-white border border-slate-200 hover:border-[#1572B8] transition-colors text-center whitespace-nowrap"
+                  >
+                    <span>Book Strategy Call</span>
+                    <ArrowUpRight className="w-4 h-4 shrink-0 text-slate-400" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -412,7 +452,7 @@ export default function HomePage() {
       {/* ========================================================= */}
       {/* 09. FINAL COMMERCIAL INTAKE: HAVE A B2B GROWTH CHALLENGE? */}
       {/* ========================================================= */}
-      <div id="contact-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="contact-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <ContactForm />
       </div>
 

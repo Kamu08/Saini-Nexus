@@ -96,7 +96,7 @@ export function InteractiveSolutionsGrid() {
                 </Link>
 
                 <Link
-                  href="/book"
+                  href="/#contact-form"
                   className="px-4 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs hover:shadow-sm transition-all whitespace-nowrap shrink-0"
                 >
                   Scope Call

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { MAIN_NAV_ITEMS } from '@/data/navigation';
 
 export function Navbar() {
@@ -22,6 +22,11 @@ export function Navbar() {
     let ticking = false;
 
     const handleScroll = () => {
+      if (isOpen) {
+        setHidden(false);
+        return;
+      }
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
@@ -45,11 +50,12 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isOpen]);
 
   // Lock body scroll when mobile sidebar drawer is open
   useEffect(() => {
     if (isOpen) {
+      setHidden(false);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -97,18 +103,20 @@ export function Navbar() {
   };
 
   return (
-    <header 
-      ref={navRef}
-      className={`fixed top-0 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 transition-all duration-500 ease-in-out ${hidden ? '-translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'}`}
-    >
+    <>
+      <header 
+        ref={navRef}
+        className={`fixed top-0 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 transition-all duration-500 ease-in-out ${hidden ? '-translate-y-[150%] opacity-0' : 'translate-y-0 opacity-100'}`}
+      >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 sm:gap-6">
         
         {/* ========================================================= */}
-        {/* 1. LEFT BLOCK: BRAND IDENTITY (CLICKS DIRECTLY TO HOME)   */}
+        {/* 1. BRAND IDENTITY                                         */}
         {/* ========================================================= */}
+        {/* Desktop/Laptop: Full brand pill */}
         <Link 
           href="/" 
-          className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs hover:border-slate-300 transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 flex items-center shrink-0 gap-3 group cursor-pointer"
+          className="pointer-events-auto hidden lg:flex bg-white border border-slate-200/90 rounded-xl shadow-xs hover:border-slate-300 transition-all duration-200 px-4 sm:px-5 h-13 sm:h-14 items-center shrink-0 gap-3 group cursor-pointer"
         >
           <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 duration-200 shadow-xs">
             <Image
@@ -123,6 +131,24 @@ export function Navbar() {
           <span className="font-sans text-base sm:text-lg font-black tracking-tight text-slate-950 group-hover:text-[#1572B8] transition-colors uppercase whitespace-nowrap">
             Saini Nexus
           </span>
+        </Link>
+
+        {/* Mobile/Phone: Pure logo emblem ONLY (no white capsule, no text) */}
+        <Link 
+          href="/" 
+          className="pointer-events-auto lg:hidden flex items-center group cursor-pointer"
+          aria-label="Saini Nexus Home"
+        >
+          <div className="w-11 h-11 rounded-xl overflow-hidden bg-slate-950/85 backdrop-blur-md border border-white/20 shadow-lg p-1.5 flex items-center justify-center active:scale-95 transition-transform">
+            <Image
+              src="/saini-nexus-logo.png"
+              alt="Saini Nexus"
+              width={32}
+              height={32}
+              className="object-contain w-full h-full"
+              priority
+            />
+          </div>
         </Link>
 
         {/* ========================================================= */}
@@ -219,164 +245,176 @@ export function Navbar() {
         </nav>
 
         {/* ========================================================= */}
-        {/* 3. RIGHT BLOCK: CONVERSION CTA                            */}
+        {/* 3. RIGHT BLOCK: DESKTOP CONVERSION CTA (DESKTOP/LAPTOP)   */}
         {/* ========================================================= */}
-        <div className="pointer-events-auto bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 flex items-center shrink-0">
+        <div className="pointer-events-auto hidden lg:flex bg-white border border-slate-200/90 rounded-xl shadow-xs h-13 sm:h-14 px-2 sm:px-2.5 items-center shrink-0">
           <Link
-            href="/book"
+            href="/#contact-form"
             className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-9 sm:h-10 rounded-sm text-xs font-sans font-bold uppercase tracking-wider text-white bg-[#1572B8] hover:bg-[#38A9EB] shadow-xs hover:shadow-md transition-all duration-200 group whitespace-nowrap"
           >
             <span>Book Consultation</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
-
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden ml-2 p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
+
+        {/* ========================================================= */}
+        {/* 4. MOBILE HAMBURGER BUTTON (PHONE ONLY)                   */}
+        {/* ========================================================= */}
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="pointer-events-auto lg:hidden w-11 h-11 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/20 shadow-lg flex flex-col items-center justify-center gap-[5px] text-white active:scale-95 transition-all cursor-pointer group shrink-0"
+          aria-label={isOpen ? "Close menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+        >
+          <span className={`w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center ${isOpen ? 'rotate-45 translate-y-[7px] bg-[#38A9EB]' : 'group-hover:bg-[#38A9EB]'}`} />
+          <span className={`w-5 h-[2px] bg-white rounded-full transition-all duration-200 ${isOpen ? 'opacity-0 scale-x-0' : 'group-hover:bg-[#38A9EB]'}`} />
+          <span className={`w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center ${isOpen ? '-rotate-45 -translate-y-[7px] bg-[#38A9EB]' : 'group-hover:bg-[#38A9EB]'}`} />
+        </button>
 
       </div>
+    </header>
 
-      {/* ========================================================= */}
-      {/* MOBILE DRAWER                                             */}
-      {/* ========================================================= */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden pointer-events-auto">
-          {/* Blurred Backdrop */}
-          <div 
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs transition-opacity duration-200"
-            aria-hidden="true"
-          />
+    {/* ========================================================= */}
+    {/* MOBILE DRAWER (MOUNTED OUTSIDE HEADER AT HIGHEST Z-INDEX) */}
+    {/* ========================================================= */}
+    {isOpen && (
+      <div className="fixed inset-0 z-[9999] lg:hidden pointer-events-auto flex justify-end">
+        {/* Blurred High-Z Backdrop */}
+        <div 
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-slate-950/75 backdrop-blur-md transition-opacity duration-300"
+          aria-hidden="true"
+        />
 
-          {/* Slide-out Drawer Panel */}
-          <div className="fixed top-0 right-0 bottom-0 w-[88vw] sm:w-96 max-w-sm bg-white border-l border-slate-200 shadow-2xl flex flex-col justify-between overflow-hidden z-50 animate-in slide-in-from-right duration-250">
-            
-            {/* Drawer Header */}
-            <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-white shrink-0">
-              <Link 
-                href="/" 
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2.5 group"
-              >
-                <div className="w-7 h-7 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-0.5 flex items-center justify-center shrink-0 shadow-xs">
-                  <Image
-                    src="/saini-nexus-logo.png"
-                    alt="Saini Nexus"
-                    width={24}
-                    height={24}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <span className="font-sans text-lg font-black tracking-tight text-slate-900 uppercase">
+        {/* Slide-out Drawer Panel: spans 100% dynamic viewport height */}
+        <div className="relative w-[85vw] sm:w-96 max-w-sm h-screen h-[100dvh] bg-white border-l border-slate-200 shadow-2xl flex flex-col justify-between overflow-hidden z-10 animate-in slide-in-from-right duration-300">
+          
+          {/* Drawer Header */}
+          <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-white shrink-0">
+            <Link 
+              href="/" 
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2.5 group"
+            >
+              <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 p-1 flex items-center justify-center shrink-0 shadow-xs">
+                <Image
+                  src="/saini-nexus-logo.png"
+                  alt="Saini Nexus"
+                  width={26}
+                  height={26}
+                  className="object-contain w-full h-full"
+                />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-sans text-base font-black tracking-tight text-slate-950 uppercase leading-tight">
                   Saini Nexus
                 </span>
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all cursor-pointer"
-                aria-label="Close menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Drawer Navigation Content */}
-            <div className="p-5 space-y-2.5 overflow-y-auto flex-1">
-              {MAIN_NAV_ITEMS.map((item) => {
-                const hasChildren = item.children && item.children.length > 0;
-                const isExpanded = mobileExpandedItem === item.title;
-                const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-
-                if (hasChildren) {
-                  return (
-                    <div key={item.title} className="rounded-xl border border-slate-200/90 bg-white overflow-hidden shadow-xs">
-                      <div className="flex items-center justify-between p-3.5 bg-slate-50/50">
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`font-sans text-sm font-bold uppercase tracking-wider flex-1 ${
-                            isActive ? 'text-[#1572B8]' : 'text-slate-900'
-                          }`}
-                        >
-                          {item.title}
-                        </Link>
-                        <button
-                          type="button"
-                          onClick={() => toggleMobileSubmenu(item.title)}
-                          className="p-1 rounded-md border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer text-xs font-bold uppercase"
-                          aria-label={`Toggle ${item.title} submenu`}
-                        >
-                          {isExpanded ? 'Hide' : 'View'}
-                        </button>
-                      </div>
-
-                      {isExpanded && (
-                        <div className="p-2 space-y-1 bg-slate-50/60 border-t border-slate-100">
-                          {item.children?.map((sub) => (
-                            <Link
-                              key={sub.href}
-                              href={sub.href}
-                              onClick={() => setIsOpen(false)}
-                              className="p-2.5 rounded-lg block hover:bg-[#F0F9FF] transition-colors group"
-                            >
-                              <div className="font-sans text-xs font-bold text-slate-800 group-hover:text-[#1572B8] flex items-center justify-between uppercase tracking-wider">
-                                <span>{sub.title}</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1572B8]" />
-                              </div>
-                              {sub.description && (
-                                <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 font-normal normal-case">
-                                  {sub.description}
-                                </p>
-                              )}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block p-3.5 rounded-xl border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
-                      isActive
-                        ? 'bg-[#F0F9FF] border-[#B9E1F9] text-[#1572B8]'
-                        : 'bg-white border-slate-200/90 text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    {item.title}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Drawer Footer CTA */}
-            <div className="p-5 border-t border-slate-100 bg-white space-y-3 shrink-0">
-              <Link
-                href="/book"
-                onClick={() => setIsOpen(false)}
-                className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-sm text-xs font-sans font-bold uppercase tracking-wider text-white bg-[#1572B8] hover:bg-[#38A9EB] shadow-sm transition-all"
-              >
-                <span>Book Strategy Conversation</span>
-                <span className="ml-2 font-bold">→</span>
-              </Link>
-              <p className="text-[11px] font-sans text-center text-slate-500">
-                Direct 1-on-1 Strategy Consultation · Jaipur, India
-              </p>
-            </div>
-
+                <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-[#1572B8]">
+                  B2B Demand Engine
+                </span>
+              </div>
+            </Link>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="w-8 h-8 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5 stroke-[2.2]" />
+            </button>
           </div>
+
+          {/* Drawer Navigation Content */}
+          <div className="p-5 space-y-2.5 overflow-y-auto flex-1">
+            {MAIN_NAV_ITEMS.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+              const isExpanded = mobileExpandedItem === item.title;
+              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+
+              if (hasChildren) {
+                return (
+                  <div key={item.title} className="rounded-xl border border-slate-200/90 bg-white overflow-hidden shadow-xs">
+                    <div className="flex items-center justify-between p-3.5 bg-slate-50/50">
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`font-sans text-sm font-bold uppercase tracking-wider flex-1 ${
+                          isActive ? 'text-[#1572B8]' : 'text-slate-900'
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleMobileSubmenu(item.title)}
+                        className="w-8 h-8 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-600 ml-2 cursor-pointer flex items-center justify-center transition-all"
+                        aria-label={`Toggle ${item.title} submenu`}
+                      >
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#1572B8]' : 'text-slate-500'}`} />
+                      </button>
+                    </div>
+
+                    {isExpanded && (
+                      <div className="p-2 space-y-1 bg-slate-50/60 border-t border-slate-100">
+                        {item.children?.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={() => setIsOpen(false)}
+                            className="p-2.5 rounded-lg block hover:bg-[#F0F9FF] transition-colors group"
+                          >
+                            <div className="font-sans text-xs font-bold text-slate-800 group-hover:text-[#1572B8] flex items-center justify-between uppercase tracking-wider">
+                              <span>{sub.title}</span>
+                              <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1572B8]" />
+                            </div>
+                            {sub.description && (
+                              <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 font-normal normal-case">
+                                {sub.description}
+                              </p>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block p-3.5 rounded-xl border font-sans text-sm font-bold uppercase tracking-wider transition-all ${
+                    isActive
+                      ? 'bg-[#F0F9FF] border-[#B9E1F9] text-[#1572B8]'
+                      : 'bg-white border-slate-200/90 text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Drawer Footer CTA */}
+          <div className="p-5 border-t border-slate-100 bg-white space-y-3 shrink-0">
+            <Link
+              href="/#contact-form"
+              onClick={() => setIsOpen(false)}
+              className="w-full inline-flex items-center justify-center px-5 py-3.5 rounded-sm text-xs font-sans font-bold uppercase tracking-wider text-white bg-[#1572B8] hover:bg-[#38A9EB] shadow-sm transition-all"
+            >
+              <span>Book Strategy Consultation</span>
+              <span className="ml-2 font-bold">→</span>
+            </Link>
+            <p className="text-[11px] font-sans text-center text-slate-500">
+              Direct 1-on-1 Strategy Consultation · Jaipur, India
+            </p>
+          </div>
+
         </div>
-      )}
-    </header>
+      </div>
+    )}
+    </>
   );
 }

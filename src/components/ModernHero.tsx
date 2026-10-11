@@ -79,7 +79,7 @@ export function ModernHero() {
           <div className="md:col-span-4 flex flex-col gap-3">
             {/* Primary Consultation CTA - High contrast pure white with glowing Saini blue shadow */}
             <Link
-              href="/book"
+              href="/#contact-form"
               className="w-full inline-flex items-center justify-between px-7 py-4 rounded-full text-sm font-bold text-[#07152b] bg-white hover:bg-[#edf7fd] transition-all duration-200 group shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_15px_rgba(56,169,235,0.25)] hover:shadow-[0_6px_25px_rgba(56,169,235,0.4)] hover:-translate-y-0.5"
             >
               <span>Book Strategy Consultation</span>

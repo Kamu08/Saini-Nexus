@@ -443,7 +443,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             </p>
           </div>
           <div className="pt-6 mt-6 relative z-10 border-t border-slate-800">
-            <Link href="/book" className="inline-flex items-center justify-between w-full text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-white hover:text-[#38A9EB] transition-colors">
+            <Link href="/#contact-form" className="inline-flex items-center justify-between w-full text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-white hover:text-[#38A9EB] transition-colors">
               <span>Book an Acquisition Strategy Call</span>
               <ArrowRight className="w-4 h-4" />
             </Link>

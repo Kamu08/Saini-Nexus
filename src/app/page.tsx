@@ -301,12 +301,60 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Bottom Half: 7-Stage Architectural Grid */}
+          {/* Bottom Half: 7-Stage Architectural Sequence */}
           <div className="w-full relative z-10">
             {/* Grounding line for the architecture */}
-            <div className="w-full h-[2px] bg-slate-800 mb-6" />
+            <div className="w-full h-[2px] bg-slate-800 mb-4 sm:mb-6" />
             
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+            {/* Mobile View: Compact 1-Row Connected Horizontal Pipeline (Saves ~400px vertical space) */}
+            <div className="block sm:hidden w-full space-y-2">
+              <div className="flex items-center justify-between text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                <span className="text-[#1572B8] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1572B8] animate-pulse" />
+                  7-Stage Architecture
+                </span>
+                <span>Swipe stages →</span>
+              </div>
+              
+              <div className="flex gap-2.5 overflow-x-auto no-scrollbar pb-2 -mx-2 px-2 snap-x snap-mandatory touch-pan-x">
+                {[
+                  { name: "Context", role: "Foundation" },
+                  { name: "Positioning", role: "Differentiation" },
+                  { name: "Proof", role: "Validation" },
+                  { name: "Audience", role: "Targeting" },
+                  { name: "Distribution", role: "Reach" },
+                  { name: "Demand", role: "Capture" },
+                  { name: "Pipeline", role: "Commercial Yield" }
+                ].map((stage, idx) => (
+                  <div 
+                    key={idx}
+                    className={`snap-start shrink-0 w-[116px] flex flex-col justify-between p-2.5 h-[72px] border ${
+                      idx === 6 
+                        ? 'bg-[#1572B8] border-[#1572B8] shadow-md text-white' 
+                        : 'bg-slate-50 border-slate-200 text-slate-900'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={`text-[10px] font-mono font-bold ${idx === 6 ? 'text-[#67C7F8]' : 'text-[#1572B8]'}`}>
+                        0{idx + 1}
+                      </span>
+                      <span className={`w-1 h-1 rounded-full ${idx === 6 ? 'bg-white shadow-[0_0_6px_white]' : 'bg-slate-300'}`} />
+                    </div>
+                    <div>
+                      <div className={`text-[8px] font-sans font-bold uppercase tracking-wider truncate ${idx === 6 ? 'text-[#67C7F8]' : 'text-slate-400'}`}>
+                        {stage.role}
+                      </div>
+                      <div className={`text-[11px] font-sans font-extrabold tracking-tight truncate ${idx === 6 ? 'text-white' : 'text-slate-900'}`}>
+                        {stage.name}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop & Tablet View: Original 7-Column Grid (100% Preserved) */}
+            <div className="hidden sm:grid sm:grid-cols-4 lg:grid-cols-7 gap-4">
               {[
                 { name: "Context", role: "Foundation" },
                 { name: "Positioning", role: "Differentiation" },
@@ -434,7 +482,7 @@ export default function HomePage() {
                     <ArrowRight className="w-4 h-4 shrink-0" />
                   </Link>
                   <Link 
-                    href="/book" 
+                    href="/#contact-form" 
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-700 bg-white border border-slate-200 hover:border-[#1572B8] transition-colors text-center whitespace-nowrap"
                   >
                     <span>Book Strategy Call</span>

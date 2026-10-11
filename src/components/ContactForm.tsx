@@ -9,13 +9,11 @@ import {
   Sparkles, 
   Clock, 
   ShieldCheck, 
-  Calendar,
-  Send,
-  Lock,
-  ArrowUpRight,
-  TrendingUp,
-  Building2,
-  Check
+  Send, 
+  Lock, 
+  TrendingUp, 
+  Building2, 
+  Check 
 } from "lucide-react";
 
 interface FocusOption {
@@ -119,7 +117,7 @@ export function ContactForm() {
     <section className="space-y-12 py-12">
       
       {/* Editorial Section Header */}
-      <div className="border-b border-slate-200 pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+      <div className="border-b border-slate-200 pb-8">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#1572B8] text-white text-[10px] font-sans font-bold uppercase tracking-[0.2em]">
               <Sparkles className="w-3.5 h-3.5" />
@@ -131,13 +129,6 @@ export function ContactForm() {
             <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed max-w-2xl">
               Have an enterprise ACV, a long sales cycle, or paid clicks that aren&apos;t turning into sales-accepted meetings? Tell us about your acquisition model or request a complimentary pipeline diagnostic.
             </p>
-          </div>
-          <div className="shrink-0">
-             <Link href="/book" className="group flex items-center justify-center gap-3 bg-white border border-slate-200 text-slate-900 px-6 py-4 text-[10px] font-sans font-bold uppercase tracking-[0.2em] hover:border-slate-900 transition-colors shadow-xs">
-                <Calendar className="w-4 h-4 text-[#1572B8]" />
-                Book a Strategy Call
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-slate-400" />
-             </Link>
           </div>
       </div>
 

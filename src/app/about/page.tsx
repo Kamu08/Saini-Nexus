@@ -237,7 +237,7 @@ export default function AboutPage() {
                   <span>Connect on LinkedIn</span>
                 </a>
                 <Link
-                  href="/book"
+                  href="/#contact-form"
                   className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 bg-slate-50 hover:bg-white text-slate-900 border border-slate-200 hover:border-[#1572B8] text-xs font-sans font-bold uppercase tracking-wider transition-colors shadow-xs text-center"
                 >
                   <span>Book Strategy Call</span>
@@ -412,7 +412,7 @@ export default function AboutPage() {
 
           <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
             <Link
-              href="/book"
+              href="/#contact-form"
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 bg-white hover:bg-slate-100 text-slate-900 text-xs font-sans font-bold uppercase tracking-widest transition-colors shadow-sm text-center"
             >
               <span>Book Strategy Call</span>

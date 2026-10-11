@@ -60,7 +60,7 @@ export const FOOTER_LINKS = {
     { title: "About Saini Nexus", href: "/about" },
     { title: "Case Studies (Teardowns)", href: "/case-studies" },
     { title: "Insights & Field Notes", href: "/insights" },
-    { title: "Book a Strategy Call", href: "/book" },
+    { title: "Book a Strategy Call", href: "/#contact-form" },
     { title: "Contact Us", href: "/contact" }
   ],
   legal: [

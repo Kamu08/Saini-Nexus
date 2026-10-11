@@ -35,7 +35,7 @@ export default function SolutionsIndexPage() {
         </p>
         <div className="pt-2">
           <Link
-            href="/book"
+            href="/#contact-form"
             className="neo-btn-blue inline-flex items-center justify-center px-8 py-4 rounded-full text-xs uppercase tracking-wider"
           >
             <span>Book a Strategy Call</span>

@@ -266,7 +266,7 @@ export function InteractiveAdMockup() {
 
           <div className="pt-2">
             <Link
-              href="/book"
+              href="/#contact-form"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all w-fit shrink-0"
             >
               <span>Build Custom Ads For Your Brand</span>

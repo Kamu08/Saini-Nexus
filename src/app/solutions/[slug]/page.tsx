@@ -103,7 +103,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
 
           <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
             <Link
-              href="/book"
+              href="/#contact-form"
               className="neo-btn-blue w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-xs uppercase tracking-wider"
             >
               <span>Book a Strategy Call</span>
@@ -211,7 +211,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
           <p className="text-slate-600 text-sm font-normal">Schedule a direct strategy consultation with our senior B2B team.</p>
         </div>
         <Link
-          href="/book"
+          href="/#contact-form"
           className="neo-btn-blue inline-flex items-center px-8 py-4 rounded-full text-xs uppercase tracking-wider shrink-0"
         >
           <span>Book a Strategy Call</span>

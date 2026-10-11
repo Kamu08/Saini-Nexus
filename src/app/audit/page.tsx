@@ -13,16 +13,20 @@ export const metadata: Metadata = {
 
 export default function AuditPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-20 space-y-10">
-      <Breadcrumbs items={[{ label: "Commercial Architecture Audit" }]} />
+    <div className="w-full pb-20 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40">
+        <Breadcrumbs items={[{ label: "Commercial Growth Audit" }]} />
+      </div>
 
-      <Suspense fallback={
-        <div className="w-full bg-slate-50 border border-slate-200 rounded-3xl p-12 text-center font-mono text-sm text-slate-500">
-          Loading Commercial Audit Interface...
-        </div>
-      }>
-        <CommercialAuditForm />
-      </Suspense>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Suspense fallback={
+          <div className="w-full bg-slate-50 border border-slate-200 p-12 text-center font-mono text-sm text-slate-500">
+            Loading Commercial Audit Assessment...
+          </div>
+        }>
+          <CommercialAuditForm />
+        </Suspense>
+      </div>
     </div>
   );
 }

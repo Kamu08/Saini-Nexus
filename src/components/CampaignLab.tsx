@@ -244,7 +244,7 @@ export function CampaignLab() {
             <ArrowUpRight className="w-4 h-4 shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
           <Link
-            href="/book"
+            href="/#contact-form"
             className="px-8 py-4 bg-[#1572B8] hover:bg-slate-900 text-white text-xs font-sans font-bold uppercase tracking-[0.2em] transition-colors w-fit shrink-0 shadow-sm"
           >
             <span>Book a Strategy Call</span>

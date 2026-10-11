@@ -5,7 +5,9 @@ import Link from "next/link";
 import { 
   Target, 
   ArrowUpRight, 
-  ArrowRight
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 interface CasePreview {
@@ -240,10 +242,107 @@ function CaseStudyCard({ study, spanClass, theme }: { study: CasePreview; spanCl
   );
 }
 
-export function CaseStudyShowcase() {
+function MobileCaseCard({ study, theme }: { study: CasePreview; theme: typeof ACCENTS[0] }) {
   return (
-    <div className="w-full bg-[#FAFCFF] py-20 sm:py-28 border-b border-slate-200/80">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className={`w-[84vw] max-w-[320px] h-[390px] bg-white rounded-2xl p-5 border border-slate-200/90 ${theme.hoverBorder} shadow-md flex flex-col justify-between shrink-0 snap-center select-none text-left relative overflow-hidden`}>
+      {/* Subtle Accent Glow */}
+      <div className={`absolute -top-12 -right-12 w-36 h-36 rounded-full blur-[40px] pointer-events-none opacity-40 ${theme.glow}`} />
+
+      {/* Header: Framework Pill & Sector */}
+      <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5 shrink-0 relative z-10">
+        <span className={`px-2 py-0.5 rounded-full ${theme.pillBg} ${theme.text} border ${theme.pillBorder} font-sans text-[10px] font-bold uppercase tracking-wider`}>
+          {study.clientCode}
+        </span>
+        <span className="text-[10px] font-sans font-medium text-slate-500 uppercase tracking-wider truncate max-w-[150px]">
+          {study.sector}
+        </span>
+      </div>
+
+      {/* Primary Outcome Callout Banner */}
+      <div className={`${theme.metricBg} border ${theme.metricBorder} rounded-xl p-3 space-y-0.5 shrink-0 relative z-10`}>
+        <span className="text-[9px] font-sans uppercase font-bold text-slate-500 block">
+          {study.metricLabel}
+        </span>
+        <div className="text-xl font-sans font-extrabold text-slate-900 tracking-tight leading-snug">
+          {study.primaryMetric}
+        </div>
+      </div>
+
+      {/* Headline & Summary */}
+      <div className="space-y-1.5 flex-1 py-1 relative z-10">
+        <h3 className="text-sm font-sans font-black text-slate-900 leading-snug line-clamp-2">
+          {study.headline}
+        </h3>
+        <p className="text-xs text-slate-600 leading-relaxed font-normal line-clamp-2">
+          {study.summary}
+        </p>
+      </div>
+
+      {/* Key Efficiency Stat Pill */}
+      <div className="bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-1.5 text-[10px] font-sans text-slate-700 flex items-center justify-between shrink-0 relative z-10">
+        <span className="text-slate-500 font-medium">Efficiency:</span>
+        <span className={`${theme.text} font-bold truncate max-w-[180px]`}>{study.secondaryStat}</span>
+      </div>
+
+      {/* Action Button */}
+      <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between shrink-0 relative z-10">
+        <span className="text-[10px] font-sans font-medium text-slate-500">
+          Campaign Blueprint
+        </span>
+        <Link
+          href={`/case-studies/${study.slug}`}
+          className={`px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-sans font-bold shadow-xs transition-all flex items-center gap-1 hover:bg-[#1572B8]`}
+        >
+          <span>Read Framework</span>
+          <ArrowRight className="w-3 h-3" />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+export function CaseStudyShowcase() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const scrollToIndex = (index: number) => {
+    if (!carouselRef.current) return;
+    const target = Math.max(0, Math.min(CASE_PREVIEWS.length - 1, index));
+    const card = carouselRef.current.children[target] as HTMLElement | undefined;
+    if (card) {
+      const container = carouselRef.current;
+      const targetLeft = card.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
+      container.scrollTo({
+        left: targetLeft,
+        behavior: "smooth"
+      });
+    }
+    setActiveIndex(target);
+  };
+
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    let closestIdx = 0;
+    let minDiff = Infinity;
+    Array.from(container.children).forEach((child, idx) => {
+      const el = child as HTMLElement;
+      const childCenter = el.offsetLeft + el.offsetWidth / 2;
+      const diff = Math.abs(containerCenter - childCenter);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIdx = idx;
+      }
+    });
+    setActiveIndex(closestIdx);
+  };
+
+  const SHORT_LABELS = ["SaaS", "Industrial", "Advisory", "Security", "Health"];
+
+  return (
+    <div className="w-full bg-[#FAFCFF] py-14 sm:py-28 border-b border-slate-200/80">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -266,8 +365,112 @@ export function CaseStudyShowcase() {
           </Link>
         </div>
 
-        {/* Grid Container: 2 Top Wide Cards, 3 Bottom Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+        {/* ========================================================= */}
+        {/* MOBILE VIEW: COMPACT SWIPEABLE FRAMEWORKS CAROUSEL        */}
+        {/* Reduces vertical height by ~2,100px; tabbed quick switch  */}
+        {/* ========================================================= */}
+        <div className="block md:hidden space-y-4">
+          {/* Quick Framework Selector Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-2 px-2">
+            {CASE_PREVIEWS.map((study, idx) => {
+              const isActive = activeIndex === idx;
+              return (
+                <button
+                  key={study.slug}
+                  type="button"
+                  onClick={() => scrollToIndex(idx)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
+                    isActive
+                      ? "bg-[#1572B8] text-white shadow-xs"
+                      : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300"
+                  }`}
+                >
+                  <span>0{idx + 1} {SHORT_LABELS[idx]}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Controls: Counter and Prev / Next arrows */}
+          <div className="flex items-center justify-between pb-1">
+            <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-slate-600">
+              <span className="text-[#1572B8]">0{activeIndex + 1}</span>
+              <span className="text-slate-400">/</span>
+              <span className="text-slate-500">0{CASE_PREVIEWS.length}</span>
+              <span className="text-[10px] font-sans font-normal text-slate-500 ml-1">· Swipe frameworks</span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => scrollToIndex(activeIndex - 1)}
+                disabled={activeIndex === 0}
+                className={`w-8 h-8 rounded-md border flex items-center justify-center transition-colors cursor-pointer ${
+                  activeIndex === 0
+                    ? "border-slate-200 text-slate-300 bg-slate-50 cursor-not-allowed"
+                    : "border-slate-300 text-slate-800 bg-white hover:bg-slate-100 hover:text-[#1572B8] shadow-xs"
+                }`}
+                aria-label="Previous framework"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToIndex(activeIndex + 1)}
+                disabled={activeIndex === CASE_PREVIEWS.length - 1}
+                className={`w-8 h-8 rounded-md border flex items-center justify-center transition-colors cursor-pointer ${
+                  activeIndex === CASE_PREVIEWS.length - 1
+                    ? "border-slate-200 text-slate-300 bg-slate-50 cursor-not-allowed"
+                    : "border-slate-300 text-slate-800 bg-white hover:bg-slate-100 hover:text-[#1572B8] shadow-xs"
+                }`}
+                aria-label="Next framework"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Swipeable Centered Track */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex items-stretch gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 -mx-4 px-[calc((100vw-min(84vw,320px))/2)] no-scrollbar touch-pan-x"
+          >
+            {CASE_PREVIEWS.map((study, index) => {
+              const theme = ACCENTS[index % ACCENTS.length];
+              return (
+                <MobileCaseCard 
+                  key={study.slug} 
+                  study={study} 
+                  theme={theme} 
+                />
+              );
+            })}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 pt-1">
+            {CASE_PREVIEWS.map((study, idx) => (
+              <button
+                key={study.slug}
+                type="button"
+                onClick={() => scrollToIndex(idx)}
+                className={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
+                  activeIndex === idx 
+                    ? "w-6 bg-[#1572B8]" 
+                    : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Jump to framework 0${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* DESKTOP/TABLET VIEW: ORIGINAL GRID CONTAINER              */}
+        {/* 100% Preserved: 2 Top Wide Cards, 3 Bottom Cards          */}
+        {/* ========================================================= */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-6 gap-6">
           {CASE_PREVIEWS.map((study, index) => {
             const spanClass = index < 2 ? "lg:col-span-3" : "lg:col-span-2";
             const theme = ACCENTS[index % ACCENTS.length];

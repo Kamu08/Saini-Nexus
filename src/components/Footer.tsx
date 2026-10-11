@@ -70,7 +70,7 @@ export function Footer() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/book"
+                  href="/#contact-form"
                   className="flex-1 flex items-center justify-center gap-2 px-6 py-4 text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-white bg-[#1572B8] hover:bg-slate-900 transition-colors"
                 >
                   <Calendar className="w-4 h-4 shrink-0" />
@@ -129,7 +129,7 @@ export function Footer() {
                    <li><Link href="/about" className="hover:text-[#1572B8] transition-colors">About Saini Nexus</Link></li>
                    <li><Link href="/case-studies" className="hover:text-[#1572B8] transition-colors">Case Studies</Link></li>
                    <li><Link href="/insights" className="hover:text-[#1572B8] transition-colors">Insights &amp; Field Notes</Link></li>
-                   <li><Link href="/book" className="hover:text-[#1572B8] transition-colors">Book a Strategy Call</Link></li>
+                   <li><Link href="/#contact-form" className="hover:text-[#1572B8] transition-colors">Book a Strategy Call</Link></li>
                    <li><Link href="/contact" className="hover:text-[#1572B8] transition-colors">Contact Us</Link></li>
                  </ul>
                </div>

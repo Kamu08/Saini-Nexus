@@ -76,7 +76,7 @@ export default function ServicesPage() {
 
           <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
             <Link
-              href="/book"
+              href="/#contact-form"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-slate-100 text-slate-900 text-xs font-sans font-bold uppercase tracking-widest transition-colors shadow-sm text-center"
             >
               <span>Book Strategy Call</span>

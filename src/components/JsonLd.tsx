@@ -18,22 +18,42 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Saini Nexus",
+    legalName: "Saini Nexus",
     alternateName: "Saini Nexus B2B Growth",
     url: "https://saininexus.com",
     logo: "https://saininexus.com/saini-nexus-logo.png",
-    description: "Saini Nexus is a B2B marketing and LinkedIn growth company in Jaipur, Rajasthan, helping businesses build demand, reach decision-makers and generate qualified pipeline.",
+    image: "https://saininexus.com/saini-nexus-logo.png",
+    description: "Saini Nexus is a B2B marketing and LinkedIn growth company in Jaipur, Rajasthan, helping businesses build demand, reach decision-makers, and generate qualified pipeline.",
     founder: {
       "@type": "Person",
       name: "Dev Raj Saini",
       jobTitle: "Founder & Lead B2B Growth Strategist",
-      url: "https://saininexus.com/about/dev-raj-saini"
+      url: "https://saininexus.com/about",
+      sameAs: [
+        "https://www.linkedin.com/in/devrajsaini"
+      ]
     },
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Sitapura Industrial Area / Malviya Nagar",
       addressLocality: "Jaipur",
       addressRegion: "Rajasthan",
+      postalCode: "302017",
       addressCountry: "India"
     },
+    foundingLocation: {
+      "@type": "Place",
+      name: "Jaipur, Rajasthan, India"
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: "contact@saininexus.com",
+        availableLanguage: ["English", "Hindi"],
+        areaServed: ["India", "United States", "United Kingdom", "United Arab Emirates"]
+      }
+    ],
     knowsAbout: [
       "B2B Marketing",
       "LinkedIn Marketing",
@@ -68,13 +88,15 @@ export function getWebSiteSchema() {
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "LocalBusiness"],
     name: "Saini Nexus - B2B Marketing & LinkedIn Growth",
-    image: "https://saininexus.com/icon.png",
-    "@id": "https://saininexus.com",
+    legalName: "Saini Nexus",
+    image: "https://saininexus.com/saini-nexus-logo.png",
+    "@id": "https://saininexus.com/#localbusiness",
     url: "https://saininexus.com",
     email: "contact@saininexus.com",
     priceRange: "₹₹ - ₹₹₹",
+    hasMap: "https://maps.google.com/?q=Jaipur,+Rajasthan,+India",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sitapura Industrial Area / Malviya Nagar",
@@ -100,11 +122,52 @@ export function getLocalBusinessSchema() {
     areaServed: [
       { "@type": "City", name: "Jaipur" },
       { "@type": "State", name: "Rajasthan" },
+      { "@type": "City", name: "New Delhi" },
+      { "@type": "City", name: "Bengaluru" },
+      { "@type": "City", name: "Mumbai" },
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
       { "@type": "Country", name: "United Arab Emirates" }
-    ]
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "B2B Growth & Marketing Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "B2B Marketing Strategy",
+            description: "High-conviction go-to-market demand generation architecture for enterprise B2B organisations."
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "LinkedIn B2B Advertising & Thought Leader Ads",
+            description: "Full-funnel LinkedIn sponsored content, executive thought leadership, and precise ICP targeting."
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Account-Based Marketing (ABM)",
+            description: "Targeted multi-threaded account penetration for high-value enterprise contracts."
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Commercial Pipeline Audit",
+            description: "Comprehensive 7-stage commercial architecture audit for B2B pipeline acceleration."
+          }
+        }
+      ]
+    }
   };
 }
 

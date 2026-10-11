@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/Breadcrumb";
 export const metadata: Metadata = {
   title: "Terms of Service | Saini Nexus",
   description: "Terms of service and engagement governing Saini Nexus commercial agreements.",
+  alternates: {
+    canonical: "https://saininexus.com/terms",
+  },
 };
 
 export default function TermsPage() {

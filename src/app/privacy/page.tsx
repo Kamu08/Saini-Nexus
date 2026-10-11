@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/Breadcrumb";
 export const metadata: Metadata = {
   title: "Privacy Policy | Saini Nexus",
   description: "Privacy policy and data protection disclosures for Saini Nexus.",
+  alternates: {
+    canonical: "https://saininexus.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {

@@ -9,5 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://saininexus.com/sitemap.xml",
+    host: "https://saininexus.com",
   };
 }

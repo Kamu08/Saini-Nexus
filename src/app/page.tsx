@@ -18,11 +18,21 @@ import {
   Layers,
   ChevronRight
 } from "lucide-react";
+import { Metadata } from "next";
 import { ModernHero } from "@/components/ModernHero";
 import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
+
+export const metadata: Metadata = {
+  title: "Saini Nexus | B2B Marketing & LinkedIn Growth Company",
+  description:
+    "Saini Nexus is a B2B marketing and LinkedIn growth company in Jaipur, Rajasthan, helping businesses build demand, reach decision-makers, and generate qualified commercial pipeline.",
+  alternates: {
+    canonical: "https://saininexus.com",
+  },
+};
 
 export default function HomePage() {
   const CAPABILITIES = [

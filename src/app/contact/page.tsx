@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Contact Saini Nexus | B2B Marketing & Growth Strategy",
   description: "Talk to Saini Nexus about B2B marketing, LinkedIn growth, advertising, demand generation, ABM or pipeline growth.",
   alternates: {
-    canonical: "https://saininexus.com/contact",
+    canonical: "https://www.saininexus.com/contact",
   },
 };
 

@@ -51,7 +51,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Creative cannot fix bad targeting: great copy served to the wrong job title produces zero qualified pipeline.",
@@ -96,7 +96,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Broad motivational content generates likes from people who will never buy high-ticket enterprise solutions.",
@@ -141,7 +141,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "In high-ticket consulting, enterprise buyers choose the individual expert before they evaluate the corporate firm.",
@@ -185,7 +185,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Thought Leader Ads deliver 2–3x higher CTR and lower CPC by leveraging authentic executive voices.",
@@ -229,7 +229,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Lead generation captures existing demand; demand generation creates future demand in the 95% out-of-market pool.",
@@ -273,7 +273,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Single-threading an enterprise deal through one champion leads to 70%+ deal stalls when internal committees veto.",
@@ -317,7 +317,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Founders possess deeper commercial and technical domain knowledge than any external marketing copywriter.",
@@ -361,7 +361,7 @@ export const INSIGHTS: InsightItem[] = [
     author: {
       name: "Dev Raj Saini",
       role: "Founder, Saini Nexus",
-      profileUrl: "/about/dev-raj-saini"
+      profileUrl: "/about"
     },
     keyTakeaways: [
       "Showing the exact same 'Book a Demo' banner 50 times creates brand fatigue and banner blindness.",

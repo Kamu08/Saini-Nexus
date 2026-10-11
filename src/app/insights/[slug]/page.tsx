@@ -39,12 +39,12 @@ export async function generateMetadata({ params }: InsightDetailPageProps): Prom
     title: `${article.title} | Saini Nexus Insights`,
     description: article.summary,
     alternates: {
-      canonical: `https://saininexus.com/insights/${article.slug}`,
+      canonical: `https://www.saininexus.com/insights/${article.slug}`,
     },
     openGraph: {
       title: article.title,
       description: article.subtitle,
-      url: `https://saininexus.com/insights/${article.slug}`,
+      url: `https://www.saininexus.com/insights/${article.slug}`,
       siteName: "Saini Nexus",
       type: "article",
       publishedTime: article.publishedAt,
@@ -71,16 +71,17 @@ export default async function InsightDetailPage({ params }: InsightDetailPagePro
       "@type": "Person",
       name: article.author.name,
       jobTitle: article.author.role,
-      url: `https://saininexus.com${article.author.profileUrl}`,
+      url: "https://www.saininexus.com/about",
     },
     publisher: {
       "@type": "Organization",
       name: "Saini Nexus",
-      url: "https://saininexus.com",
+      url: "https://www.saininexus.com",
+      logo: "https://www.saininexus.com/saini-nexus-logo.png",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://saininexus.com/insights/${article.slug}`,
+      "@id": `https://www.saininexus.com/insights/${article.slug}`,
     },
   };
 

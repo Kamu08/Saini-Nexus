@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "B2B Growth Solutions | Demand, ABM & Pipeline | Saini Nexus",
   description: "Explore B2B growth solutions from Saini Nexus for demand generation, high-value accounts, LinkedIn growth, executive authority and qualified pipeline.",
   alternates: {
-    canonical: "https://saininexus.com/solutions",
+    canonical: "https://www.saininexus.com/solutions",
   },
 };
 

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title: "B2B Marketing Across Key Sectors | Saini Nexus",
   description: "Explore Saini Nexus specialized B2B growth and LinkedIn demand generation playbooks tailored for SaaS, Technology, Consulting, Professional Services, Industrial Manufacturing, and Commercial Real Estate.",
   alternates: {
-    canonical: "https://saininexus.com/industries",
+    canonical: "https://www.saininexus.com/industries",
   },
 };
 

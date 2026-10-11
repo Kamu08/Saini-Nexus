@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "B2B Commercial Architecture Audit | Saini Nexus",
   description: "Request a custom 7-stage B2B commercial architecture audit for your Indian B2B firm, tech startup, or industrial export company. Direct consultation with Dev Raj Saini.",
   alternates: {
-    canonical: "https://saininexus.com/audit",
+    canonical: "https://www.saininexus.com/audit",
   },
 };
 

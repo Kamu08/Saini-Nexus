@@ -16,13 +16,13 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://saininexus.com"
+      item: "https://www.saininexus.com"
     },
     ...items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 2,
       name: item.label,
-      ...(item.href ? { item: `https://saininexus.com${item.href}` } : {})
+      ...(item.href ? { item: `https://www.saininexus.com${item.href}` } : {})
     }))
   ];
 

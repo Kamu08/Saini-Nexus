@@ -48,12 +48,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     description: service.metaDescription,
     keywords: service.keywords,
     alternates: {
-      canonical: `https://saininexus.com/services/${service.slug}`,
+      canonical: `https://www.saininexus.com/services/${service.slug}`,
     },
     openGraph: {
       title: `${service.title} | Saini Nexus Execution Module`,
       description: service.shortDescription,
-      url: `https://saininexus.com/services/${service.slug}`,
+      url: `https://www.saininexus.com/services/${service.slug}`,
       siteName: "Saini Nexus",
       type: "article",
     },
@@ -78,11 +78,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: service.title,
+    url: `https://www.saininexus.com/services/${service.slug}`,
     serviceType: "B2B Demand Generation Execution Module",
     provider: {
       "@type": "Organization",
       name: "Saini Nexus",
-      url: "https://saininexus.com",
+      url: "https://www.saininexus.com",
     },
     description: service.shortDescription,
     areaServed: ["India", "United States", "United Kingdom", "United Arab Emirates"],

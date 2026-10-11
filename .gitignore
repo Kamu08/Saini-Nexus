@@ -14,9 +14,14 @@
 # production
 /build
 
-# misc
+# misc & OS
 .DS_Store
 *.pem
+Thumbs.db
+
+# IDE & editors
+.vscode/
+.idea/
 
 # debug
 npm-debug.log*
@@ -33,3 +38,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Internal documentation, PRDs, and raw kickoff assets (not needed in production or setup)
+/Data/
+/requirement/
+*.pdf
+*.docx
+*.doc
+Saini_Nexus_Website_PRD.pdf

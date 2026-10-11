@@ -19,6 +19,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumb";
+import { JsonLd } from "@/components/JsonLd";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
 interface CaseStudyPageProps {
@@ -47,7 +48,14 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     title: `${study.clientName} Case Teardown: ${study.businessOutcomes[0]?.metric || "Growth Results"} | Saini Nexus`,
     description: `How Saini Nexus solved ${study.coreChallenge.slice(0, 150)}...`,
     alternates: {
-      canonical: `https://saininexus.com/case-studies/${study.slug}`,
+      canonical: `https://www.saininexus.com/case-studies/${study.slug}`,
+    },
+    openGraph: {
+      title: `${study.clientName} Case Teardown | Saini Nexus`,
+      description: study.coreChallenge,
+      url: `https://www.saininexus.com/case-studies/${study.slug}`,
+      siteName: "Saini Nexus",
+      type: "article",
     },
   };
 }
@@ -64,8 +72,31 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
   const currentIndex = CASE_STUDIES.findIndex((c) => c.slug === slug);
   const nextStudy = CASE_STUDIES[(currentIndex + 1) % CASE_STUDIES.length];
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${study.clientName} B2B Growth Case Study`,
+    description: study.coreChallenge,
+    author: {
+      "@type": "Organization",
+      name: "Saini Nexus",
+      url: "https://www.saininexus.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Saini Nexus",
+      url: "https://www.saininexus.com",
+      logo: "https://www.saininexus.com/saini-nexus-logo.png",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.saininexus.com/case-studies/${study.slug}`,
+    },
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-24 space-y-16 sm:space-y-24">
+      <JsonLd data={caseStudySchema} />
       
       {/* Navigation Breadcrumb */}
       <div className="flex items-center justify-between border-b border-slate-200 pb-4">

@@ -8,7 +8,7 @@ export interface TeamMember {
 }
 
 export const TEAM_MEMBERS: TeamMember[] = [
-  // 1. Leadership & Strategy (3 members)
+  // 1st: Dev Raj Saini (Founder)
   {
     name: "Dev Raj Saini",
     role: "Founder & Lead B2B Growth Strategist",
@@ -17,6 +17,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Focused on B2B marketing strategy, LinkedIn growth systems, thought leadership positioning, and commercial demand architecture.",
     linkedin: "https://www.linkedin.com/in/devrajsaini"
   },
+
+  // 2nd: Dau Raj Saini (Senior Growth Strategist)
   {
     name: "Dau Raj Saini",
     role: "Senior Growth Strategist",
@@ -25,6 +27,38 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Conducts B2B market research, competitive audits, and audience segmentation for target accounts.",
     linkedin: "https://www.linkedin.com/in/dau-raj-saini"
   },
+
+  // 3rd: Komal Saini
+  {
+    name: "Komal Saini",
+    role: "Demand Generation Specialist",
+    department: "Demand Generation & ABM",
+    image: "/team/komal-saini.png",
+    bio: "Connects content distribution with buyer engagement to drive consistent inbound interest.",
+    linkedin: "https://www.linkedin.com/in/komal-s-96110b369"
+  },
+
+  // 4th: Soniya Saini
+  {
+    name: "Soniya Saini",
+    role: "Client Success Coordinator",
+    department: "Operations & Analytics",
+    image: "/team/soniya-saini.png",
+    bio: "Supports onboarding workflows, status updates, and transparent project communication.",
+    linkedin: "https://www.linkedin.com/in/soniya-saini"
+  },
+
+  // 5th: Manish Kumar
+  {
+    name: "Manish Kumar",
+    role: "Marketing Analytics Specialist",
+    department: "Operations & Analytics",
+    image: "/team/manish-kumar-saini.png",
+    bio: "Tracks campaign performance, lead quality metrics, and conversion funnels to evaluate outcomes.",
+    linkedin: "https://www.linkedin.com/in/manish-kumar-saini-real"
+  },
+
+  // 6th: Ashok Kumar Saini
   {
     name: "Ashok Kumar Saini",
     role: "B2B Strategy Specialist",
@@ -34,7 +68,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/ashok-kumar-s-990939382"
   },
 
-  // 2. Paid Media & LinkedIn Ads (2 members)
+  // 7th: Mukesh Singh
   {
     name: "Mukesh Singh",
     role: "LinkedIn Ads Specialist",
@@ -43,6 +77,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Plans and manages LinkedIn advertising campaigns, including audience targeting, creative testing, and performance optimization.",
     linkedin: "https://www.linkedin.com/in/mukesh-singhh"
   },
+
+  // 8th: Ankit Saini
   {
     name: "Ankit Saini",
     role: "Performance Marketing Specialist",
@@ -52,15 +88,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/ankit-s-6677462b0"
   },
 
-  // 3. Demand Generation & ABM (4 members)
-  {
-    name: "Komal Saini",
-    role: "Demand Generation Specialist",
-    department: "Demand Generation & ABM",
-    image: "/team/komal-saini.png",
-    bio: "Connects content distribution with buyer engagement to drive consistent inbound interest.",
-    linkedin: "https://www.linkedin.com/in/komal-s-96110b369"
-  },
+  // 9th: Kusum Saini
   {
     name: "Kusum Saini",
     role: "Account-Based Marketing Specialist",
@@ -69,6 +97,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Helps identify priority enterprise accounts and map the multi-stakeholder buying committees.",
     linkedin: "https://www.linkedin.com/in/kusum-saini-95baa93b0"
   },
+
+  // 10th: Manoj Saini
   {
     name: "Manoj Saini",
     role: "B2B Research & Account Analyst",
@@ -77,6 +107,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Builds enriched target account lists and analyzes industry firmographics for outbound and paid alignment.",
     linkedin: "https://www.linkedin.com/in/manoj-saini-760a17249"
   },
+
+  // 11th: Rinku Saini
   {
     name: "Rinku Saini",
     role: "Lead Qualification Specialist",
@@ -86,7 +118,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/rinku-s-785753382"
   },
 
-  // 4. Content & Creative (4 members)
+  // 12th: Avantika Choudhary
   {
     name: "Avantika Choudhary",
     role: "Content & Editorial Lead",
@@ -95,6 +127,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Develops executive POV narratives, thought leadership articles, and strategic B2B messaging.",
     linkedin: "https://www.linkedin.com/in/avantika-choudhary-548874395"
   },
+
+  // 13th: Lokesh Saini
   {
     name: "Lokesh Saini",
     role: "Creative & Document Designer",
@@ -103,6 +137,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Designs visual frameworks, native LinkedIn PDF carousels, and high-contrast creative assets.",
     linkedin: "https://www.linkedin.com/in/lokesh12"
   },
+
+  // 14th: Neha Saini
   {
     name: "Neha Saini",
     role: "Executive Branding Specialist",
@@ -111,6 +147,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Coordinates founder profile authority, publishing schedules, and organic network development.",
     linkedin: "https://www.linkedin.com/in/neha-s-78ab45368"
   },
+
+  // 15th: Surya Saini
   {
     name: "Surya Saini",
     role: "Digital Distribution Specialist",
@@ -120,7 +158,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/surya-saini-810136374"
   },
 
-  // 5. Operations & Analytics (5 members)
+  // 16th: Jyoti Kanwar
   {
     name: "Jyoti Kanwar",
     role: "Operations & Delivery Lead",
@@ -129,14 +167,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Orchestrates campaign schedules, project deliverables, and seamless client communication.",
     linkedin: "https://www.linkedin.com/company/saini-nexus"
   },
-  {
-    name: "Manish Kumar Saini",
-    role: "Marketing Analytics Specialist",
-    department: "Operations & Analytics",
-    image: "/team/manish-kumar-saini.png",
-    bio: "Tracks campaign performance, lead quality metrics, and conversion funnels to evaluate outcomes.",
-    linkedin: "https://www.linkedin.com/in/manish-kumar-saini-real"
-  },
+
+  // 17th: Pushpa Saini
   {
     name: "Pushpa Saini",
     role: "Campaign Operations Specialist",
@@ -145,14 +177,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Manages quality assurance, form integrations, and CRM webhook routing.",
     linkedin: "https://www.linkedin.com/in/pushpa-saini-1880bb38a"
   },
-  {
-    name: "Soniya Saini",
-    role: "Client Success Coordinator",
-    department: "Operations & Analytics",
-    image: "/team/soniya-saini.png",
-    bio: "Supports onboarding workflows, status updates, and transparent project communication.",
-    linkedin: "https://www.linkedin.com/in/soniya-saini"
-  },
+
+  // 18th: Vinod Singh
   {
     name: "Vinod Singh",
     role: "Technical Integration Specialist",

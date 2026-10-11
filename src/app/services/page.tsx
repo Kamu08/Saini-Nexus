@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "B2B Marketing Services | Practice Capabilities | Saini Nexus",
   description: "Explore Saini Nexus B2B marketing and LinkedIn growth agency services: B2B Growth Strategy, LinkedIn Marketing, Thought Leader Ads, ABM, and Pipeline Generation.",
   alternates: {
-    canonical: "https://saininexus.com/services",
+    canonical: "https://www.saininexus.com/services",
   },
 };
 

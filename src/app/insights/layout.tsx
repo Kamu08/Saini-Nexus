@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Strategic insights on B2B marketing, LinkedIn, advertising, demand generation, ABM, founder-led marketing and AI-driven growth from Saini Nexus.",
   alternates: {
-    canonical: "https://saininexus.com/insights",
+    canonical: "https://www.saininexus.com/insights",
   },
 };
 

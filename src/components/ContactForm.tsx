@@ -15,6 +15,7 @@ import {
   Building2, 
   Check 
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface FocusOption {
   id: string;
@@ -110,6 +111,10 @@ export function ContactForm() {
     } finally {
       setLoading(false);
       setSubmitted(true);
+      trackEvent("contact_form_submission", {
+        service_category: currentFocusObj.label,
+        budget_tier: currentBudgetObj.full,
+      });
     }
   };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Saini Nexus",
   description: "Terms of service and engagement governing Saini Nexus commercial agreements.",
   alternates: {
-    canonical: "https://saininexus.com/terms",
+    canonical: "https://www.saininexus.com/terms",
   },
 };
 

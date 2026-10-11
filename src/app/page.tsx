@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Saini Nexus is a B2B marketing and LinkedIn growth company in Jaipur, Rajasthan, helping businesses build demand, reach decision-makers, and generate qualified commercial pipeline.",
   alternates: {
-    canonical: "https://saininexus.com",
+    canonical: "https://www.saininexus.com",
   },
 };
 

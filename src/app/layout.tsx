@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { JsonLd, getOrganizationSchema, getLocalBusinessSchema, getWebSiteSchema } from "@/components/JsonLd";
 
 const sans = Plus_Jakarta_Sans({
@@ -28,7 +29,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://saininexus.com"),
+  metadataBase: new URL("https://www.saininexus.com"),
   title: {
     default: "Saini Nexus | B2B Marketing & LinkedIn Growth Company",
     template: "%s | Saini Nexus",
@@ -59,11 +60,11 @@ export const metadata: Metadata = {
     "Dev Raj Saini",
     "Saini Nexus",
   ],
-  authors: [{ name: "Dev Raj Saini", url: "https://saininexus.com/about" }],
+  authors: [{ name: "Dev Raj Saini", url: "https://www.saininexus.com/about" }],
   creator: "Saini Nexus",
   publisher: "Saini Nexus",
   alternates: {
-    canonical: "https://saininexus.com",
+    canonical: "https://www.saininexus.com",
   },
   other: {
     "geo.region": "IN-RJ",
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://saininexus.com",
+    url: "https://www.saininexus.com",
     siteName: "Saini Nexus",
     title: "Saini Nexus | B2B Marketing & LinkedIn Growth Company",
     description:
@@ -126,6 +127,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} scroll-smooth`}>
       <body className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
+        <GoogleAnalytics />
         <JsonLd data={getOrganizationSchema()} />
         <JsonLd data={getWebSiteSchema()} />
         <JsonLd data={getLocalBusinessSchema()} />

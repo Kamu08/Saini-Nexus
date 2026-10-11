@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "B2B Marketing Case Studies & Teardowns | Saini Nexus",
   description: "Explore Saini Nexus B2B marketing, LinkedIn advertising, demand generation and growth case studies with campaign strategy, execution and results.",
   alternates: {
-    canonical: "https://saininexus.com/case-studies",
+    canonical: "https://www.saininexus.com/case-studies",
   },
 };
 

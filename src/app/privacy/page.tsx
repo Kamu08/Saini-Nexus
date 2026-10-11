@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Saini Nexus",
   description: "Privacy policy and data protection disclosures for Saini Nexus.",
   alternates: {
-    canonical: "https://saininexus.com/privacy",
+    canonical: "https://www.saininexus.com/privacy",
   },
 };
 

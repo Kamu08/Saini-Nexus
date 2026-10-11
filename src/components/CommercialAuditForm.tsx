@@ -21,6 +21,7 @@ import {
   AlertCircle,
   Globe2
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const STAGES = [
   { id: "all", step: "ALL", title: "Full 7-Stage End-to-End Pipeline Audit", badge: "Most Popular" },
@@ -138,6 +139,11 @@ export function CommercialAuditForm() {
     } finally {
       setLoading(false);
       setSubmitted(true);
+      trackEvent("audit_form_submission", {
+        stage_selected: selectedStage,
+        deal_size: formData.dealSize,
+        budget: formData.budget,
+      });
     }
   };
 

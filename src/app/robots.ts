@@ -6,9 +6,25 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/"],
+      },
+      {
+        userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "Applebot",
+          "DuckDuckBot",
+          "Baiduspider",
+          "YandexBot",
+          "GPTBot",
+          "ClaudeBot",
+          "PerplexityBot",
+        ],
+        allow: "/",
+        disallow: ["/api/"],
       },
     ],
-    sitemap: "https://saininexus.com/sitemap.xml",
-    host: "https://saininexus.com",
+    sitemap: "https://www.saininexus.com/sitemap.xml",
+    host: "https://www.saininexus.com",
   };
 }

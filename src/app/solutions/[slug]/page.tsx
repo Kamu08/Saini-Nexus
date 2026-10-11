@@ -39,12 +39,12 @@ export async function generateMetadata({ params }: SolutionPageProps): Promise<M
     title: solution.metaTitle,
     description: solution.metaDescription,
     alternates: {
-      canonical: `https://saininexus.com/solutions/${solution.slug}`,
+      canonical: `https://www.saininexus.com/solutions/${solution.slug}`,
     },
     openGraph: {
       title: solution.metaTitle,
       description: solution.shortDescription,
-      url: `https://saininexus.com/solutions/${solution.slug}`,
+      url: `https://www.saininexus.com/solutions/${solution.slug}`,
       siteName: "Saini Nexus",
       type: "article",
     },
@@ -63,11 +63,12 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
     "@context": "https://schema.org",
     "@type": "Service",
     name: solution.title,
+    url: `https://www.saininexus.com/solutions/${solution.slug}`,
     serviceType: "B2B Commercial Solutions",
     provider: {
       "@type": "Organization",
       name: "Saini Nexus",
-      url: "https://saininexus.com",
+      url: "https://www.saininexus.com",
     },
     description: solution.shortDescription,
     areaServed: ["India", "United States", "United Kingdom", "Rajasthan", "Jaipur"],

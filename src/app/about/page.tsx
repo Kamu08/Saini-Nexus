@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "About Saini Nexus | Leadership, Team & Growth Philosophy",
   description: "Learn about Saini Nexus, Founder Dev Raj Saini, our 18-member B2B practice in Jaipur, Rajasthan, and our commercial pipeline methodology.",
   alternates: {
-    canonical: "https://saininexus.com/about",
+    canonical: "https://www.saininexus.com/about",
   },
 };
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
         {
           "@type": "Organization",
           name: "Saini Nexus",
-          url: "https://saininexus.com",
+          url: "https://www.saininexus.com",
         },
         {
           "@type": "Organization",

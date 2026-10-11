@@ -61,12 +61,12 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
     title: industry.metaTitle,
     description: industry.metaDescription,
     alternates: {
-      canonical: `https://saininexus.com/industries/${industry.slug}`,
+      canonical: `https://www.saininexus.com/industries/${industry.slug}`,
     },
     openGraph: {
       title: industry.metaTitle,
       description: industry.heroSubheadline,
-      url: `https://saininexus.com/industries/${industry.slug}`,
+      url: `https://www.saininexus.com/industries/${industry.slug}`,
       siteName: "Saini Nexus",
       type: "article",
     },
@@ -93,10 +93,11 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
     "@context": "https://schema.org",
     "@type": "Service",
     name: industry.name + " B2B Marketing & Growth Playbook",
+    url: `https://www.saininexus.com/industries/${industry.slug}`,
     provider: {
       "@type": "Organization",
       name: "Saini Nexus",
-      url: "https://saininexus.com"
+      url: "https://www.saininexus.com"
     },
     description: industry.heroSubheadline,
     areaServed: ["India", "United States", "United Kingdom", "United Arab Emirates"],

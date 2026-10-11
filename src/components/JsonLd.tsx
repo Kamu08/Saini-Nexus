@@ -20,15 +20,15 @@ export function getOrganizationSchema() {
     name: "Saini Nexus",
     legalName: "Saini Nexus",
     alternateName: "Saini Nexus B2B Growth",
-    url: "https://saininexus.com",
-    logo: "https://saininexus.com/saini-nexus-logo.png",
-    image: "https://saininexus.com/saini-nexus-logo.png",
+    url: "https://www.saininexus.com",
+    logo: "https://www.saininexus.com/saini-nexus-logo.png",
+    image: "https://www.saininexus.com/saini-nexus-logo.png",
     description: "Saini Nexus is a B2B marketing and LinkedIn growth company in Jaipur, Rajasthan, helping businesses build demand, reach decision-makers, and generate qualified pipeline.",
     founder: {
       "@type": "Person",
       name: "Dev Raj Saini",
       jobTitle: "Founder & Lead B2B Growth Strategist",
-      url: "https://saininexus.com/about",
+      url: "https://www.saininexus.com/about",
       sameAs: [
         "https://www.linkedin.com/in/devrajsaini"
       ]
@@ -75,12 +75,12 @@ export function getWebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Saini Nexus",
-    url: "https://saininexus.com",
+    url: "https://www.saininexus.com",
     description: "B2B Marketing & LinkedIn Growth Company based in Jaipur, Rajasthan, India.",
     publisher: {
       "@type": "Organization",
       name: "Saini Nexus",
-      url: "https://saininexus.com"
+      url: "https://www.saininexus.com"
     }
   };
 }
@@ -91,9 +91,9 @@ export function getLocalBusinessSchema() {
     "@type": ["ProfessionalService", "LocalBusiness"],
     name: "Saini Nexus - B2B Marketing & LinkedIn Growth",
     legalName: "Saini Nexus",
-    image: "https://saininexus.com/saini-nexus-logo.png",
-    "@id": "https://saininexus.com/#localbusiness",
-    url: "https://saininexus.com",
+    image: "https://www.saininexus.com/saini-nexus-logo.png",
+    "@id": "https://www.saininexus.com/#localbusiness",
+    url: "https://www.saininexus.com",
     email: "contact@saininexus.com",
     priceRange: "₹₹ - ₹₹₹",
     hasMap: "https://maps.google.com/?q=Jaipur,+Rajasthan,+India",

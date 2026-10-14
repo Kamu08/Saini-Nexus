@@ -17,8 +17,8 @@ const serif = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["italic"],
+  weight: ["500", "600"],
 });
 
 const mono = JetBrains_Mono({
@@ -72,6 +72,8 @@ export const metadata: Metadata = {
     "geo.position": "26.9124;75.7873",
     "ICBM": "26.9124, 75.7873",
     "theme-color": "#1572B8",
+    "llms-txt": "https://www.saininexus.com/llms.txt",
+    "llms-full-txt": "https://www.saininexus.com/llms-full.txt",
   },
   icons: {
     icon: "/icon.png",
@@ -126,6 +128,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} scroll-smooth`}>
+      <head>
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+        <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context" />
+      </head>
       <body className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
         <GoogleAnalytics />
         <JsonLd data={getOrganizationSchema()} />

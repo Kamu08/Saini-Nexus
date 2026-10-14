@@ -302,7 +302,7 @@ export const INSIGHTS: InsightItem[] = [
     ],
     relatedServices: [
       { title: "Account-Based Marketing (ABM)", href: "/services/account-based-marketing" },
-      { title: "B2B Positioning & Messaging", href: "/services/b2b-positioning-messaging" }
+      { title: "B2B Marketing Strategy", href: "/services/b2b-marketing-strategy" }
     ]
   },
   {

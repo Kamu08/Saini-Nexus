@@ -12,10 +12,12 @@ export async function POST(request: Request) {
       city,
       stage, 
       step, 
-      goal, 
+      goal,
+      objective, 
       notes, 
       dealSize,
       monthlyBudget,
+      budget,
       currency,
       website 
     } = body;
@@ -25,10 +27,12 @@ export async function POST(request: Request) {
       "devraj@saininexus.com"
     ];
     const userEmail = email || workEmail;
+    const primaryGoal = goal || objective || (stage ? `Stage ${step || ''}: ${stage}` : "Commercial Architecture Audit");
+    const activeBudget = monthlyBudget || budget || "Not specified";
 
     // Send to FormSubmit endpoint with multiple recipients / CC
     const formSubmitPayload = {
-      _subject: `New Saini Nexus Lead: ${stage ? `Stage ${step || ''} - ${company || name || stage}` : (goal || 'Strategy Audit')}`,
+      _subject: `New Saini Nexus Lead: ${stage ? `Stage ${step || ''} - ${company || name || stage}` : (primaryGoal || 'Strategy Audit')}`,
       _template: "table",
       _captcha: "false",
       _cc: "devraj@saininexus.com",
@@ -39,13 +43,13 @@ export async function POST(request: Request) {
       "City / Region": city || "Not specified",
       "Website": website || "Not provided",
       "Target Stage": stage ? `Stage ${step || ''}: ${stage}` : "General Strategy Call",
-      "Primary Goal": goal || "Commercial Architecture Audit",
+      "Primary Goal": primaryGoal,
       "Deal Size / ACV": dealSize || "Not specified",
-      "Monthly Growth Budget": monthlyBudget || "Not specified",
-      "Currency": currency || "INR (₹)",
+      "Monthly Growth Budget": activeBudget,
+      "Currency": currency || "INR (₹) / USD ($)",
       "Notes & Context": notes || "None provided",
       "Submission Timestamp": new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-      "Source URL": request.headers.get("referer") || "https://saininexus.com"
+      "Source URL": request.headers.get("referer") || "https://www.saininexus.com"
     };
 
     try {

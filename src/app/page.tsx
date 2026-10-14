@@ -24,6 +24,7 @@ import { InteractiveServicesHub } from "@/components/InteractiveServicesHub";
 import { SectorCarousel } from "@/components/SectorCarousel";
 import { ContactForm } from "@/components/ContactForm";
 import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
+import { JsonLd, getFAQSchema } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Saini Nexus | B2B Marketing & LinkedIn Growth Company",
@@ -33,6 +34,33 @@ export const metadata: Metadata = {
     canonical: "https://www.saininexus.com",
   },
 };
+
+const HOME_FAQS = [
+  {
+    question: "What does Saini Nexus specialize in?",
+    answer: "Saini Nexus is a B2B marketing, demand generation, and LinkedIn advertising practice that helps mid-market and enterprise companies penetrate buying committees, build category authority, and generate sales-accepted pipeline."
+  },
+  {
+    question: "Who leads Saini Nexus and what are their qualifications?",
+    answer: "Saini Nexus is founded and led by Dev Raj Saini, an accredited B2B growth strategist certified across all 4 tracks of the LinkedIn Marketing Labs program: Marketing Strategy, Advertising Fundamentals, Content & Creative, and Marketing Measurement."
+  },
+  {
+    question: "Where is Saini Nexus located and which regions do you serve?",
+    answer: "Saini Nexus is headquartered in Jaipur, Rajasthan, India, and works with B2B companies across India (including Jaipur, Rajasthan, Delhi NCR, Bangalore, and Mumbai) as well as global B2B clients in the United States, United Kingdom, and United Arab Emirates."
+  },
+  {
+    question: "What is the 7-Stage Commercial Growth Architecture?",
+    answer: "The 7-Stage Architecture is Saini Nexus's proprietary demand model that connects Buyer Context (01), Positioning POV (02), Technical Proof (03), Audience Calibration (04), Paid/Organic Distribution (05), Demand Creation (06), and Sales-Accepted Pipeline (07)."
+  },
+  {
+    question: "What are the typical budget tiers for working with Saini Nexus?",
+    answer: "Engagements typically range from $1,500 – $2,000/month for the Starter Engine, $2,000 – $10,000/month for the full Growth Tier, and $10,000 – $15,000+/month for multi-region Scale and Enterprise ABM programs."
+  },
+  {
+    question: "How does Saini Nexus differ from traditional lead generation agencies?",
+    answer: "Traditional agencies sell low-intent contact lists and gated downloads. Saini Nexus uses ungated proof, Thought Leader Ads, and full buying committee education to deliver sales-ready opportunities directly to account executives."
+  }
+];
 
 export default function HomePage() {
   const CAPABILITIES = [
@@ -45,6 +73,7 @@ export default function HomePage() {
 
   return (
     <div className="overflow-x-clip">
+      <JsonLd data={getFAQSchema(HOME_FAQS)} />
       
       {/* ========================================================= */}
       {/* 00. HERO SECTION                                          */}
@@ -261,8 +290,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* ========================================================= */}
       {/* 04. THE 7-STAGE PIPELINE AUDIT INVITATION (LEAN CALLOUT)  */}
       {/* Clean high-converting banner directing to dedicated /audit */}
@@ -418,8 +445,6 @@ export default function HomePage() {
       {/* High-craft editorial case teardowns & verified ARR metrics */}
       {/* ========================================================= */}
       <CaseStudyShowcase />
-
-
 
       {/* ========================================================= */}
       {/* 07. FOUNDER AUTHORITY: EXECUTIVE PROFILE DOSSIER          */}

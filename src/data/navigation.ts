@@ -32,35 +32,24 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
 
 export const FOOTER_LINKS = {
   services: [
-    { title: "B2B Growth Strategy", href: "/services/b2b-growth-strategy" },
     { title: "B2B Marketing Strategy", href: "/services/b2b-marketing-strategy" },
-    { title: "LinkedIn B2B Marketing", href: "/services/linkedin-b2b-marketing" },
     { title: "LinkedIn Ads & Thought Leader Ads", href: "/services/linkedin-ads-thought-leader-ads" },
-    { title: "B2B Demand Generation", href: "/services/b2b-demand-generation" },
     { title: "Account-Based Marketing (ABM)", href: "/services/account-based-marketing" },
-    { title: "Founder-Led & Executive Marketing", href: "/services/founder-led-executive-b2b-marketing" },
-    { title: "B2B Lead & Pipeline Generation", href: "/services/b2b-lead-pipeline-generation" }
-  ],
-  solutions: [
-    { title: "Build B2B Demand", href: "/solutions/build-b2b-demand" },
-    { title: "Reach High-Value Accounts", href: "/solutions/reach-high-value-accounts" },
-    { title: "Turn LinkedIn Into a Growth Channel", href: "/solutions/turn-linkedin-into-growth-channel" },
-    { title: "Build Founder & Executive Authority", href: "/solutions/build-founder-executive-authority" },
-    { title: "Generate Qualified B2B Pipeline", href: "/solutions/generate-qualified-b2b-pipeline" }
+    { title: "B2B Demand Generation", href: "/services/b2b-demand-generation" },
+    { title: "Founder-Led Authority", href: "/services/founder-led-executive-b2b-marketing" }
   ],
   industries: [
-    { title: "B2B SaaS", href: "/industries/b2b-saas" },
-    { title: "Technology", href: "/industries/technology" },
-    { title: "Consulting", href: "/industries/consulting" },
-    { title: "Professional Services", href: "/industries/professional-services" },
+    { title: "B2B SaaS & Software", href: "/industries/b2b-saas" },
+    { title: "Technology & IT Services", href: "/industries/technology" },
     { title: "Industrial & Manufacturing", href: "/industries/industrial-manufacturing" },
-    { title: "Real Estate", href: "/industries/real-estate" }
+    { title: "Consulting & Professional", href: "/industries/consulting" },
+    { title: "Real Estate & Built World", href: "/industries/real-estate" }
   ],
   company: [
     { title: "About Saini Nexus", href: "/about" },
-    { title: "Case Studies (Teardowns)", href: "/case-studies" },
+    { title: "Case Studies & Proof", href: "/case-studies" },
     { title: "Insights & Field Notes", href: "/insights" },
-    { title: "Book a Strategy Call", href: "/#contact-form" },
+    { title: "7-Stage Pipeline Audit", href: "/audit" },
     { title: "Contact Us", href: "/contact" }
   ],
   legal: [

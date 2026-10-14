@@ -22,6 +22,7 @@ export function Footer() {
         backgroundPosition: "center top"
       }}
     >
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Architectural Grid Block */}
@@ -93,60 +94,76 @@ export function Footer() {
             {/* Links Section (7 cols) */}
             <div className="lg:col-span-7 xl:col-span-8 grid grid-cols-1 sm:grid-cols-3 bg-slate-50/50">
                
-               {/* Services */}
-               <div className="p-8 sm:p-12 border-b sm:border-b-0 sm:border-r border-slate-200">
-                 <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Services</h4>
-                 <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
-                   {FOOTER_LINKS.services.slice(0, 6).map((link) => (
-                     <li key={link.href}>
-                       <Link href={link.href} className="hover:text-[#1572B8] transition-colors">{link.title}</Link>
-                     </li>
-                   ))}
-                   <li className="pt-2">
-                     <Link href="/services" className="text-[#1572B8] hover:text-slate-900 flex items-center gap-2 transition-colors">
-                       View All Services <ArrowUpRight className="w-4 h-4" />
-                     </Link>
-                   </li>
-                 </ul>
-               </div>
+              {/* Core Services */}
+              <div className="p-8 sm:p-12 border-b sm:border-b-0 sm:border-r border-slate-200">
+                <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Services</h4>
+                <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
+                  {FOOTER_LINKS.services.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hover:text-[#1572B8] transition-colors">{link.title}</Link>
+                    </li>
+                  ))}
+                  <li className="pt-2">
+                    <Link href="/services" className="text-[#1572B8] hover:text-slate-900 flex items-center gap-2 transition-colors">
+                      View All Services <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
 
-               {/* Solutions */}
-               <div className="p-8 sm:p-12 border-b sm:border-b-0 sm:border-r border-slate-200">
-                 <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Solutions</h4>
-                 <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
-                   {FOOTER_LINKS.solutions.map((link) => (
-                     <li key={link.href}>
-                       <Link href={link.href} className="hover:text-[#1572B8] transition-colors">{link.title}</Link>
-                     </li>
-                   ))}
-                 </ul>
-               </div>
+              {/* Industries (B2B SEO & Regional Targeting) */}
+              <div className="p-8 sm:p-12 border-b sm:border-b-0 sm:border-r border-slate-200">
+                <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Industries</h4>
+                <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
+                  {FOOTER_LINKS.industries.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hover:text-[#1572B8] transition-colors">{link.title}</Link>
+                    </li>
+                  ))}
+                  <li className="pt-2">
+                    <Link href="/industries" className="text-[#1572B8] hover:text-slate-900 flex items-center gap-2 transition-colors">
+                      View All Industries <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
 
-               {/* Company */}
-               <div className="p-8 sm:p-12">
-                 <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Company</h4>
-                 <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
-                   <li><Link href="/about" className="hover:text-[#1572B8] transition-colors">About Saini Nexus</Link></li>
-                   <li><Link href="/case-studies" className="hover:text-[#1572B8] transition-colors">Case Studies</Link></li>
-                   <li><Link href="/insights" className="hover:text-[#1572B8] transition-colors">Insights &amp; Field Notes</Link></li>
-                   <li><Link href="/#contact-form" className="hover:text-[#1572B8] transition-colors">Book a Strategy Call</Link></li>
-                   <li><Link href="/contact" className="hover:text-[#1572B8] transition-colors">Contact Us</Link></li>
-                 </ul>
-               </div>
+              {/* Company & Proof */}
+              <div className="p-8 sm:p-12">
+                <h4 className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 border-b border-slate-200 pb-3">Company</h4>
+                <ul className="space-y-4 text-xs font-sans font-bold text-slate-500">
+                  {FOOTER_LINKS.company.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hover:text-[#1572B8] transition-colors">{link.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
           </div>
 
           {/* Bottom Bar */}
           <div className="bg-white p-6 sm:px-12 flex flex-col sm:flex-row items-center justify-between text-[10px] font-sans font-bold uppercase tracking-widest text-slate-400 gap-6">
-            <div>
-              © {new Date().getFullYear()} Saini Nexus. All rights reserved.
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-center sm:text-left">
+              <span>© {new Date().getFullYear()} Saini Nexus. All rights reserved.</span>
+              <span className="hidden sm:inline text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1.5 justify-center sm:justify-start">
+                <span>Created by</span>
+                <a
+                  href="https://www.linkedin.com/in/kamal-sharma-2a654a191/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-600 hover:text-[#1572B8] transition-colors font-extrabold"
+                >
+                  Kamal Sharma
+                </a>
+              </span>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Link href="/privacy" className="hover:text-[#1572B8] transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-[#1572B8] transition-colors">Terms of Service</Link>
-              <Link href="/sitemap.xml" className="hover:text-[#1572B8] transition-colors">Sitemap</Link>
               <button
                 onClick={scrollToTop}
                 className="flex items-center gap-2 text-[#1572B8] hover:text-slate-900 transition-colors cursor-pointer ml-4"

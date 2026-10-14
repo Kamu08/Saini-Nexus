@@ -27,23 +27,19 @@ export function ModernHero() {
             alt="Architectural Blue Fluted Slats Texture with Saini Logo Colors"
             fill
             priority
+            sizes="100vw"
+            quality={80}
             className="object-cover object-center"
           />
-          {/* Balanced subtle vignette so the lighter Saini blue texture breathes naturally */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#091528]/20 via-transparent to-[#091528]/55" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#091528]/30 via-transparent to-transparent" />
+          {/* Soft top shadow to gently darken the top while keeping the blue slats luminous */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050e1d]/50 via-[#07152b]/15 to-[#07152b]/45" />
+
+          {/* Gentle lateral vignette for crisp typography legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050e1d]/35 via-transparent to-transparent" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-[70px] sm:pt-[78px] space-y-10 sm:space-y-12 relative z-10">
         
-        {/* Live Client Demand Pill - tuned to Saini logo blue */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a1f40]/80 backdrop-blur-md border border-[#38a9eb]/45 shadow-lg shadow-[#1572b8]/15">
-          <span className="w-2 h-2 rounded-full bg-[#38a9eb] shadow-[0_0_8px_#38a9eb] animate-pulse" />
-          <span className="text-xs font-bold uppercase tracking-wider text-[#e0f2fe] font-sans">
-            Enterprise LinkedIn Demand Generation
-          </span>
-        </div>
-
         {/* Headline: Tuned frosted badges and Saini gradient */}
         <div className="space-y-4">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-sans font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-sm">
